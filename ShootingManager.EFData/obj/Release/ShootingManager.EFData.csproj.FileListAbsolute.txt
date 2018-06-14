@@ -1,0 +1,16 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.EFData.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.EFData.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.EFData.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\EntityFramework.SqlServer.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.Repositories.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.Entities.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\ShootingManager.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\bin\Release\EntityFramework.SqlServer.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\obj\Release\ShootingManager.EFData.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\obj\Release\ShootingManager.EFData.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.EFData\obj\Release\ShootingManager.EFData.pdb

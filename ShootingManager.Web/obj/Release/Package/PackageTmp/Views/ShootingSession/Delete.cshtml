@@ -1,0 +1,113 @@
+﻿@model ShootingManager.Entities.Models.ShootingSession
+
+@{
+    ViewBag.Title = "Delete";
+}
+<head>
+    <title>Shooting Manager: Delete Shooting Session - @(@Model.Date.ToShortDateString())</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Session Index", "Index", "ShootingSession", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Shooting Session</h2>
+
+    <h3>Are you sure you want to delete this shooting session?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "ShootingSession", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Date, "Date:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @{
+                                    string parameterValue = Model.Date.ToShortDateString();
+                                }
+                                @Html.DisplayFor(model => parameterValue)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.LocationId, "Location:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.LocationId)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.GunId, "Gun:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.GunId)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.CartridgeId, "Cartridge:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.CartridgeId)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Rounds, "Rounds:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Rounds)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Retention, "Brass Retention:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Retention)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn-style" />
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.BulletViewModel>
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Bullet Index";
+}
+<head>
+    <title>Shooting Manager: Bullet Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Bullet Index</h2>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "EditLinkStyle" })
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Bullet Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Bullet Type")
+                </th>
+                <th>
+                    @Html.DisplayName("Caliber")
+                </th>
+                <th>
+                    @Html.DisplayName("Bullet Weight")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntityView.BulletName)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.BulletTypeAbbreviation, "Details", "BulletType", new { id = ((Bullet)item.Entity).BulletTypeId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.CaliberViewName, "Details", "Caliber", new { id = item.EntityView.CaliberViewId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((Bullet)item.Entity).Mass)
+                        @Html.DisplayFor(modelItem => item.EntityView.MassUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=((Bullet)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id=((Bullet)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=((Bullet)item.Entity).Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ShootingManager.Entities.Models.Caliber>
+@{
+    ViewBag.Title = "Shooting Manager Build Cartridges";
+}
+<head>
+    <title>Shooting Manager: Build Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Manage inventory for the following items:</h2>
+
+    @Html.ActionLink("Brass", "BrassIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("Bullets", "BulletIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("Cartridges", "CartridgeIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("Powder", "PowderIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("Primers", "PrimerIndex", null, new { @class = "EditLinkStyle" })
+    <hr />
+    <br />
+</div>

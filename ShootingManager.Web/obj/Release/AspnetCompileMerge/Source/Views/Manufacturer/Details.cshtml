@@ -1,0 +1,60 @@
+﻿@model ShootingManager.Entities.Models.Manufacturer
+
+@{
+    ViewBag.Title = "Manufacturer Details";
+}
+<head>
+    <title>Shooting Manager: Manufacturer Details - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Manufacturer Index", "Index", "Manufacturer", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Manufacturer Details</h2>
+
+    <div>
+	    <hr />
+        @using (Html.BeginForm("Edit", "Manufacturer", new { id = Model.Id, @class = "grid-form" }))
+        {
+        
+            @Html.AntiForgeryToken()
+            
+            <div class="form-horizontal">
+
+                <table>
+                    <tr>
+                        <td width="30%">
+                            <div class="DetailStyle">
+                                @Html.DisplayFor(model => model.Name)
+                                <br />
+                                @Html.DisplayFor(model => model.Address)
+                                <br />
+                                @Html.DisplayFor(model => model.City)
+                                ,
+                                @Html.DisplayFor(model => model.State)
+                                @Html.DisplayFor(model => model.Zip)
+                                <br />
+                                <br />
+                                <a class="EditLinkStyle" target="_blank" href=@(@Model.URL)>@Html.DisplayFor(model => model.URL)</a>
+                            </div>
+                        </td>
+                        <td>
+                            <p>
+                                @Html.DisplayFor(model => model.Notes)
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        }
+        <hr />
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

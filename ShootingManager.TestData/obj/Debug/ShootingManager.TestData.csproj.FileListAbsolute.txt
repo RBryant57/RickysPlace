@@ -1,0 +1,11 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\ShootingManager.TestData.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\ShootingManager.TestData.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\ShootingManager.TestData.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\EntityFramework.SqlServer.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\bin\Debug\EntityFramework.SqlServer.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\obj\Debug\ShootingManager.TestData.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\obj\Debug\ShootingManager.TestData.csproj.CoreCompileInputs.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\obj\Debug\ShootingManager.TestData.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.TestData\obj\Debug\ShootingManager.TestData.pdb

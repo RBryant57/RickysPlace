@@ -1,0 +1,121 @@
+﻿@model ShootingManager.Web.ViewModels.CartridgeLoadViewModel
+    @using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Cartridge Details";
+}
+<head>
+    <title>Shooting Manager: Cartridge Load Details - @(((CartridgeLoad)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Cartridge Load Index", "LoadIndex", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Cartridge Load Details</h2>
+
+    @using (Html.BeginForm("Edit", "Load", FormMethod.Post, new { id = ((CartridgeLoad)Model.Entity).Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)Model.Entity).Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.CaliberId, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.ActionLink(Model.EntityView.CaliberViewName, "Details", "Caliber", new { id = Model.EntityView.CaliberId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.BulletId, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.ActionLink(Model.EntityView.BulletViewBulletName, "Details", "Bullet", new { id = ((CartridgeLoad)Model.Entity).BulletId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).PowderId, "Powder:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @if (((CartridgeLoad)Model.Entity).PowderId != null)
+                            {
+                                string weight = Convert.ToString(ViewBag.PowderWeight);
+                                @Html.ActionLink(Model.EntityView.PowderViewName + " " + weight + " " + Model.EntityView.PowderWeightUnitViewAbbreviation, "Details", "Powder", new { id = ((CartridgeLoad)Model.Entity).PowderId }, new { @class = "EditLinkStyle" })
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).COL, "COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)Model.Entity).COL)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.COLUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).Velocity, "Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)Model.Entity).Velocity)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.VelocityUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).Pressure, "Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)Model.Entity).Pressure)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.PressureUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)Model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)Model.Entity).Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+    }
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "EditLoad", new { id = ((CartridgeLoad)Model.Entity).Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

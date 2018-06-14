@@ -1,0 +1,204 @@
+﻿@model ShootingManager.Entities.Models.Gun
+
+@{
+    ViewBag.Title = "Create Gun";
+}
+<head>
+    <title>Shooting Manager: Create Gun</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Gun Index", "Index", "Gun", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Create Gun</h2>
+
+    @using (Html.BeginForm("Create", "Gun", FormMethod.Post, new { @class = "grid-form" })) 
+    {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.SerialNumber, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.SerialNumber)
+                            @Html.ValidationMessageFor(model => model.SerialNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CaliberId, "Primary Caliber", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("CaliberId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.CaliberId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.GunsCalibers, "Additional Calibers", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.ListBox("CalibersId")
+                            @Html.ValidationMessageFor(model => model.GunsCalibers)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.ManufacturerId, "Manufacturer", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("ManufacturerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.ManufacturerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Capacity, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Capacity)
+                            @Html.ValidationMessageFor(model => model.Capacity)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Barrel Length", new { @class = "control-label col-md-4" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.BarrelLength)
+                            @Html.ValidationMessageFor(model => model.BarrelLength)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BarrelLengthUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.BarrelLengthUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.GunTypeId, "Gun Type", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("GunTypeId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.GunTypeId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Cost, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Cost)
+                            @Html.ValidationMessageFor(model => model.Cost)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.AcquisitionDate, "Acquisition Date", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.AcquisitionDate)
+                            @Html.ValidationMessageFor(model => model.AcquisitionDate)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.SellerId, "Seller", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("SellerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.SellerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.RetireDate, "Retire Date", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.RetireDate)
+                            @Html.ValidationMessageFor(model => model.RetireDate)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.BuyerId, "Buyer", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BuyerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.BuyerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Details, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Details, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Details)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn-style" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

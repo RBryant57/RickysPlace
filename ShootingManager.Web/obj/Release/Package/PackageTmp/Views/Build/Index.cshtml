@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ShootingManager.Entities.Models.Caliber>
+@{
+    ViewBag.Title = "Shooting Manager Build Cartridges";
+}
+<head>
+    <title>Shooting Manager: Build Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Build cartridges and loads for the following calibers:</h2>
+
+    @Html.ActionLink("Create New Load", "Load", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("View All Loads", "LoadIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("Create New Cartridge", "Cartridge", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">Space</label>
+    @Html.ActionLink("View All Cartridges", "CartridgeIndex", null, new { @class = "EditLinkStyle" })
+    <label class="spacer">SpaceSpace</label>
+    @Html.ActionLink("Create New Factory Cartridge", "FactoryCartridge", null, new { @class = "EditLinkStyle" })
+    <hr />
+    <br />
+    
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Caliber")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create Cartridge", "Cartridge", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("View Cartridges", "CartridgeIndex", "Build", new { id = item.Id}, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Create Load", "Load", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("View Loads", "LoadIndex", "Build", new { id = item.Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

@@ -1,0 +1,100 @@
+﻿@model ShootingManager.Web.ViewModels.CartridgeViewModel
+
+@{
+    ViewBag.Title = "Cartridge Load Details";
+}
+<head>
+    <title>Shooting Manager: Cartridge Details - @(@Model.Cartridge.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Cartridge Details</h2>
+
+    @using (Html.BeginForm("Edit", "Cartridge", FormMethod.Post, new { id = Model.Cartridge.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.CaliberId, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Caliber.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Name, "Cartridge Load:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Cartridge.Brass.Name, "Brass:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.BrassName)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Bullet.Name, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.BulletName)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "EditCartridge", new { id = Model.Cartridge.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+    }
+</div>

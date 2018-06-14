@@ -1,0 +1,202 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+
+public partial class CommuteEntry : System.Web.UI.Page
+{
+
+    #region Declarations
+
+    private Dictionary<int, string> selectedRoutes = new Dictionary<int, string>();
+
+    #endregion
+
+    #region Private Methods
+
+    private void clearPage()
+    {
+        this.txtStartTime.Text = String.Empty;
+        this.txtEndTime.Text = String.Empty;
+        this.lstRoutes.Items.Clear();
+        this.selectedRoutes.Clear();
+        this.txtNotes.Text = String.Empty;
+    }
+
+    private void loadDelayReasons()
+    {
+        this.cboDelays.DataSource = ServiceClient.GetDelayReasons();
+        this.cboDelays.DataTextField = "Value";
+        this.cboDelays.DataValueField = "Key";
+        this.cboDelays.DataBind();
+    }
+
+    private void loadDestinations()
+    {
+        this.cboDestinations.DataSource = ServiceClient.GetDestinations();
+        this.cboDestinations.DataTextField = "Value";
+        this.cboDestinations.DataValueField = "Key";
+        this.cboDestinations.DataBind();
+    }
+
+    private void loadFareClasses()
+    {
+        this.cboFareClass.DataSource = ServiceClient.GetFareClasses();
+        this.cboFareClass.DataTextField = "Value";
+        this.cboFareClass.DataValueField = "Key";
+        this.cboFareClass.DataBind();
+    }
+
+    private void loadRoutes()
+    {
+        this.cboRoutes.DataSource = ServiceClient.GetRoutes();
+        this.cboRoutes.DataTextField = "Value";
+        this.cboRoutes.DataValueField = "Key";
+        this.cboRoutes.DataBind();
+    }
+
+    private void updateViewState()
+    {
+        ViewState["SelectedRoutes"] = this.selectedRoutes;
+    }
+
+    private bool validatePage()
+    {
+        if (String.IsNullOrEmpty(this.txtStartTime.Text))
+        {
+            this.lblError.Text = "A valid start time is required.";
+            this.lblError.Visible = true;
+            this.txtStartTime.Focus();
+
+            return false;
+        }
+        if (String.IsNullOrEmpty(this.txtEndTime.Text))
+        {
+            this.lblError.Text = "A valid end time is required.";
+            this.lblError.Visible = true;
+            this.txtEndTime.Focus();
+
+            return false;
+        }
+        if (Convert.ToDateTime(this.txtStartTime.Text) > Convert.ToDateTime(this.txtEndTime.Text))
+        {
+            this.lblError.Text="The starting time must be before the ending time.";
+            this.lblError.Visible = true;
+            this.txtStartTime.Focus();
+
+            return false;
+        }
+        if (this.lstRoutes.Items.Count == 0)
+        {
+            this.lblError.Text = "At least one route is required.";
+            this.lblError.Visible = true;
+            this.cboRoutes.Focus();
+
+            return false;
+        }
+        if (this.cldMain.SelectedDate.Year == 1)
+        {
+            this.lblError.Text = "A valid date must be selected.";
+            this.lblError.Visible = true;
+            this.cldMain.Focus();
+
+            return false;
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region Page Event Handlers
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+            this.loadDelayReasons();
+            this.loadDestinations();
+            this.loadRoutes();
+            this.loadFareClasses();
+
+            this.cldMain.SelectedDate = DateTime.Now.Date;
+
+            this.updateViewState();
+        }
+
+        this.lblError.Visible = false;
+        this.lblError.CssClass = "ErrorLabelStyle";
+
+    }
+
+    protected void btnAddRoute_Click(object sender, EventArgs e)
+    {
+        this.lblError.Visible = false;
+
+        this.selectedRoutes = (Dictionary<int, string>)ViewState["SelectedRoutes"];
+        this.selectedRoutes.Add(Convert.ToInt32(this.cboRoutes.SelectedItem.Value), this.cboRoutes.SelectedItem.Text);
+        this.lstRoutes.Items.Add(this.cboRoutes.SelectedItem.Text);
+
+        this.updateViewState();
+
+    }
+
+    protected void btnAddCommute_Click(object sender, EventArgs e)
+    {
+        string notes = String.Empty;
+        List<int> routes = new List<int>();
+        DateTime startTime, endTime, startDate, endDate;
+
+        this.lblError.Visible = false;
+        this.selectedRoutes = (Dictionary<int, string>)ViewState["SelectedRoutes"];
+
+        if(!String.IsNullOrEmpty(this.txtNotes.Text))
+        {
+            notes = this.txtNotes.Text;
+        }
+
+        if (this.validatePage())
+        {
+            foreach (int key in this.selectedRoutes.Keys)
+            {
+                routes.Add(key);
+            }
+
+            startDate = this.cldMain.SelectedDate;
+            startTime = Convert.ToDateTime(this.txtStartTime.Text);
+            startDate = startDate.AddHours(startTime.Hour);
+            startDate = startDate.AddMinutes(startTime.Minute);
+            startDate = startDate.AddSeconds(startTime.Second);
+
+            endDate = this.cldMain.SelectedDate;
+            endTime = Convert.ToDateTime(this.txtEndTime.Text);
+            endDate = endDate.AddHours(endTime.Hour);
+            endDate = endDate.AddMinutes(endTime.Minute);
+            endDate = endDate.AddSeconds(endTime.Second);
+
+            ServiceClient.InsertCommute(
+                startDate,
+                endDate,
+                Convert.ToInt32(this.cboDestinations.SelectedValue),
+                Convert.ToInt32(this.cboDelays.SelectedValue),
+                Convert.ToInt32(this.cboFareClass.SelectedValue),
+                routes,
+                notes);
+
+            this.lblError.CssClass = "ResultLabelStyle";
+            this.lblError.Text = "Commute added.";
+            this.lblError.Visible = true;
+            this.clearPage();
+        }
+    }
+
+    #endregion
+
+}

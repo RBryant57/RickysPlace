@@ -1,0 +1,195 @@
+﻿@model ShootingManager.Web.ViewModels.GunViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Gun Details";
+}
+<head>
+    <title>Shooting Manager: Gun Details - @(@Model.EntityView.ManufacturerName + " " + ((Gun)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Gun Index", "Index", "Gun", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Gun Details</h2>
+
+    <div>
+	    @using (Html.BeginForm("Edit", "Gun", FormMethod.Post, new { id = ((Gun)Model.Entity).Id, @class = "grid-form" }))
+        {
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <table>
+                    <tr>
+                        <td width="45%">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <table id="one-column-emphasis">
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => ((Gun)model.Entity).Name, "Name:")
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink(Model.EntityView.ManufacturerShortName, "Details", "Manufacturer", new { id = ((Gun)Model.Entity).ManufacturerId }, new { @class = "EditLinkStyle" })
+                                                    &nbsp;
+                                                    @Html.DisplayFor(model => ((Gun)model.Entity).Name)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => model.EntityView.CaliberViewName, "Primary Caliber:")
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink(Model.EntityView.CaliberViewName, "Details", "Caliber", new { id = ((Gun)Model.Entity).CaliberId }, new { @class = "EditLinkStyle" })
+                                                </td>
+                                            </tr>
+                                            @if (((GunView)Model.EntityView).AdditionalCalibers.Count > 0)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => model.EntityView.CaliberViewName, "Additional Calibers:")
+                                                </td>
+                                                <td>
+                                                    @foreach (var cal in ((GunView)Model.EntityView).AdditionalCalibers)
+                                                    {
+                                                        @Html.ActionLink(cal.Name, "Details", "Caliber", new { id = cal.Id }, new { @class = "EditLinkStyle" })
+                                                    }
+                                                </td>
+                                            </tr>
+                                            }
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => ((Gun)model.Entity).Capacity, "Capacity:")
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => ((Gun)model.Entity).Capacity)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => ((Gun)model.Entity).BarrelLength, "Barrel Length:")
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => ((Gun)model.Entity).BarrelLength)
+                                                    @Html.DisplayFor(model => model.EntityView.CaliberViewDiameterUnitViewAbbreviation)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => model.EntityView.GunTypeName, "Gun Type:")
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink(Model.EntityView.GunTypeName, "Details", "GunType", new { id = ((Gun)Model.Entity).GunTypeId }, new { @class = "EditLinkStyle" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.LabelFor(model => ((Gun)model.Entity).SerialNumber, "Serial Number:")
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => Model.EntityView.SerialNumber)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                        <td>
+                                            <img src=@(ViewBag.GunImage) />
+                                        </td>
+                                        <td>
+                                            <div class="GunDetailStyle">
+                                                <p>
+                                                    @Html.DisplayFor(model => ((Gun)Model.Entity).Details)
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <br />
+                                <table id="one-column-emphasis">
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => ((Gun)model.Entity).AcquisitionDate, "Acquisition Date:")
+                                        </td>
+                                        <td>
+                                            @{
+                                                var gun = Model.Entity as Gun;
+                                                string parameterValue = gun.AcquisitionDate.ToShortDateString();
+                                            }
+                                            @Html.DisplayFor(modelItem => parameterValue)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => ((Gun)model.Entity).Cost, "Cost:")
+                                        </td>
+                                        <td>
+                                            @{
+                                                parameterValue = String.Format("{0:C}", Model.EntityView.Cost);
+                                            }
+                                            @Html.DisplayFor(modelItem => parameterValue)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => ((Gun)model.Entity).Seller.ShortName, "Seller:")
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink(Model.EntityView.SellerShortName, "Details", "Manufacturer", new { id = ((Gun)Model.Entity).SellerId }, new { @class = "EditLinkStyle" })
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <br />
+                                <table id="one-column-emphasis">
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => ((Gun)model.Entity).RetireDate, "Retire Date:")
+                                        </td>
+                                        <td>
+                                            @{
+                                                var retireDate = gun.RetireDate.GetValueOrDefault();
+                                                parameterValue = retireDate == DateTime.MinValue ? String.Empty : retireDate.ToShortDateString();
+                                            }
+                                            @Html.DisplayFor(modelItem => parameterValue)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => ((Gun)model.Entity).Buyer.ShortName, "Buyer:")
+                                        </td>
+                                        <td>
+                                            @{ 
+                                                if (((Gun)Model.Entity).BuyerId != null)
+                                                {
+                                                    @Html.ActionLink(Model.EntityView.BuyerShortName, "Details", "Manufacturer", new { id = ((Gun)Model.Entity).BuyerId }, new { @class = "EditLinkStyle" })
+                                                }
+                                             }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="comments">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br />
+                <hr />
+            </div>
+        }
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = ((Gun)Model.Entity).Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

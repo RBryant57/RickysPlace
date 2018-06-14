@@ -1,0 +1,122 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.GunViewModel>
+@using ShootingManager.Entities.Models;
+@{
+    ViewBag.Title = "Gun Index";
+}
+<head>
+    <title>Shooting Manager: Gun Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Gun Index</h2>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "EditLinkStyle" })
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Name")
+                </th>
+                <th>
+                    @Html.Label("Caliber")
+                </th>
+                <th>
+                    @Html.Label("Manufacturer")
+                </th>
+                <th>
+                    @Html.Label("Capacity")
+                </th>
+                <th>
+                    @Html.Label("Barrel Length")
+                </th>
+                <th>
+                    @Html.Label("Gun Type")
+                </th>
+                <th>
+                    @Html.Label("Cost")
+                </th>
+                <th>
+                    @Html.Label("Acquisition Date")
+                </th>
+                <th>
+                    @Html.Label("Retire Date")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Web.ViewModels.GunViewModel item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((Gun)item.Entity).Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.CaliberViewName, "Details", "Caliber", new { id = ((Gun)item.Entity).CaliberId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.ManufacturerName, "Details", "Manufacturer", new { id = ((Gun)item.Entity).ManufacturerId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((Gun)item.Entity).Capacity)
+                    </td>
+                    <td>
+                        @{
+                            string parameterValue = String.Format("{0:N2}", ((Gun)item.Entity).BarrelLength);
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+
+                        @Html.DisplayFor(modelItem => item.EntityView.LengthUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.GunTypeName, "Details", "GunType", new { id = ((Gun)item.Entity).GunTypeId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @{
+                            parameterValue = String.Format("{0:C}", ((Gun)item.Entity).Cost);
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                    </td>
+                    <td>
+                        @{
+                            var gun = item.Entity as Gun;
+                            parameterValue = gun.AcquisitionDate.ToShortDateString();
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                    </td>
+                    <td>
+                        @{
+                            var retireDate = gun.RetireDate.GetValueOrDefault();
+                            parameterValue = retireDate == DateTime.MinValue ? String.Empty : retireDate.ToShortDateString();
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = ((Gun)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id = ((Gun)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = ((Gun)item.Entity).Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

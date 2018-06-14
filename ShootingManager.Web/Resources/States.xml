@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GeographicalUnits>
+  <States Country="US">
+    <State Name="Alaska" PostalCode="AK">
+      <CapitalCity>Juneau</CapitalCity>
+      <LargestCity>Anchorage</LargestCity>
+    </State>
+    <State Name="Alabama" PostalCode="AL">
+      <CapitalCity>Montgomery</CapitalCity>
+      <LargestCity>Birmingham</LargestCity>
+    </State>
+    <State Name="Arkansas" PostalCode="AR">
+      <CapitalCity>Little Rock</CapitalCity>
+      <LargestCity>Little Rock</LargestCity>
+    </State>
+    <State Name="Arizona" PostalCode="AZ">
+      <CapitalCity>Phoenix</CapitalCity>
+      <LargestCity>Phoenix</LargestCity>
+    </State>
+    <State Name="California" PostalCode="CA">
+      <CapitalCity>Sacramento</CapitalCity>
+      <LargestCity>Los Angeles</LargestCity>
+    </State>
+    <State Name="Colorado" PostalCode="CO">
+      <CapitalCity>Denver</CapitalCity>
+      <LargestCity>Denver</LargestCity>
+    </State>
+    <State Name="Connecticut" PostalCode="CT">
+      <CapitalCity>Hartford</CapitalCity>
+      <LargestCity>Bridgeport</LargestCity>
+    </State>
+    <State Name="Delaware" PostalCode="DE">
+      <CapitalCity>Dover</CapitalCity>
+      <LargestCity>Wilmington</LargestCity>
+    </State>
+    <State Name="District Of Columbia" PostalCode="DC">
+      <CapitalCity>District Of Columbia</CapitalCity>
+      <LargestCity>District Of Columbia</LargestCity>
+    </State>
+    <State Name="Florida" PostalCode="FL">
+      <CapitalCity>Tallahassee</CapitalCity>
+      <LargestCity>Jacksonville</LargestCity>
+    </State>
+    <State Name="Georgia" PostalCode="GA">
+      <CapitalCity>Atlanta</CapitalCity>
+      <LargestCity>Atlanta</LargestCity>
+    </State>
+    <State Name="Hawaii" PostalCode="HI">
+      <CapitalCity>Honolulu</CapitalCity>
+      <LargestCity>Honolulu</LargestCity>
+    </State>
+    <State Name="Iowa" PostalCode="IA">
+      <CapitalCity>Des Moines</CapitalCity>
+      <LargestCity>Des Moines</LargestCity>
+    </State>
+    <State Name="Idaho" PostalCode="ID">
+      <CapitalCity>Boise</CapitalCity>
+      <LargestCity>Boise</LargestCity>
+    </State>
+    <State Name="Illinois" PostalCode="IL">
+      <CapitalCity>Springfield</CapitalCity>
+      <LargestCity>Chicago</LargestCity>
+    </State>
+    <State Name="Indiana" PostalCode="IN">
+      <CapitalCity>Indianapolis</CapitalCity>
+      <LargestCity>Indianapolis</LargestCity>
+    </State>
+    <State Name="Kansas" PostalCode="KS">
+      <CapitalCity>Topeka</CapitalCity>
+      <LargestCity>Wichita</LargestCity>
+    </State>
+    <State Name="Kentucky" PostalCode="KY">
+      <CapitalCity>Frankfort</CapitalCity>
+      <LargestCity>Louisville</LargestCity>
+    </State>
+    <State Name="Louisiana" PostalCode="LA">
+      <CapitalCity>Baton Rouge</CapitalCity>
+      <LargestCity>New Orleans</LargestCity>
+    </State>
+    <State Name="Massachusetts" PostalCode="MA">
+      <CapitalCity>Boston</CapitalCity>
+      <LargestCity>Boston</LargestCity>
+    </State>
+    <State Name="Maryland" PostalCode="MD">
+      <CapitalCity>Annapolis</CapitalCity>
+      <LargestCity>Baltimore</LargestCity>
+    </State>
+    <State Name="Maine" PostalCode="ME">
+      <CapitalCity>Augusta</CapitalCity>
+      <LargestCity>Portland</LargestCity>
+    </State>
+    <State Name="Michigan" PostalCode="MI">
+      <CapitalCity>Lansing</CapitalCity>
+      <LargestCity>Detroit</LargestCity>
+    </State>
+    <State Name="Minnesota" PostalCode="MN">
+      <CapitalCity>St. Paul</CapitalCity>
+      <LargestCity>Minneapolis</LargestCity>
+    </State>
+    <State Name="Missouri" PostalCode="MO">
+      <CapitalCity>Jefferson City</CapitalCity>
+      <LargestCity>Kansas City</LargestCity>
+    </State>
+    <State Name="Mississippi" PostalCode="MS">
+      <CapitalCity>Jackson</CapitalCity>
+      <LargestCity>Jackson</LargestCity>
+    </State>
+    <State Name="Montana" PostalCode="MT">
+      <CapitalCity>Helena</CapitalCity>
+      <LargestCity>Billings</LargestCity>
+    </State>
+    <State Name="North Carolina" PostalCode="NC">
+      <CapitalCity>Raleigh</CapitalCity>
+      <LargestCity>Charlotte</LargestCity>
+    </State>
+    <State Name="North Dakota" PostalCode="ND">
+      <CapitalCity>Bismark</CapitalCity>
+      <LargestCity>Fargo</LargestCity>
+    </State>
+    <State Name="Nebraska" PostalCode="NE">
+      <CapitalCity>Lincoln</CapitalCity>
+      <LargestCity>Omaha</LargestCity>
+    </State>
+    <State Name="New Hampshire" PostalCode="NH">
+      <CapitalCity>Concord</CapitalCity>
+      <LargestCity>Manchester</LargestCity>
+    </State>
+    <State Name="New Jersey" PostalCode="NJ">
+      <CapitalCity>Trenton</CapitalCity>
+      <LargestCity>Newark</LargestCity>
+    </State>
+    <State Name="New Mexico" PostalCode="NM">
+      <CapitalCity>Santa Fe</CapitalCity>
+      <LargestCity>Albuquerque</LargestCity>
+    </State>
+    <State Name="Nevada" PostalCode="NV">
+      <CapitalCity>Carson City</CapitalCity>
+      <LargestCity>Las Vegas</LargestCity>
+    </State>
+    <State Name="New York" PostalCode="NY">
+      <CapitalCity>Albany</CapitalCity>
+      <LargestCity>New York</LargestCity>
+    </State>
+    <State Name="Ohio" PostalCode="OH">
+      <CapitalCity>Columbus</CapitalCity>
+      <LargestCity>Columbus</LargestCity>
+    </State>
+    <State Name="Oklahoma" PostalCode="OK">
+      <CapitalCity>Oklahoma City</CapitalCity>
+      <LargestCity>Oklahoma City</LargestCity>
+    </State>
+    <State Name="Oregon" PostalCode="OR">
+      <CapitalCity>Salem</CapitalCity>
+      <LargestCity>Portland</LargestCity>
+    </State>
+    <State Name="Pennsylvania" PostalCode="PA">
+      <CapitalCity>Harrisburg</CapitalCity>
+      <LargestCity>Philadelphia</LargestCity>
+    </State>
+    <State Name="Rhode Island" PostalCode="RI">
+      <CapitalCity>Providence</CapitalCity>
+      <LargestCity>Providence</LargestCity>
+    </State>
+    <State Name="South Carolina" PostalCode="SC">
+      <CapitalCity>Columbia</CapitalCity>
+      <LargestCity>Columbia</LargestCity>
+    </State>
+    <State Name="South Dakota" PostalCode="SD">
+      <CapitalCity>Pierre</CapitalCity>
+      <LargestCity>Sioux Falls</LargestCity>
+    </State>
+    <State Name="Tennessee" PostalCode="TN">
+      <CapitalCity>Nashville</CapitalCity>
+      <LargestCity>Memphis</LargestCity>
+    </State>
+    <State Name="Texas" PostalCode="TX">
+      <CapitalCity>Austin</CapitalCity>
+      <LargestCity>Houston</LargestCity>
+    </State>
+    <State Name="Utah" PostalCode="UT">
+      <CapitalCity>Salt Lake City</CapitalCity>
+      <LargestCity>Salt Lake City</LargestCity>
+    </State>
+    <State Name="Virginia" PostalCode="VA">
+      <CapitalCity>Richmond</CapitalCity>
+      <LargestCity>Virginia Beach</LargestCity>
+    </State>
+    <State Name="Vermont" PostalCode="VT">
+      <CapitalCity>Montpelier</CapitalCity>
+      <LargestCity>Burlington</LargestCity>
+    </State>
+    <State Name="Washington" PostalCode="WA">
+      <CapitalCity>Olympia</CapitalCity>
+      <LargestCity>Seattle</LargestCity>
+    </State>
+    <State Name="Wisconsin" PostalCode="WI">
+      <CapitalCity>Madison</CapitalCity>
+      <LargestCity>Milwaukee</LargestCity>
+    </State>
+    <State Name="West Virginia" PostalCode="WV">
+      <CapitalCity>Charleston</CapitalCity>
+      <LargestCity>Charleston</LargestCity>
+    </State>
+    <State Name="Wyoming" PostalCode="WY">
+      <CapitalCity>Cheyenne</CapitalCity>
+      <LargestCity>Cheyenne</LargestCity>
+    </State>
+  </States>
+  <Provinces Country="CN">
+    <Province Name="Alberta" PostalCode="AB">
+      <CapitalCity>Edmonton</CapitalCity>
+      <LargestCity>Calgary</LargestCity>
+    </Province>
+    <Province Name="British Columbia" PostalCode="BC">
+      <CapitalCity>Victoria</CapitalCity>
+      <LargestCity>Vancouver</LargestCity>
+    </Province>
+    <Province Name="Manitoba" PostalCode="MB">
+      <CapitalCity>Winnipeg</CapitalCity>
+      <LargestCity>Winnipeg</LargestCity>
+    </Province>
+    <Province Name="New Brunswick" PostalCode="NB">
+      <CapitalCity>Frederiction</CapitalCity>
+      <LargestCity>St. John</LargestCity>
+    </Province>
+    <Province Name="Newfoundland And Labrador" PostalCode="NL">
+      <CapitalCity>St. John's</CapitalCity>
+      <LargestCity>St. John's</LargestCity>
+    </Province>
+    <Province Name="Nova Scotia" PostalCode="NS">
+      <CapitalCity>Halifax</CapitalCity>
+      <LargestCity>Halifax</LargestCity>
+    </Province>
+    <Province Name="Northwest Territories" PostalCode="NT">
+      <CapitalCity>Yellowknife</CapitalCity>
+      <LargestCity>Yellowknife</LargestCity>
+    </Province>
+    <Province Name="Nunavut" PostalCode="NU">
+      <CapitalCity>Iqaluit</CapitalCity>
+      <LargestCity>Iqaluit</LargestCity>
+    </Province>
+    <Province Name="Ontario" PostalCode="ON">
+      <CapitalCity>Toronto</CapitalCity>
+      <LargestCity>Toronto</LargestCity>
+    </Province>
+    <Province Name="Prince Edward Island" PostalCode="PE">
+      <CapitalCity>Charlotetown</CapitalCity>
+      <LargestCity>Charlotetown</LargestCity>
+    </Province>
+    <Province Name="Quebec" PostalCode="QC">
+      <CapitalCity>Quebec City</CapitalCity>
+      <LargestCity>Montreal</LargestCity>
+    </Province>
+    <Province Name="Saskatchewan" PostalCode="SK">
+      <CapitalCity>Regina</CapitalCity>
+      <LargestCity>Saskatoon</LargestCity>
+    </Province>
+    <Province Name="Yukon" PostalCode="YT">
+      <CapitalCity>Whitehorse</CapitalCity>
+      <LargestCity>Whitehorse</LargestCity>
+    </Province>
+  </Provinces>
+</GeographicalUnits>

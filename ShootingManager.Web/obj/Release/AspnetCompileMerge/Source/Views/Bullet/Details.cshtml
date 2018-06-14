@@ -1,0 +1,154 @@
+﻿@model ShootingManager.Entities.Models.Bullet
+
+@{
+    ViewBag.Title = "Bullet Details";
+}
+<head>
+    <title>Shooting Manager: Bullet Details - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Bullet Index", "Index", "Bullet", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Bullet Details</h2>
+
+    @using (Html.BeginForm("Edit", "Bullet", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.BulletType, "Bullet Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => model.BulletType.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Material, "Material:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => model.Material.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Diameter, "Diameter:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string diameter = Model.Diameter.ToString();
+                                }
+                                @Html.DisplayFor(model => diameter)
+                                @Html.DisplayFor(model => model.Unit.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Mass, "Mass:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => model.Mass)
+                                @Html.DisplayFor(model => model.Unit2.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.SectionalDensity, "Sectional Density:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string sectionalDensity = Model.SectionalDensity.ToString();
+                                }
+                                @Html.DisplayFor(model => sectionalDensity)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.BallisticCoefficient, "Ballistic Coefficient:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string ballisticCoefficient = Model.BallisticCoefficient.ToString();
+                                }
+                                @Html.DisplayFor(model => ballisticCoefficient)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Length, "Length:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string length = Model.Length.ToString();
+                                }
+                                @Html.DisplayFor(model => length)
+                                @Html.DisplayFor(model => model.Unit1.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Manufacturer, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => model.Manufacturer.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-2">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+            </p>
+        </div>
+    }
+</div>

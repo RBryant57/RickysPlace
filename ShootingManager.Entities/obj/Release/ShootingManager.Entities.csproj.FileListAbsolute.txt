@@ -1,0 +1,9 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\ShootingManager.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\ShootingManager.Entities.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.pdb

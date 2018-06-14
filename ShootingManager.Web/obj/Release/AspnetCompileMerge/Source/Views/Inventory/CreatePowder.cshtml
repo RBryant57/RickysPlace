@@ -1,0 +1,43 @@
+﻿@model ShootingManager.Entities.Models.PowderQuantity
+
+<br />
+@Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Powder Inventory", "PowderIndex", "Inventory", null, new { @class = "NavLinkStyle" })
+<br />
+
+<h2>Create Powder Inventory</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PowderId, "Powder:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PowderId", String.Empty)
+                @Html.ValidationMessageFor(model => model.PowderId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndQuantity, "Quantity:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndQuantity)
+                @Html.ValidationMessageFor(model => model.EndQuantity)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, "Date:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date)
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

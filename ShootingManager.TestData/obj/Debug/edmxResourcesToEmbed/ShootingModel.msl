@@ -1,0 +1,1272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShootingModelStoreContainer" CdmEntityContainer="ShootingEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="ShootingModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brasses">
+      <EntityTypeMapping TypeName="ShootingModel.Brass">
+        <MappingFragment StoreEntitySet="Brass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="TimesFired" ColumnName="TimesFired" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrassCosts">
+      <EntityTypeMapping TypeName="ShootingModel.BrassCost">
+        <MappingFragment StoreEntitySet="BrassCost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrassId" ColumnName="BrassId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrassQuantities">
+      <EntityTypeMapping TypeName="ShootingModel.BrassQuantity">
+        <MappingFragment StoreEntitySet="BrassQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrassId" ColumnName="BrassId" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartQuantity" ColumnName="StartQuantity" />
+          <ScalarProperty Name="EndQuantity" ColumnName="EndQuantity" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bullets">
+      <EntityTypeMapping TypeName="ShootingModel.Bullet">
+        <MappingFragment StoreEntitySet="Bullet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BulletTypeId" ColumnName="BulletTypeId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="DiameterUnitId" ColumnName="DiameterUnitId" />
+          <ScalarProperty Name="Mass" ColumnName="Mass" />
+          <ScalarProperty Name="MassUnitId" ColumnName="MassUnitId" />
+          <ScalarProperty Name="SectionalDensity" ColumnName="SectionalDensity" />
+          <ScalarProperty Name="BallisticCoefficient" ColumnName="BallisticCoefficient" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="LengthUnitId" ColumnName="LengthUnitId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletCosts">
+      <EntityTypeMapping TypeName="ShootingModel.BulletCost">
+        <MappingFragment StoreEntitySet="BulletCost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BulletId" ColumnName="BulletId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletQuantities">
+      <EntityTypeMapping TypeName="ShootingModel.BulletQuantity">
+        <MappingFragment StoreEntitySet="BulletQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BulletId" ColumnName="BulletId" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartQuantity" ColumnName="StartQuantity" />
+          <ScalarProperty Name="EndQuantity" ColumnName="EndQuantity" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletTypes">
+      <EntityTypeMapping TypeName="ShootingModel.BulletType">
+        <MappingFragment StoreEntitySet="BulletType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calibers">
+      <EntityTypeMapping TypeName="ShootingModel.Caliber">
+        <MappingFragment StoreEntitySet="Caliber">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="DiameterUnitId" ColumnName="DiameterUnitId" />
+          <ScalarProperty Name="BrassLength" ColumnName="BrassLength" />
+          <ScalarProperty Name="BrassLengthUnitId" ColumnName="BrassLengthUnitId" />
+          <ScalarProperty Name="PrimerTypeId" ColumnName="PrimerTypeId" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cartridges">
+      <EntityTypeMapping TypeName="ShootingModel.Cartridge">
+        <MappingFragment StoreEntitySet="Cartridge">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CartridgeLoadId" ColumnName="CartridgeLoadId" />
+          <ScalarProperty Name="BrassId" ColumnName="BrassId" />
+          <ScalarProperty Name="PrimerId" ColumnName="PrimerId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartridgeCosts">
+      <EntityTypeMapping TypeName="ShootingModel.CartridgeCost">
+        <MappingFragment StoreEntitySet="CartridgeCost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CartridgeId" ColumnName="CartridgeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartridgeLoads">
+      <EntityTypeMapping TypeName="ShootingModel.CartridgeLoad">
+        <MappingFragment StoreEntitySet="CartridgeLoad">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="BulletId" ColumnName="BulletId" />
+          <ScalarProperty Name="PowderId" ColumnName="PowderId" />
+          <ScalarProperty Name="PowderWeight" ColumnName="PowderWeight" />
+          <ScalarProperty Name="PowderWeightUnitId" ColumnName="PowderWeightUnitId" />
+          <ScalarProperty Name="COL" ColumnName="COL" />
+          <ScalarProperty Name="COLUnitId" ColumnName="COLUnitId" />
+          <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+          <ScalarProperty Name="VelocityUnitId" ColumnName="VelocityUnitId" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="PressureUnitId" ColumnName="PressureUnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartridgeQuantities">
+      <EntityTypeMapping TypeName="ShootingModel.CartridgeQuantity">
+        <MappingFragment StoreEntitySet="CartridgeQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CartridgeId" ColumnName="CartridgeId" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartQuantity" ColumnName="StartQuantity" />
+          <ScalarProperty Name="EndQuantity" ColumnName="EndQuantity" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guns">
+      <EntityTypeMapping TypeName="ShootingModel.Gun">
+        <MappingFragment StoreEntitySet="Gun">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="BarrelLength" ColumnName="BarrelLength" />
+          <ScalarProperty Name="BarrelLengthUnitId" ColumnName="BarrelLengthUnitId" />
+          <ScalarProperty Name="GunTypeId" ColumnName="GunTypeId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="AcquisitionDate" ColumnName="AcquisitionDate" />
+          <ScalarProperty Name="RetireDate" ColumnName="RetireDate" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GunImages">
+      <EntityTypeMapping TypeName="ShootingModel.GunImage">
+        <MappingFragment StoreEntitySet="GunImages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GunId" ColumnName="GunId" />
+          <ScalarProperty Name="PictureLocation" ColumnName="PictureLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GunsCalibers">
+      <EntityTypeMapping TypeName="ShootingModel.GunsCaliber">
+        <MappingFragment StoreEntitySet="GunsCalibers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GunId" ColumnName="GunId" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GunTypes">
+      <EntityTypeMapping TypeName="ShootingModel.GunType">
+        <MappingFragment StoreEntitySet="GunType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventoryTypes">
+      <EntityTypeMapping TypeName="ShootingModel.InventoryType">
+        <MappingFragment StoreEntitySet="InventoryType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="ShootingModel.Manufacturer">
+        <MappingFragment StoreEntitySet="Manufacturer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="ShootingModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Powders">
+      <EntityTypeMapping TypeName="ShootingModel.Powder">
+        <MappingFragment StoreEntitySet="Powder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="PowderTypeId" ColumnName="PowderTypeId" />
+          <ScalarProperty Name="PowderShapeId" ColumnName="PowderShapeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowderCosts">
+      <EntityTypeMapping TypeName="ShootingModel.PowderCost">
+        <MappingFragment StoreEntitySet="PowderCost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PowderId" ColumnName="PowderId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowderQuantities">
+      <EntityTypeMapping TypeName="ShootingModel.PowderQuantity">
+        <MappingFragment StoreEntitySet="PowderQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PowderId" ColumnName="PowderId" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartQuantity" ColumnName="StartQuantity" />
+          <ScalarProperty Name="EndQuantity" ColumnName="EndQuantity" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowderShapes">
+      <EntityTypeMapping TypeName="ShootingModel.PowderShape">
+        <MappingFragment StoreEntitySet="PowderShape">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowderTypes">
+      <EntityTypeMapping TypeName="ShootingModel.PowderType">
+        <MappingFragment StoreEntitySet="PowderType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Primers">
+      <EntityTypeMapping TypeName="ShootingModel.Primer">
+        <MappingFragment StoreEntitySet="Primer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrimerTypeId" ColumnName="PrimerTypeId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimerCosts">
+      <EntityTypeMapping TypeName="ShootingModel.PrimerCost">
+        <MappingFragment StoreEntitySet="PrimerCost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrimerId" ColumnName="PrimerId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimerQuantities">
+      <EntityTypeMapping TypeName="ShootingModel.PrimerQuantity">
+        <MappingFragment StoreEntitySet="PrimerQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrimerId" ColumnName="PrimerId" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartQuantity" ColumnName="StartQuantity" />
+          <ScalarProperty Name="EndQuantity" ColumnName="EndQuantity" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimerTypes">
+      <EntityTypeMapping TypeName="ShootingModel.PrimerType">
+        <MappingFragment StoreEntitySet="PrimerType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShootingLocations">
+      <EntityTypeMapping TypeName="ShootingModel.ShootingLocation">
+        <MappingFragment StoreEntitySet="ShootingLocation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShootingSessions">
+      <EntityTypeMapping TypeName="ShootingModel.ShootingSession">
+        <MappingFragment StoreEntitySet="ShootingSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="GunId" ColumnName="GunId" />
+          <ScalarProperty Name="CartridgeId" ColumnName="CartridgeId" />
+          <ScalarProperty Name="Rounds" ColumnName="Rounds" />
+          <ScalarProperty Name="Retention" ColumnName="Retention" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="ShootingModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Plural" ColumnName="Plural" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="UnitTypeId" ColumnName="UnitTypeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitTypes">
+      <EntityTypeMapping TypeName="ShootingModel.UnitType">
+        <MappingFragment StoreEntitySet="UnitType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrassViews">
+      <EntityTypeMapping TypeName="ShootingModel.BrassView">
+        <MappingFragment StoreEntitySet="BrassView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BrassName" ColumnName="BrassName" />
+          <ScalarProperty Name="BrassFullName" ColumnName="BrassFullName" />
+          <ScalarProperty Name="ParentBrassFullName" ColumnName="ParentBrassFullName" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="CaliberViewName" ColumnName="CaliberViewName" />
+          <ScalarProperty Name="CaliberViewDiameter" ColumnName="CaliberViewDiameter" />
+          <ScalarProperty Name="CaliberViewDiameterUnitId" ColumnName="CaliberViewDiameterUnitId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewName" ColumnName="CaliberViewDiameterUnitViewName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewPlural" ColumnName="CaliberViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewAbbreviation" ColumnName="CaliberViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeId" ColumnName="CaliberViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeName" ColumnName="CaliberViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeNotes" ColumnName="CaliberViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewNotes" ColumnName="CaliberViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewBrassLength" ColumnName="CaliberViewBrassLength" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitId" ColumnName="CaliberViewBrassLengthUnitId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewName" ColumnName="CaliberViewBrassLengthUnitViewName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewPlural" ColumnName="CaliberViewBrassLengthUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewAbbreviation" ColumnName="CaliberViewBrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeId" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeName" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewNotes" ColumnName="CaliberViewBrassLengthUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewPrimerTypeId" ColumnName="CaliberViewPrimerTypeId" />
+          <ScalarProperty Name="CaliberViewPrimerTypeName" ColumnName="CaliberViewPrimerTypeName" />
+          <ScalarProperty Name="CaliberViewPrimerTypeAbbreviation" ColumnName="CaliberViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="CaliberViewPrimerTypeNotes" ColumnName="CaliberViewPrimerTypeNotes" />
+          <ScalarProperty Name="CaliberViewSortOrder" ColumnName="CaliberViewSortOrder" />
+          <ScalarProperty Name="CaliberViewNotes" ColumnName="CaliberViewNotes" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialNotes" ColumnName="MaterialNotes" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="TimesFired" ColumnName="TimesFired" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletViews">
+      <EntityTypeMapping TypeName="ShootingModel.BulletView">
+        <MappingFragment StoreEntitySet="BulletView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BulletName" ColumnName="BulletName" />
+          <ScalarProperty Name="BulletFullName" ColumnName="BulletFullName" />
+          <ScalarProperty Name="BulletTypeId" ColumnName="BulletTypeId" />
+          <ScalarProperty Name="BulletTypeName" ColumnName="BulletTypeName" />
+          <ScalarProperty Name="BulletTypeAbbreviation" ColumnName="BulletTypeAbbreviation" />
+          <ScalarProperty Name="BulletTypeNotes" ColumnName="BulletTypeNotes" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialNotes" ColumnName="MaterialNotes" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="DiameterUnitId" ColumnName="DiameterUnitId" />
+          <ScalarProperty Name="DiameterUnitViewName" ColumnName="DiameterUnitViewName" />
+          <ScalarProperty Name="DiameterUnitViewPlural" ColumnName="DiameterUnitViewPlural" />
+          <ScalarProperty Name="DiameterUnitViewAbbreviation" ColumnName="DiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeId" ColumnName="DiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeName" ColumnName="DiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeNotes" ColumnName="DiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="DiameterUnitViewNotes" ColumnName="DiameterUnitViewNotes" />
+          <ScalarProperty Name="Mass" ColumnName="Mass" />
+          <ScalarProperty Name="MassUnitId" ColumnName="MassUnitId" />
+          <ScalarProperty Name="MassUnitViewName" ColumnName="MassUnitViewName" />
+          <ScalarProperty Name="MassUnitViewPlural" ColumnName="MassUnitViewPlural" />
+          <ScalarProperty Name="MassUnitViewAbbreviation" ColumnName="MassUnitViewAbbreviation" />
+          <ScalarProperty Name="MassUnitViewUnitTypeId" ColumnName="MassUnitViewUnitTypeId" />
+          <ScalarProperty Name="MassUnitViewUnitTypeName" ColumnName="MassUnitViewUnitTypeName" />
+          <ScalarProperty Name="MassUnitViewUnitTypeNotes" ColumnName="MassUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="MassUnitViewNotes" ColumnName="MassUnitViewNotes" />
+          <ScalarProperty Name="SectionalDensity" ColumnName="SectionalDensity" />
+          <ScalarProperty Name="BallisticCoefficient" ColumnName="BallisticCoefficient" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="LengthUnitId" ColumnName="LengthUnitId" />
+          <ScalarProperty Name="LengthUnitViewName" ColumnName="LengthUnitViewName" />
+          <ScalarProperty Name="LengthUnitViewPlural" ColumnName="LengthUnitViewPlural" />
+          <ScalarProperty Name="LengthUnitViewAbbreviation" ColumnName="LengthUnitViewAbbreviation" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeId" ColumnName="LengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeName" ColumnName="LengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeNotes" ColumnName="LengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="LengthUnitViewNotes" ColumnName="LengthUnitViewNotes" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="CaliberViewId" ColumnName="CaliberViewId" />
+          <ScalarProperty Name="CaliberViewName" ColumnName="CaliberViewName" />
+          <ScalarProperty Name="CaliberViewSortOrder" ColumnName="CaliberViewSortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaliberViews">
+      <EntityTypeMapping TypeName="ShootingModel.CaliberView">
+        <MappingFragment StoreEntitySet="CaliberView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="DiameterUnitId" ColumnName="DiameterUnitId" />
+          <ScalarProperty Name="DiameterUnitViewName" ColumnName="DiameterUnitViewName" />
+          <ScalarProperty Name="DiameterUnitViewPlural" ColumnName="DiameterUnitViewPlural" />
+          <ScalarProperty Name="DiameterUnitViewAbbreviation" ColumnName="DiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeId" ColumnName="DiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeName" ColumnName="DiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="DiameterUnitViewUnitTypeNotes" ColumnName="DiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="DiameterUnitViewNotes" ColumnName="DiameterUnitViewNotes" />
+          <ScalarProperty Name="BrassLength" ColumnName="BrassLength" />
+          <ScalarProperty Name="BrassLengthUnitId" ColumnName="BrassLengthUnitId" />
+          <ScalarProperty Name="BrassLengthUnitViewName" ColumnName="BrassLengthUnitViewName" />
+          <ScalarProperty Name="BrassLengthUnitViewPlural" ColumnName="BrassLengthUnitViewPlural" />
+          <ScalarProperty Name="BrassLengthUnitViewAbbreviation" ColumnName="BrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="BrassLengthUnitViewUnitTypeId" ColumnName="BrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="BrassLengthUnitViewUnitTypeName" ColumnName="BrassLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="BrassLengthUnitViewUnitTypeNotes" ColumnName="BrassLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="BrassLengthUnitViewNotes" ColumnName="BrassLengthUnitViewNotes" />
+          <ScalarProperty Name="PrimerTypeId" ColumnName="PrimerTypeId" />
+          <ScalarProperty Name="PrimerTypeName" ColumnName="PrimerTypeName" />
+          <ScalarProperty Name="PrimerTypeAbbreviation" ColumnName="PrimerTypeAbbreviation" />
+          <ScalarProperty Name="PrimerTypeNotes" ColumnName="PrimerTypeNotes" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartridgeLoadViews">
+      <EntityTypeMapping TypeName="ShootingModel.CartridgeLoadView">
+        <MappingFragment StoreEntitySet="CartridgeLoadView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CartridgeLoadName" ColumnName="CartridgeLoadName" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="CaliberViewName" ColumnName="CaliberViewName" />
+          <ScalarProperty Name="CaliberViewDiameter" ColumnName="CaliberViewDiameter" />
+          <ScalarProperty Name="CaliberViewDiameterUnitId" ColumnName="CaliberViewDiameterUnitId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewName" ColumnName="CaliberViewDiameterUnitViewName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewPlural" ColumnName="CaliberViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewAbbreviation" ColumnName="CaliberViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeId" ColumnName="CaliberViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeName" ColumnName="CaliberViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeNotes" ColumnName="CaliberViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewNotes" ColumnName="CaliberViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewBrassLength" ColumnName="CaliberViewBrassLength" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitId" ColumnName="CaliberViewBrassLengthUnitId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewName" ColumnName="CaliberViewBrassLengthUnitViewName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewPlural" ColumnName="CaliberViewBrassLengthUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewAbbreviation" ColumnName="CaliberViewBrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeId" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewTypeName" ColumnName="CaliberViewBrassLengthUnitViewTypeName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewTypeNotes" ColumnName="CaliberViewBrassLengthUnitViewTypeNotes" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewNotes" ColumnName="CaliberViewBrassLengthUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewPrimerTypeId" ColumnName="CaliberViewPrimerTypeId" />
+          <ScalarProperty Name="CaliberViewPrimerTypeName" ColumnName="CaliberViewPrimerTypeName" />
+          <ScalarProperty Name="CaliberViewPrimerTypeAbbreviation" ColumnName="CaliberViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="CaliberViewPrimerTypeNotes" ColumnName="CaliberViewPrimerTypeNotes" />
+          <ScalarProperty Name="CaliberViewSortOrder" ColumnName="CaliberViewSortOrder" />
+          <ScalarProperty Name="CaliberViewNotes" ColumnName="CaliberViewNotes" />
+          <ScalarProperty Name="BulletId" ColumnName="BulletId" />
+          <ScalarProperty Name="BulletViewName" ColumnName="BulletViewName" />
+          <ScalarProperty Name="BulletViewBulletName" ColumnName="BulletViewBulletName" />
+          <ScalarProperty Name="BulletViewBulletFullName" ColumnName="BulletViewBulletFullName" />
+          <ScalarProperty Name="BulletViewBulletTypeId" ColumnName="BulletViewBulletTypeId" />
+          <ScalarProperty Name="BulletViewBulletTypeName" ColumnName="BulletViewBulletTypeName" />
+          <ScalarProperty Name="BulletViewBulletTypeAbbreviation" ColumnName="BulletViewBulletTypeAbbreviation" />
+          <ScalarProperty Name="BulletViewBulletTypeNotes" ColumnName="BulletViewBulletTypeNotes" />
+          <ScalarProperty Name="BulletViewMaterialId" ColumnName="BulletViewMaterialId" />
+          <ScalarProperty Name="BulletViewMaterialName" ColumnName="BulletViewMaterialName" />
+          <ScalarProperty Name="BulletViewMaterialNotes" ColumnName="BulletViewMaterialNotes" />
+          <ScalarProperty Name="BulletViewDiameter" ColumnName="BulletViewDiameter" />
+          <ScalarProperty Name="BulletViewDiameterUnitId" ColumnName="BulletViewDiameterUnitId" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewName" ColumnName="BulletViewDiameterUnitViewName" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewPlural" ColumnName="BulletViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewAbbreviation" ColumnName="BulletViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewUnitTypeId" ColumnName="BulletViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewUnitTypeName" ColumnName="BulletViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewUnitTypeNotes" ColumnName="BulletViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="BulletViewDiameterUnitViewNotes" ColumnName="BulletViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="BulletViewMass" ColumnName="BulletViewMass" />
+          <ScalarProperty Name="BulletViewMassUnitId" ColumnName="BulletViewMassUnitId" />
+          <ScalarProperty Name="BulletViewMassUnitViewName" ColumnName="BulletViewMassUnitViewName" />
+          <ScalarProperty Name="BulletViewMassUnitViewPlural" ColumnName="BulletViewMassUnitViewPlural" />
+          <ScalarProperty Name="BulletViewMassUnitViewAbbreviation" ColumnName="BulletViewMassUnitViewAbbreviation" />
+          <ScalarProperty Name="BulletViewMassUnitViewUnitTypeId" ColumnName="BulletViewMassUnitViewUnitTypeId" />
+          <ScalarProperty Name="BulletViewMassUnitViewUnitTypeName" ColumnName="BulletViewMassUnitViewUnitTypeName" />
+          <ScalarProperty Name="BulletViewMassUnitViewUnitTypeNotes" ColumnName="BulletViewMassUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="BulletViewMassUnitViewNotes" ColumnName="BulletViewMassUnitViewNotes" />
+          <ScalarProperty Name="BulletViewSectionalDensity" ColumnName="BulletViewSectionalDensity" />
+          <ScalarProperty Name="BulletViewBallisticCoefficient" ColumnName="BulletViewBallisticCoefficient" />
+          <ScalarProperty Name="BulletViewLength" ColumnName="BulletViewLength" />
+          <ScalarProperty Name="BulletViewLengthUnitId" ColumnName="BulletViewLengthUnitId" />
+          <ScalarProperty Name="BulletViewLengthUnitViewName" ColumnName="BulletViewLengthUnitViewName" />
+          <ScalarProperty Name="BulletViewLengthUnitViewPlural" ColumnName="BulletViewLengthUnitViewPlural" />
+          <ScalarProperty Name="BulletViewLengthUnitViewAbbreviation" ColumnName="BulletViewLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="BulletViewLengthUnitViewUnitTypeId" ColumnName="BulletViewLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="BulletViewLengthUnitViewUnitTypeName" ColumnName="BulletViewLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="BulletViewLengthUnitViewUnitTypeNotes" ColumnName="BulletViewLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="BulletViewLengthUnitViewNotes" ColumnName="BulletViewLengthUnitViewNotes" />
+          <ScalarProperty Name="BulletViewManufacturerId" ColumnName="BulletViewManufacturerId" />
+          <ScalarProperty Name="BulletViewManufacturerName" ColumnName="BulletViewManufacturerName" />
+          <ScalarProperty Name="BulletViewManufacturerAddress" ColumnName="BulletViewManufacturerAddress" />
+          <ScalarProperty Name="BulletViewManufacturerCity" ColumnName="BulletViewManufacturerCity" />
+          <ScalarProperty Name="BulletViewManufacturerState" ColumnName="BulletViewManufacturerState" />
+          <ScalarProperty Name="BulletViewManufacturerZip" ColumnName="BulletViewManufacturerZip" />
+          <ScalarProperty Name="BulletViewManufacturerURL" ColumnName="BulletViewManufacturerURL" />
+          <ScalarProperty Name="BulletViewManufacturerNotes" ColumnName="BulletViewManufacturerNotes" />
+          <ScalarProperty Name="BulletViewNotes" ColumnName="BulletViewNotes" />
+          <ScalarProperty Name="PowderId" ColumnName="PowderId" />
+          <ScalarProperty Name="PowderViewName" ColumnName="PowderViewName" />
+          <ScalarProperty Name="PowderViewPowderName" ColumnName="PowderViewPowderName" />
+          <ScalarProperty Name="PowderViewManufacturerId" ColumnName="PowderViewManufacturerId" />
+          <ScalarProperty Name="PowderViewManufacturerName" ColumnName="PowderViewManufacturerName" />
+          <ScalarProperty Name="PowderViewManufacturerAddress" ColumnName="PowderViewManufacturerAddress" />
+          <ScalarProperty Name="PowderViewManufacturerCity" ColumnName="PowderViewManufacturerCity" />
+          <ScalarProperty Name="PowderViewManufacturerState" ColumnName="PowderViewManufacturerState" />
+          <ScalarProperty Name="PowderViewManufacturerZip" ColumnName="PowderViewManufacturerZip" />
+          <ScalarProperty Name="PowderViewManufacturerURL" ColumnName="PowderViewManufacturerURL" />
+          <ScalarProperty Name="PowderViewManufacturerNotes" ColumnName="PowderViewManufacturerNotes" />
+          <ScalarProperty Name="PowderViewPowderTypeId" ColumnName="PowderViewPowderTypeId" />
+          <ScalarProperty Name="PowderViewPowderTypeName" ColumnName="PowderViewPowderTypeName" />
+          <ScalarProperty Name="PowderViewPowderTypeNotes" ColumnName="PowderViewPowderTypeNotes" />
+          <ScalarProperty Name="PowderViewPowderShapeId" ColumnName="PowderViewPowderShapeId" />
+          <ScalarProperty Name="PowderViewPowderShapeName" ColumnName="PowderViewPowderShapeName" />
+          <ScalarProperty Name="PowderViewPowderShapeNotes" ColumnName="PowderViewPowderShapeNotes" />
+          <ScalarProperty Name="PowderViewNotes" ColumnName="PowderViewNotes" />
+          <ScalarProperty Name="PowderWeight" ColumnName="PowderWeight" />
+          <ScalarProperty Name="PowderWeightUnitId" ColumnName="PowderWeightUnitId" />
+          <ScalarProperty Name="PowderWeightUnitViewName" ColumnName="PowderWeightUnitViewName" />
+          <ScalarProperty Name="PowderWeightUnitViewPlural" ColumnName="PowderWeightUnitViewPlural" />
+          <ScalarProperty Name="PowderWeightUnitViewAbbreviation" ColumnName="PowderWeightUnitViewAbbreviation" />
+          <ScalarProperty Name="PowderWeightUnitViewUnitTypeId" ColumnName="PowderWeightUnitViewUnitTypeId" />
+          <ScalarProperty Name="PowderWeightUnitViewUnitTypeName" ColumnName="PowderWeightUnitViewUnitTypeName" />
+          <ScalarProperty Name="PowderWeightUnitViewUnitTypeNotes" ColumnName="PowderWeightUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="PowderWeightUnitViewNotes" ColumnName="PowderWeightUnitViewNotes" />
+          <ScalarProperty Name="COL" ColumnName="COL" />
+          <ScalarProperty Name="COLUnitId" ColumnName="COLUnitId" />
+          <ScalarProperty Name="COLUnitViewName" ColumnName="COLUnitViewName" />
+          <ScalarProperty Name="COLUnitViewPlural" ColumnName="COLUnitViewPlural" />
+          <ScalarProperty Name="COLUnitViewAbbreviation" ColumnName="COLUnitViewAbbreviation" />
+          <ScalarProperty Name="COLUnitViewUnitTypeId" ColumnName="COLUnitViewUnitTypeId" />
+          <ScalarProperty Name="COLUnitViewUnitTypeName" ColumnName="COLUnitViewUnitTypeName" />
+          <ScalarProperty Name="COLUnitViewUnitTypeNotes" ColumnName="COLUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="COLUnitViewNotes" ColumnName="COLUnitViewNotes" />
+          <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+          <ScalarProperty Name="VelocityUnitId" ColumnName="VelocityUnitId" />
+          <ScalarProperty Name="VelocityUnitViewName" ColumnName="VelocityUnitViewName" />
+          <ScalarProperty Name="VelocityUnitViewPlural" ColumnName="VelocityUnitViewPlural" />
+          <ScalarProperty Name="VelocityUnitViewAbbreviation" ColumnName="VelocityUnitViewAbbreviation" />
+          <ScalarProperty Name="VelocityUnitViewUnitTypeId" ColumnName="VelocityUnitViewUnitTypeId" />
+          <ScalarProperty Name="VelocityUnitViewUnitTypeName" ColumnName="VelocityUnitViewUnitTypeName" />
+          <ScalarProperty Name="VelocityUnitViewUnitTypeNotes" ColumnName="VelocityUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="VelocityUnitViewNotes" ColumnName="VelocityUnitViewNotes" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="PressureUnitId" ColumnName="PressureUnitId" />
+          <ScalarProperty Name="PressureUnitViewName" ColumnName="PressureUnitViewName" />
+          <ScalarProperty Name="PressureUnitViewPlural" ColumnName="PressureUnitViewPlural" />
+          <ScalarProperty Name="PressureUnitViewAbbreviation" ColumnName="PressureUnitViewAbbreviation" />
+          <ScalarProperty Name="PressureUnitViewUnitTypeId" ColumnName="PressureUnitViewUnitTypeId" />
+          <ScalarProperty Name="PressureUnitViewUnitTypeName" ColumnName="PressureUnitViewUnitTypeName" />
+          <ScalarProperty Name="PressureUnitViewUnitTypeNotes" ColumnName="PressureUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="PressureUnitViewNotes" ColumnName="PressureUnitViewNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartridgeViews">
+      <EntityTypeMapping TypeName="ShootingModel.CartridgeView">
+        <MappingFragment StoreEntitySet="CartridgeView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CartridgeName" ColumnName="CartridgeName" />
+          <ScalarProperty Name="CartridgeLoadId" ColumnName="CartridgeLoadId" />
+          <ScalarProperty Name="CartridgeLoadViewName" ColumnName="CartridgeLoadViewName" />
+          <ScalarProperty Name="CartridgeLoadViewCartridgeLoadName" ColumnName="CartridgeLoadViewCartridgeLoadName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberId" ColumnName="CartridgeLoadViewCaliberId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewName" ColumnName="CartridgeLoadViewCaliberViewName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameter" ColumnName="CartridgeLoadViewCaliberViewDiameter" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitId" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewName" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewPlural" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewAbbreviation" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeId" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeName" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewDiameterUnitViewNotes" ColumnName="CartridgeLoadViewCaliberViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLength" ColumnName="CartridgeLoadViewCaliberViewBrassLength" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitId" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewName" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewPlural" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewAbbreviation" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewUnitTypeId" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeName" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeNotes" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewNotes" ColumnName="CartridgeLoadViewCaliberViewBrassLengthUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewPrimerTypeId" ColumnName="CartridgeLoadViewCaliberViewPrimerTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewPrimerTypeName" ColumnName="CartridgeLoadViewCaliberViewPrimerTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewPrimerTypeAbbreviation" ColumnName="CartridgeLoadViewCaliberViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewPrimerTypeNotes" ColumnName="CartridgeLoadViewCaliberViewPrimerTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewSortOrder" ColumnName="CartridgeLoadViewCaliberViewSortOrder" />
+          <ScalarProperty Name="CartridgeLoadViewCaliberViewNotes" ColumnName="CartridgeLoadViewCaliberViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletId" ColumnName="CartridgeLoadViewBulletId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewName" ColumnName="CartridgeLoadViewBulletViewName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletName" ColumnName="CartridgeLoadViewBulletViewBulletName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletFullName" ColumnName="CartridgeLoadViewBulletViewBulletFullName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletTypeId" ColumnName="CartridgeLoadViewBulletViewBulletTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletTypeName" ColumnName="CartridgeLoadViewBulletViewBulletTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletTypeAbbreviation" ColumnName="CartridgeLoadViewBulletViewBulletTypeAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBulletTypeNotes" ColumnName="CartridgeLoadViewBulletViewBulletTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMaterialId" ColumnName="CartridgeLoadViewBulletViewMaterialId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMaterialName" ColumnName="CartridgeLoadViewBulletViewMaterialName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMaterialNotes" ColumnName="CartridgeLoadViewBulletViewMaterialNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameter" ColumnName="CartridgeLoadViewBulletViewDiameter" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitId" ColumnName="CartridgeLoadViewBulletViewDiameterUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewName" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewPlural" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewDiameterUnitViewNotes" ColumnName="CartridgeLoadViewBulletViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMass" ColumnName="CartridgeLoadViewBulletViewMass" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitId" ColumnName="CartridgeLoadViewBulletViewMassUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewName" ColumnName="CartridgeLoadViewBulletViewMassUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewPlural" ColumnName="CartridgeLoadViewBulletViewMassUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewAbbreviation" ColumnName="CartridgeLoadViewBulletViewMassUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeId" ColumnName="CartridgeLoadViewBulletViewMassUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeName" ColumnName="CartridgeLoadViewBulletViewMassUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewMassUnitViewNotes" ColumnName="CartridgeLoadViewBulletViewMassUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewSectionalDensity" ColumnName="CartridgeLoadViewBulletViewSectionalDensity" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewBallisticCoefficient" ColumnName="CartridgeLoadViewBulletViewBallisticCoefficient" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLength" ColumnName="CartridgeLoadViewBulletViewLength" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitId" ColumnName="CartridgeLoadViewBulletViewLengthUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewName" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewPlural" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewAbbreviation" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewLengthUnitViewNotes" ColumnName="CartridgeLoadViewBulletViewLengthUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerId" ColumnName="CartridgeLoadViewBulletViewManufacturerId" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerName" ColumnName="CartridgeLoadViewBulletViewManufacturerName" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerAddress" ColumnName="CartridgeLoadViewBulletViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerCity" ColumnName="CartridgeLoadViewBulletViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerState" ColumnName="CartridgeLoadViewBulletViewManufacturerState" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerZip" ColumnName="CartridgeLoadViewBulletViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerURL" ColumnName="CartridgeLoadViewBulletViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewManufacturerNotes" ColumnName="CartridgeLoadViewBulletViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeLoadViewBulletViewNotes" ColumnName="CartridgeLoadViewBulletViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderId" ColumnName="CartridgeLoadViewPowderId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewName" ColumnName="CartridgeLoadViewPowderViewName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderName" ColumnName="CartridgeLoadViewPowderViewPowderName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerId" ColumnName="CartridgeLoadViewPowderViewManufacturerId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerName" ColumnName="CartridgeLoadViewPowderViewManufacturerName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerAddress" ColumnName="CartridgeLoadViewPowderViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerCity" ColumnName="CartridgeLoadViewPowderViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerState" ColumnName="CartridgeLoadViewPowderViewManufacturerState" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerZip" ColumnName="CartridgeLoadViewPowderViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerURL" ColumnName="CartridgeLoadViewPowderViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewManufacturerNotes" ColumnName="CartridgeLoadViewPowderViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderTypeId" ColumnName="CartridgeLoadViewPowderViewPowderTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderTypeName" ColumnName="CartridgeLoadViewPowderViewPowderTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderTypeNotes" ColumnName="CartridgeLoadViewPowderViewPowderTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderShapeId" ColumnName="CartridgeLoadViewPowderViewPowderShapeId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderShapeName" ColumnName="CartridgeLoadViewPowderViewPowderShapeName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewPowderShapeNotes" ColumnName="CartridgeLoadViewPowderViewPowderShapeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderViewNotes" ColumnName="CartridgeLoadViewPowderViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeight" ColumnName="CartridgeLoadViewPowderWeight" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitId" ColumnName="CartridgeLoadViewPowderWeightUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewName" ColumnName="CartridgeLoadViewPowderWeightUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewPlural" ColumnName="CartridgeLoadViewPowderWeightUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewAbbreviation" ColumnName="CartridgeLoadViewPowderWeightUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeId" ColumnName="CartridgeLoadViewPowderWeightUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeName" ColumnName="CartridgeLoadViewPowderWeightUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPowderWeightUnitViewNotes" ColumnName="CartridgeLoadViewPowderWeightUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCOL" ColumnName="CartridgeLoadViewCOL" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitId" ColumnName="CartridgeLoadViewCOLUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewName" ColumnName="CartridgeLoadViewCOLUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewPlural" ColumnName="CartridgeLoadViewCOLUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewAbbreviation" ColumnName="CartridgeLoadViewCOLUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewUnitTypeId" ColumnName="CartridgeLoadViewCOLUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewUnitTypeName" ColumnName="CartridgeLoadViewCOLUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewCOLUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewCOLUnitViewNotes" ColumnName="CartridgeLoadViewCOLUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewVelocity" ColumnName="CartridgeLoadViewVelocity" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitId" ColumnName="CartridgeLoadViewVelocityUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewName" ColumnName="CartridgeLoadViewVelocityUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewPlural" ColumnName="CartridgeLoadViewVelocityUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewAbbreviation" ColumnName="CartridgeLoadViewVelocityUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewUnitTypeId" ColumnName="CartridgeLoadViewVelocityUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewUnitTypeName" ColumnName="CartridgeLoadViewVelocityUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewVelocityUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewVelocityUnitViewNotes" ColumnName="CartridgeLoadViewVelocityUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPressure" ColumnName="CartridgeLoadViewPressure" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitId" ColumnName="CartridgeLoadViewPressureUnitId" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewName" ColumnName="CartridgeLoadViewPressureUnitViewName" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewPlural" ColumnName="CartridgeLoadViewPressureUnitViewPlural" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewAbbreviation" ColumnName="CartridgeLoadViewPressureUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewUnitTypeId" ColumnName="CartridgeLoadViewPressureUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewUnitTypeName" ColumnName="CartridgeLoadViewPressureUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewUnitTypeNotes" ColumnName="CartridgeLoadViewPressureUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeLoadViewPressureUnitViewNotes" ColumnName="CartridgeLoadViewPressureUnitViewNotes" />
+          <ScalarProperty Name="CartridgeLoadViewNotes" ColumnName="CartridgeLoadViewNotes" />
+          <ScalarProperty Name="BrassId" ColumnName="BrassId" />
+          <ScalarProperty Name="BrassViewParentId" ColumnName="BrassViewParentId" />
+          <ScalarProperty Name="BrassViewName" ColumnName="BrassViewName" />
+          <ScalarProperty Name="BrassViewBrassName" ColumnName="BrassViewBrassName" />
+          <ScalarProperty Name="BrassViewBrassFullName" ColumnName="BrassViewBrassFullName" />
+          <ScalarProperty Name="BrassViewParentBrassFullName" ColumnName="BrassViewParentBrassFullName" />
+          <ScalarProperty Name="BrassViewMaterialId" ColumnName="BrassViewMaterialId" />
+          <ScalarProperty Name="BrassViewMaterialName" ColumnName="BrassViewMaterialName" />
+          <ScalarProperty Name="BrassViewMaterialNotes" ColumnName="BrassViewMaterialNotes" />
+          <ScalarProperty Name="BrassViewManufacturerId" ColumnName="BrassViewManufacturerId" />
+          <ScalarProperty Name="BrassViewManufacturerName" ColumnName="BrassViewManufacturerName" />
+          <ScalarProperty Name="BrassViewManufacturerAddress" ColumnName="BrassViewManufacturerAddress" />
+          <ScalarProperty Name="BrassViewManufacturerCity" ColumnName="BrassViewManufacturerCity" />
+          <ScalarProperty Name="BrassViewManufacturerState" ColumnName="BrassViewManufacturerState" />
+          <ScalarProperty Name="BrassViewManufacturerZip" ColumnName="BrassViewManufacturerZip" />
+          <ScalarProperty Name="BrassViewManufacturerURL" ColumnName="BrassViewManufacturerURL" />
+          <ScalarProperty Name="BrassViewManufacturerNotes" ColumnName="BrassViewManufacturerNotes" />
+          <ScalarProperty Name="BrassViewTimesFired" ColumnName="BrassViewTimesFired" />
+          <ScalarProperty Name="BrassViewNotes" ColumnName="BrassViewNotes" />
+          <ScalarProperty Name="PrimerId" ColumnName="PrimerId" />
+          <ScalarProperty Name="PrimerViewName" ColumnName="PrimerViewName" />
+          <ScalarProperty Name="PrimerViewFullName" ColumnName="PrimerViewFullName" />
+          <ScalarProperty Name="PrimerViewPrimerName" ColumnName="PrimerViewPrimerName" />
+          <ScalarProperty Name="PrimerViewPrimerTypeId" ColumnName="PrimerViewPrimerTypeId" />
+          <ScalarProperty Name="PrimerViewPrimerTypeName" ColumnName="PrimerViewPrimerTypeName" />
+          <ScalarProperty Name="PrimerViewPrimerTypeAbbreviation" ColumnName="PrimerViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="PrimerViewPrimerTypeNotes" ColumnName="PrimerViewPrimerTypeNotes" />
+          <ScalarProperty Name="PrimerViewManufacturerId" ColumnName="PrimerViewManufacturerId" />
+          <ScalarProperty Name="PrimerViewManufacturerName" ColumnName="PrimerViewManufacturerName" />
+          <ScalarProperty Name="PrimerViewManufacturerAddress" ColumnName="PrimerViewManufacturerAddress" />
+          <ScalarProperty Name="PrimerViewManufacturerCity" ColumnName="PrimerViewManufacturerCity" />
+          <ScalarProperty Name="PrimerViewManufacturerState" ColumnName="PrimerViewManufacturerState" />
+          <ScalarProperty Name="PrimerViewManufacturerZip" ColumnName="PrimerViewManufacturerZip" />
+          <ScalarProperty Name="PrimerViewManufacturerURL" ColumnName="PrimerViewManufacturerURL" />
+          <ScalarProperty Name="PrimerViewManufacturerNotes" ColumnName="PrimerViewManufacturerNotes" />
+          <ScalarProperty Name="PrimerViewNotes" ColumnName="PrimerViewNotes" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GunsCalibersViews">
+      <EntityTypeMapping TypeName="ShootingModel.GunsCalibersView">
+        <MappingFragment StoreEntitySet="GunsCalibersView">
+          <ScalarProperty Name="GunId" ColumnName="GunId" />
+          <ScalarProperty Name="GunName" ColumnName="GunName" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="CaliberName" ColumnName="CaliberName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GunViews">
+      <EntityTypeMapping TypeName="ShootingModel.GunView">
+        <MappingFragment StoreEntitySet="GunView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GunName" ColumnName="GunName" />
+          <ScalarProperty Name="CaliberId" ColumnName="CaliberId" />
+          <ScalarProperty Name="CaliberViewName" ColumnName="CaliberViewName" />
+          <ScalarProperty Name="CaliberViewDiameter" ColumnName="CaliberViewDiameter" />
+          <ScalarProperty Name="CaliberViewDiameterUnitId" ColumnName="CaliberViewDiameterUnitId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewName" ColumnName="CaliberViewDiameterUnitViewName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewPlural" ColumnName="CaliberViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewAbbreviation" ColumnName="CaliberViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeId" ColumnName="CaliberViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeName" ColumnName="CaliberViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewUnitTypeNotes" ColumnName="CaliberViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CaliberViewDiameterUnitViewNotes" ColumnName="CaliberViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewBrassLength" ColumnName="CaliberViewBrassLength" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitId" ColumnName="CaliberViewBrassLengthUnitId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewName" ColumnName="CaliberViewBrassLengthUnitViewName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewPlural" ColumnName="CaliberViewBrassLengthUnitViewPlural" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewAbbreviation" ColumnName="CaliberViewBrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeId" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeName" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" ColumnName="CaliberViewBrassLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CaliberViewBrassLengthUnitViewNotes" ColumnName="CaliberViewBrassLengthUnitViewNotes" />
+          <ScalarProperty Name="CaliberViewPrimerTypeId" ColumnName="CaliberViewPrimerTypeId" />
+          <ScalarProperty Name="CaliberViewPrimerTypeName" ColumnName="CaliberViewPrimerTypeName" />
+          <ScalarProperty Name="CaliberViewPrimerTypeAbbreviation" ColumnName="CaliberViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="CaliberViewPrimerTypeNotes" ColumnName="CaliberViewPrimerTypeNotes" />
+          <ScalarProperty Name="CaliberViewSortOrder" ColumnName="CaliberViewSortOrder" />
+          <ScalarProperty Name="CaliberViewNotes" ColumnName="CaliberViewNotes" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="BarrelLength" ColumnName="BarrelLength" />
+          <ScalarProperty Name="BarrelLengthUnitId" ColumnName="BarrelLengthUnitId" />
+          <ScalarProperty Name="LengthUnitViewName" ColumnName="LengthUnitViewName" />
+          <ScalarProperty Name="LengthUnitViewPlural" ColumnName="LengthUnitViewPlural" />
+          <ScalarProperty Name="LengthUnitViewAbbreviation" ColumnName="LengthUnitViewAbbreviation" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeId" ColumnName="LengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeName" ColumnName="LengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="LengthUnitViewUnitTypeNotes" ColumnName="LengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="LengthUnitViewNotes" ColumnName="LengthUnitViewNotes" />
+          <ScalarProperty Name="GunTypeId" ColumnName="GunTypeId" />
+          <ScalarProperty Name="GunTypeName" ColumnName="GunTypeName" />
+          <ScalarProperty Name="GunTypeNotes" ColumnName="GunTypeNotes" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="AcquisitionDate" ColumnName="AcquisitionDate" />
+          <ScalarProperty Name="RetireDate" ColumnName="RetireDate" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowderViews">
+      <EntityTypeMapping TypeName="ShootingModel.PowderView">
+        <MappingFragment StoreEntitySet="PowderView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PowderName" ColumnName="PowderName" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="PowderTypeId" ColumnName="PowderTypeId" />
+          <ScalarProperty Name="PowderTypeName" ColumnName="PowderTypeName" />
+          <ScalarProperty Name="PowderTypeNotes" ColumnName="PowderTypeNotes" />
+          <ScalarProperty Name="PowderShapeId" ColumnName="PowderShapeId" />
+          <ScalarProperty Name="PowderShapeName" ColumnName="PowderShapeName" />
+          <ScalarProperty Name="PowderShapeNotes" ColumnName="PowderShapeNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimerViews">
+      <EntityTypeMapping TypeName="ShootingModel.PrimerView">
+        <MappingFragment StoreEntitySet="PrimerView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrimerFullName" ColumnName="PrimerFullName" />
+          <ScalarProperty Name="PrimerName" ColumnName="PrimerName" />
+          <ScalarProperty Name="PrimerTypeId" ColumnName="PrimerTypeId" />
+          <ScalarProperty Name="PrimerTypeName" ColumnName="PrimerTypeName" />
+          <ScalarProperty Name="PrimerTypeAbbreviation" ColumnName="PrimerTypeAbbreviation" />
+          <ScalarProperty Name="PrimerTypeNotes" ColumnName="PrimerTypeNotes" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerShortName" ColumnName="ManufacturerShortName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerCity" ColumnName="ManufacturerCity" />
+          <ScalarProperty Name="ManufacturerState" ColumnName="ManufacturerState" />
+          <ScalarProperty Name="ManufacturerZip" ColumnName="ManufacturerZip" />
+          <ScalarProperty Name="ManufacturerURL" ColumnName="ManufacturerURL" />
+          <ScalarProperty Name="ManufacturerNotes" ColumnName="ManufacturerNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShootingLocationViews">
+      <EntityTypeMapping TypeName="ShootingModel.ShootingLocationView">
+        <MappingFragment StoreEntitySet="ShootingLocationView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShootingLocationName" ColumnName="ShootingLocationName" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShootingSessionViews">
+      <EntityTypeMapping TypeName="ShootingModel.ShootingSessionView">
+        <MappingFragment StoreEntitySet="ShootingSessionView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ShootingLocationViewName" ColumnName="ShootingLocationViewName" />
+          <ScalarProperty Name="ShootingLocationViewShootingLocationName" ColumnName="ShootingLocationViewShootingLocationName" />
+          <ScalarProperty Name="ShootingLocationViewState" ColumnName="ShootingLocationViewState" />
+          <ScalarProperty Name="ShootingLocationViewLocation" ColumnName="ShootingLocationViewLocation" />
+          <ScalarProperty Name="ShootingLocationViewNotes" ColumnName="ShootingLocationViewNotes" />
+          <ScalarProperty Name="GunId" ColumnName="GunId" />
+          <ScalarProperty Name="GunViewSerialNumber" ColumnName="GunViewSerialNumber" />
+          <ScalarProperty Name="GunViewName" ColumnName="GunViewName" />
+          <ScalarProperty Name="GunViewGunName" ColumnName="GunViewGunName" />
+          <ScalarProperty Name="GunViewCaliberId" ColumnName="GunViewCaliberId" />
+          <ScalarProperty Name="GunViewCaliberViewName" ColumnName="GunViewCaliberViewName" />
+          <ScalarProperty Name="GunViewCaliberViewDiameter" ColumnName="GunViewCaliberViewDiameter" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitId" ColumnName="GunViewCaliberViewDiameterUnitId" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewName" ColumnName="GunViewCaliberViewDiameterUnitViewName" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewPlural" ColumnName="GunViewCaliberViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewAbbreviation" ColumnName="GunViewCaliberViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewUnitTypeId" ColumnName="GunViewCaliberViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewUnitTypeName" ColumnName="GunViewCaliberViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewUnitTypeNotes" ColumnName="GunViewCaliberViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="GunViewCaliberViewDiameterUnitViewNotes" ColumnName="GunViewCaliberViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLength" ColumnName="GunViewCaliberViewBrassLength" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitId" ColumnName="GunViewCaliberViewBrassLengthUnitId" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewName" ColumnName="GunViewCaliberViewBrassLengthUnitViewName" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewPlural" ColumnName="GunViewCaliberViewBrassLengthUnitViewPlural" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewAbbreviation" ColumnName="GunViewCaliberViewBrassLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeId" ColumnName="GunViewCaliberViewBrassLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeName" ColumnName="GunViewCaliberViewBrassLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeNotes" ColumnName="GunViewCaliberViewBrassLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="GunViewCaliberViewBrassLengthUnitViewNotes" ColumnName="GunViewCaliberViewBrassLengthUnitViewNotes" />
+          <ScalarProperty Name="GunViewCaliberViewPrimerTypeId" ColumnName="GunViewCaliberViewPrimerTypeId" />
+          <ScalarProperty Name="GunViewCaliberViewPrimerTypeName" ColumnName="GunViewCaliberViewPrimerTypeName" />
+          <ScalarProperty Name="GunViewCaliberViewPrimerTypeAbbreviation" ColumnName="GunViewCaliberViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="GunViewCaliberViewPrimerTypeNotes" ColumnName="GunViewCaliberViewPrimerTypeNotes" />
+          <ScalarProperty Name="GunViewCaliberViewSortOrder" ColumnName="GunViewCaliberViewSortOrder" />
+          <ScalarProperty Name="GunViewCaliberViewNotes" ColumnName="GunViewCaliberViewNotes" />
+          <ScalarProperty Name="GunViewManufacturerId" ColumnName="GunViewManufacturerId" />
+          <ScalarProperty Name="GunViewManufacturerName" ColumnName="GunViewManufacturerName" />
+          <ScalarProperty Name="GunViewManufacturerShortName" ColumnName="GunViewManufacturerShortName" />
+          <ScalarProperty Name="GunViewManufacturerAddress" ColumnName="GunViewManufacturerAddress" />
+          <ScalarProperty Name="GunViewManufacturerCity" ColumnName="GunViewManufacturerCity" />
+          <ScalarProperty Name="GunViewManufacturerState" ColumnName="GunViewManufacturerState" />
+          <ScalarProperty Name="GunViewManufacturerZip" ColumnName="GunViewManufacturerZip" />
+          <ScalarProperty Name="GunViewManufacturerURL" ColumnName="GunViewManufacturerURL" />
+          <ScalarProperty Name="GunViewManufacturerNotes" ColumnName="GunViewManufacturerNotes" />
+          <ScalarProperty Name="GunViewCapacity" ColumnName="GunViewCapacity" />
+          <ScalarProperty Name="GunViewBarrelLength" ColumnName="GunViewBarrelLength" />
+          <ScalarProperty Name="GunViewBarrelLengthUnitId" ColumnName="GunViewBarrelLengthUnitId" />
+          <ScalarProperty Name="GunViewLengthUnitViewName" ColumnName="GunViewLengthUnitViewName" />
+          <ScalarProperty Name="GunViewLengthUnitViewPlural" ColumnName="GunViewLengthUnitViewPlural" />
+          <ScalarProperty Name="GunViewLengthUnitViewAbbrevation" ColumnName="GunViewLengthUnitViewAbbrevation" />
+          <ScalarProperty Name="GunViewLengthUnitViewUnitTypeId" ColumnName="GunViewLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="GunViewLengthUnitViewUnitTypeName" ColumnName="GunViewLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="GunViewLengthUnitViewUnitTypeNotes" ColumnName="GunViewLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="GunViewLengthUnitViewNotes" ColumnName="GunViewLengthUnitViewNotes" />
+          <ScalarProperty Name="GunViewGunTypeId" ColumnName="GunViewGunTypeId" />
+          <ScalarProperty Name="GunViewGunTypeName" ColumnName="GunViewGunTypeName" />
+          <ScalarProperty Name="GunViewGunTypeNotes" ColumnName="GunViewGunTypeNotes" />
+          <ScalarProperty Name="GunViewCost" ColumnName="GunViewCost" />
+          <ScalarProperty Name="GunViewAcquisitionDate" ColumnName="GunViewAcquisitionDate" />
+          <ScalarProperty Name="GunViewRetireDate" ColumnName="GunViewRetireDate" />
+          <ScalarProperty Name="GunViewDetails" ColumnName="GunViewDetails" />
+          <ScalarProperty Name="GunViewNotes" ColumnName="GunViewNotes" />
+          <ScalarProperty Name="CartridgeId" ColumnName="CartridgeId" />
+          <ScalarProperty Name="CartridgeViewName" ColumnName="CartridgeViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeName" ColumnName="CartridgeViewCartridgeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadId" ColumnName="CartridgeViewCartridgeLoadId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewName" ColumnName="CartridgeViewCartridgeLoadViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCartridgeLoadName" ColumnName="CartridgeViewCartridgeLoadViewCartridgeLoadName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletId" ColumnName="CartridgeViewCartridgeLoadViewBulletId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletFullName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletFullName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletTypeAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBulletTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMaterialId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMaterialId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMaterialName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMaterialName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMaterialNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMaterialNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameter" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameter" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMass" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMass" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewSectionalDensity" ColumnName="CartridgeViewCartridgeLoadViewBulletViewSectionalDensity" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewBallisticCoefficient" ColumnName="CartridgeViewCartridgeLoadViewBulletViewBallisticCoefficient" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLength" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLength" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerId" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerName" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerAddress" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerCity" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerState" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerState" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerZip" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerURL" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewBulletViewNotes" ColumnName="CartridgeViewCartridgeLoadViewBulletViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderId" ColumnName="CartridgeViewCartridgeLoadViewPowderId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewName" ColumnName="CartridgeViewCartridgeLoadViewPowderViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderName" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerId" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerName" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerAddress" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerCity" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerState" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerState" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerZip" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerURL" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeId" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeName" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeId" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderShapeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeName" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderShapeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderViewPowderShapeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderViewNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeight" ColumnName="CartridgeViewCartridgeLoadViewPowderWeight" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitId" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewPowderWeightUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOL" ColumnName="CartridgeViewCartridgeLoadViewCOL" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitId" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewCOLUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewCOLUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocity" ColumnName="CartridgeViewCartridgeLoadViewVelocity" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitId" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewVelocityUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewVelocityUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressure" ColumnName="CartridgeViewCartridgeLoadViewPressure" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitId" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewName" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewPlural" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewPlural" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewAbbreviation" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewAbbreviation" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeId" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeId" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeName" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeName" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeNotes" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewPressureUnitViewNotes" ColumnName="CartridgeViewCartridgeLoadViewPressureUnitViewNotes" />
+          <ScalarProperty Name="CartridgeViewCartridgeLoadViewNotes" ColumnName="CartridgeViewCartridgeLoadViewNotes" />
+          <ScalarProperty Name="CartridgeViewBrassId" ColumnName="CartridgeViewBrassId" />
+          <ScalarProperty Name="CartridgeViewBrassViewParentId" ColumnName="CartridgeViewBrassViewParentId" />
+          <ScalarProperty Name="CartridgeViewBrassViewName" ColumnName="CartridgeViewBrassViewName" />
+          <ScalarProperty Name="CartridgeViewBrassViewBrassName" ColumnName="CartridgeViewBrassViewBrassName" />
+          <ScalarProperty Name="CartridgeViewBrassViewBrassFullName" ColumnName="CartridgeViewBrassViewBrassFullName" />
+          <ScalarProperty Name="CartridgeViewBrassViewParentBrassFullName" ColumnName="CartridgeViewBrassViewParentBrassFullName" />
+          <ScalarProperty Name="CartridgeViewBrassViewMaterialId" ColumnName="CartridgeViewBrassViewMaterialId" />
+          <ScalarProperty Name="CartridgeViewBrassViewMaterialName" ColumnName="CartridgeViewBrassViewMaterialName" />
+          <ScalarProperty Name="CartridgeViewBrassViewMaterialNotes" ColumnName="CartridgeViewBrassViewMaterialNotes" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerId" ColumnName="CartridgeViewBrassViewManufacturerId" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerName" ColumnName="CartridgeViewBrassViewManufacturerName" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerAddress" ColumnName="CartridgeViewBrassViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerCity" ColumnName="CartridgeViewBrassViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerState" ColumnName="CartridgeViewBrassViewManufacturerState" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerZip" ColumnName="CartridgeViewBrassViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerURL" ColumnName="CartridgeViewBrassViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeViewBrassViewManufacturerNotes" ColumnName="CartridgeViewBrassViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeViewBrassViewTimesFired" ColumnName="CartridgeViewBrassViewTimesFired" />
+          <ScalarProperty Name="CartridgeViewBrassViewNotes" ColumnName="CartridgeViewBrassViewNotes" />
+          <ScalarProperty Name="CartridgeViewPrimerId" ColumnName="CartridgeViewPrimerId" />
+          <ScalarProperty Name="CartridgeViewPrimerViewName" ColumnName="CartridgeViewPrimerViewName" />
+          <ScalarProperty Name="CartridgeViewPrimerViewFullName" ColumnName="CartridgeViewPrimerViewFullName" />
+          <ScalarProperty Name="CartridgeViewPrimerViewPrimerName" ColumnName="CartridgeViewPrimerViewPrimerName" />
+          <ScalarProperty Name="CartridgeViewPrimerViewPrimerTypeId" ColumnName="CartridgeViewPrimerViewPrimerTypeId" />
+          <ScalarProperty Name="CartridgeViewPrimerViewPrimerTypeName" ColumnName="CartridgeViewPrimerViewPrimerTypeName" />
+          <ScalarProperty Name="CartridgeViewPrimerViewPrimerTypeAbbreviation" ColumnName="CartridgeViewPrimerViewPrimerTypeAbbreviation" />
+          <ScalarProperty Name="CartridgeViewPrimerViewPrimerTypeNotes" ColumnName="CartridgeViewPrimerViewPrimerTypeNotes" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerId" ColumnName="CartridgeViewPrimerViewManufacturerId" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerName" ColumnName="CartridgeViewPrimerViewManufacturerName" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerAddress" ColumnName="CartridgeViewPrimerViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerCity" ColumnName="CartridgeViewPrimerViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerState" ColumnName="CartridgeViewPrimerViewManufacturerState" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerZip" ColumnName="CartridgeViewPrimerViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerURL" ColumnName="CartridgeViewPrimerViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeViewPrimerViewManufacturerNotes" ColumnName="CartridgeViewPrimerViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeViewPrimerViewNotes" ColumnName="CartridgeViewPrimerViewNotes" />
+          <ScalarProperty Name="CartridgeViewManufacturerId" ColumnName="CartridgeViewManufacturerId" />
+          <ScalarProperty Name="CartridgeViewManufacturerName" ColumnName="CartridgeViewManufacturerName" />
+          <ScalarProperty Name="CartridgeViewManufacturerShortName" ColumnName="CartridgeViewManufacturerShortName" />
+          <ScalarProperty Name="CartridgeViewManufacturerAddress" ColumnName="CartridgeViewManufacturerAddress" />
+          <ScalarProperty Name="CartridgeViewManufacturerCity" ColumnName="CartridgeViewManufacturerCity" />
+          <ScalarProperty Name="CartridgeViewManufacturerState" ColumnName="CartridgeViewManufacturerState" />
+          <ScalarProperty Name="CartridgeViewManufacturerZip" ColumnName="CartridgeViewManufacturerZip" />
+          <ScalarProperty Name="CartridgeViewManufacturerURL" ColumnName="CartridgeViewManufacturerURL" />
+          <ScalarProperty Name="CartridgeViewManufacturerNotes" ColumnName="CartridgeViewManufacturerNotes" />
+          <ScalarProperty Name="CartridgeViewNotes" ColumnName="CartridgeViewNotes" />
+          <ScalarProperty Name="Rounds" ColumnName="Rounds" />
+          <ScalarProperty Name="Retention" ColumnName="Retention" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitViews">
+      <EntityTypeMapping TypeName="ShootingModel.UnitView">
+        <MappingFragment StoreEntitySet="UnitView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Plural" ColumnName="Plural" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="UnitTypeId" ColumnName="UnitTypeId" />
+          <ScalarProperty Name="UnitTypeName" ColumnName="UnitTypeName" />
+          <ScalarProperty Name="UnitTypeNotes" ColumnName="UnitTypeNotes" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

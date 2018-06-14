@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Data.Core.Interfaces.IEntity>
+
+@{
+    ViewBag.Title = "Manufacturer Index";
+}
+<head>
+    <title>Shooting Manager: Manufacturer Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Manufacturer Index</h2>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "EditLinkStyle" })
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Name")
+                </th>
+                <th>
+                    @Html.Label("Short Name")
+                </th>
+                <th>
+                    @Html.Label("Address")
+                </th>
+                <th>
+                    @Html.Label("City")
+                </th>
+                <th>
+                    @Html.Label("State")
+                </th>
+                <th>
+                    @Html.Label("Zip")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Entities.Models.Manufacturer item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Zip)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

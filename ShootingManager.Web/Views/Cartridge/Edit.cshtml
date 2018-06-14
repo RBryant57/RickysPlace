@@ -1,0 +1,94 @@
+﻿@model local.yellowcaddis.ShootingManager.Core.Entities.Cartridge
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cartridge</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CartridgeLoad, "CartridgeLoad1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CartridgeLoad", String.Empty)
+            @Html.ValidationMessageFor(model => model.CartridgeLoad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bullet, "Bullet1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Bullet", String.Empty)
+            @Html.ValidationMessageFor(model => model.Bullet)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Brass, "Brass1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Brass", String.Empty)
+            @Html.ValidationMessageFor(model => model.Brass)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Powder, "Powder1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Powder", String.Empty)
+            @Html.ValidationMessageFor(model => model.Powder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Primer, "Primer1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Primer", String.Empty)
+            @Html.ValidationMessageFor(model => model.Primer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Manufacturer, "Manufacturer1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Manufacturer", String.Empty)
+            @Html.ValidationMessageFor(model => model.Manufacturer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManufactureDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ManufactureDate)
+            @Html.ValidationMessageFor(model => model.ManufactureDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

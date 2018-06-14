@@ -1,0 +1,155 @@
+﻿@model ShootingManager.Web.ViewModels.BulletViewModel
+    @using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Bullet Details";
+}
+<head>
+    <title>Shooting Manager: Bullet Details - @(((Bullet)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Bullet Index", "Index", "Bullet", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Bullet Details</h2>
+
+    @using (Html.BeginForm("Edit", "Bullet", FormMethod.Post, new { id = ((Bullet)Model.Entity).Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => ((Bullet)Model.Entity).Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.BulletTypeAbbreviation, "Bullet Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.ActionLink(Model.EntityView.BulletTypeAbbreviation, "Details", "BulletType", new { id = ((Bullet)Model.Entity).BulletTypeId }, new { @class = "EditLinkStyle" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.MaterialName, "Material:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.ActionLink(Model.EntityView.MaterialName, "Details", "Material", new { id = ((Bullet)Model.Entity).MaterialId }, new { @class = "EditLinkStyle" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).Diameter, "Diameter:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string diameter = ((Bullet)Model.Entity).Diameter.ToString();
+                                }
+                                @Html.DisplayFor(model => diameter)
+                                @Html.DisplayFor(model => model.EntityView.DiameterUnitViewAbbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).Mass, "Mass:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.DisplayFor(model => ((Bullet)Model.Entity).Mass)
+                                @Html.DisplayFor(model => model.EntityView.MassUnitViewAbbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).SectionalDensity, "Sectional Density:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string sectionalDensity = ((Bullet)Model.Entity).SectionalDensity.ToString();
+                                }
+                                @Html.DisplayFor(model => sectionalDensity)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).BallisticCoefficient, "Ballistic Coefficient:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string ballisticCoefficient = ((Bullet)Model.Entity).BallisticCoefficient.ToString();
+                                }
+                                @Html.DisplayFor(model => ballisticCoefficient)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).Length, "Length:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @{
+                                    string length = ((Bullet)Model.Entity).Length.ToString();
+                                }
+                                @Html.DisplayFor(model => length)
+                                @Html.DisplayFor(model => model.EntityView.LengthUnitViewAbbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.ManufacturerName, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-2">
+                                @Html.ActionLink(Model.EntityView.ManufacturerName, "Details", "Manufacturer", new { id = ((Bullet)Model.Entity).ManufacturerId }, new { @class = "EditLinkStyle" })
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Bullet)Model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-2">
+                                @Html.DisplayFor(model => ((Bullet)Model.Entity).Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = ((Bullet)Model.Entity).Id }, new { @class = "btn-style" })
+            </p>
+        </div>
+    }
+</div>

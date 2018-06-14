@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Data.Core.Interfaces.IEntity>
+
+@{
+    ViewBag.Title = "Shooting Session Index";
+}
+<head>
+    <title>Shooting Manager: Shooting Session Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Shooting Session Index</h2>
+
+    @Html.ActionLink("Create Shooting Session", "Create", null, new { @class = "EditLinkStyle" })
+    <hr/>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Location Name")
+                </th>
+                <th>
+                    @Html.DisplayName("State")
+                </th>
+                <th>
+                    @Html.DisplayName("Gun")
+                </th>
+                <th>
+                    @Html.DisplayName("Cartridge")
+                </th>
+                <th>
+                    @Html.DisplayName("Date")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Entities.Models.ShootingSession item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShootingLocation.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShootingLocation.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gun.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cartridge.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

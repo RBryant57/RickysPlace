@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB521ECE-CD56-4A30-B62C-5B180CE6DEC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Music.EFData</RootNamespace>
+    <AssemblyName>Music.EFData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapping\Album1Map.cs" />
+    <Compile Include="Mapping\AlbumMap.cs" />
+    <Compile Include="Mapping\AlbumsAwardMap.cs" />
+    <Compile Include="Mapping\AlbumsGroupMap.cs" />
+    <Compile Include="Mapping\AlbumsPAlbumMap.cs" />
+    <Compile Include="Mapping\AlbumsProducerMap.cs" />
+    <Compile Include="Mapping\AlbumsSongMap.cs" />
+    <Compile Include="Mapping\AlbumsWithSongMap.cs" />
+    <Compile Include="Mapping\ArtistMap.cs" />
+    <Compile Include="Mapping\ArtistsAwardMap.cs" />
+    <Compile Include="Mapping\ArtistsGroupMap.cs" />
+    <Compile Include="Mapping\ArtistsMusicianMap.cs" />
+    <Compile Include="Mapping\ArtistsWithMusicianMap.cs" />
+    <Compile Include="Mapping\CompositionMap.cs" />
+    <Compile Include="Mapping\CompositionsComposerMap.cs" />
+    <Compile Include="Mapping\GenreMap.cs" />
+    <Compile Include="Mapping\InstrumentMap.cs" />
+    <Compile Include="Mapping\LabelMap.cs" />
+    <Compile Include="Mapping\MusicianMap.cs" />
+    <Compile Include="Mapping\MusiciansGroupMap.cs" />
+    <Compile Include="Mapping\MusiciansInstrumentMap.cs" />
+    <Compile Include="Mapping\MusiciansWithInstrumentMap.cs" />
+    <Compile Include="Mapping\PhysicalAlbumMap.cs" />
+    <Compile Include="Mapping\ProducerMap.cs" />
+    <Compile Include="Mapping\Song1Map.cs" />
+    <Compile Include="Mapping\SongMap.cs" />
+    <Compile Include="Mapping\SongsArtistMap.cs" />
+    <Compile Include="Mapping\SongsAwardMap.cs" />
+    <Compile Include="Mapping\SongsGroupMap.cs" />
+    <Compile Include="Mapping\SongsProducerMap.cs" />
+    <Compile Include="Mapping\sysdiagramMap.cs" />
+    <Compile Include="Mapping\ViewSongMap.cs" />
+    <Compile Include="MusicContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\InstrumentRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.Core\Data.Core.csproj">
+      <Project>{6ceef791-04b7-4603-94ef-f195504a91f1}</Project>
+      <Name>Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Music.Entities\Music.Entities.csproj">
+      <Project>{a1ddbbe2-a640-4bfd-931e-98d6f1d09cfc}</Project>
+      <Name>Music.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Music.Repositories\Music.Repositories.csproj">
+      <Project>{abcddf8a-5e89-4c9c-b4df-fde0936ed5db}</Project>
+      <Name>Music.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.CartridgeLoadViewModel>
+    @using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Cartridge Load Index";
+}
+<head>
+    <title>Shooting Manager: Cartridge Load Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+    <br />
+    <h3>@ViewBag.CaliberName : Cartridge Loads</h3>
+    @{if (ViewBag.CaliberName != "All Calibers")
+      {
+        string link = "Create New Cartridge Load For: " + ViewBag.CaliberName;
+        @Html.ActionLink(link, "Load", new { id = ViewBag.CaliberId }, new { @class = "EditLinkStyle" })
+      }
+    }
+    <br />
+    @Html.ActionLink("Create New Cartridge Load", "Load", null, new { @class = "EditLinkStyle" })
+    <br />
+    @{if (ViewBag.CaliberId != null)
+      {
+          <a class="EditLinkStyle" href=@Request.Url.ToString().Substring(0, @Request.Url.ToString().Length - 2)>View All Cartridge Loads</a>
+      }
+      else
+      {
+          <a class="EditLinkStyle" href=@Request.Url>View All Cartridge Loads</a>
+      }
+    }
+    <hr />
+    <br />
+    
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Bullet Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Caliber")
+                </th>
+                <th>
+                    @Html.DisplayName("Powder")
+                </th>
+                <th>
+                    @Html.DisplayName("Amount")
+                </th>
+                <th>
+                    @Html.DisplayName("COL")
+                </th>
+                <th>
+                    @Html.DisplayName("Velocity")
+                </th>
+                <th>
+                    @Html.DisplayName("Pressure")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.EntityView.BulletViewBulletName, "Details", "Bullet", new { id = ((CartridgeLoad)item.Entity).BulletId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.CaliberViewName, "Details", "Caliber", new { id = item.EntityView.CaliberId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @if (item.EntityView.PowderId != null)
+                        {
+                            @Html.ActionLink(item.EntityView.PowderViewName, "Details", "Powder", new { id = item.EntityView.PowderId }, new { @class = "EditLinkStyle" })
+                        }
+                        else
+                        {
+                            
+                        }
+                    </td>
+                    <td>
+                        @{
+                            string parameterValue = String.Empty;
+                            if (item.EntityView.PowderWeight != null)
+                            {
+                                parameterValue = String.Format("{0:#,0.0}", (decimal)((CartridgeLoad)item.Entity).PowderWeight / 1000m);
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                        @Html.DisplayFor(modelItem => item.EntityView.PowderWeightUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @{
+                            parameterValue = String.Format("{0:#,0.000}", ((CartridgeLoad)item.Entity).COL);
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                        @Html.DisplayFor(modelItem => item.EntityView.COLUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((CartridgeLoad)item.Entity).Velocity)
+                        @Html.DisplayFor(modelItem => item.EntityView.VelocityUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((CartridgeLoad)item.Entity).Pressure)
+                        @Html.DisplayFor(modelItem => item.EntityView.PressureUnitViewAbbreviation)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditLoad", new { id = ((CartridgeLoad)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "LoadDetails", new { id = ((CartridgeLoad)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "DeleteLoad", new { id = ((CartridgeLoad)item.Entity).Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

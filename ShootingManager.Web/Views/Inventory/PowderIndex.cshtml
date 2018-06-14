@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.PowderViewModel>
+
+@{
+    ViewBag.Title = "Brass Index";
+}
+<head>
+    <title>Shooting Manager: Powder Quantity Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+    </div>
+    <br />
+    <br />
+    <p>
+        @Html.ActionLink("Create Powder Inventory", "CreatePowder", null, new { @class = "EditLinkStyle" })
+    </p>
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Powder Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Type")
+                </th>
+                <th>
+                    @Html.DisplayName("Quantity")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.PowderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.PowderTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityQuantityAmount)
+                    &nbsp;
+                    lbs.
+                </td>
+                <td>
+                    @Html.ActionLink("Change", "EditPowder", new { id = item.EntityQuantity.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

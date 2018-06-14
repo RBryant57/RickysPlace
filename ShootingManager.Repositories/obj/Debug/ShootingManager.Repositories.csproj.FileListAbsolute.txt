@@ -1,0 +1,13 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\ShootingManager.Repositories.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\ShootingManager.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\ShootingManager.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\ShootingManager.Entities.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Debug\ShootingManager.Repositories.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Debug\ShootingManager.Repositories.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Debug\ShootingManager.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Debug\ShootingManager.Repositories.csproj.CoreCompileInputs.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Debug\Data.Core.dll.config

@@ -1,0 +1,104 @@
+/*!
+ * Start Bootstrap - Small Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    padding-bottom: 20px;
+    font: "Trebuchet MS", Verdana, sans-serif;
+    background-color: lightgoldenrodyellow;
+    color: #696969;
+}
+
+.navbar-inverse {
+    padding: 15px 0;
+    background-color:olive;
+}
+h1,h2,h3,p{
+    color:olive;
+}
+.linkp{
+    color: darkgoldenrod;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 100px;
+}
+footer {
+    padding: 30px 0;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+        background-color:olive;
+    }
+}
+#musictable {    
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#musictable td, #musictable th {
+    font-size: 1em;
+    font-weight: bold;
+    border: 2px solid olive;
+    padding: 3px 7px 2px 7px;
+}
+
+table.musictable thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+#musictable th {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #FFD119;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: olive; /*#A7C942;*/
+    cursor: pointer;
+    background-image: url(~/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+#musictable tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+.EditLinkStyle {
+    color: #C0A862;
+    font-weight: bold;
+    font-size: small;
+}
+.NavLinkStyle {
+    color: #C0A862;
+    font-weight: bold;
+    font-size: medium;
+}
+.SideLinkStyle{
+    color: #C0A862;
+    font-weight: bold;
+    font-size: medium;
+}

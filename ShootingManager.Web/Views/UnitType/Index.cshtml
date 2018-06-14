@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Data.Core.Interfaces.IEntity>
+
+@{
+    ViewBag.Title = "Unit Type Index";
+}
+<head>
+    <title>Shooting Manager: Unit Type Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Unit Type Index</h2>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "EditLinkStyle" })
+    <hr />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table id="shootingtable" class="tablesorter">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Name")
+                </th>
+                <th>
+                    @Html.Label("Notes")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Entities.Models.UnitType item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+    }

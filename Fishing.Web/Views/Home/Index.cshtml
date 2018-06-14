@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<head>
+    <title>
+        Fishing.Web - Home
+    </title>
+</head>
+<div class="container">
+    <!-- Heading Row -->
+    <div class="row">
+        <div class="col-md-8">
+            <img class="img-responsive img-rounded" src="~/images/homepageimage.jpg" alt="" width="900" height="350">
+        </div>
+        <!-- /.col-md-8 -->
+        <div class="col-md-4">
+            <h1>Welcome to the Fishing.Web</h1>
+            <p>Fishing is a great way to spend time.</p>
+            <a class="btn btn-primary btn-lg" href="#">Get Out There!</a>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+    <hr>
+    <!-- Call to Action Well -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well text-center">
+                Visit the sites below for more information.
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>ShootingManager.Web</h2>
+            <p>ShootingManager.Web is the place to be for all things related to firearms. From the list and description of guns to the myriad of tools to manage reloading ammunition, if it has to do with shooting it can be found here.</p>
+            <a class="btn-style" href=@("http://" + ViewBag.Environment + "/Outdoor.Web/ShootingManager.Web")>Click Here</a>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4">
+            <h2>Fishing.Web</h2>
+            <p>Fishing.Web is the place to be for all things related to fishing. From the list and description of equipment to the myriad of tools to manage fly tying, if it has to do with fishing it can be found here.</p>
+            <a class="btn-style" href=@("http://" + ViewBag.Environment + "/Outdoor.Web/Fishing.Web")>Click Here</a>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4">
+            <h2>GPS.Web</h2>
+            <p>GPS.Web is the place to be for all things related to GPS and cartography.</p>
+            <a class="btn-style" href=@("http />/" + ViewBag.Environment + "/Outdoor.Web/GPS.Web")>Click Here</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model ShootingManager.Entities.Models.Powder
+
+@{
+    ViewBag.Title = "Delete Powder";
+}
+<head>
+    <title>Shooting Manager: Delete Powder - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Powder Index", "Index", "Powder", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Powder</h2>
+
+    <h3>Are you sure you want to delete this powder?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "Powder", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Manufacturer.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Powder Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.PowderType.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Powder Shape:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.PowderShape.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+            
+            <br />
+            <hr />
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn-style" />
+            </div>
+        }
+    </div>
+</div>

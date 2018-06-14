@@ -1,0 +1,102 @@
+﻿@model ShootingManager.Entities.Models.ShootingSession
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+    <title>Shooting Manager: Shooting Session Details - @(@Model.Name)</title>
+</head>
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Session Index", "Index", "ShootingSession", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Shooting Session Details</h2>
+
+    @using (Html.BeginForm("Edit", "ShootingSession", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Date, "Date:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.Date)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.LocationId, "Location:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.LocationId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.GunId, "Gun:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.GunId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeId, "Cartridge:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.CartridgeId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Rounds, "Rounds:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.Rounds)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-1">
+                            @Html.DisplayFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <br />
+            <hr />
+        </div>
+    }
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

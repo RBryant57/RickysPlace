@@ -1,0 +1,160 @@
+﻿@model ShootingManager.Entities.Models.Gun
+
+@{
+    ViewBag.Title = "Gun Details";
+}
+<head>
+    <title>Shooting Manager: Gun Details - @(@Model.Manufacturer.Name + " " + @Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Gun Index", "Index", "Gun", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Gun Details</h2>
+
+    <div>
+	    @using (Html.BeginForm("Edit", "Gun", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+        {
+
+            @Html.AntiForgeryToken()
+    
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <table>
+                    <tr>
+                        <td width="35%">
+                            <div>
+                                <table id="one-column-emphasis">
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.Name, "Name:")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Manufacturer.Name)
+                                            &nbsp;
+                                            @Html.DisplayFor(model => model.Name)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.Caliber.Name, "Caliber:")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Caliber.Name)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.Capacity, "Capacity:")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Capacity)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.GunType.Name, "Gun Type:")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.GunType.Name)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="comments">
+                            @*<fieldset>
+
+                                <legend>Basic Information</legend>
+
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.Name)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Caliber:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.Caliber.Name)
+                                        </div>  
+                                    </div>
+                                </div>
+
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Manufacturer:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.Manufacturer.Name)
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Capacity:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.Capacity)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Gun Type:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.GunType.Name)
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            
+                            <fieldset>
+
+                                <br />
+                                <br />
+                                <legend>Optional Information</legend>
+
+                                <div class="form-group" data-row-span="1">
+                                    <div data-field-span="1">
+                                        @Html.LabelFor(model => model.Name, "Notes:", new { @class = "control-label col-md-2" })
+                                        <div class="control-label col-md-1">
+                                            @Html.DisplayFor(model => model.Notes)
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>*@
+                            </div>
+                        </td>
+                        <td>
+                            <img src=@(ViewBag.GunImage) />
+                        </td>
+                        <td>
+                            <div class="GunDetailStyle">
+                                <p>
+                                    @Html.DisplayFor(model => model.Details)
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br />
+                <hr />
+            </div>
+        }
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

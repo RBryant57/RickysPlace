@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D7A5789-2E28-4FD7-BE44-8FD5A9EBE65A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShootingManager.EFData</RootNamespace>
+    <AssemblyName>ShootingManager.EFData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrassView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BulletView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaliberView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CartridgeLoadView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CartridgeView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonRepository.cs" />
+    <Compile Include="GunsCalibersView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GunView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\AddCheckConstraint.cs" />
+    <Compile Include="Mapping\BrassCostMap.cs" />
+    <Compile Include="Mapping\BrassMap.cs" />
+    <Compile Include="Mapping\BrassQuantityMap.cs" />
+    <Compile Include="Mapping\BrassViewMap.cs" />
+    <Compile Include="Mapping\GunsCalibersViewMap.cs" />
+    <Compile Include="Mapping\CartridgeCostMap.cs" />
+    <Compile Include="Mapping\BulletCostMap.cs" />
+    <Compile Include="Mapping\BulletMap.cs" />
+    <Compile Include="Mapping\BulletQuantityMap.cs" />
+    <Compile Include="Mapping\GunsCalibersMap.cs" />
+    <Compile Include="Mapping\InventoryTypeMap.cs" />
+    <Compile Include="Mapping\BulletTypeMap.cs" />
+    <Compile Include="Mapping\BulletViewMap.cs" />
+    <Compile Include="Mapping\CaliberMap.cs" />
+    <Compile Include="Mapping\CaliberViewMap.cs" />
+    <Compile Include="Mapping\CartridgeLoadMap.cs" />
+    <Compile Include="Mapping\CartridgeMap.cs" />
+    <Compile Include="Mapping\CartridgeQuantityMap.cs" />
+    <Compile Include="Mapping\CartridgeLoadViewMap.cs" />
+    <Compile Include="Mapping\CartridgeViewMap.cs" />
+    <Compile Include="Mapping\CheckConstraintMigrationSqlGenerator.cs" />
+    <Compile Include="Mapping\CreateCheckConstraintOperation.cs" />
+    <Compile Include="Mapping\DbMigrationExtensions.cs" />
+    <Compile Include="Mapping\GunImageMap.cs" />
+    <Compile Include="Mapping\GunMap.cs" />
+    <Compile Include="Mapping\GunTypeMap.cs" />
+    <Compile Include="Mapping\GunViewMap.cs" />
+    <Compile Include="Mapping\ManufacturerMap.cs" />
+    <Compile Include="Mapping\MaterialMap.cs" />
+    <Compile Include="Mapping\PowderCostMap.cs" />
+    <Compile Include="Mapping\PowderMap.cs" />
+    <Compile Include="Mapping\PowderQuantityMap.cs" />
+    <Compile Include="Mapping\PowderShapeMap.cs" />
+    <Compile Include="Mapping\PowderTypeMap.cs" />
+    <Compile Include="Mapping\PowderViewMap.cs" />
+    <Compile Include="Mapping\PrimerCostMap.cs" />
+    <Compile Include="Mapping\PrimerMap.cs" />
+    <Compile Include="Mapping\PrimerQuantityMap.cs" />
+    <Compile Include="Mapping\PrimerTypeMap.cs" />
+    <Compile Include="Mapping\PrimerViewMap.cs" />
+    <Compile Include="Mapping\ShootingLocationViewMap.cs" />
+    <Compile Include="Mapping\ShootingLocationMap.cs" />
+    <Compile Include="Mapping\ShootingSessionMap.cs" />
+    <Compile Include="Mapping\ShootingSessionViewMap.cs" />
+    <Compile Include="Mapping\sysdiagramMap.cs" />
+    <Compile Include="Mapping\UnitMap.cs" />
+    <Compile Include="Mapping\UnitTypeMap.cs" />
+    <Compile Include="Mapping\UnitViewMap.cs" />
+    <Compile Include="PowderView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrimerView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CartridgeCostRepository.cs" />
+    <Compile Include="Repositories\GunsCalibersRepository.cs" />
+    <Compile Include="Repositories\InventoryTypeRepository.cs" />
+    <Compile Include="Repositories\PrimerCostRepository.cs" />
+    <Compile Include="Repositories\PowderCostRepository.cs" />
+    <Compile Include="Repositories\BulletCostRepository.cs" />
+    <Compile Include="Repositories\BrassCostRepository.cs" />
+    <Compile Include="Repositories\PowderQuantityRepository.cs" />
+    <Compile Include="Repositories\PrimerQuantityRepository.cs" />
+    <Compile Include="Repositories\CartridgeQuantityRepository.cs" />
+    <Compile Include="Repositories\BulletQuantityRepository.cs" />
+    <Compile Include="Repositories\BrassQuantityRepository.cs" />
+    <Compile Include="Repositories\BrassRepository.cs" />
+    <Compile Include="Repositories\BulletRepository.cs" />
+    <Compile Include="Repositories\BulletTypeRepository.cs" />
+    <Compile Include="Repositories\CaliberRepository.cs" />
+    <Compile Include="Repositories\CartridgeLoadRepository.cs" />
+    <Compile Include="Repositories\CartridgeRepository.cs" />
+    <Compile Include="Repositories\GunRepository.cs" />
+    <Compile Include="Repositories\GunTypeRepository.cs" />
+    <Compile Include="Repositories\ManufacturerRepository.cs" />
+    <Compile Include="Repositories\MaterialRepository.cs" />
+    <Compile Include="Repositories\PowderRepository.cs" />
+    <Compile Include="Repositories\PowderShapeRepository.cs" />
+    <Compile Include="Repositories\PowderTypeRepository.cs" />
+    <Compile Include="Repositories\PrimerRepository.cs" />
+    <Compile Include="Repositories\PrimerTypeRepository.cs" />
+    <Compile Include="Repositories\ShootingLocationRepository.cs" />
+    <Compile Include="Repositories\ShootingSessionRepository.cs" />
+    <Compile Include="Repositories\UnitRepository.cs" />
+    <Compile Include="Repositories\UnitTypeRepository.cs" />
+    <Compile Include="ShootingContext1.cs" />
+    <Compile Include="ShootingLocationView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShootingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShootingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShootingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShootingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShootingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ShootingSessionView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnitView.cs">
+      <DependentUpon>ShootingModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="ShootingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShootingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ShootingModel.edmx.diagram">
+      <DependentUpon>ShootingModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.Core\Data.Core.csproj">
+      <Project>{6ceef791-04b7-4603-94ef-f195504a91f1}</Project>
+      <Name>Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingManager.Entities\ShootingManager.Entities.csproj">
+      <Project>{8135e349-65ad-44cf-ba4b-dae13edb5a03}</Project>
+      <Name>ShootingManager.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingManager.Repositories\ShootingManager.Repositories.csproj">
+      <Project>{109b5cb6-0562-49b0-8a88-60ecb18e79b0}</Project>
+      <Name>ShootingManager.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShootingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShootingModel.edmx</DependentUpon>
+      <LastGenOutput>ShootingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ShootingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShootingModel.edmx</DependentUpon>
+      <LastGenOutput>ShootingModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

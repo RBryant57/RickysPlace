@@ -1,0 +1,71 @@
+﻿@model local.yellowcaddis.ShootingManager.Core.Entities.Cartridge
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cartridge</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CartridgeLoad1.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CartridgeLoad1.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bullet1.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bullet1.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Brass1.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Brass1.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Powder1.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Powder1.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Primer1.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Primer1.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Manufacturer1.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manufacturer1.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ManufactureDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManufactureDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

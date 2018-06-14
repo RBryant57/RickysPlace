@@ -1,0 +1,1912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitnessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BenchmarkMile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="Odometer" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_BenchmarkMiles_Bike" FromRole="BenchmarkMiles" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="Bike">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="AcquisitionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BaseMiles" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BenchmarkMiles" Relationship="Self.FK_BenchmarkMiles_Bike" FromRole="Bike" ToRole="BenchmarkMiles" />
+    <NavigationProperty Name="BikeType" Relationship="Self.FK_Bike_BikeType" FromRole="Bike" ToRole="BikeType" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Bike_Manufacturer" FromRole="Bike" ToRole="Manufacturer" />
+    <NavigationProperty Name="RouteType" Relationship="Self.FK_Bike_Type" FromRole="Bike" ToRole="RouteType" />
+    <NavigationProperty Name="BikeHistories" Relationship="Self.FK_BikeHistory_Bike" FromRole="Bike" ToRole="BikeHistory" />
+    <NavigationProperty Name="BikeOnlyMiles" Relationship="Self.FK_BikeOnlyMiles_Bike" FromRole="Bike" ToRole="BikeOnlyMiles" />
+    <NavigationProperty Name="BikeParts" Relationship="Self.FK_BikePart_Bike" FromRole="Bike" ToRole="BikePart" />
+    <NavigationProperty Name="BikeParts1" Relationship="Self.FK_BikePart_Bike1" FromRole="Bike" ToRole="BikePart" />
+    <NavigationProperty Name="Maintenances" Relationship="Self.FK_Maintenance_Bike" FromRole="Bike" ToRole="Maintenance" />
+    <NavigationProperty Name="NonRideMiles" Relationship="Self.FK_NonRideMiles_Bike" FromRole="Bike" ToRole="NonRideMiles" />
+    <NavigationProperty Name="RecreationalRides" Relationship="Self.FK_RecreationalRide_Bike" FromRole="Bike" ToRole="RecreationalRide" />
+    <NavigationProperty Name="StationaryRides" Relationship="Self.FK_StationaryRide_Bike" FromRole="Bike" ToRole="StationaryRide" />
+    <NavigationProperty Name="TrainingRides" Relationship="Self.FK_TrainingRide_Bike" FromRole="Bike" ToRole="TrainingRide" />
+  </EntityType>
+  <EntityType Name="BikeHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="Frame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fork" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WheelSet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Shifters" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brakes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cassette" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CrankSet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BottomBracket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FrontDerailleur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RearDerailleur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pedals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Headset" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Stem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HandleBars" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SeatPost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Saddle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_BikeHistory_Bike" FromRole="BikeHistory" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="BikeOnlyMile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartOdometer" Type="Int32" Nullable="false" />
+    <Property Name="EndOdometer" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_BikeOnlyMiles_Bike" FromRole="BikeOnlyMiles" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="BikePart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="PartId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="OdometerReading" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_BikePart_Bike" FromRole="BikePart" ToRole="Bike" />
+    <NavigationProperty Name="Bike1" Relationship="Self.FK_BikePart_Bike1" FromRole="BikePart" ToRole="Bike" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_BikePart_Part" FromRole="BikePart" ToRole="Part" />
+    <NavigationProperty Name="Part1" Relationship="Self.FK_BikePart_Part1" FromRole="BikePart" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="BikeType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnumId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bikes" Relationship="Self.FK_Bike_BikeType" FromRole="BikeType" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="Circuit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CircuitsComponents" Relationship="Self.FK_CircuitsComponents_Circuit" FromRole="Circuit" ToRole="CircuitsComponents" />
+    <NavigationProperty Name="LiftingSessions" Relationship="Self.FK_LiftSession_Circuit" FromRole="Circuit" ToRole="LiftingSession" />
+  </EntityType>
+  <EntityType Name="CircuitComponent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExerciseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CircuitsComponents" Relationship="Self.FK_CircuitsComponents_CircuitComponent" FromRole="CircuitComponent" ToRole="CircuitsComponents" />
+  </EntityType>
+  <EntityType Name="CircuitsComponent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CircuitId" Type="Int32" Nullable="false" />
+    <Property Name="CircuitComponentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Circuit" Relationship="Self.FK_CircuitsComponents_Circuit" FromRole="CircuitsComponents" ToRole="Circuit" />
+    <NavigationProperty Name="CircuitComponent" Relationship="Self.FK_CircuitsComponents_CircuitComponent" FromRole="CircuitsComponents" ToRole="CircuitComponent" />
+  </EntityType>
+  <EntityType Name="ExerciseType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MissedMiles" Relationship="Self.FK_MissedMiles_ExerciseType" FromRole="ExerciseType" ToRole="MissedMiles" />
+  </EntityType>
+  <EntityType Name="HRZone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZoneUpperLimit" Type="Int32" Nullable="false" />
+    <Property Name="ZoneLowerLimit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HRZoneTimes" Relationship="Self.FK_HRZoneTime_HRZones" FromRole="HRZones" ToRole="HRZoneTime" />
+  </EntityType>
+  <EntityType Name="HRZoneTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="RideId" Type="Int32" Nullable="false" />
+    <Property Name="ZoneHours" Type="Int32" Nullable="false" />
+    <Property Name="ZoneMinutes" Type="Int32" Nullable="false" />
+    <Property Name="ZoneSeconds" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HRZone" Relationship="Self.FK_HRZoneTime_HRZones" FromRole="HRZoneTime" ToRole="HRZones" />
+    <NavigationProperty Name="TrainingRide" Relationship="Self.FK_HRZoneTime_TrainingRides" FromRole="HRZoneTime" ToRole="TrainingRide" />
+  </EntityType>
+  <EntityType Name="LiftingSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CircuitId" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfSets" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Circuit" Relationship="Self.FK_LiftSession_Circuit" FromRole="LiftingSession" ToRole="Circuit" />
+  </EntityType>
+  <EntityType Name="Maintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="PartId" Type="Int32" Nullable="false" />
+    <Property Name="ActionTaken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Odometer" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_Maintenance_Bike" FromRole="Maintenance" ToRole="Bike" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_Maintenance_Part" FromRole="Maintenance" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bikes" Relationship="Self.FK_Bike_Manufacturer" FromRole="Manufacturer" ToRole="Bike" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK_Part_Manufacturer" FromRole="Manufacturer" ToRole="Part" />
+    <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoe_Manufacturer" FromRole="Manufacturer" ToRole="Shoe" />
+  </EntityType>
+  <EntityType Name="MissedMile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Miles" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ExerciseType" Relationship="Self.FK_MissedMiles_ExerciseType" FromRole="MissedMiles" ToRole="ExerciseType" />
+  </EntityType>
+  <EntityType Name="NonRideMile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="StartOdometer" Type="Int32" Nullable="false" />
+    <Property Name="EndOdometer" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_NonRideMiles_Bike" FromRole="NonRideMiles" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="PartTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BikeParts" Relationship="Self.FK_BikePart_Part" FromRole="Part" ToRole="BikePart" />
+    <NavigationProperty Name="BikeParts1" Relationship="Self.FK_BikePart_Part1" FromRole="Part" ToRole="BikePart" />
+    <NavigationProperty Name="Maintenances" Relationship="Self.FK_Maintenance_Part" FromRole="Part" ToRole="Maintenance" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Part_Manufacturer" FromRole="Part" ToRole="Manufacturer" />
+    <NavigationProperty Name="PartType" Relationship="Self.FK_Part_PartType" FromRole="Part" ToRole="PartType" />
+  </EntityType>
+  <EntityType Name="PartType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK_Part_PartType" FromRole="PartType" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="RecreationalRide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartOdometer" Type="Int32" Nullable="false" />
+    <Property Name="EndOdometer" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RideTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="BikeEndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BikeTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="BikeTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="BikeTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="AverageCadence" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_RecreationalRide_Bike" FromRole="RecreationalRide" ToRole="Bike" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RecreationalRide_Route" FromRole="RecreationalRide" ToRole="Route" />
+    <NavigationProperty Name="RecreationalRideGPXes" Relationship="Self.FK_RecreationalRideGPX_RecreationalRide" FromRole="RecreationalRide" ToRole="RecreationalRideGPX" />
+  </EntityType>
+  <EntityType Name="RecreationalRideGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecreationalRideId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RecreationalRide" Relationship="Self.FK_RecreationalRideGPX_RecreationalRide" FromRole="RecreationalRideGPX" ToRole="RecreationalRide" />
+  </EntityType>
+  <EntityType Name="RecreationalRun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RunTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="PathEndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PathTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="PathTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="PathTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RecreationalRun_Route" FromRole="RecreationalRun" ToRole="Route" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_RecreationalRun_Shoe" FromRole="RecreationalRun" ToRole="Shoe" />
+    <NavigationProperty Name="RecreationalRunGPXes" Relationship="Self.FK_RecreationalRunGPX_RecreationalRun" FromRole="RecreationalRun" ToRole="RecreationalRunGPX" />
+  </EntityType>
+  <EntityType Name="RecreationalRunGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecreationalRunId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RecreationalRun" Relationship="Self.FK_RecreationalRunGPX_RecreationalRun" FromRole="RecreationalRunGPX" ToRole="RecreationalRun" />
+  </EntityType>
+  <EntityType Name="RecreationalWalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WalkTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="WalkTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="WalkTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="PathEndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PathTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="PathTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="PathTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RecreationalWalk_Route" FromRole="RecreationalWalk" ToRole="Route" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_RecreationalWalk_Shoe" FromRole="RecreationalWalk" ToRole="Shoe" />
+    <NavigationProperty Name="RecreationalWalkGPXes" Relationship="Self.FK_RecreationalWalkGPX_RecreationalWalk" FromRole="RecreationalWalk" ToRole="RecreationalWalkGPX" />
+  </EntityType>
+  <EntityType Name="RecreationalWalkGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecreationalWalkId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RecreationalWalk" Relationship="Self.FK_RecreationalWalkGPX_RecreationalWalk" FromRole="RecreationalWalkGPX" ToRole="RecreationalWalk" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RecreationalRides" Relationship="Self.FK_RecreationalRide_Route" FromRole="Route" ToRole="RecreationalRide" />
+    <NavigationProperty Name="RecreationalRuns" Relationship="Self.FK_RecreationalRun_Route" FromRole="Route" ToRole="RecreationalRun" />
+    <NavigationProperty Name="RecreationalWalks" Relationship="Self.FK_RecreationalWalk_Route" FromRole="Route" ToRole="RecreationalWalk" />
+    <NavigationProperty Name="RouteType" Relationship="Self.FK_Route_Type" FromRole="Route" ToRole="RouteType" />
+    <NavigationProperty Name="RouteDisplays" Relationship="Self.FK_RouteDescriptionDisplay_Route" FromRole="Route" ToRole="RouteDisplay" />
+    <NavigationProperty Name="RouteDirections" Relationship="Self.FK_RouteDirection_Route" FromRole="Route" ToRole="RouteDirection" />
+    <NavigationProperty Name="RoutePictures" Relationship="Self.FK_RoutePicture_Route" FromRole="Route" ToRole="RoutePicture" />
+    <NavigationProperty Name="TrainingRides" Relationship="Self.FK_TrainingRide_Route" FromRole="Route" ToRole="TrainingRide" />
+    <NavigationProperty Name="TrainingRuns" Relationship="Self.FK_TrainingRun_Route" FromRole="Route" ToRole="TrainingRun" />
+    <NavigationProperty Name="TrainingWalks" Relationship="Self.FK_TrainingWalk_Route" FromRole="Route" ToRole="TrainingWalk" />
+  </EntityType>
+  <EntityType Name="RouteDirection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="DirectionNumber" Type="Int32" Nullable="false" />
+    <Property Name="DirectionMileMarker" Type="Decimal" Precision="18" Scale="1" Nullable="false" />
+    <Property Name="DirectionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RouteDirection_Route" FromRole="RouteDirection" ToRole="Route" />
+  </EntityType>
+  <EntityType Name="RouteDisplay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RouteDescriptionDisplay_Route" FromRole="RouteDisplay" ToRole="Route" />
+  </EntityType>
+  <EntityType Name="RoutePicture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="ImageFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_RoutePicture_Route" FromRole="RoutePicture" ToRole="Route" />
+  </EntityType>
+  <EntityType Name="RouteType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnumId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bikes" Relationship="Self.FK_Bike_Type" FromRole="RouteType" ToRole="Bike" />
+    <NavigationProperty Name="Routes" Relationship="Self.FK_Route_Type" FromRole="RouteType" ToRole="Route" />
+  </EntityType>
+  <EntityType Name="Shoe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ShoeTypeId" Type="Int32" Nullable="false" />
+    <Property Name="AcquisitionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RetireDate" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Shoe_Manufacturer" FromRole="Shoe" ToRole="Manufacturer" />
+    <NavigationProperty Name="RecreationalRuns" Relationship="Self.FK_RecreationalRun_Shoe" FromRole="Shoe" ToRole="RecreationalRun" />
+    <NavigationProperty Name="RecreationalWalks" Relationship="Self.FK_RecreationalWalk_Shoe" FromRole="Shoe" ToRole="RecreationalWalk" />
+    <NavigationProperty Name="ShoeType" Relationship="Self.FK_Shoe_ShoeType" FromRole="Shoe" ToRole="ShoeType" />
+    <NavigationProperty Name="Stairs" Relationship="Self.FK_Stairs_Shoe" FromRole="Shoe" ToRole="Stairs" />
+    <NavigationProperty Name="TrainingRuns" Relationship="Self.FK_TrainingRun_Shoe" FromRole="Shoe" ToRole="TrainingRun" />
+    <NavigationProperty Name="TrainingWalks" Relationship="Self.FK_TrainingWalk_Shoe" FromRole="Shoe" ToRole="TrainingWalk" />
+    <NavigationProperty Name="TreadmillRuns" Relationship="Self.FK_TreadmillRun_Shoe" FromRole="Shoe" ToRole="TreadmillRun" />
+  </EntityType>
+  <EntityType Name="ShoeType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnumId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Shoes" Relationship="Self.FK_Shoe_ShoeType" FromRole="ShoeType" ToRole="Shoe" />
+  </EntityType>
+  <EntityType Name="Stair">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StairQuantity" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StairTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="StairTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="StairTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_Stairs_Shoe" FromRole="Stairs" ToRole="Shoe" />
+  </EntityType>
+  <EntityType Name="StationaryRide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartOdometer" Type="Int32" Nullable="false" />
+    <Property Name="EndOdometer" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RideTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="AverageCadence" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_StationaryRide_Bike" FromRole="StationaryRide" ToRole="Bike" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TrainingRide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartOdometer" Type="Int32" Nullable="false" />
+    <Property Name="EndOdometer" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RideTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RideTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="AverageCadence" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="WindSpeed" Type="Int32" Nullable="false" />
+    <Property Name="WindDirection" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK_TrainingRide_Bike" FromRole="TrainingRide" ToRole="Bike" />
+    <NavigationProperty Name="HRZoneTimes" Relationship="Self.FK_HRZoneTime_TrainingRides" FromRole="TrainingRide" ToRole="HRZoneTime" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_TrainingRide_Route" FromRole="TrainingRide" ToRole="Route" />
+    <NavigationProperty Name="TrainingRideGPXes" Relationship="Self.FK_TrainingRideGPX_TrainingRide" FromRole="TrainingRide" ToRole="TrainingRideGPX" />
+  </EntityType>
+  <EntityType Name="TrainingRideGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainingRideId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TrainingRide" Relationship="Self.FK_TrainingRideGPX_TrainingRide" FromRole="TrainingRideGPX" ToRole="TrainingRide" />
+  </EntityType>
+  <EntityType Name="TrainingRun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RunTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="WindSpeed" Type="Int32" Nullable="false" />
+    <Property Name="WindDirection" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_TrainingRun_Route" FromRole="TrainingRun" ToRole="Route" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_TrainingRun_Shoe" FromRole="TrainingRun" ToRole="Shoe" />
+    <NavigationProperty Name="TrainingRunGPXes" Relationship="Self.FK_TrainingRunGPX_TrainingRun" FromRole="TrainingRun" ToRole="TrainingRunGPX" />
+  </EntityType>
+  <EntityType Name="TrainingRunGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainingRunId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TrainingRun" Relationship="Self.FK_TrainingRunGPX_TrainingRun" FromRole="TrainingRunGPX" ToRole="TrainingRun" />
+  </EntityType>
+  <EntityType Name="TrainingWalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WalkTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="WalkTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="WalkTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="WindSpeed" Type="Int32" Nullable="false" />
+    <Property Name="WindDirection" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_TrainingWalk_Route" FromRole="TrainingWalk" ToRole="Route" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_TrainingWalk_Shoe" FromRole="TrainingWalk" ToRole="Shoe" />
+    <NavigationProperty Name="TrainingWalkGPXes" Relationship="Self.FK_TrainingWalkGPX_TrainingWalk" FromRole="TrainingWalk" ToRole="TrainingWalkGPX" />
+  </EntityType>
+  <EntityType Name="TrainingWalkGPX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainingWalkId" Type="Int32" Nullable="false" />
+    <Property Name="GPX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TrainingWalk" Relationship="Self.FK_TrainingWalkGPX_TrainingWalk" FromRole="TrainingWalkGPX" ToRole="TrainingWalk" />
+  </EntityType>
+  <EntityType Name="TreadmillRun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RunTimeHours" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeMinutes" Type="Int32" Nullable="false" />
+    <Property Name="RunTimeSeconds" Type="Int32" Nullable="false" />
+    <Property Name="AverageHR" Type="Int32" Nullable="false" />
+    <Property Name="MaxHR" Type="Int32" Nullable="false" />
+    <Property Name="ElevationGain" Type="Int32" Nullable="false" />
+    <Property Name="ShoeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Shoe" Relationship="Self.FK_TreadmillRun_Shoe" FromRole="TreadmillRun" ToRole="Shoe" />
+  </EntityType>
+  <EntityType Name="Weight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Weight1" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+    <Property Name="BodyFatPercentage" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MaintenanceLog">
+    <Key>
+      <PropertyRef Name="Operation_Date" />
+      <PropertyRef Name="Bike" />
+      <PropertyRef Name="Manufacturer" />
+      <PropertyRef Name="Part" />
+      <PropertyRef Name="Part_Type" />
+      <PropertyRef Name="Action_Taken" />
+      <PropertyRef Name="Odometer" />
+    </Key>
+    <Property Name="Operation_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Bike" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Part" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Part_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Action_Taken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Odometer" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Part1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Manufacturer" />
+      <PropertyRef Name="Part_Name" />
+      <PropertyRef Name="Part_Type" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Part_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Part_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecreationalRide1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Ride_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Bike_Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Bike_Hours" />
+      <PropertyRef Name="Bike_Minutes" />
+      <PropertyRef Name="Bike_Seconds" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Average_Cadence" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Bike_Name" />
+      <PropertyRef Name="Bike_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ride_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Bike_Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Bike_Hours" Type="Int32" Nullable="false" />
+    <Property Name="Bike_Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Bike_Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Int32" />
+    <Property Name="Speed" Type="Decimal" Precision="29" Scale="12" />
+    <Property Name="Pace" Type="Decimal" Precision="17" Scale="6" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Overall_Speed" Type="Decimal" Precision="29" Scale="12" />
+    <Property Name="Overall_Pace" Type="Decimal" Precision="17" Scale="6" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Average_Cadence" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Bike_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bike_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecreationalRun1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Run_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Path_Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Path_Hours" />
+      <PropertyRef Name="Path_Minutes" />
+      <PropertyRef Name="Path_Seconds" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Shoe_Name" />
+      <PropertyRef Name="Shoe_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Run_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Path_Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Path_Hours" Type="Int32" Nullable="false" />
+    <Property Name="Path_Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Path_Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Pace" Type="Decimal" Precision="36" Scale="23" />
+    <Property Name="Overall_Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Overall_Pace" Type="Decimal" Precision="36" Scale="23" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Shoe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shoe_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecreationalWalk1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Walk_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Path_Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Path_Hours" />
+      <PropertyRef Name="Path_Minutes" />
+      <PropertyRef Name="Path_Seconds" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Shoe_Name" />
+      <PropertyRef Name="Shoe_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Walk_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Path_Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Path_Hours" Type="Int32" Nullable="false" />
+    <Property Name="Path_Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Path_Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Pace" Type="Decimal" Precision="36" Scale="23" />
+    <Property Name="Overall_Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Overall_Pace" Type="Decimal" Precision="36" Scale="23" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Shoe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shoe_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationaryRide1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Ride_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Average_Cadence" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ride_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Int32" />
+    <Property Name="Speed" Type="Decimal" Precision="29" Scale="12" />
+    <Property Name="Pace" Type="Decimal" Precision="17" Scale="6" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Average_Cadence" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bike_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bike_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TrainingRide1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Ride_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Average_Cadence" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind_Speed" />
+      <PropertyRef Name="Wind_Direction" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Bike_Name" />
+      <PropertyRef Name="Bike_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ride_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Int32" />
+    <Property Name="Speed" Type="Decimal" Precision="29" Scale="12" />
+    <Property Name="Pace" Type="Decimal" Precision="17" Scale="6" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Average_Cadence" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Speed" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Direction" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Bike_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bike_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainingRun1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Run_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind_Speed" />
+      <PropertyRef Name="Wind_Direction" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Shoe_Name" />
+      <PropertyRef Name="Shoe_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Run_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Pace" Type="Decimal" Precision="34" Scale="22" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Speed" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Direction" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Shoe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shoe_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainingWalk1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Walk_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Maximum_Speed" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Wind_Speed" />
+      <PropertyRef Name="Wind_Direction" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="Precipitation" />
+      <PropertyRef Name="Shoe_Name" />
+      <PropertyRef Name="Shoe_Type" />
+      <PropertyRef Name="Route_Name" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Route_Type" />
+      <PropertyRef Name="GPX_" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Walk_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Pace" Type="Decimal" Precision="34" Scale="22" />
+    <Property Name="Maximum_Speed" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Speed" Type="Int32" Nullable="false" />
+    <Property Name="Wind_Direction" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Temperature" Type="Int32" Nullable="false" />
+    <Property Name="Precipitation" Type="Boolean" Nullable="false" />
+    <Property Name="Shoe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shoe_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Route_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Route_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GPX_" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TreadmillRun1">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Run_Date" />
+      <PropertyRef Name="Starting_Time" />
+      <PropertyRef Name="Ending_Time" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Minutes" />
+      <PropertyRef Name="Seconds" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Average_HR" />
+      <PropertyRef Name="Maximum_HR" />
+      <PropertyRef Name="Elevation_Gain" />
+      <PropertyRef Name="Shoe_Name" />
+      <PropertyRef Name="Shoe_Type" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Run_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Starting_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ending_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Seconds" Type="Int32" Nullable="false" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Speed" Type="Decimal" Precision="34" Scale="13" />
+    <Property Name="Pace" Type="Decimal" Precision="36" Scale="23" />
+    <Property Name="Average_HR" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_HR" Type="Int32" Nullable="false" />
+    <Property Name="Elevation_Gain" Type="Int32" Nullable="false" />
+    <Property Name="Shoe_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shoe_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_BenchmarkMiles_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="BenchmarkMiles" Type="Self.BenchmarkMile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BenchmarkMiles">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bike_BikeType">
+    <End Role="BikeType" Type="Self.BikeType" Multiplicity="1" />
+    <End Role="Bike" Type="Self.Bike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BikeType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bike">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bike_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Bike" Type="Self.Bike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bike">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bike_Type">
+    <End Role="RouteType" Type="Self.RouteType" Multiplicity="1" />
+    <End Role="Bike" Type="Self.Bike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RouteType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bike">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikeHistory_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="BikeHistory" Type="Self.BikeHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikeHistory">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikeOnlyMiles_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="BikeOnlyMiles" Type="Self.BikeOnlyMile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikeOnlyMiles">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikePart_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="BikePart" Type="Self.BikePart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikePart">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikePart_Bike1">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="BikePart" Type="Self.BikePart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikePart">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Maintenance_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NonRideMiles_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="NonRideMiles" Type="Self.NonRideMile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NonRideMiles">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRide_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="RecreationalRide" Type="Self.RecreationalRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRide">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StationaryRide_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="0..1" />
+    <End Role="StationaryRide" Type="Self.StationaryRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StationaryRide">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRide_Bike">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="1" />
+    <End Role="TrainingRide" Type="Self.TrainingRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRide">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikePart_Part">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="BikePart" Type="Self.BikePart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikePart">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BikePart_Part1">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="BikePart" Type="Self.BikePart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BikePart">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CircuitsComponents_Circuit">
+    <End Role="Circuit" Type="Self.Circuit" Multiplicity="1" />
+    <End Role="CircuitsComponents" Type="Self.CircuitsComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circuit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CircuitsComponents">
+        <PropertyRef Name="CircuitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LiftSession_Circuit">
+    <End Role="Circuit" Type="Self.Circuit" Multiplicity="1" />
+    <End Role="LiftingSession" Type="Self.LiftingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circuit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LiftingSession">
+        <PropertyRef Name="CircuitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CircuitsComponents_CircuitComponent">
+    <End Role="CircuitComponent" Type="Self.CircuitComponent" Multiplicity="1" />
+    <End Role="CircuitsComponents" Type="Self.CircuitsComponent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CircuitComponent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CircuitsComponents">
+        <PropertyRef Name="CircuitComponentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MissedMiles_ExerciseType">
+    <End Role="ExerciseType" Type="Self.ExerciseType" Multiplicity="1" />
+    <End Role="MissedMiles" Type="Self.MissedMile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExerciseType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MissedMiles">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HRZoneTime_HRZones">
+    <End Role="HRZones" Type="Self.HRZone" Multiplicity="1" />
+    <End Role="HRZoneTime" Type="Self.HRZoneTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HRZones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HRZoneTime">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HRZoneTime_TrainingRides">
+    <End Role="TrainingRide" Type="Self.TrainingRide" Multiplicity="1" />
+    <End Role="HRZoneTime" Type="Self.HRZoneTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingRide">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HRZoneTime">
+        <PropertyRef Name="RideId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Maintenance_Part">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Part_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shoe_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shoe">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Part_PartType">
+    <End Role="PartType" Type="Self.PartType" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="PartTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRide_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="RecreationalRide" Type="Self.RecreationalRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRide">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRideGPX_RecreationalRide">
+    <End Role="RecreationalRide" Type="Self.RecreationalRide" Multiplicity="1" />
+    <End Role="RecreationalRideGPX" Type="Self.RecreationalRideGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecreationalRide">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRideGPX">
+        <PropertyRef Name="RecreationalRideId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRun_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="RecreationalRun" Type="Self.RecreationalRun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRun">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRun_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="RecreationalRun" Type="Self.RecreationalRun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRun">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalRunGPX_RecreationalRun">
+    <End Role="RecreationalRun" Type="Self.RecreationalRun" Multiplicity="1" />
+    <End Role="RecreationalRunGPX" Type="Self.RecreationalRunGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecreationalRun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalRunGPX">
+        <PropertyRef Name="RecreationalRunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalWalk_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="RecreationalWalk" Type="Self.RecreationalWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalWalk">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalWalk_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="RecreationalWalk" Type="Self.RecreationalWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalWalk">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecreationalWalkGPX_RecreationalWalk">
+    <End Role="RecreationalWalk" Type="Self.RecreationalWalk" Multiplicity="1" />
+    <End Role="RecreationalWalkGPX" Type="Self.RecreationalWalkGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecreationalWalk">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecreationalWalkGPX">
+        <PropertyRef Name="RecreationalWalkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Route_Type">
+    <End Role="RouteType" Type="Self.RouteType" Multiplicity="1" />
+    <End Role="Route" Type="Self.Route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RouteType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Route">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RouteDescriptionDisplay_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="RouteDisplay" Type="Self.RouteDisplay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RouteDisplay">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RouteDirection_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RouteDirection" Type="Self.RouteDirection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RouteDirection">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoutePicture_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="RoutePicture" Type="Self.RoutePicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoutePicture">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRide_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="TrainingRide" Type="Self.TrainingRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRide">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRun_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="TrainingRun" Type="Self.TrainingRun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRun">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingWalk_Route">
+    <End Role="Route" Type="Self.Route" Multiplicity="1" />
+    <End Role="TrainingWalk" Type="Self.TrainingWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingWalk">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shoe_ShoeType">
+    <End Role="ShoeType" Type="Self.ShoeType" Multiplicity="1" />
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoeType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shoe">
+        <PropertyRef Name="ShoeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stairs_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="Stairs" Type="Self.Stair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stairs">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRun_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="TrainingRun" Type="Self.TrainingRun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRun">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingWalk_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="TrainingWalk" Type="Self.TrainingWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingWalk">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreadmillRun_Shoe">
+    <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+    <End Role="TreadmillRun" Type="Self.TreadmillRun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreadmillRun">
+        <PropertyRef Name="ShoeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRideGPX_TrainingRide">
+    <End Role="TrainingRide" Type="Self.TrainingRide" Multiplicity="1" />
+    <End Role="TrainingRideGPX" Type="Self.TrainingRideGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingRide">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRideGPX">
+        <PropertyRef Name="TrainingRideId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingRunGPX_TrainingRun">
+    <End Role="TrainingRun" Type="Self.TrainingRun" Multiplicity="1" />
+    <End Role="TrainingRunGPX" Type="Self.TrainingRunGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingRun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingRunGPX">
+        <PropertyRef Name="TrainingRunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrainingWalkGPX_TrainingWalk">
+    <End Role="TrainingWalk" Type="Self.TrainingWalk" Multiplicity="1" />
+    <End Role="TrainingWalkGPX" Type="Self.TrainingWalkGPX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingWalk">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingWalkGPX">
+        <PropertyRef Name="TrainingWalkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FitnessEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BenchmarkMiles" EntityType="Self.BenchmarkMile" />
+    <EntitySet Name="Bikes" EntityType="Self.Bike" />
+    <EntitySet Name="BikeHistories" EntityType="Self.BikeHistory" />
+    <EntitySet Name="BikeOnlyMiles" EntityType="Self.BikeOnlyMile" />
+    <EntitySet Name="BikeParts" EntityType="Self.BikePart" />
+    <EntitySet Name="BikeTypes" EntityType="Self.BikeType" />
+    <EntitySet Name="Circuits" EntityType="Self.Circuit" />
+    <EntitySet Name="CircuitComponents" EntityType="Self.CircuitComponent" />
+    <EntitySet Name="CircuitsComponents" EntityType="Self.CircuitsComponent" />
+    <EntitySet Name="ExerciseTypes" EntityType="Self.ExerciseType" />
+    <EntitySet Name="HRZones" EntityType="Self.HRZone" />
+    <EntitySet Name="HRZoneTimes" EntityType="Self.HRZoneTime" />
+    <EntitySet Name="LiftingSessions" EntityType="Self.LiftingSession" />
+    <EntitySet Name="Maintenances" EntityType="Self.Maintenance" />
+    <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+    <EntitySet Name="MissedMiles" EntityType="Self.MissedMile" />
+    <EntitySet Name="NonRideMiles" EntityType="Self.NonRideMile" />
+    <EntitySet Name="Parts" EntityType="Self.Part" />
+    <EntitySet Name="PartTypes" EntityType="Self.PartType" />
+    <EntitySet Name="RecreationalRides" EntityType="Self.RecreationalRide" />
+    <EntitySet Name="RecreationalRideGPXes" EntityType="Self.RecreationalRideGPX" />
+    <EntitySet Name="RecreationalRuns" EntityType="Self.RecreationalRun" />
+    <EntitySet Name="RecreationalRunGPXes" EntityType="Self.RecreationalRunGPX" />
+    <EntitySet Name="RecreationalWalks" EntityType="Self.RecreationalWalk" />
+    <EntitySet Name="RecreationalWalkGPXes" EntityType="Self.RecreationalWalkGPX" />
+    <EntitySet Name="Routes" EntityType="Self.Route" />
+    <EntitySet Name="RouteDirections" EntityType="Self.RouteDirection" />
+    <EntitySet Name="RouteDisplays" EntityType="Self.RouteDisplay" />
+    <EntitySet Name="RoutePictures" EntityType="Self.RoutePicture" />
+    <EntitySet Name="RouteTypes" EntityType="Self.RouteType" />
+    <EntitySet Name="Shoes" EntityType="Self.Shoe" />
+    <EntitySet Name="ShoeTypes" EntityType="Self.ShoeType" />
+    <EntitySet Name="Stairs" EntityType="Self.Stair" />
+    <EntitySet Name="StationaryRides" EntityType="Self.StationaryRide" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TrainingRides" EntityType="Self.TrainingRide" />
+    <EntitySet Name="TrainingRideGPXes" EntityType="Self.TrainingRideGPX" />
+    <EntitySet Name="TrainingRuns" EntityType="Self.TrainingRun" />
+    <EntitySet Name="TrainingRunGPXes" EntityType="Self.TrainingRunGPX" />
+    <EntitySet Name="TrainingWalks" EntityType="Self.TrainingWalk" />
+    <EntitySet Name="TrainingWalkGPXes" EntityType="Self.TrainingWalkGPX" />
+    <EntitySet Name="TreadmillRuns" EntityType="Self.TreadmillRun" />
+    <EntitySet Name="Weights" EntityType="Self.Weight" />
+    <EntitySet Name="MaintenanceLogs" EntityType="Self.MaintenanceLog" />
+    <EntitySet Name="Parts1" EntityType="Self.Part1" />
+    <EntitySet Name="RecreationalRides1" EntityType="Self.RecreationalRide1" />
+    <EntitySet Name="RecreationalRuns1" EntityType="Self.RecreationalRun1" />
+    <EntitySet Name="RecreationalWalks1" EntityType="Self.RecreationalWalk1" />
+    <EntitySet Name="StationaryRides1" EntityType="Self.StationaryRide1" />
+    <EntitySet Name="TrainingRides1" EntityType="Self.TrainingRide1" />
+    <EntitySet Name="TrainingRuns1" EntityType="Self.TrainingRun1" />
+    <EntitySet Name="TrainingWalks1" EntityType="Self.TrainingWalk1" />
+    <EntitySet Name="TreadmillRuns1" EntityType="Self.TreadmillRun1" />
+    <AssociationSet Name="FK_BenchmarkMiles_Bike" Association="Self.FK_BenchmarkMiles_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="BenchmarkMiles" EntitySet="BenchmarkMiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bike_BikeType" Association="Self.FK_Bike_BikeType">
+      <End Role="BikeType" EntitySet="BikeTypes" />
+      <End Role="Bike" EntitySet="Bikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bike_Manufacturer" Association="Self.FK_Bike_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Bike" EntitySet="Bikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bike_Type" Association="Self.FK_Bike_Type">
+      <End Role="RouteType" EntitySet="RouteTypes" />
+      <End Role="Bike" EntitySet="Bikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikeHistory_Bike" Association="Self.FK_BikeHistory_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="BikeHistory" EntitySet="BikeHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikeOnlyMiles_Bike" Association="Self.FK_BikeOnlyMiles_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="BikeOnlyMiles" EntitySet="BikeOnlyMiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikePart_Bike" Association="Self.FK_BikePart_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="BikePart" EntitySet="BikeParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikePart_Bike1" Association="Self.FK_BikePart_Bike1">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="BikePart" EntitySet="BikeParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Maintenance_Bike" Association="Self.FK_Maintenance_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="Maintenance" EntitySet="Maintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NonRideMiles_Bike" Association="Self.FK_NonRideMiles_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="NonRideMiles" EntitySet="NonRideMiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRide_Bike" Association="Self.FK_RecreationalRide_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="RecreationalRide" EntitySet="RecreationalRides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StationaryRide_Bike" Association="Self.FK_StationaryRide_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="StationaryRide" EntitySet="StationaryRides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRide_Bike" Association="Self.FK_TrainingRide_Bike">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="TrainingRide" EntitySet="TrainingRides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikePart_Part" Association="Self.FK_BikePart_Part">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="BikePart" EntitySet="BikeParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BikePart_Part1" Association="Self.FK_BikePart_Part1">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="BikePart" EntitySet="BikeParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CircuitsComponents_Circuit" Association="Self.FK_CircuitsComponents_Circuit">
+      <End Role="Circuit" EntitySet="Circuits" />
+      <End Role="CircuitsComponents" EntitySet="CircuitsComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LiftSession_Circuit" Association="Self.FK_LiftSession_Circuit">
+      <End Role="Circuit" EntitySet="Circuits" />
+      <End Role="LiftingSession" EntitySet="LiftingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CircuitsComponents_CircuitComponent" Association="Self.FK_CircuitsComponents_CircuitComponent">
+      <End Role="CircuitComponent" EntitySet="CircuitComponents" />
+      <End Role="CircuitsComponents" EntitySet="CircuitsComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MissedMiles_ExerciseType" Association="Self.FK_MissedMiles_ExerciseType">
+      <End Role="ExerciseType" EntitySet="ExerciseTypes" />
+      <End Role="MissedMiles" EntitySet="MissedMiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HRZoneTime_HRZones" Association="Self.FK_HRZoneTime_HRZones">
+      <End Role="HRZones" EntitySet="HRZones" />
+      <End Role="HRZoneTime" EntitySet="HRZoneTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HRZoneTime_TrainingRides" Association="Self.FK_HRZoneTime_TrainingRides">
+      <End Role="TrainingRide" EntitySet="TrainingRides" />
+      <End Role="HRZoneTime" EntitySet="HRZoneTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Maintenance_Part" Association="Self.FK_Maintenance_Part">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Maintenance" EntitySet="Maintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Part_Manufacturer" Association="Self.FK_Part_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shoe_Manufacturer" Association="Self.FK_Shoe_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Shoe" EntitySet="Shoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Part_PartType" Association="Self.FK_Part_PartType">
+      <End Role="PartType" EntitySet="PartTypes" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRide_Route" Association="Self.FK_RecreationalRide_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RecreationalRide" EntitySet="RecreationalRides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRideGPX_RecreationalRide" Association="Self.FK_RecreationalRideGPX_RecreationalRide">
+      <End Role="RecreationalRide" EntitySet="RecreationalRides" />
+      <End Role="RecreationalRideGPX" EntitySet="RecreationalRideGPXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRun_Route" Association="Self.FK_RecreationalRun_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RecreationalRun" EntitySet="RecreationalRuns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRun_Shoe" Association="Self.FK_RecreationalRun_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="RecreationalRun" EntitySet="RecreationalRuns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalRunGPX_RecreationalRun" Association="Self.FK_RecreationalRunGPX_RecreationalRun">
+      <End Role="RecreationalRun" EntitySet="RecreationalRuns" />
+      <End Role="RecreationalRunGPX" EntitySet="RecreationalRunGPXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalWalk_Route" Association="Self.FK_RecreationalWalk_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RecreationalWalk" EntitySet="RecreationalWalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalWalk_Shoe" Association="Self.FK_RecreationalWalk_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="RecreationalWalk" EntitySet="RecreationalWalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecreationalWalkGPX_RecreationalWalk" Association="Self.FK_RecreationalWalkGPX_RecreationalWalk">
+      <End Role="RecreationalWalk" EntitySet="RecreationalWalks" />
+      <End Role="RecreationalWalkGPX" EntitySet="RecreationalWalkGPXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Route_Type" Association="Self.FK_Route_Type">
+      <End Role="RouteType" EntitySet="RouteTypes" />
+      <End Role="Route" EntitySet="Routes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RouteDescriptionDisplay_Route" Association="Self.FK_RouteDescriptionDisplay_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RouteDisplay" EntitySet="RouteDisplays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RouteDirection_Route" Association="Self.FK_RouteDirection_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RouteDirection" EntitySet="RouteDirections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoutePicture_Route" Association="Self.FK_RoutePicture_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RoutePicture" EntitySet="RoutePictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRide_Route" Association="Self.FK_TrainingRide_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="TrainingRide" EntitySet="TrainingRides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRun_Route" Association="Self.FK_TrainingRun_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="TrainingRun" EntitySet="TrainingRuns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingWalk_Route" Association="Self.FK_TrainingWalk_Route">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="TrainingWalk" EntitySet="TrainingWalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shoe_ShoeType" Association="Self.FK_Shoe_ShoeType">
+      <End Role="ShoeType" EntitySet="ShoeTypes" />
+      <End Role="Shoe" EntitySet="Shoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stairs_Shoe" Association="Self.FK_Stairs_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="Stairs" EntitySet="Stairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRun_Shoe" Association="Self.FK_TrainingRun_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="TrainingRun" EntitySet="TrainingRuns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingWalk_Shoe" Association="Self.FK_TrainingWalk_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="TrainingWalk" EntitySet="TrainingWalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreadmillRun_Shoe" Association="Self.FK_TreadmillRun_Shoe">
+      <End Role="Shoe" EntitySet="Shoes" />
+      <End Role="TreadmillRun" EntitySet="TreadmillRuns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRideGPX_TrainingRide" Association="Self.FK_TrainingRideGPX_TrainingRide">
+      <End Role="TrainingRide" EntitySet="TrainingRides" />
+      <End Role="TrainingRideGPX" EntitySet="TrainingRideGPXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingRunGPX_TrainingRun" Association="Self.FK_TrainingRunGPX_TrainingRun">
+      <End Role="TrainingRun" EntitySet="TrainingRuns" />
+      <End Role="TrainingRunGPX" EntitySet="TrainingRunGPXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrainingWalkGPX_TrainingWalk" Association="Self.FK_TrainingWalkGPX_TrainingWalk">
+      <End Role="TrainingWalk" EntitySet="TrainingWalks" />
+      <End Role="TrainingWalkGPX" EntitySet="TrainingWalkGPXes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

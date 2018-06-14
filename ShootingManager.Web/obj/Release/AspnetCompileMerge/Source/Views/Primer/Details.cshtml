@@ -1,0 +1,83 @@
+﻿@model ShootingManager.Entities.Models.Primer
+
+@{
+    ViewBag.Title = "Primer Details";
+}
+<head>
+    <title>Shooting Manager: Primer Details - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Primer Index", "Index", "Primer", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Primer Details</h2>
+
+    @using (Html.BeginForm("Edit", "Primer", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+    {
+
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Primer Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.PrimerType.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Manufacturer.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+    }
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@model local.yellowcaddis.ShootingManager.Core.Entities.Caliber
+
+<div class="item">
+    <h1>@Model.Name</h1>
+    @Model.Diameter @Model.Unit.Name
+    <h4>@Model.Notes</h4>
+
+    <p>@Html.ActionLink("Brass", "List", "Brass", new { caliberName = @Model.Name}, null)&nbsp;
+    @Html.ActionLink("Bullets", "List", "Bullet", new { caliberName = @Model.Name }, null) &nbsp; &nbsp;
+    @Html.ActionLink("Cartridges", "List", "Cartridge", new { caliberName = @Model.Name }, null)</p>
+
+</div>
+

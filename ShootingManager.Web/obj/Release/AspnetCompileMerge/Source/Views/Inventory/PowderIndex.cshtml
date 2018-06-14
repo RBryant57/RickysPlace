@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.PowderViewModel>
+
+@{
+    ViewBag.Title = "Powder Index";
+}
+<br />
+@Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create Powder Inventory", "CreatePowder", null, new { @class = "EditLinkStyle" })
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Powder Name")
+        </th>
+        <th>
+            @Html.DisplayName("Powder Type")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PowderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PowderTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity.EndQuantity)
+            &nbsp; grs.
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPowder", new { id=item.PowderQuantityId })
+        </td>
+    </tr>
+}
+
+</table>

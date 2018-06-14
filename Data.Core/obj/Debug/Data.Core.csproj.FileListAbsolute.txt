@@ -1,0 +1,11 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\obj\Debug\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\obj\Debug\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\obj\Debug\Data.Core.csproj.CoreCompileInputs.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Data.Core\obj\Debug\Data.Core.csprojResolveAssemblyReference.cache

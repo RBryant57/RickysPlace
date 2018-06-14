@@ -1,0 +1,2726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShootingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <!--<EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>-->
+  <EntityType Name="Brass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="TimesFired" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Caliber" Relationship="Self.FK_Brass_Caliber" FromRole="Brass" ToRole="Caliber" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Brass_Manufacturer" FromRole="Brass" ToRole="Manufacturer" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Brass_Material" FromRole="Brass" ToRole="Material" />
+    <NavigationProperty Name="BrassCosts" Relationship="Self.FK_BrassCost_Brass" FromRole="Brass" ToRole="BrassCost" />
+    <NavigationProperty Name="BrassQuantities" Relationship="Self.FK_BrassQuantity_Brass" FromRole="Brass" ToRole="BrassQuantity" />
+    <NavigationProperty Name="Cartridges" Relationship="Self.FK_Cartridge_Brass" FromRole="Brass" ToRole="Cartridge" />
+  </EntityType>
+  <EntityType Name="BrassCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brass" Relationship="Self.FK_BrassCost_Brass" FromRole="BrassCost" ToRole="Brass" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_BrassCost_Unit" FromRole="BrassCost" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="BrassQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="EndQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brass" Relationship="Self.FK_BrassQuantity_Brass" FromRole="BrassQuantity" ToRole="Brass" />
+    <NavigationProperty Name="InventoryType" Relationship="Self.FK_BrassQuantity_InventoryType" FromRole="BrassQuantity" ToRole="InventoryType" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_BrassQuantity_Unit" FromRole="BrassQuantity" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Bullet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletTypeId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Mass" Type="Int32" Nullable="false" />
+    <Property Name="MassUnitId" Type="Int32" Nullable="false" />
+    <Property Name="SectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Length" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="LengthUnitId" Type="Int32" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BulletType" Relationship="Self.FK_Bullet_BulletType" FromRole="Bullet" ToRole="BulletType" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Bullet_Manufacturer" FromRole="Bullet" ToRole="Manufacturer" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Bullet_Material" FromRole="Bullet" ToRole="Material" />
+    <NavigationProperty Name="DiameterUnit" Relationship="Self.FK_Bullet_UnitDiameter" FromRole="Bullet" ToRole="Unit" />
+    <NavigationProperty Name="LengthUnit" Relationship="Self.FK_Bullet_UnitLength" FromRole="Bullet" ToRole="Unit" />
+    <NavigationProperty Name="MassUnit" Relationship="Self.FK_Bullet_UnitMass" FromRole="Bullet" ToRole="Unit" />
+    <NavigationProperty Name="BulletCosts" Relationship="Self.FK_BulletCost_Bullet" FromRole="Bullet" ToRole="BulletCost" />
+    <NavigationProperty Name="BulletQuantities" Relationship="Self.FK_BulletQuantity_Bullet" FromRole="Bullet" ToRole="BulletQuantity" />
+    <NavigationProperty Name="CartridgeLoads" Relationship="Self.FK_CartridgeLoad_Bullet" FromRole="Bullet" ToRole="CartridgeLoad" />
+  </EntityType>
+  <EntityType Name="BulletCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bullet" Relationship="Self.FK_BulletCost_Bullet" FromRole="BulletCost" ToRole="Bullet" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_BulletCost_Unit" FromRole="BulletCost" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="BulletQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="EndQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bullet" Relationship="Self.FK_BulletQuantity_Bullet" FromRole="BulletQuantity" ToRole="Bullet" />
+    <NavigationProperty Name="InventoryType" Relationship="Self.FK_BulletQuantity_InventoryType" FromRole="BulletQuantity" ToRole="InventoryType" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_BulletQuantity_Unit" FromRole="BulletQuantity" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="BulletType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bullets" Relationship="Self.FK_Bullet_BulletType" FromRole="BulletType" ToRole="Bullet" />
+  </EntityType>
+  <EntityType Name="Caliber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="BrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="BrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brasses" Relationship="Self.FK_Brass_Caliber" FromRole="Caliber" ToRole="Brass" />
+    <NavigationProperty Name="BrassLengthUnit" Relationship="Self.FK_Caliber_BrassLengthUnit" FromRole="Caliber" ToRole="Unit" />
+    <NavigationProperty Name="DiameterUnit" Relationship="Self.FK_Caliber_DiameterUnit" FromRole="Caliber" ToRole="Unit" />
+    <NavigationProperty Name="PrimerType" Relationship="Self.FK_Caliber_PrimerType" FromRole="Caliber" ToRole="PrimerType" />
+    <NavigationProperty Name="CartridgeLoads" Relationship="Self.FK_CartridgeLoad_Caliber" FromRole="Caliber" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="Guns" Relationship="Self.FK_Gun_Caliber" FromRole="Caliber" ToRole="Gun" />
+    <NavigationProperty Name="GunsCalibers" Relationship="Self.FK_GunsCalibers_Caliber" FromRole="Caliber" ToRole="GunsCalibers" />
+  </EntityType>
+  <EntityType Name="Cartridge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeLoadId" Type="Int32" Nullable="false" />
+    <Property Name="BrassId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerId" Type="Int32" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brass" Relationship="Self.FK_Cartridge_Brass" FromRole="Cartridge" ToRole="Brass" />
+    <NavigationProperty Name="CartridgeLoad" Relationship="Self.FK_Cartridge_CartridgeLoad" FromRole="Cartridge" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Cartridge_Manufacturer" FromRole="Cartridge" ToRole="Manufacturer" />
+    <NavigationProperty Name="Primer" Relationship="Self.FK_Cartridge_Primer" FromRole="Cartridge" ToRole="Primer" />
+    <NavigationProperty Name="CartridgeCosts" Relationship="Self.FK_CartridgeCost_Cartridge" FromRole="Cartridge" ToRole="CartridgeCost" />
+    <NavigationProperty Name="CartridgeQuantities" Relationship="Self.FK_CartridgeQuantity_Cartridge" FromRole="Cartridge" ToRole="CartridgeQuantity" />
+    <NavigationProperty Name="ShootingSessions" Relationship="Self.FK_ShootingSession_Cartridge" FromRole="Cartridge" ToRole="ShootingSession" />
+  </EntityType>
+  <EntityType Name="CartridgeCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cartridge" Relationship="Self.FK_CartridgeCost_Cartridge" FromRole="CartridgeCost" ToRole="Cartridge" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_CartridgeCost_Unit" FromRole="CartridgeCost" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="CartridgeLoad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="BulletId" Type="Int32" Nullable="false" />
+    <Property Name="PowderId" Type="Int32" />
+    <Property Name="PowderWeight" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="PowderWeightUnitId" Type="Int32" />
+    <Property Name="COL" Type="Decimal" Precision="4" Scale="3" Nullable="false" />
+    <Property Name="COLUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Velocity" Type="Int32" />
+    <Property Name="VelocityUnitId" Type="Int32" />
+    <Property Name="Pressure" Type="Int32" />
+    <Property Name="PressureUnitId" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bullet" Relationship="Self.FK_CartridgeLoad_Bullet" FromRole="CartridgeLoad" ToRole="Bullet" />
+    <NavigationProperty Name="Caliber" Relationship="Self.FK_CartridgeLoad_Caliber" FromRole="CartridgeLoad" ToRole="Caliber" />
+    <NavigationProperty Name="Cartridges" Relationship="Self.FK_Cartridge_CartridgeLoad" FromRole="CartridgeLoad" ToRole="Cartridge" />
+    <NavigationProperty Name="COLUnit" Relationship="Self.FK_CartridgeLoad_COLUnit" FromRole="CartridgeLoad" ToRole="Unit" />
+    <NavigationProperty Name="Powder" Relationship="Self.FK_CartridgeLoad_Powder" FromRole="CartridgeLoad" ToRole="Powder" />
+    <NavigationProperty Name="PowderWeightUnit" Relationship="Self.FK_CartridgeLoad_PowderWeightUnit" FromRole="CartridgeLoad" ToRole="Unit" />
+    <NavigationProperty Name="PressureUnit" Relationship="Self.FK_CartridgeLoad_PressureUnit" FromRole="CartridgeLoad" ToRole="Unit" />
+    <NavigationProperty Name="VelocityUnit" Relationship="Self.FK_CartridgeLoad_VelocityUnit" FromRole="CartridgeLoad" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="CartridgeQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="EndQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cartridge" Relationship="Self.FK_CartridgeQuantity_Cartridge" FromRole="CartridgeQuantity" ToRole="Cartridge" />
+    <NavigationProperty Name="InventoryType" Relationship="Self.FK_CartridgeQuantity_InventoryType" FromRole="CartridgeQuantity" ToRole="InventoryType" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_CartridgeQuantity_Unit" FromRole="CartridgeQuantity" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Gun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SerialNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="SellerId" Type="Int32" Nullable="false" />
+    <Property Name="BuyerId" Type="Int32" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="BarrelLength" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="BarrelLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="GunTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AcquisitionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RetireDate" Type="DateTime" Precision="0" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Caliber" Relationship="Self.FK_Gun_Caliber" FromRole="Gun" ToRole="Caliber" />
+    <NavigationProperty Name="BarrelLengthUnit" Relationship="Self.FK_Gun_BarrelLengthUnit" FromRole="Gun" ToRole="Unit" />
+    <NavigationProperty Name="GunType" Relationship="Self.FK_Gun_GunType" FromRole="Gun" ToRole="GunType" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Gun_Manufacturer" FromRole="Gun" ToRole="Manufacturer" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK_Gun_Seller" FromRole="Gun" ToRole="Manufacturer" />
+    <NavigationProperty Name="GunImages" Relationship="Self.FK_GunImages_Gun" FromRole="Gun" ToRole="GunImages" />
+    <NavigationProperty Name="GunsCalibers" Relationship="Self.FK_GunsCalibers_Gun" FromRole="Gun" ToRole="GunsCalibers" />
+    <NavigationProperty Name="ShootingSessions" Relationship="Self.FK_ShootingSession_Gun" FromRole="Gun" ToRole="ShootingSession" />
+  </EntityType>
+  <EntityType Name="GunImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="PictureLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Gun" Relationship="Self.FK_GunImages_Gun" FromRole="GunImages" ToRole="Gun" />
+  </EntityType>
+  <EntityType Name="GunsCalibers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Caliber" Relationship="Self.FK_GunsCalibers_Caliber" FromRole="GunsCalibers" ToRole="Caliber" />
+    <NavigationProperty Name="Gun" Relationship="Self.FK_GunsCalibers_Gun" FromRole="GunsCalibers" ToRole="Gun" />
+  </EntityType>
+  <EntityType Name="GunType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Guns" Relationship="Self.FK_Gun_GunType" FromRole="GunType" ToRole="Gun" />
+  </EntityType>
+  <EntityType Name="InventoryType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BrassQuantities" Relationship="Self.FK_BrassQuantity_InventoryType" FromRole="InventoryType" ToRole="BrassQuantity" />
+    <NavigationProperty Name="BulletQuantities" Relationship="Self.FK_BulletQuantity_InventoryType" FromRole="InventoryType" ToRole="BulletQuantity" />
+    <NavigationProperty Name="CartridgeQuantities" Relationship="Self.FK_CartridgeQuantity_InventoryType" FromRole="InventoryType" ToRole="CartridgeQuantity" />
+    <NavigationProperty Name="PowderQuantities" Relationship="Self.FK_PowderQuantity_InventoryType" FromRole="InventoryType" ToRole="PowderQuantity" />
+    <NavigationProperty Name="PrimerQuantities" Relationship="Self.FK_PrimerQuantity_InventoryType" FromRole="InventoryType" ToRole="PrimerQuantity" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brasses" Relationship="Self.FK_Brass_Manufacturer" FromRole="Manufacturer" ToRole="Brass" />
+    <NavigationProperty Name="Bullets" Relationship="Self.FK_Bullet_Manufacturer" FromRole="Manufacturer" ToRole="Bullet" />
+    <NavigationProperty Name="Cartridges" Relationship="Self.FK_Cartridge_Manufacturer" FromRole="Manufacturer" ToRole="Cartridge" />
+    <NavigationProperty Name="GunsBuyers" Relationship="Self.FK_Gun_Buyer" FromRole="Manufacturer" ToRole="Gun" />
+    <NavigationProperty Name="GunsManufacturers" Relationship="Self.FK_Gun_Manufacturer" FromRole="Manufacturer" ToRole="Gun" />
+    <NavigationProperty Name="GunsSellers" Relationship="Self.FK_Gun_Seller" FromRole="Manufacturer" ToRole="Gun" />
+    <NavigationProperty Name="Powders" Relationship="Self.FK_Powder_Manufacturer" FromRole="Manufacturer" ToRole="Powder" />
+    <NavigationProperty Name="Primers" Relationship="Self.FK_Primer_Manufacturer" FromRole="Manufacturer" ToRole="Primer" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brasses" Relationship="Self.FK_Brass_Material" FromRole="Material" ToRole="Brass" />
+    <NavigationProperty Name="Bullets" Relationship="Self.FK_Bullet_Material" FromRole="Material" ToRole="Bullet" />
+  </EntityType>
+  <EntityType Name="Powder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="PowderTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PowderShapeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CartridgeLoads" Relationship="Self.FK_CartridgeLoad_Powder" FromRole="Powder" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Powder_Manufacturer" FromRole="Powder" ToRole="Manufacturer" />
+    <NavigationProperty Name="PowderShape" Relationship="Self.FK_Powder_PowderShape" FromRole="Powder" ToRole="PowderShape" />
+    <NavigationProperty Name="PowderType" Relationship="Self.FK_Powder_PowderType" FromRole="Powder" ToRole="PowderType" />
+    <NavigationProperty Name="PowderCosts" Relationship="Self.FK_PowderCost_Powder" FromRole="Powder" ToRole="PowderCost" />
+    <NavigationProperty Name="PowderQuantities" Relationship="Self.FK_PowderQuantity_Powder" FromRole="Powder" ToRole="PowderQuantity" />
+  </EntityType>
+  <EntityType Name="PowderCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Powder" Relationship="Self.FK_PowderCost_Powder" FromRole="PowderCost" ToRole="Powder" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_PowderCost_Unit" FromRole="PowderCost" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PowderQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="EndQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="InventoryType" Relationship="Self.FK_PowderQuantity_InventoryType" FromRole="PowderQuantity" ToRole="InventoryType" />
+    <NavigationProperty Name="Powder" Relationship="Self.FK_PowderQuantity_Powder" FromRole="PowderQuantity" ToRole="Powder" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_PowderQuantity_Unit" FromRole="PowderQuantity" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PowderShape">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Powders" Relationship="Self.FK_Powder_PowderShape" FromRole="PowderShape" ToRole="Powder" />
+  </EntityType>
+  <EntityType Name="PowderType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Powders" Relationship="Self.FK_Powder_PowderType" FromRole="PowderType" ToRole="Powder" />
+  </EntityType>
+  <EntityType Name="Primer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cartridges" Relationship="Self.FK_Cartridge_Primer" FromRole="Primer" ToRole="Cartridge" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Primer_Manufacturer" FromRole="Primer" ToRole="Manufacturer" />
+    <NavigationProperty Name="PrimerType" Relationship="Self.FK_Primer_PrimerType" FromRole="Primer" ToRole="PrimerType" />
+    <NavigationProperty Name="PrimerCosts" Relationship="Self.FK_PrimerCost_Primer" FromRole="Primer" ToRole="PrimerCost" />
+    <NavigationProperty Name="PrimerQuantities" Relationship="Self.FK_PrimerQuantity_Primer" FromRole="Primer" ToRole="PrimerQuantity" />
+  </EntityType>
+  <EntityType Name="PrimerCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Primer" Relationship="Self.FK_PrimerCost_Primer" FromRole="PrimerCost" ToRole="Primer" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_PrimerCost_Unit" FromRole="PrimerCost" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PrimerQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="EndQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Int32" Nullable="false" />
+    <Property Name="QuantityUnitId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="InventoryType" Relationship="Self.FK_PrimerQuantity_InventoryType" FromRole="PrimerQuantity" ToRole="InventoryType" />
+    <NavigationProperty Name="Primer" Relationship="Self.FK_PrimerQuantity_Primer" FromRole="PrimerQuantity" ToRole="Primer" />
+    <NavigationProperty Name="QuantityUnit" Relationship="Self.FK_PrimerQuantity_Unit" FromRole="PrimerQuantity" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PrimerType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Calibers" Relationship="Self.FK_Caliber_PrimerType" FromRole="PrimerType" ToRole="Caliber" />
+    <NavigationProperty Name="Primers" Relationship="Self.FK_Primer_PrimerType" FromRole="PrimerType" ToRole="Primer" />
+  </EntityType>
+  <EntityType Name="ShootingLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShootingSessions" Relationship="Self.FK_ShootingSession_ShootingLocation" FromRole="ShootingLocation" ToRole="ShootingSession" />
+  </EntityType>
+  <EntityType Name="ShootingSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeId" Type="Int32" Nullable="false" />
+    <Property Name="Rounds" Type="Int32" Nullable="false" />
+    <Property Name="Retention" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cartridge" Relationship="Self.FK_ShootingSession_Cartridge" FromRole="ShootingSession" ToRole="Cartridge" />
+    <NavigationProperty Name="Gun" Relationship="Self.FK_ShootingSession_Gun" FromRole="ShootingSession" ToRole="Gun" />
+    <NavigationProperty Name="ShootingLocation" Relationship="Self.FK_ShootingSession_ShootingLocation" FromRole="ShootingSession" ToRole="ShootingLocation" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BrassCosts" Relationship="Self.FK_BrassCost_Unit" FromRole="Unit" ToRole="BrassCost" />
+    <NavigationProperty Name="BrassQuantities" Relationship="Self.FK_BrassQuantity_Unit" FromRole="Unit" ToRole="BrassQuantity" />
+    <NavigationProperty Name="DiameterUnitBullets" Relationship="Self.FK_Bullet_UnitDiameter" FromRole="Unit" ToRole="Bullet" />
+    <NavigationProperty Name="LengthUnitBullets" Relationship="Self.FK_Bullet_UnitLength" FromRole="Unit" ToRole="Bullet" />
+    <NavigationProperty Name="MassUnitBullets" Relationship="Self.FK_Bullet_UnitMass" FromRole="Unit" ToRole="Bullet" />
+    <NavigationProperty Name="BulletCosts" Relationship="Self.FK_BulletCost_Unit" FromRole="Unit" ToRole="BulletCost" />
+    <NavigationProperty Name="BulletQuantities" Relationship="Self.FK_BulletQuantity_Unit" FromRole="Unit" ToRole="BulletQuantity" />
+    <NavigationProperty Name="BrassLengthUnitCalibers" Relationship="Self.FK_Caliber_BrassLengthUnit" FromRole="Unit" ToRole="Caliber" />
+    <NavigationProperty Name="DiameterUnitCalibers" Relationship="Self.FK_Caliber_DiameterUnit" FromRole="Unit" ToRole="Caliber" />
+    <NavigationProperty Name="CartridgeCosts" Relationship="Self.FK_CartridgeCost_Unit" FromRole="Unit" ToRole="CartridgeCost" />
+    <NavigationProperty Name="COLUnitCartridgeLoads" Relationship="Self.FK_CartridgeLoad_COLUnit" FromRole="Unit" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="PowderWeightUnitCartridgeLoads" Relationship="Self.FK_CartridgeLoad_PowderWeightUnit" FromRole="Unit" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="PressureUnitCartridgeLoads" Relationship="Self.FK_CartridgeLoad_PressureUnit" FromRole="Unit" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="VelocityUnitCartridgeLoads" Relationship="Self.FK_CartridgeLoad_VelocityUnit" FromRole="Unit" ToRole="CartridgeLoad" />
+    <NavigationProperty Name="CartridgeQuantities" Relationship="Self.FK_CartridgeQuantity_Unit" FromRole="Unit" ToRole="CartridgeQuantity" />
+    <NavigationProperty Name="Guns" Relationship="Self.FK_Gun_BarrelLengthUnit" FromRole="Unit" ToRole="Gun" />
+    <NavigationProperty Name="PowderCosts" Relationship="Self.FK_PowderCost_Unit" FromRole="Unit" ToRole="PowderCost" />
+    <NavigationProperty Name="PowderQuantities" Relationship="Self.FK_PowderQuantity_Unit" FromRole="Unit" ToRole="PowderQuantity" />
+    <NavigationProperty Name="PrimerCosts" Relationship="Self.FK_PrimerCost_Unit" FromRole="Unit" ToRole="PrimerCost" />
+    <NavigationProperty Name="PrimerQuantities" Relationship="Self.FK_PrimerQuantity_Unit" FromRole="Unit" ToRole="PrimerQuantity" />
+    <NavigationProperty Name="UnitType" Relationship="Self.FK_Unit_UnitType" FromRole="Unit" ToRole="UnitType" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Units" Relationship="Self.FK_Unit_UnitType" FromRole="UnitType" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="BrassView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BrassName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberViewName" />
+      <PropertyRef Name="CaliberViewDiameter" />
+      <PropertyRef Name="CaliberViewDiameterUnitId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewBrassLength" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewName" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewPlural" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeId" />
+      <PropertyRef Name="CaliberViewPrimerTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="CaliberViewSortOrder" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="MaterialName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="TimesFired" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="ParentBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimesFired" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BulletView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BulletTypeId" />
+      <PropertyRef Name="BulletTypeName" />
+      <PropertyRef Name="BulletTypeAbbreviation" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="Mass" />
+      <PropertyRef Name="MassUnitId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="BulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="BulletTypeId" Type="Int32" Nullable="false" />
+    <Property Name="BulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="DiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mass" Type="Int32" Nullable="false" />
+    <Property Name="MassUnitId" Type="Int32" Nullable="false" />
+    <Property Name="MassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="MassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Length" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="LengthUnitId" Type="Int32" />
+    <Property Name="LengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="LengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewId" Type="Int32" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CaliberView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="DiameterUnitViewName" />
+      <PropertyRef Name="DiameterUnitViewPlural" />
+      <PropertyRef Name="DiameterUnitViewAbbreviation" />
+      <PropertyRef Name="DiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="DiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="BrassLength" />
+      <PropertyRef Name="BrassLengthUnitId" />
+      <PropertyRef Name="BrassLengthUnitViewName" />
+      <PropertyRef Name="BrassLengthUnitViewPlural" />
+      <PropertyRef Name="BrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="BrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="BrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="BrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="BrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CartridgeLoadView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="BulletId" />
+      <PropertyRef Name="COL" />
+      <PropertyRef Name="COLUnitId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeLoadName" Type="String" MaxLength="316" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CaliberViewBrassLengthUnitViewTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletId" Type="Int32" Nullable="false" />
+    <Property Name="BulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeId" Type="Int32" />
+    <Property Name="BulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMaterialId" Type="Int32" />
+    <Property Name="BulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="BulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMass" Type="Int32" />
+    <Property Name="BulletViewMassUnitId" Type="Int32" />
+    <Property Name="BulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewSectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewLengthUnitId" Type="Int32" />
+    <Property Name="BulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerId" Type="Int32" />
+    <Property Name="BulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="BulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="BulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderId" Type="Int32" />
+    <Property Name="PowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerId" Type="Int32" />
+    <Property Name="PowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderTypeId" Type="Int32" />
+    <Property Name="PowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderShapeId" Type="Int32" />
+    <Property Name="PowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeight" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="PowderWeightUnitId" Type="Int32" />
+    <Property Name="PowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="PowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COL" Type="Decimal" Precision="4" Scale="3" Nullable="false" />
+    <Property Name="COLUnitId" Type="Int32" Nullable="false" />
+    <Property Name="COLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="COLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Velocity" Type="Int32" />
+    <Property Name="VelocityUnitId" Type="Int32" />
+    <Property Name="VelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="VelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pressure" Type="Int32" />
+    <Property Name="PressureUnitId" Type="Int32" />
+    <Property Name="PressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="PressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CartridgeView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CartridgeLoadId" />
+      <PropertyRef Name="BrassId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeName" Type="String" MaxLength="421" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeLoadViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCartridgeLoadName" Type="String" MaxLength="316" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewSortOrder" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMass" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewSectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeight" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOL" Type="Decimal" Precision="4" Scale="3" />
+    <Property Name="CartridgeLoadViewCOLUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCOLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocity" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressure" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassId" Type="Int32" Nullable="false" />
+    <Property Name="BrassViewParentId" Type="Int32" />
+    <Property Name="BrassViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewBrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewParentBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewMaterialId" Type="Int32" />
+    <Property Name="BrassViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerId" Type="Int32" />
+    <Property Name="BrassViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="BrassViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="BrassViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewTimesFired" Type="Int32" />
+    <Property Name="BrassViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerId" Type="Int32" />
+    <Property Name="PrimerViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeId" Type="Int32" />
+    <Property Name="PrimerViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerId" Type="Int32" />
+    <Property Name="PrimerViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GunsCalibersView">
+    <Key>
+      <PropertyRef Name="GunId" />
+      <PropertyRef Name="GunName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberName" />
+    </Key>
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="GunName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GunView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SerialNumber" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="GunName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberViewName" />
+      <PropertyRef Name="CaliberViewDiameter" />
+      <PropertyRef Name="CaliberViewDiameterUnitId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewBrassLength" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewName" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewPlural" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeId" />
+      <PropertyRef Name="CaliberViewPrimerTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="CaliberViewSortOrder" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="SellerId" />
+      <PropertyRef Name="SellerName" />
+      <PropertyRef Name="SellerShortName" />
+      <PropertyRef Name="SellerAddress" />
+      <PropertyRef Name="SellerCity" />
+      <PropertyRef Name="SellerState" />
+      <PropertyRef Name="SellerZip" />
+      <PropertyRef Name="SellerURL" />
+      <PropertyRef Name="Capacity" />
+      <PropertyRef Name="BarrelLength" />
+      <PropertyRef Name="BarrelLengthUnitId" />
+      <PropertyRef Name="LengthUnitViewName" />
+      <PropertyRef Name="LengthUnitViewPlural" />
+      <PropertyRef Name="LengthUnitViewAbbreviation" />
+      <PropertyRef Name="LengthUnitViewUnitTypeId" />
+      <PropertyRef Name="LengthUnitViewUnitTypeName" />
+      <PropertyRef Name="GunTypeId" />
+      <PropertyRef Name="GunTypeName" />
+      <PropertyRef Name="Cost" />
+      <PropertyRef Name="AcquisitionDate" />
+      <PropertyRef Name="Details" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunName" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SellerId" Type="Int32" Nullable="false" />
+    <Property Name="SellerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SellerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SellerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerId" Type="Int32" />
+    <Property Name="BuyerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="BuyerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="BuyerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="BarrelLength" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="BarrelLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="LengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AcquisitionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RetireDate" Type="DateTime" Precision="0" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PowderView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PowderName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="PowderTypeId" />
+      <PropertyRef Name="PowderTypeName" />
+      <PropertyRef Name="PowderShapeId" />
+      <PropertyRef Name="PowderShapeName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderShapeId" Type="Int32" Nullable="false" />
+    <Property Name="PowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PrimerView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrimerFullName" />
+      <PropertyRef Name="PrimerName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShootingLocationView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ShootingLocationName" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Location" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationName" Type="String" MaxLength="54" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShootingSessionView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="LocationId" />
+      <PropertyRef Name="ShootingLocationViewName" />
+      <PropertyRef Name="ShootingLocationViewShootingLocationName" />
+      <PropertyRef Name="ShootingLocationViewState" />
+      <PropertyRef Name="ShootingLocationViewLocation" />
+      <PropertyRef Name="GunId" />
+      <PropertyRef Name="GunViewSerialNumber" />
+      <PropertyRef Name="GunViewName" />
+      <PropertyRef Name="GunViewGunName" />
+      <PropertyRef Name="GunViewCaliberId" />
+      <PropertyRef Name="GunViewCaliberViewName" />
+      <PropertyRef Name="GunViewCaliberViewDiameter" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitId" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="GunViewCaliberViewBrassLength" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitId" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitViewName" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitViewPlural" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeId" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeName" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="GunViewCaliberViewSortOrder" />
+      <PropertyRef Name="GunViewManufacturerId" />
+      <PropertyRef Name="GunViewManufacturerName" />
+      <PropertyRef Name="GunViewManufacturerShortName" />
+      <PropertyRef Name="GunViewManufacturerAddress" />
+      <PropertyRef Name="GunViewManufacturerCity" />
+      <PropertyRef Name="GunViewManufacturerState" />
+      <PropertyRef Name="GunViewManufacturerZip" />
+      <PropertyRef Name="GunViewManufacturerURL" />
+      <PropertyRef Name="GunViewSellerId" />
+      <PropertyRef Name="GunViewSellerName" />
+      <PropertyRef Name="GunViewSellerShortName" />
+      <PropertyRef Name="GunViewSellerAddress" />
+      <PropertyRef Name="GunViewSellerCity" />
+      <PropertyRef Name="GunViewSellerState" />
+      <PropertyRef Name="GunViewSellerZip" />
+      <PropertyRef Name="GunViewSellerURL" />
+      <PropertyRef Name="GunViewCapacity" />
+      <PropertyRef Name="GunViewBarrelLength" />
+      <PropertyRef Name="GunViewBarrelLengthUnitId" />
+      <PropertyRef Name="GunViewLengthUnitViewName" />
+      <PropertyRef Name="GunViewLengthUnitViewPlural" />
+      <PropertyRef Name="GunViewLengthUnitViewAbbrevation" />
+      <PropertyRef Name="GunViewLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="GunViewLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="GunViewGunTypeId" />
+      <PropertyRef Name="GunViewGunTypeName" />
+      <PropertyRef Name="GunViewCost" />
+      <PropertyRef Name="GunViewAcquisitionDate" />
+      <PropertyRef Name="GunViewDetails" />
+      <PropertyRef Name="CartridgeId" />
+      <PropertyRef Name="CartridgeViewName" />
+      <PropertyRef Name="CartridgeViewCartridgeLoadId" />
+      <PropertyRef Name="CartridgeViewBrassId" />
+      <PropertyRef Name="CartridgeViewManufacturerId" />
+      <PropertyRef Name="Rounds" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="ShootingLocationViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationViewShootingLocationName" Type="String" MaxLength="54" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationViewState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationViewLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewSerialNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewGunName" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewSellerId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewSellerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewSellerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerId" Type="Int32" />
+    <Property Name="GunViewBuyerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="GunViewBuyerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="GunViewBuyerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewBuyerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCapacity" Type="Int32" Nullable="false" />
+    <Property Name="GunViewBarrelLength" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="GunViewBarrelLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewAbbrevation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewGunTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewGunTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewGunTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="GunViewAcquisitionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GunViewRetireDate" Type="DateTime" Precision="0" />
+    <Property Name="GunViewDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeViewCartridgeName" Type="String" MaxLength="421" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewCartridgeLoadViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCartridgeLoadName" Type="String" MaxLength="316" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMass" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewSectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeight" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOL" Type="Decimal" Precision="4" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocity" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressure" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewBrassViewParentId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewBrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewParentBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewTimesFired" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rounds" Type="Int32" Nullable="false" />
+    <Property Name="Retention" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UnitView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Plural" />
+      <PropertyRef Name="Abbreviation" />
+      <PropertyRef Name="UnitTypeId" />
+      <PropertyRef Name="UnitTypeName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="UnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Brass_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brass_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brass_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassCost_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="BrassCost" Type="Self.BrassCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassCost">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassQuantity_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="BrassQuantity" Type="Self.BrassQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassQuantity">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="BrassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BrassCost" Type="Self.BrassCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassCost">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassQuantity_InventoryType">
+    <End Role="InventoryType" Type="Self.InventoryType" Multiplicity="1" />
+    <End Role="BrassQuantity" Type="Self.BrassQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassQuantity">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BrassQuantity" Type="Self.BrassQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassQuantity">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_BulletType">
+    <End Role="BulletType" Type="Self.BulletType" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BulletType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="BulletTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitDiameter">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="DiameterUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitLength">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="LengthUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitMass">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="MassUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletCost_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="BulletCost" Type="Self.BulletCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletCost">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletQuantity_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="BulletQuantity" Type="Self.BulletQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletQuantity">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="BulletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BulletCost" Type="Self.BulletCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletCost">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletQuantity_InventoryType">
+    <End Role="InventoryType" Type="Self.InventoryType" Multiplicity="1" />
+    <End Role="BulletQuantity" Type="Self.BulletQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletQuantity">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BulletQuantity" Type="Self.BulletQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletQuantity">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Caliber_BrassLengthUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Caliber">
+        <PropertyRef Name="BrassLengthUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Caliber_DiameterUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Caliber">
+        <PropertyRef Name="DiameterUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Caliber_PrimerType">
+    <End Role="PrimerType" Type="Self.PrimerType" Multiplicity="1" />
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Caliber">
+        <PropertyRef Name="PrimerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GunsCalibers_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="GunsCalibers" Type="Self.GunsCalibers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GunsCalibers">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_CartridgeLoad">
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartridgeLoad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="CartridgeLoadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="0..1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="PrimerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeCost_Cartridge">
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="1" />
+    <End Role="CartridgeCost" Type="Self.CartridgeCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cartridge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeCost">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeQuantity_Cartridge">
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="1" />
+    <End Role="CartridgeQuantity" Type="Self.CartridgeQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cartridge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeQuantity">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_Cartridge">
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cartridge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="CartridgeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeCost" Type="Self.CartridgeCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeCost">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_COLUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="COLUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="0..1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PowderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_PowderWeightUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PowderWeightUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_PressureUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PressureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_VelocityUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="VelocityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeQuantity_InventoryType">
+    <End Role="InventoryType" Type="Self.InventoryType" Multiplicity="1" />
+    <End Role="CartridgeQuantity" Type="Self.CartridgeQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeQuantity">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeQuantity" Type="Self.CartridgeQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeQuantity">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_BarrelLengthUnit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="BarrelLengthUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Buyer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_GunType">
+    <End Role="GunType" Type="Self.GunType" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GunType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="GunTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Seller">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GunImages_Gun">
+    <End Role="Gun" Type="Self.Gun" Multiplicity="1" />
+    <End Role="GunImages" Type="Self.GunImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GunImages">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GunsCalibers_Gun">
+    <End Role="Gun" Type="Self.Gun" Multiplicity="1" />
+    <End Role="GunsCalibers" Type="Self.GunsCalibers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GunsCalibers">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_Gun">
+    <End Role="Gun" Type="Self.Gun" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderQuantity_InventoryType">
+    <End Role="InventoryType" Type="Self.InventoryType" Multiplicity="1" />
+    <End Role="PowderQuantity" Type="Self.PowderQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderQuantity">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerQuantity_InventoryType">
+    <End Role="InventoryType" Type="Self.InventoryType" Multiplicity="1" />
+    <End Role="PrimerQuantity" Type="Self.PrimerQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerQuantity">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Primer_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Primer" Type="Self.Primer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Primer">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_PowderShape">
+    <End Role="PowderShape" Type="Self.PowderShape" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PowderShape">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="PowderShapeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_PowderType">
+    <End Role="PowderType" Type="Self.PowderType" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PowderType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="PowderTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderCost_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="1" />
+    <End Role="PowderCost" Type="Self.PowderCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderCost">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderQuantity_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="1" />
+    <End Role="PowderQuantity" Type="Self.PowderQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderQuantity">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PowderCost" Type="Self.PowderCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderCost">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PowderQuantity" Type="Self.PowderQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderQuantity">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Primer_PrimerType">
+    <End Role="PrimerType" Type="Self.PrimerType" Multiplicity="1" />
+    <End Role="Primer" Type="Self.Primer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Primer">
+        <PropertyRef Name="PrimerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerCost_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="1" />
+    <End Role="PrimerCost" Type="Self.PrimerCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerCost">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerQuantity_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="1" />
+    <End Role="PrimerQuantity" Type="Self.PrimerQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerQuantity">
+        <PropertyRef Name="EntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PrimerCost" Type="Self.PrimerCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerCost">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PrimerQuantity" Type="Self.PrimerQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerQuantity">
+        <PropertyRef Name="QuantityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_ShootingLocation">
+    <End Role="ShootingLocation" Type="Self.ShootingLocation" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShootingLocation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unit_UnitType">
+    <End Role="UnitType" Type="Self.UnitType" Multiplicity="1" />
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="UnitTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShootingEntities" annotation:LazyLoadingEnabled="true">
+    <!--<EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />-->
+    <EntitySet Name="Brasses" EntityType="Self.Brass" />
+    <EntitySet Name="BrassCosts" EntityType="Self.BrassCost" />
+    <EntitySet Name="BrassQuantities" EntityType="Self.BrassQuantity" />
+    <EntitySet Name="Bullets" EntityType="Self.Bullet" />
+    <EntitySet Name="BulletCosts" EntityType="Self.BulletCost" />
+    <EntitySet Name="BulletQuantities" EntityType="Self.BulletQuantity" />
+    <EntitySet Name="BulletTypes" EntityType="Self.BulletType" />
+    <EntitySet Name="Calibers" EntityType="Self.Caliber" />
+    <EntitySet Name="Cartridges" EntityType="Self.Cartridge" />
+    <EntitySet Name="CartridgeCosts" EntityType="Self.CartridgeCost" />
+    <EntitySet Name="CartridgeLoads" EntityType="Self.CartridgeLoad" />
+    <EntitySet Name="CartridgeQuantities" EntityType="Self.CartridgeQuantity" />
+    <EntitySet Name="Guns" EntityType="Self.Gun" />
+    <EntitySet Name="GunImages" EntityType="Self.GunImage" />
+    <EntitySet Name="GunsCalibers" EntityType="Self.GunsCalibers" />
+    <EntitySet Name="GunTypes" EntityType="Self.GunType" />
+    <EntitySet Name="InventoryTypes" EntityType="Self.InventoryType" />
+    <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+    <EntitySet Name="Materials" EntityType="Self.Material" />
+    <EntitySet Name="Powders" EntityType="Self.Powder" />
+    <EntitySet Name="PowderCosts" EntityType="Self.PowderCost" />
+    <EntitySet Name="PowderQuantities" EntityType="Self.PowderQuantity" />
+    <EntitySet Name="PowderShapes" EntityType="Self.PowderShape" />
+    <EntitySet Name="PowderTypes" EntityType="Self.PowderType" />
+    <EntitySet Name="Primers" EntityType="Self.Primer" />
+    <EntitySet Name="PrimerCosts" EntityType="Self.PrimerCost" />
+    <EntitySet Name="PrimerQuantities" EntityType="Self.PrimerQuantity" />
+    <EntitySet Name="PrimerTypes" EntityType="Self.PrimerType" />
+    <EntitySet Name="ShootingLocations" EntityType="Self.ShootingLocation" />
+    <EntitySet Name="ShootingSessions" EntityType="Self.ShootingSession" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="UnitTypes" EntityType="Self.UnitType" />
+    <EntitySet Name="BrassViews" EntityType="Self.BrassView" />
+    <EntitySet Name="BulletViews" EntityType="Self.BulletView" />
+    <EntitySet Name="CaliberViews" EntityType="Self.CaliberView" />
+    <EntitySet Name="CartridgeLoadViews" EntityType="Self.CartridgeLoadView" />
+    <EntitySet Name="CartridgeViews" EntityType="Self.CartridgeView" />
+    <EntitySet Name="GunsCalibersViews" EntityType="Self.GunsCalibersView" />
+    <EntitySet Name="GunViews" EntityType="Self.GunView" />
+    <EntitySet Name="PowderViews" EntityType="Self.PowderView" />
+    <EntitySet Name="PrimerViews" EntityType="Self.PrimerView" />
+    <EntitySet Name="ShootingLocationViews" EntityType="Self.ShootingLocationView" />
+    <EntitySet Name="ShootingSessionViews" EntityType="Self.ShootingSessionView" />
+    <EntitySet Name="UnitViews" EntityType="Self.UnitView" />
+    <AssociationSet Name="FK_Brass_Caliber" Association="Self.FK_Brass_Caliber">
+      <End Role="Caliber" EntitySet="Calibers" />
+      <End Role="Brass" EntitySet="Brasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brass_Manufacturer" Association="Self.FK_Brass_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Brass" EntitySet="Brasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brass_Material" Association="Self.FK_Brass_Material">
+      <End Role="Material" EntitySet="Materials" />
+      <End Role="Brass" EntitySet="Brasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassCost_Brass" Association="Self.FK_BrassCost_Brass">
+      <End Role="Brass" EntitySet="Brasses" />
+      <End Role="BrassCost" EntitySet="BrassCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassQuantity_Brass" Association="Self.FK_BrassQuantity_Brass">
+      <End Role="Brass" EntitySet="Brasses" />
+      <End Role="BrassQuantity" EntitySet="BrassQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Brass" Association="Self.FK_Cartridge_Brass">
+      <End Role="Brass" EntitySet="Brasses" />
+      <End Role="Cartridge" EntitySet="Cartridges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassCost_Unit" Association="Self.FK_BrassCost_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="BrassCost" EntitySet="BrassCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassQuantity_InventoryType" Association="Self.FK_BrassQuantity_InventoryType">
+      <End Role="InventoryType" EntitySet="InventoryTypes" />
+      <End Role="BrassQuantity" EntitySet="BrassQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassQuantity_Unit" Association="Self.FK_BrassQuantity_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="BrassQuantity" EntitySet="BrassQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_BulletType" Association="Self.FK_Bullet_BulletType">
+      <End Role="BulletType" EntitySet="BulletTypes" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_Manufacturer" Association="Self.FK_Bullet_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_Material" Association="Self.FK_Bullet_Material">
+      <End Role="Material" EntitySet="Materials" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitDiameter" Association="Self.FK_Bullet_UnitDiameter">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitLength" Association="Self.FK_Bullet_UnitLength">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitMass" Association="Self.FK_Bullet_UnitMass">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Bullet" EntitySet="Bullets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletCost_Bullet" Association="Self.FK_BulletCost_Bullet">
+      <End Role="Bullet" EntitySet="Bullets" />
+      <End Role="BulletCost" EntitySet="BulletCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletQuantity_Bullet" Association="Self.FK_BulletQuantity_Bullet">
+      <End Role="Bullet" EntitySet="Bullets" />
+      <End Role="BulletQuantity" EntitySet="BulletQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Bullet" Association="Self.FK_CartridgeLoad_Bullet">
+      <End Role="Bullet" EntitySet="Bullets" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletCost_Unit" Association="Self.FK_BulletCost_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="BulletCost" EntitySet="BulletCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletQuantity_InventoryType" Association="Self.FK_BulletQuantity_InventoryType">
+      <End Role="InventoryType" EntitySet="InventoryTypes" />
+      <End Role="BulletQuantity" EntitySet="BulletQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletQuantity_Unit" Association="Self.FK_BulletQuantity_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="BulletQuantity" EntitySet="BulletQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Caliber_BrassLengthUnit" Association="Self.FK_Caliber_BrassLengthUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Caliber" EntitySet="Calibers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Caliber_DiameterUnit" Association="Self.FK_Caliber_DiameterUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Caliber" EntitySet="Calibers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Caliber_PrimerType" Association="Self.FK_Caliber_PrimerType">
+      <End Role="PrimerType" EntitySet="PrimerTypes" />
+      <End Role="Caliber" EntitySet="Calibers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Caliber" Association="Self.FK_CartridgeLoad_Caliber">
+      <End Role="Caliber" EntitySet="Calibers" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Caliber" Association="Self.FK_Gun_Caliber">
+      <End Role="Caliber" EntitySet="Calibers" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GunsCalibers_Caliber" Association="Self.FK_GunsCalibers_Caliber">
+      <End Role="Caliber" EntitySet="Calibers" />
+      <End Role="GunsCalibers" EntitySet="GunsCalibers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_CartridgeLoad" Association="Self.FK_Cartridge_CartridgeLoad">
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+      <End Role="Cartridge" EntitySet="Cartridges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Manufacturer" Association="Self.FK_Cartridge_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Cartridge" EntitySet="Cartridges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Primer" Association="Self.FK_Cartridge_Primer">
+      <End Role="Primer" EntitySet="Primers" />
+      <End Role="Cartridge" EntitySet="Cartridges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeCost_Cartridge" Association="Self.FK_CartridgeCost_Cartridge">
+      <End Role="Cartridge" EntitySet="Cartridges" />
+      <End Role="CartridgeCost" EntitySet="CartridgeCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeQuantity_Cartridge" Association="Self.FK_CartridgeQuantity_Cartridge">
+      <End Role="Cartridge" EntitySet="Cartridges" />
+      <End Role="CartridgeQuantity" EntitySet="CartridgeQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_Cartridge" Association="Self.FK_ShootingSession_Cartridge">
+      <End Role="Cartridge" EntitySet="Cartridges" />
+      <End Role="ShootingSession" EntitySet="ShootingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeCost_Unit" Association="Self.FK_CartridgeCost_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeCost" EntitySet="CartridgeCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_COLUnit" Association="Self.FK_CartridgeLoad_COLUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Powder" Association="Self.FK_CartridgeLoad_Powder">
+      <End Role="Powder" EntitySet="Powders" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_PowderWeightUnit" Association="Self.FK_CartridgeLoad_PowderWeightUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_PressureUnit" Association="Self.FK_CartridgeLoad_PressureUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_VelocityUnit" Association="Self.FK_CartridgeLoad_VelocityUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeQuantity_InventoryType" Association="Self.FK_CartridgeQuantity_InventoryType">
+      <End Role="InventoryType" EntitySet="InventoryTypes" />
+      <End Role="CartridgeQuantity" EntitySet="CartridgeQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeQuantity_Unit" Association="Self.FK_CartridgeQuantity_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="CartridgeQuantity" EntitySet="CartridgeQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_BarrelLengthUnit" Association="Self.FK_Gun_BarrelLengthUnit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Buyer" Association="Self.FK_Gun_Buyer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_GunType" Association="Self.FK_Gun_GunType">
+      <End Role="GunType" EntitySet="GunTypes" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Manufacturer" Association="Self.FK_Gun_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Seller" Association="Self.FK_Gun_Seller">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Gun" EntitySet="Guns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GunImages_Gun" Association="Self.FK_GunImages_Gun">
+      <End Role="Gun" EntitySet="Guns" />
+      <End Role="GunImages" EntitySet="GunImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GunsCalibers_Gun" Association="Self.FK_GunsCalibers_Gun">
+      <End Role="Gun" EntitySet="Guns" />
+      <End Role="GunsCalibers" EntitySet="GunsCalibers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_Gun" Association="Self.FK_ShootingSession_Gun">
+      <End Role="Gun" EntitySet="Guns" />
+      <End Role="ShootingSession" EntitySet="ShootingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderQuantity_InventoryType" Association="Self.FK_PowderQuantity_InventoryType">
+      <End Role="InventoryType" EntitySet="InventoryTypes" />
+      <End Role="PowderQuantity" EntitySet="PowderQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerQuantity_InventoryType" Association="Self.FK_PrimerQuantity_InventoryType">
+      <End Role="InventoryType" EntitySet="InventoryTypes" />
+      <End Role="PrimerQuantity" EntitySet="PrimerQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_Manufacturer" Association="Self.FK_Powder_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Powder" EntitySet="Powders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Primer_Manufacturer" Association="Self.FK_Primer_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Primer" EntitySet="Primers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_PowderShape" Association="Self.FK_Powder_PowderShape">
+      <End Role="PowderShape" EntitySet="PowderShapes" />
+      <End Role="Powder" EntitySet="Powders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_PowderType" Association="Self.FK_Powder_PowderType">
+      <End Role="PowderType" EntitySet="PowderTypes" />
+      <End Role="Powder" EntitySet="Powders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderCost_Powder" Association="Self.FK_PowderCost_Powder">
+      <End Role="Powder" EntitySet="Powders" />
+      <End Role="PowderCost" EntitySet="PowderCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderQuantity_Powder" Association="Self.FK_PowderQuantity_Powder">
+      <End Role="Powder" EntitySet="Powders" />
+      <End Role="PowderQuantity" EntitySet="PowderQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderCost_Unit" Association="Self.FK_PowderCost_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="PowderCost" EntitySet="PowderCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderQuantity_Unit" Association="Self.FK_PowderQuantity_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="PowderQuantity" EntitySet="PowderQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Primer_PrimerType" Association="Self.FK_Primer_PrimerType">
+      <End Role="PrimerType" EntitySet="PrimerTypes" />
+      <End Role="Primer" EntitySet="Primers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerCost_Primer" Association="Self.FK_PrimerCost_Primer">
+      <End Role="Primer" EntitySet="Primers" />
+      <End Role="PrimerCost" EntitySet="PrimerCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerQuantity_Primer" Association="Self.FK_PrimerQuantity_Primer">
+      <End Role="Primer" EntitySet="Primers" />
+      <End Role="PrimerQuantity" EntitySet="PrimerQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerCost_Unit" Association="Self.FK_PrimerCost_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="PrimerCost" EntitySet="PrimerCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerQuantity_Unit" Association="Self.FK_PrimerQuantity_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="PrimerQuantity" EntitySet="PrimerQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_ShootingLocation" Association="Self.FK_ShootingSession_ShootingLocation">
+      <End Role="ShootingLocation" EntitySet="ShootingLocations" />
+      <End Role="ShootingSession" EntitySet="ShootingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unit_UnitType" Association="Self.FK_Unit_UnitType">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

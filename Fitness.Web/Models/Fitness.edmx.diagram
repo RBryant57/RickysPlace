@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc09612fef2344288638b8ab0a9abea4" Name="Diagram1">
+        <EntityTypeShape EntityType="FitnessModel.BenchmarkMile" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Bike" Width="1.5" PointX="3" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.BikeHistory" Width="1.5" PointX="5.25" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.BikeOnlyMile" Width="1.5" PointX="5.25" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.BikePart" Width="1.5" PointX="8.25" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.BikeType" Width="1.5" PointX="0.75" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Circuit" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.CircuitComponent" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.CircuitsComponent" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.ExerciseType" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.HRZone" Width="1.5" PointX="14.25" PointY="53.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.HRZoneTime" Width="1.5" PointX="16.5" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.LiftingSession" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Maintenance" Width="1.5" PointX="11.25" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Manufacturer" Width="1.5" PointX="0.75" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.MissedMile" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.NonRideMile" Width="1.5" PointX="5.25" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Part" Width="1.5" PointX="6" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.PartType" Width="1.5" PointX="3.75" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRide" Width="1.5" PointX="11.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRideGPX" Width="1.5" PointX="13.5" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRun" Width="1.5" PointX="8.25" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRunGPX" Width="1.5" PointX="10.5" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalWalk" Width="1.5" PointX="11.25" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalWalkGPX" Width="1.5" PointX="13.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Route" Width="1.5" PointX="12" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RouteDirection" Width="1.5" PointX="14.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RouteDisplay" Width="1.5" PointX="14.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RoutePicture" Width="1.5" PointX="14.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RouteType" Width="1.5" PointX="9.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Shoe" Width="1.5" PointX="6" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.ShoeType" Width="1.5" PointX="3.75" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Stair" Width="1.5" PointX="8.25" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.StationaryRide" Width="1.5" PointX="5.25" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRide" Width="1.5" PointX="14.25" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRideGPX" Width="1.5" PointX="16.5" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRun" Width="1.5" PointX="14.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRunGPX" Width="1.5" PointX="16.5" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingWalk" Width="1.5" PointX="14.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingWalkGPX" Width="1.5" PointX="16.5" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TreadmillRun" Width="1.5" PointX="8.25" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Weight" Width="1.5" PointX="7.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.MaintenanceLog" Width="1.5" PointX="5.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Part1" Width="1.5" PointX="7.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRide1" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalRun1" Width="1.5" PointX="2.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.RecreationalWalk1" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.StationaryRide1" Width="1.5" PointX="11.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRide1" Width="1.5" PointX="4.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingRun1" Width="1.5" PointX="11.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingWalk1" Width="1.5" PointX="6.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TreadmillRun1" Width="1.5" PointX="8.75" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="FitnessModel.FK_BenchmarkMiles_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Bike_BikeType" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Bike_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Bike_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikeHistory_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikeOnlyMiles_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikePart_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikePart_Bike1" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Maintenance_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_NonRideMiles_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRide_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_StationaryRide_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRide_Bike" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikePart_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_BikePart_Part1" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_CircuitsComponents_Circuit" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_LiftSession_Circuit" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_CircuitsComponents_CircuitComponent" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_MissedMiles_ExerciseType" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_HRZoneTime_HRZones" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_HRZoneTime_TrainingRides" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Maintenance_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Part_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Shoe_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Part_PartType" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRide_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRideGPX_RecreationalRide" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRun_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRun_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalRunGPX_RecreationalRun" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalWalk_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalWalk_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RecreationalWalkGPX_RecreationalWalk" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Route_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RouteDescriptionDisplay_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RouteDirection_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_RoutePicture_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRide_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRun_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingWalk_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Shoe_ShoeType" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_Stairs_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRun_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingWalk_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TreadmillRun_Shoe" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRideGPX_TrainingRide" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingRunGPX_TrainingRun" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_TrainingWalkGPX_TrainingWalk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.CartridgeViewModel>
+
+@{
+    ViewBag.Title = "Cartridge Index";
+}
+<br />
+@Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create Cartridge Inventory", "CreateCartridge", null, new { @class = "EditLinkStyle" })
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Brass")
+        </th>
+        <th>
+            @Html.DisplayName("Bullet")
+        </th>
+        <th>
+            @Html.DisplayName("Powder")
+        </th>
+        <th>
+            @Html.DisplayName("Primer")
+        </th>
+        <th>
+            @Html.DisplayName("Caliber")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cartridge.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BulletName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PowderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaliberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity.EndQuantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCartridge", new { id=item.CartridgeQuantityId })
+        </td>
+    </tr>
+}
+
+</table>

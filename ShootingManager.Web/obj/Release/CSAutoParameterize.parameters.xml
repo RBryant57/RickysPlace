@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ShootingEntities-Web.config Connection String" description="ShootingEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/ShootingModel.csdl|res://*/ShootingModel.ssdl|res://*/ShootingModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=yellowcaddissql;initial catalog=Shooting;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\YellowCaddisDevelopment\\TFSProjects\\YCDWebs\\RickysPlace\\ShootingManager\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ShootingEntities']/@connectionString" />
+  </parameter>
+</parameters>

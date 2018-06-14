@@ -1,0 +1,14 @@
+﻿@model local.yellowcaddis.ShootingManager.Web.Models.CaliberListViewModel
+
+@{
+    ViewBag.Title = "Calibers";
+}
+
+@foreach (var c in Model.Calibers) {
+    Html.RenderPartial("CaliberSummary", c);
+}
+
+<div class="pager">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>

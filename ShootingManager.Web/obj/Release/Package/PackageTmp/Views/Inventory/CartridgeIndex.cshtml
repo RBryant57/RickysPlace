@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.CartridgeViewModel>
+
+@{
+    ViewBag.Title = "Cartridge Index";
+}
+<head>
+    <title>Shooting Manager: Cartridge Quantity Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+    </div>
+    <br />
+    <br />
+    <p>
+        @Html.ActionLink("Create Cartridge Inventory", "CreateCartridge", null, new { @class = "EditLinkStyle" })
+    </p>
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Cartridge Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Caliber")
+                </th>
+                <th>
+                    @Html.DisplayName("Bullet Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Powder Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Quantity")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.CartridgeLoadViewCaliberViewName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.CartridgeLoadViewBulletViewBulletFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityView.CartridgeLoadViewPowderViewPowderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntityQuantity.EndQuantity)
+                </td>
+                <td>
+                    @Html.ActionLink("Change", "EditCartridge", new { id = item.EntityQuantity.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

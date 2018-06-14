@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShootingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BrassView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BrassName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberViewName" />
+      <PropertyRef Name="CaliberViewDiameter" />
+      <PropertyRef Name="CaliberViewDiameterUnitId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewBrassLength" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewName" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewPlural" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeId" />
+      <PropertyRef Name="CaliberViewPrimerTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="CaliberViewSortOrder" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="MaterialName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="TimesFired" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="ParentBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimesFired" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BulletView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BulletTypeId" />
+      <PropertyRef Name="BulletTypeName" />
+      <PropertyRef Name="BulletTypeAbbreviation" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="Mass" />
+      <PropertyRef Name="MassUnitId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="BulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="BulletTypeId" Type="Int32" Nullable="false" />
+    <Property Name="BulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="DiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mass" Type="Int32" Nullable="false" />
+    <Property Name="MassUnitId" Type="Int32" Nullable="false" />
+    <Property Name="MassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="MassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Length" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="LengthUnitId" Type="Int32" />
+    <Property Name="LengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="LengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewId" Type="Int32" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CaliberView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="DiameterUnitViewName" />
+      <PropertyRef Name="DiameterUnitViewPlural" />
+      <PropertyRef Name="DiameterUnitViewAbbreviation" />
+      <PropertyRef Name="DiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="DiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="BrassLength" />
+      <PropertyRef Name="BrassLengthUnitId" />
+      <PropertyRef Name="BrassLengthUnitViewName" />
+      <PropertyRef Name="BrassLengthUnitViewPlural" />
+      <PropertyRef Name="BrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="BrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="BrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="BrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="BrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CartridgeLoadView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="BulletId" />
+      <PropertyRef Name="COL" />
+      <PropertyRef Name="COLUnitId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeLoadName" Type="String" MaxLength="316" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CaliberViewBrassLengthUnitViewTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletId" Type="Int32" Nullable="false" />
+    <Property Name="BulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeId" Type="Int32" />
+    <Property Name="BulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMaterialId" Type="Int32" />
+    <Property Name="BulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="BulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMass" Type="Int32" />
+    <Property Name="BulletViewMassUnitId" Type="Int32" />
+    <Property Name="BulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewSectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="BulletViewLengthUnitId" Type="Int32" />
+    <Property Name="BulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerId" Type="Int32" />
+    <Property Name="BulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="BulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="BulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderId" Type="Int32" />
+    <Property Name="PowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerId" Type="Int32" />
+    <Property Name="PowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderTypeId" Type="Int32" />
+    <Property Name="PowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewPowderShapeId" Type="Int32" />
+    <Property Name="PowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="PowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeight" Type="Int32" />
+    <Property Name="PowderWeightUnitId" Type="Int32" />
+    <Property Name="PowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="PowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COL" Type="Decimal" Precision="4" Scale="3" Nullable="false" />
+    <Property Name="COLUnitId" Type="Int32" Nullable="false" />
+    <Property Name="COLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="COLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Velocity" Type="Int32" />
+    <Property Name="VelocityUnitId" Type="Int32" />
+    <Property Name="VelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="VelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pressure" Type="Int32" />
+    <Property Name="PressureUnitId" Type="Int32" />
+    <Property Name="PressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="PressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CartridgeView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CartridgeLoadId" />
+      <PropertyRef Name="BrassId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeName" Type="String" MaxLength="421" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeLoadViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCartridgeLoadName" Type="String" MaxLength="316" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCaliberViewSortOrder" Type="Int32" />
+    <Property Name="CartridgeLoadViewCaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMass" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewSectionalDensity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewBulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeight" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOL" Type="Decimal" Precision="4" Scale="3" />
+    <Property Name="CartridgeLoadViewCOLUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCOLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewCOLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocity" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewVelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressure" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewPressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeLoadViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassId" Type="Int32" Nullable="false" />
+    <Property Name="BrassViewParentId" Type="Int32" />
+    <Property Name="BrassViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewBrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewParentBrassFullName" Type="String" MaxLength="139" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewMaterialId" Type="Int32" />
+    <Property Name="BrassViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerId" Type="Int32" />
+    <Property Name="BrassViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="BrassViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="BrassViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewTimesFired" Type="Int32" />
+    <Property Name="BrassViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerId" Type="Int32" />
+    <Property Name="PrimerViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeId" Type="Int32" />
+    <Property Name="PrimerViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerId" Type="Int32" />
+    <Property Name="PrimerViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrimerViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GunsCalibersView">
+    <Key>
+      <PropertyRef Name="GunId" />
+      <PropertyRef Name="GunName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberName" />
+    </Key>
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="GunName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GunView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SerialNumber" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="GunName" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberViewName" />
+      <PropertyRef Name="CaliberViewDiameter" />
+      <PropertyRef Name="CaliberViewDiameterUnitId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewBrassLength" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewName" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewPlural" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewAbbreviation" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeId" />
+      <PropertyRef Name="CaliberViewBrassLengthUnitViewUnitTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeId" />
+      <PropertyRef Name="CaliberViewPrimerTypeName" />
+      <PropertyRef Name="CaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="CaliberViewSortOrder" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="Capacity" />
+      <PropertyRef Name="BarrelLength" />
+      <PropertyRef Name="BarrelLengthUnitId" />
+      <PropertyRef Name="LengthUnitViewName" />
+      <PropertyRef Name="LengthUnitViewPlural" />
+      <PropertyRef Name="LengthUnitViewAbbreviation" />
+      <PropertyRef Name="LengthUnitViewUnitTypeId" />
+      <PropertyRef Name="LengthUnitViewUnitTypeName" />
+      <PropertyRef Name="GunTypeId" />
+      <PropertyRef Name="GunTypeName" />
+      <PropertyRef Name="Cost" />
+      <PropertyRef Name="AcquisitionDate" />
+      <PropertyRef Name="Details" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunName" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLength" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewBrassLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewBrassLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="CaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="BarrelLength" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="BarrelLengthUnitId" Type="Int32" Nullable="false" />
+    <Property Name="LengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AcquisitionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RetireDate" Type="DateTime" Precision="0" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PowderView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PowderName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="PowderTypeId" />
+      <PropertyRef Name="PowderTypeName" />
+      <PropertyRef Name="PowderShapeId" />
+      <PropertyRef Name="PowderShapeName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PowderShapeId" Type="Int32" Nullable="false" />
+    <Property Name="PowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PrimerView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrimerFullName" />
+      <PropertyRef Name="PrimerName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerShortName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShootingLocationView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ShootingLocationName" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Location" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationName" Type="String" MaxLength="54" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShootingSessionView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="LocationId" />
+      <PropertyRef Name="ShootingLocationName" />
+      <PropertyRef Name="ShootingLocationState" />
+      <PropertyRef Name="ShootingLocationLocation" />
+      <PropertyRef Name="GunId" />
+      <PropertyRef Name="GunViewSerialNumber" />
+      <PropertyRef Name="GunViewName" />
+      <PropertyRef Name="GunViewGunName" />
+      <PropertyRef Name="GunViewCaliberId" />
+      <PropertyRef Name="GunViewCaliberViewName" />
+      <PropertyRef Name="GunViewCaliberViewDiameter" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitId" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewName" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewPlural" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewAbbreviation" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewUnitTypeId" />
+      <PropertyRef Name="GunViewCaliberViewDiameterUnitViewUnitTypeName" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeId" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeName" />
+      <PropertyRef Name="GunViewCaliberViewPrimerTypeAbbreviation" />
+      <PropertyRef Name="GunViewCaliberViewSortOrder" />
+      <PropertyRef Name="GunViewManufacturerId" />
+      <PropertyRef Name="GunViewManufacturerName" />
+      <PropertyRef Name="GunViewManufacturerShortName" />
+      <PropertyRef Name="GunViewManufacturerAddress" />
+      <PropertyRef Name="GunViewManufacturerCity" />
+      <PropertyRef Name="GunViewManufacturerState" />
+      <PropertyRef Name="GunViewManufacturerZip" />
+      <PropertyRef Name="GunViewManufacturerURL" />
+      <PropertyRef Name="GunViewCapacity" />
+      <PropertyRef Name="GunViewBarrelLength" />
+      <PropertyRef Name="GunViewGunTypeId" />
+      <PropertyRef Name="GunViewGunTypeName" />
+      <PropertyRef Name="GunViewCost" />
+      <PropertyRef Name="GunViewAcquisitionDate" />
+      <PropertyRef Name="GunViewDetails" />
+      <PropertyRef Name="CartridgeId" />
+      <PropertyRef Name="CartridgeViewName" />
+      <PropertyRef Name="CartridgeViewCartridgeLoadId" />
+      <PropertyRef Name="CartridgeViewBrassId" />
+      <PropertyRef Name="CartridgeViewManufacturerId" />
+      <PropertyRef Name="Rounds" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="ShootingLocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShootingLocationNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewSerialNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewGunName" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameter" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewPrimerTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewCaliberViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCaliberViewSortOrder" Type="Int32" Nullable="false" />
+    <Property Name="GunViewCaliberViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCapacity" Type="Int32" Nullable="false" />
+    <Property Name="GunViewBarrelLength" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="GunViewGunTypeId" Type="Int32" Nullable="false" />
+    <Property Name="GunViewGunTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewGunTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GunViewCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="GunViewAcquisitionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GunViewRetireDate" Type="DateTime" Precision="0" />
+    <Property Name="GunViewDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GunViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CartridgeViewCartridgeName" Type="String" MaxLength="421" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewCartridgeLoadViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletName" Type="String" MaxLength="183" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletFullName" Type="String" MaxLength="234" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBulletTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameter" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewDiameterUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMass" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewMassUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewSectionalDenisity" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewBallisticCoefficient" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewBulletViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewPowderShapeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeight" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPowderWeightUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOL" Type="Decimal" Precision="4" Scale="3" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewCOLUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocity" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewVelocityUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressure" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewPressureUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewCartridgeLoadViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewBrassViewParentId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BrassViewBrassName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLength" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="CartridgeViewBrassViewLengthUnitId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewPlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewUnitTypeId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewUnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewUnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewLengthUnitViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewMaterialId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewMaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewMaterialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewBrassViewTimesFired" Type="Int32" />
+    <Property Name="CartridgeViewBrassViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewFullName" Type="String" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerName" Type="String" MaxLength="151" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeAbbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewPrimerTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerId" Type="Int32" />
+    <Property Name="CartridgeViewPrimerViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewPrimerViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="CartridgeViewManufacturerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturerShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerZip" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewManufacturerNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CartridgeViewNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rounds" Type="Int32" Nullable="false" />
+    <Property Name="Retention" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UnitView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Plural" />
+      <PropertyRef Name="Abbreviation" />
+      <PropertyRef Name="UnitTypeId" />
+      <PropertyRef Name="UnitTypeName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitTypeId" Type="Int32" Nullable="false" />
+    <Property Name="UnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ShootingEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BrassViews" EntityType="Self.BrassView" />
+    <EntitySet Name="BulletViews" EntityType="Self.BulletView" />
+    <EntitySet Name="CaliberViews" EntityType="Self.CaliberView" />
+    <EntitySet Name="CartridgeLoadViews" EntityType="Self.CartridgeLoadView" />
+    <EntitySet Name="CartridgeViews" EntityType="Self.CartridgeView" />
+    <EntitySet Name="GunsCalibersViews" EntityType="Self.GunsCalibersView" />
+    <EntitySet Name="GunViews" EntityType="Self.GunView" />
+    <EntitySet Name="PowderViews" EntityType="Self.PowderView" />
+    <EntitySet Name="PrimerViews" EntityType="Self.PrimerView" />
+    <EntitySet Name="ShootingLocationViews" EntityType="Self.ShootingLocationView" />
+    <EntitySet Name="ShootingSessionViews" EntityType="Self.ShootingSessionView" />
+    <EntitySet Name="UnitViews" EntityType="Self.UnitView" />
+  </EntityContainer>
+</Schema>

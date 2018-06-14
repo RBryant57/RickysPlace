@@ -1,0 +1,181 @@
+﻿@model ShootingManager.Entities.Models.Bullet
+
+@{
+    ViewBag.Title = "Edit Bullet";
+}
+<head>
+    <title>Shooting Manager: Edit Bullet - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Bullet Index", "Index", "Bullet", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Edit Bullet</h2>
+
+    @using (Html.BeginForm("Edit", "Bullet", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.BulletTypeId, "Bullet Type:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BulletTypeId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.BulletTypeId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.MaterialId, "Material:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("MaterialId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.MaterialId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Diameter:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-4">
+                            @{
+                                string Diameter = Model.Diameter.ToString();
+                            }
+                            @Html.EditorFor(model => Diameter)
+                            @Html.ValidationMessageFor(model => model.Diameter)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-5">
+                            @Html.DropDownList("DiameterUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.DiameterUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Mass:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.Mass)
+                            @Html.ValidationMessageFor(model => model.Mass)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-5">
+                            @Html.DropDownList("MassUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.MassUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Mass, "Sectional Denisty:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @{
+                                string SectionalDensity = Model.SectionalDensity.ToString();
+                            }
+                            @Html.EditorFor(model => SectionalDensity)
+                            @Html.ValidationMessageFor(model => model.SectionalDensity)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.ManufacturerId, "Ballistic Coefficient:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @{
+                                string BallisticCoefficient = Model.BallisticCoefficient.ToString();
+                            }
+                            @Html.EditorFor(model => BallisticCoefficient)
+                            @Html.ValidationMessageFor(model => model.BallisticCoefficient)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Bullet Length:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-4">
+                            @{
+                                string Length = Model.Length.ToString();
+                            }
+                            @Html.EditorFor(model => Length)
+                            @Html.ValidationMessageFor(model => model.Length)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-5">
+                            @Html.DropDownList("LengthUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.LengthUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.ManufacturerId, "Manufacturer:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("ManufacturerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.ManufacturerId)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn-style" />
+                </div>
+            </div>
+        </div>
+    
+    }
+</div>

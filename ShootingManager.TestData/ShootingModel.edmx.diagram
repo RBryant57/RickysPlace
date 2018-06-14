@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58e8a89d72be4cfbb04de5b2028c2c5e" Name="Diagram1">
+        <EntityTypeShape EntityType="ShootingModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Brass" Width="1.5" PointX="10.5" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BrassCost" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BrassQuantity" Width="1.5" PointX="8.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Bullet" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BulletCost" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BulletQuantity" Width="1.5" PointX="10.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BulletType" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Caliber" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CaliberCaliber" Width="1.5" PointX="7.5" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Cartridge" Width="1.5" PointX="12.75" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CartridgeCost" Width="1.5" PointX="16" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CartridgeLoad" Width="1.5" PointX="10.5" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CartridgeQuantity" Width="1.5" PointX="18" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Gun" Width="1.5" PointX="13.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.GunImage" Width="1.5" PointX="15.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.GunType" Width="1.5" PointX="11.25" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.InventoryType" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Manufacturer" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Material" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Powder" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PowderCost" Width="1.5" PointX="8.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PowderQuantity" Width="1.5" PointX="8.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PowderShape" Width="1.5" PointX="3.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PowderType" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Primer" Width="1.5" PointX="9" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PrimerCost" Width="1.5" PointX="11.25" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PrimerQuantity" Width="1.5" PointX="11.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PrimerType" Width="1.5" PointX="6.75" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.ShootingLocation" Width="1.5" PointX="16.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.ShootingSession" Width="1.5" PointX="18.75" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.Unit" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.UnitType" Width="1.5" PointX="0.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BrassView" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.BulletView" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CaliberView" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CartridgeLoadView" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.CartridgeView" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.GunsCalibersView" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.GunView" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PowderView" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.PrimerView" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.ShootingLocationView" Width="1.5" PointX="17.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.ShootingSessionView" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShootingModel.UnitView" Width="1.5" PointX="17.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="ShootingModel.FK_Brass_Caliber" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Brass_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Brass_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BrassCost_Brass" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BrassQuantity_Brass" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Cartridge_Brass" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BrassCost_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BrassQuantity_InventoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BrassQuantity_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_BulletType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_UnitDiameter" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_UnitLength" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Bullet_UnitMass" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BulletCost_Bullet" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BulletQuantity_Bullet" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BulletCost_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BulletQuantity_InventoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_BulletQuantity_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Caliber_BrassLengthUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Caliber_DiameterUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Caliber_PrimerType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CaliberCalibers_PrimaryCaliber" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CaliberCalibers_SecondaryCaliber" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_Caliber" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Cartridge_CartridgeLoad" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Cartridge_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Cartridge_Primer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CartridgeCost_Cartridge" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CartridgeQuantity_Cartridge" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_ShootingSession_Cartridge" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CartridgeCost_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CartridgeQuantity_InventoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_CartridgeQuantity_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_BarrelLengthUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_Buyer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_GunType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Gun_Seller" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_GunImages_Gun" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_ShootingSession_Gun" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PowderQuantity_InventoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PrimerQuantity_InventoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Powder_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Primer_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Powder_PowderShape" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Powder_PowderType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PowderCost_Powder" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PowderQuantity_Powder" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PowderCost_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PowderQuantity_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Primer_PrimerType" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PrimerCost_Primer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PrimerQuantity_Primer" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PrimerCost_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_PrimerQuantity_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_ShootingSession_ShootingLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="ShootingModel.FK_Unit_UnitType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

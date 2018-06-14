@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.PrimerViewModel>
+
+@{
+    ViewBag.Title = "Primer Index";
+}
+<br />
+@Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create Primer Inventory", "CreatePrimer", null, new { @class = "EditLinkStyle" })
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Primer Name")
+        </th>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerTypeAbbreviation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity.EndQuantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPrimer", new { id=item.PrimerQuantityId })
+        </td>
+    </tr>
+}
+
+</table>

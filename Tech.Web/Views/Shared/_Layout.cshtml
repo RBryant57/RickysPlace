@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="SHORTCUT ICON" href="~/images/BIKER00B.ICO" />
+    <link href="~/Content/site.css" rel="Stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ricky's Place - Tech.Web</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        html {
+            background-color: Olive;
+            font: 14px Georgia,Serif;
+        }
+
+        .content {
+            width: 900px;
+            margin: auto;
+            border-style: solid;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .tabstrip {
+            padding: 3px;
+            border-top: solid 1px black;
+            border-bottom: solid 1px black;
+        }
+
+            .tabstrip a {
+                font: 14px Arial;
+                color: DarkGreen;
+                text-decoration: none;
+            }
+
+        .column {
+            float: left;
+            padding: 10px;
+            border-right: solid 1px black;
+        }
+
+        .rightColumn {
+            float: left;
+            padding: 10px;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img id="imgLogo" src="~/images/Banner.jpg" alt="Website Logo" width="100%" />
+
+
+        <div class="tabstrip">
+
+            <a href="http://localhost:8000" class="TopLinkStyle" style="color:Black;font-weight:bold;">Home</a>
+            &nbsp;
+            <a href="http://localhost:8000/CommuteTracker.Web" class="TopLinkStyle" style="color:Black;font-weight:bold;">CommuteTracker.Web</a>
+            &nbsp;
+            <a href="http://localhost:8000/Outdoor.Web" class="TopLinkStyle" style="color:Black;font-weight:bold;">Outdoor.Web</a>
+            &nbsp;
+            <a href="http://localhost:8000/Fitness.Web" class="TopLinkStyle" style="color:Black;font-weight:bold;">Fitness.Web</a>
+            &nbsp;
+            <a href="http://localhost:8000/Music.Web" class="TopLinkStyle" style="color:Black;font-weight:bold;">Music.Web</a>
+            &nbsp;
+            <a href="http://localhost:8000/Tech.Web" class="TopLinkStyle" style="color:Black;font-weight:bold;">Tech.Web</a>
+            &nbsp;
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - YellowCaddis Development</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

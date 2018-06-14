@@ -1,0 +1,119 @@
+﻿@model ShootingManager.Web.ViewModels.CartridgeLoadViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Delete Cartridge Load";
+}
+<head>
+    <title>Shooting Manager: Delete Cartridge Load - @(((CartridgeLoad)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Cartridge Load Index", "LoadIndex", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Cartridge Load</h2>
+
+    <h3>Are you sure you want to delete this cartridge load?</h3>
+    @using (Html.BeginForm("DeleteLoad", "Build", FormMethod.Post, new { id = ((CartridgeLoad)Model.Entity).Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.CaliberId, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.EntityView.CaliberViewName)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).BulletId, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.EntityView.BulletViewBulletName)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).PowderId, "Powder:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.EntityView.PowderViewName)&nbsp;
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).PowderWeight)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.PowderWeightUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).COL, "COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).COL)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.COLUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).Velocity, "Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).Velocity)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.VelocityUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).Pressure, "Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).Pressure)&nbsp;
+                            @Html.DisplayFor(model => model.EntityView.PressureUnitViewAbbreviation)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((CartridgeLoad)model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((CartridgeLoad)model.Entity).Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+        
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete" class="btn-style" />
+        </div>
+    }
+</div>

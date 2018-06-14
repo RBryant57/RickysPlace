@@ -1,0 +1,79 @@
+﻿@model ShootingManager.Entities.Models.BulletType
+
+@{
+    ViewBag.Title = "Edit Bullet Type";
+}
+<head>
+    <title>Shooting Manager: Edit Bullet Type - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Bullet Type Index", "Index", "BulletType", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Edit Bullet Type</h2>
+
+    @using (Html.BeginForm("Edit", "BulletType", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Abbreviation, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Abbreviation)
+                            @Html.ValidationMessageFor(model => model.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <br />
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn-style" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,96 @@
+﻿@model ShootingManager.Web.ViewModels.PowderViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Delete Powder";
+}
+<head>
+    <title>Shooting Manager: Delete Powder - @(((Powder)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Powder Index", "Index", "Powder", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Powder</h2>
+
+    <h3>Are you sure you want to delete this powder?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "Powder", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Powder)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Powder)model.Entity).Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.ManufacturerName, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.ManufacturerName)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.PowderTypeName, "Powder Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.PowderTypeName)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.PowderShapeName, "Powder Shape:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.PowderShapeName)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Powder)model.Entity).Name, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Powder)model.Entity).Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <br />
+            <hr />
+
+            <div class="col-md-offset-2 col-md-10">
+                @{if (Model.CanDelete)
+                    {
+                        <input type="submit" value="Delete" class="btn-style" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Delete" class="btn-styledisabled" disabled title="This powder cannot be deleted since it is used in cartridge loads." />
+                    }
+                }
+            </div>
+        }
+    </div>
+</div>

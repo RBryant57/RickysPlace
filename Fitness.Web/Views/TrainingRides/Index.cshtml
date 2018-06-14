@@ -1,0 +1,147 @@
+﻿@model IEnumerable<FitnessWeb.Models.TrainingRide>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bike.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Route.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartOdometer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndOdometer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideTimeHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideTimeMinutes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideTimeSeconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageHR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxHR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageCadence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElevationGain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precipitation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bike.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Route.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartOdometer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndOdometer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RideTimeHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RideTimeMinutes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RideTimeSeconds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageHR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxHR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageCadence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElevationGain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WindSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WindDirection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precipitation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

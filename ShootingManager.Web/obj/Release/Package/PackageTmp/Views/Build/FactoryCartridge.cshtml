@@ -1,0 +1,212 @@
+﻿@model ShootingManager.Entities.Models.Cartridge
+@{
+    ViewBag.Title = "Build Cartridge";
+}
+<head>
+    <title>Shooting Manager: Add Factory Cartridge</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Add Factory Cartridge</h2>
+
+    @using (Html.BeginForm("FactoryCartridge", "Build", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @{if (!String.IsNullOrEmpty(ViewBag.CaliberName))
+                            {
+                                <label for="Caliber" class="control-label col-md-2">Caliber:</label>
+                                <div class="control-label col-md-1">
+                                    @ViewBag.CaliberName
+                                </div>
+                            }
+                            else
+                            {
+                                @Html.LabelFor(model => model.CartridgeLoad.Caliber, "Caliber:", new { @class = "control-label col-md-2" })
+                                <div class="control-label col-md-4">
+                                    @Html.DropDownList("CaliberId", String.Empty)
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Brass Material:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BrassMaterialId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Bullet Type:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BulletTypeId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Bullet Material:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("BulletMaterialId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Bullet Mass:", new { @class = "control-label col-md-4" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Mass")
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("MassUnitId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Manufacturer, "Manufacturer:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("ManufacturerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.ManufacturerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("COL")
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("COLUnitId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Velocity")
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("VelocityUnitId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Pressure")
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("PressureUnitId", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+                <legend></legend>
+            </fieldset>
+            <br />
+            <br />
+            
+                <div data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Add To Store?:", new { @class = "control-label col-md-6" })
+                        <div class="control-label col col-md-1">
+                            @Html.CheckBox("AddToStore", false)
+                        </div>
+                    </div>
+                </div>
+            <fieldset>
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Quantity:", new { @class = "control-label col-md-5" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Quantity")
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Cost:", new { @class = "control-label col-md-5" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Cost")
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Create" class="btn-style" id="Create" />
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/cartridge")
+@Scripts.Render("~/bundles/validate")

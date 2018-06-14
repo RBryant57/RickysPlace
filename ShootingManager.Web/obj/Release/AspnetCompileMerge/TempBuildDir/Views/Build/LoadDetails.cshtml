@@ -1,0 +1,118 @@
+﻿@model ShootingManager.Web.ViewModels.CartridgeLoadViewModel
+
+@{
+    ViewBag.Title = "Cartridge Details";
+}
+<head>
+    <title>Shooting Manager: Cartridge Load Details - @(@Model.CartridgeLoad.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Cartridge Load Index", "LoadIndex", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Cartridge Load Details</h2>
+
+    @using (Html.BeginForm("Edit", "Load", FormMethod.Post, new { id = Model.CartridgeLoad.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Caliber, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Caliber.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Bullet, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Bullet.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Powder, "Powder:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Powder.Name)&nbsp;
+                            @Html.DisplayFor(model => model.CartridgeLoad.PowderWeight)&nbsp;
+                            @Html.DisplayFor(model => model.CartridgeLoad.Unit.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.COL, "COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.COL)&nbsp;
+                            @Html.DisplayFor(model => model.CartridgeLoad.Unit1.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Velocity, "Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Velocity)&nbsp;
+                            @Html.DisplayFor(model => model.CartridgeLoad.Unit2.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Pressure, "Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Pressure)&nbsp;
+                            @Html.DisplayFor(model => model.CartridgeLoad.Unit3.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.CartridgeLoad.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+    }
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "EditLoad", new { id = Model.CartridgeLoad.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

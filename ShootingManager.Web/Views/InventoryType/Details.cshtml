@@ -1,0 +1,67 @@
+﻿@model ShootingManager.Entities.Models.InventoryType
+
+@{
+    ViewBag.Title = "Inventory Type Details";
+}
+<head>
+    <title>Shooting Manager: Inventory Type Details - @(@Model.Description)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Inventory Type Index", "Index", "InventoryType", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Bullet Type Details</h2>
+    @using (Html.BeginForm("Edit", "InventoryType", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+	        <hr />
+            <br />
+
+            <div class="form-horizontal">
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Description, "Description:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Description)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+            </p>
+        </div>
+    }
+</div>

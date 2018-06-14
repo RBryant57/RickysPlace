@@ -1,0 +1,14 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Music.Data.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Music.Data.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Music.Data.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\obj\Debug\Music.Data.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\obj\Debug\Music.Data.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\obj\Debug\Music.Data.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Music.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Data\bin\Debug\Music.Entities.pdb

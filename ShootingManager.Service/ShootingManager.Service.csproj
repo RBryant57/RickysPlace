@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B054640-C346-4ECA-9AA4-13EF83DCE7EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShootingManager.Service</RootNamespace>
+    <AssemblyName>ShootingManager.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InventoryTypeService.cs" />
+    <Compile Include="CartridgeService.cs" />
+    <Compile Include="Interfaces\IInventoryTypeService.cs" />
+    <Compile Include="Interfaces\ICartridgeService.cs" />
+    <Compile Include="Interfaces\ICartridgeLoadService.cs" />
+    <Compile Include="PowderShapeService.cs" />
+    <Compile Include="PrimerTypeService.cs" />
+    <Compile Include="CartridgeLoadService.cs" />
+    <Compile Include="UnitTypeService.cs" />
+    <Compile Include="UnitService.cs" />
+    <Compile Include="ShootingSessionService.cs" />
+    <Compile Include="ShootingLocationService.cs" />
+    <Compile Include="PrimerService.cs" />
+    <Compile Include="PowderTypeService.cs" />
+    <Compile Include="Interfaces\IUnitTypeService.cs" />
+    <Compile Include="Interfaces\IUnitService.cs" />
+    <Compile Include="Interfaces\IShootingSessionService.cs" />
+    <Compile Include="Interfaces\IShootingLocationService.cs" />
+    <Compile Include="Interfaces\IPrimerTypeService.cs" />
+    <Compile Include="Interfaces\IPrimerService.cs" />
+    <Compile Include="Interfaces\IPowderTypeService.cs" />
+    <Compile Include="Interfaces\IPowderShapeService.cs" />
+    <Compile Include="PowderService.cs" />
+    <Compile Include="Interfaces\IPowderService.cs" />
+    <Compile Include="Interfaces\IMaterialService.cs" />
+    <Compile Include="MaterialService.cs" />
+    <Compile Include="ManufacturerService.cs" />
+    <Compile Include="GunTypeService.cs" />
+    <Compile Include="GunService.cs" />
+    <Compile Include="CaliberService.cs" />
+    <Compile Include="BulletTypeService.cs" />
+    <Compile Include="BulletService.cs" />
+    <Compile Include="Interfaces\IManufacturerService.cs" />
+    <Compile Include="Interfaces\IGunTypeService.cs" />
+    <Compile Include="Interfaces\IGunService.cs" />
+    <Compile Include="Interfaces\ICaliberService.cs" />
+    <Compile Include="Interfaces\IBulletTypeService.cs" />
+    <Compile Include="Interfaces\IBulletService.cs" />
+    <Compile Include="Interfaces\IBrassService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BrassService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.Core\Data.Core.csproj">
+      <Project>{6ceef791-04b7-4603-94ef-f195504a91f1}</Project>
+      <Name>Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingManager.DataEF\ShootingManager.DataEF.csproj">
+      <Project>{e84dc01d-f923-40b1-b71d-bbd83bf769ee}</Project>
+      <Name>ShootingManager.DataEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingManager.Entities\ShootingManager.Entities.csproj">
+      <Project>{8135e349-65ad-44cf-ba4b-dae13edb5a03}</Project>
+      <Name>ShootingManager.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingManager.Repositories\ShootingManager.Repositories.csproj">
+      <Project>{109b5cb6-0562-49b0-8a88-60ecb18e79b0}</Project>
+      <Name>ShootingManager.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

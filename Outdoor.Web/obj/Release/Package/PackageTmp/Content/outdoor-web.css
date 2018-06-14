@@ -1,0 +1,305 @@
+/*!
+ * Start Bootstrap - Small Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    font: "Trebuchet MS", Verdana, sans-serif;
+    background-color: lightgoldenrodyellow;
+    color: #696969;
+}
+footer{
+    padding-left: 20px;
+}
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.slate   { background-color: #ddd; }
+.green   { background-color: #779126; }
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: #eec111; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+#mainselection select {
+   border: 0;
+   color: #EEE;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow:hidden;
+   width:350px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+.btn-style{
+	border : solid 1px #808000;
+	border-radius : 8px;
+	moz-border-radius : 8px;
+	-webkit-box-shadow : 5px 4px 4px rgba(8,8,0,0.5);
+	-moz-box-shadow : 5px 4px 4px rgba(8,8,0,0.5);
+	box-shadow : 5px 4px 4px rgba(8,8,0,0.5);
+	font-size : 20px;
+	color : #fafad2;
+	padding : 2px 18px;
+	background : #808000;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#808000), color-stop(100%,#383b30));
+	background : -moz-linear-gradient(top, #808000 0%, #383b30 100%);
+	background : -webkit-linear-gradient(top, #808000 0%, #383b30 100%);
+	background : -o-linear-gradient(top, #808000 0%, #383b30 100%);
+	background : -ms-linear-gradient(top, #808000 0%, #383b30 100%);
+	background : linear-gradient(top, #808000 0%, #383b30 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#808000', endColorstr='#383b30',GradientType=0 );
+
+}
+.btn-stylehidden{
+    border: none;
+    background-color: lightgoldenrodyellow;
+}
+.btn-stylehidden:hover{
+    cursor: auto;
+}
+
+.col-md-1a {
+    width: 20%;
+    text-align: right;
+}
+.EditLinkStyle {
+    color: #C0A862;
+    font-weight: bold;
+    font-size: small;
+}
+.NavLinkStyle {
+    color: #C0A862;
+    font-weight: bold;
+    font-size: medium;
+}
+.SideLinkStyle{
+    color: #C0A862;
+    font-weight: bold;
+    font-size: medium;
+}
+hr.style-eight {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: white;
+    text-align: center;
+}
+
+a:hover{
+    color: darkolivegreen;
+}
+.DetailStyle {
+    color: #C0A862;
+    font-weight: bolder;
+    font-size: large;
+}
+.GunDetailStyle {
+    padding: 20px;
+}
+#shootingtable {    
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#shootingtable td, #shootingtable th {
+    font-size: 1em;
+    font-weight: bold;
+    border: 2px solid olive;
+    padding: 3px 7px 2px 7px;
+}
+
+table.shootingtable thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+#shootingtable th {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #FFD119;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: olive; /*#A7C942;*/
+    cursor: pointer;
+    background-image: url(~/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+#shootingtable tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+.form-label{
+    color: white;
+}
+.navbar-inverse {
+    padding: 15px 0;
+    background-color:olive;
+}
+h1,h2,h3,p{
+    color:olive;
+}
+.spacer{
+    color: lightgoldenrodyellow;
+}
+.linkp{
+    color: darkgoldenrod;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 80px;
+}
+.rowbody {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 30px;
+}
+footer {
+    margin-left: 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+        background-color:olive;
+    }
+}
+.SpaceLabelStyle{
+    color: white;
+}

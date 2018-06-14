@@ -1,0 +1,103 @@
+﻿@model ShootingManager.Entities.Models.Caliber
+
+@{
+    ViewBag.Title = "Caliber Details";
+}
+<head>
+    <title>Shooting Manager: Caliber Details - @(@Model.Name)</title>
+</head>
+<div class="container">
+
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Caliber Index", "Index", "Caliber", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Caliber Details</h2>
+
+    <div>
+
+	    @using (Html.BeginForm("Edit", "Caliber", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            <br />
+            <div class="form-horizontal">
+
+                <fieldset>
+        
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-3">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Diameter, "Diameter:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-3">
+                                @{
+                                    string parameterValue = Model.Diameter.ToString();
+                                }
+                                @Html.DisplayFor(model => parameterValue)
+                                &nbsp;
+                                @Html.DisplayFor(model => model.Unit.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.SortOrder, "Sort Order:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-1">
+                                @Html.DisplayFor(model => model.SortOrder)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.SortOrder, "Primer Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label-left col-md-1">
+                                @Html.DisplayFor(model => model.PrimerType.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Notes, "Notes:",  new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+        }
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+
+</div>

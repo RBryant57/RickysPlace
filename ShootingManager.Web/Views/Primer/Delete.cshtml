@@ -1,0 +1,93 @@
+﻿@model ShootingManager.Web.ViewModels.PrimerViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Delete Primer";
+}
+<head>
+    <title>Shooting Manager: Delete Primer - @(((Primer)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Primer Index", "Index", "Primer", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Primer</h2>
+
+    <h3>Are you sure you want to delete this primer?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "Primer", FormMethod.Post, new { @class = "grid-form" }))
+        {   
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Primer)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Primer)model.Entity).Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.PrimerTypeAbbreviation, "Primer Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.PrimerTypeAbbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.ManufacturerName, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.ManufacturerName)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Primer)model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Primer)model.Entity).Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                @{if (ViewBag.CanDelete)
+                    {
+                        <input type="submit" value="Delete" class="btn-style" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Delete" class="btn-styledisabled" disabled title="This primer cannot be deleted since it is used in cartridges." />
+                    }
+                }
+            </div>
+                    }
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿body
+{
+	
+}
+.p
+{
+	color: Olive
+}
+.LabelStyle
+{
+	color: Olive;
+	font-weight: bold;
+	margin-top:auto
+}
+.EntryLabelStyle
+{
+	color: Olive;
+	font-weight: bold;
+	width: 130px;
+	text-align: right
+}
+.SmallLabelStyle
+{
+	color: Olive;
+	font-weight: normal
+}
+.MediumLabelStyle
+{
+	color: Olive;
+	font-weight:bold;
+	font-size: medium
+}
+.LargeLabelStyle
+{
+	color: Olive;
+	font-weight:bolder;
+	font-size:large
+}
+.ErrorLabelStyle
+{
+	color: Red;
+	font-size: larger
+}
+.ResultLabelStyle
+{
+	color: Blue;
+	font-size: larger
+}
+.TopLinkStyle
+{
+	color: Black;
+	font-size: large;
+	font-weight: bolder
+}
+.ButtonStyle
+{
+	color: Olive;
+	font-weight: bold
+}
+.TextBoxStyle
+{
+	width: 160px
+}

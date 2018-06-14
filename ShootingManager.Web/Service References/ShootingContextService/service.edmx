@@ -1,0 +1,702 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="ShootingManager.Entities.Models" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="Brass">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="CaliberId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Length" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="LengthUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MaterialId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="BrassQuantities" Relationship="ShootingManager.Entities.Models.Brass_BrassQuantities_BrassQuantity_Brass" ToRole="BrassQuantity_Brass" FromRole="Brass_BrassQuantities" />
+        <NavigationProperty Name="Caliber" Relationship="ShootingManager.Entities.Models.Brass_Caliber_Caliber_Brasses" ToRole="Caliber_Brasses" FromRole="Brass_Caliber" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.Brass_Cartridges_Cartridge_Brass" ToRole="Cartridge_Brass" FromRole="Brass_Cartridges" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Brass_Manufacturer_Manufacturer_Brasses" ToRole="Manufacturer_Brasses" FromRole="Brass_Manufacturer" />
+        <NavigationProperty Name="Material" Relationship="ShootingManager.Entities.Models.Brass_Material_Material_Brasses" ToRole="Material_Brasses" FromRole="Brass_Material" />
+        <NavigationProperty Name="Unit" Relationship="ShootingManager.Entities.Models.Brass_Unit_Unit_Brasses" ToRole="Unit_Brasses" FromRole="Brass_Unit" />
+      </EntityType>
+      <EntityType Name="BrassQuantity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BrassId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brass" Relationship="ShootingManager.Entities.Models.Brass_BrassQuantities_BrassQuantity_Brass" ToRole="Brass_BrassQuantities" FromRole="BrassQuantity_Brass" />
+      </EntityType>
+      <EntityType Name="Caliber">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Diameter" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="DiameterUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SortOrder" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brasses" Relationship="ShootingManager.Entities.Models.Brass_Caliber_Caliber_Brasses" ToRole="Brass_Caliber" FromRole="Caliber_Brasses" />
+        <NavigationProperty Name="CartridgeLoads" Relationship="ShootingManager.Entities.Models.Caliber_CartridgeLoads_CartridgeLoad_Caliber" ToRole="CartridgeLoad_Caliber" FromRole="Caliber_CartridgeLoads" />
+        <NavigationProperty Name="Guns" Relationship="ShootingManager.Entities.Models.Caliber_Guns_Gun_Caliber" ToRole="Gun_Caliber" FromRole="Caliber_Guns" />
+        <NavigationProperty Name="Unit" Relationship="ShootingManager.Entities.Models.Caliber_Unit_Unit_Calibers" ToRole="Unit_Calibers" FromRole="Caliber_Unit" />
+      </EntityType>
+      <EntityType Name="CartridgeLoad">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="CaliberId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BulletId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderWeight" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="PowderWeightUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="COL" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="COLUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Velocity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="VelocityUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Pressure" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PressureUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Bullet" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Bullet_Bullet_CartridgeLoads" ToRole="Bullet_CartridgeLoads" FromRole="CartridgeLoad_Bullet" />
+        <NavigationProperty Name="Caliber" Relationship="ShootingManager.Entities.Models.Caliber_CartridgeLoads_CartridgeLoad_Caliber" ToRole="Caliber_CartridgeLoads" FromRole="CartridgeLoad_Caliber" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Cartridges_Cartridge_CartridgeLoad" ToRole="Cartridge_CartridgeLoad" FromRole="CartridgeLoad_Cartridges" />
+        <NavigationProperty Name="Powder" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Powder_Powder_CartridgeLoads" ToRole="Powder_CartridgeLoads" FromRole="CartridgeLoad_Powder" />
+        <NavigationProperty Name="Unit" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit_Unit_CartridgeLoads" ToRole="Unit_CartridgeLoads" FromRole="CartridgeLoad_Unit" />
+        <NavigationProperty Name="Unit1" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit1_Unit_CartridgeLoads1" ToRole="Unit_CartridgeLoads1" FromRole="CartridgeLoad_Unit1" />
+        <NavigationProperty Name="Unit2" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit2_Unit_CartridgeLoads2" ToRole="Unit_CartridgeLoads2" FromRole="CartridgeLoad_Unit2" />
+        <NavigationProperty Name="Unit3" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit3_Unit_CartridgeLoads3" ToRole="Unit_CartridgeLoads3" FromRole="CartridgeLoad_Unit3" />
+      </EntityType>
+      <EntityType Name="Bullet">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="BulletTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MaterialId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Diameter" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="DiameterUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Length" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="LengthUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Mass" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="MassUnitId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="BulletQuantities" Relationship="ShootingManager.Entities.Models.Bullet_BulletQuantities_BulletQuantity_Bullet" ToRole="BulletQuantity_Bullet" FromRole="Bullet_BulletQuantities" />
+        <NavigationProperty Name="BulletType" Relationship="ShootingManager.Entities.Models.Bullet_BulletType_BulletType_Bullets" ToRole="BulletType_Bullets" FromRole="Bullet_BulletType" />
+        <NavigationProperty Name="CartridgeLoads" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Bullet_Bullet_CartridgeLoads" ToRole="CartridgeLoad_Bullet" FromRole="Bullet_CartridgeLoads" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.Bullet_Cartridges_Cartridge_Bullet" ToRole="Cartridge_Bullet" FromRole="Bullet_Cartridges" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Bullet_Manufacturer_Manufacturer_Bullets" ToRole="Manufacturer_Bullets" FromRole="Bullet_Manufacturer" />
+        <NavigationProperty Name="Material" Relationship="ShootingManager.Entities.Models.Bullet_Material_Material_Bullets" ToRole="Material_Bullets" FromRole="Bullet_Material" />
+        <NavigationProperty Name="Unit" Relationship="ShootingManager.Entities.Models.Bullet_Unit_Unit_Bullets" ToRole="Unit_Bullets" FromRole="Bullet_Unit" />
+        <NavigationProperty Name="Unit1" Relationship="ShootingManager.Entities.Models.Bullet_Unit1_Unit_Bullets1" ToRole="Unit_Bullets1" FromRole="Bullet_Unit1" />
+        <NavigationProperty Name="Unit2" Relationship="ShootingManager.Entities.Models.Bullet_Unit2_Unit_Bullets2" ToRole="Unit_Bullets2" FromRole="Bullet_Unit2" />
+      </EntityType>
+      <EntityType Name="BulletQuantity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BulletId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Bullet" Relationship="ShootingManager.Entities.Models.Bullet_BulletQuantities_BulletQuantity_Bullet" ToRole="Bullet_BulletQuantities" FromRole="BulletQuantity_Bullet" />
+      </EntityType>
+      <EntityType Name="BulletType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Abbreviation" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Bullets" Relationship="ShootingManager.Entities.Models.Bullet_BulletType_BulletType_Bullets" ToRole="Bullet_BulletType" FromRole="BulletType_Bullets" />
+      </EntityType>
+      <EntityType Name="Cartridge">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="CartridgeLoadId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BulletId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BrassId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PrimerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufactureDate" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brass" Relationship="ShootingManager.Entities.Models.Brass_Cartridges_Cartridge_Brass" ToRole="Brass_Cartridges" FromRole="Cartridge_Brass" />
+        <NavigationProperty Name="Bullet" Relationship="ShootingManager.Entities.Models.Bullet_Cartridges_Cartridge_Bullet" ToRole="Bullet_Cartridges" FromRole="Cartridge_Bullet" />
+        <NavigationProperty Name="CartridgeLoad" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Cartridges_Cartridge_CartridgeLoad" ToRole="CartridgeLoad_Cartridges" FromRole="Cartridge_CartridgeLoad" />
+        <NavigationProperty Name="CartridgeQuantities" Relationship="ShootingManager.Entities.Models.Cartridge_CartridgeQuantities_CartridgeQuantity_Cartridge" ToRole="CartridgeQuantity_Cartridge" FromRole="Cartridge_CartridgeQuantities" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Cartridge_Manufacturer_Manufacturer_Cartridges" ToRole="Manufacturer_Cartridges" FromRole="Cartridge_Manufacturer" />
+        <NavigationProperty Name="Powder" Relationship="ShootingManager.Entities.Models.Cartridge_Powder_Powder_Cartridges" ToRole="Powder_Cartridges" FromRole="Cartridge_Powder" />
+        <NavigationProperty Name="Primer" Relationship="ShootingManager.Entities.Models.Cartridge_Primer_Primer_Cartridges" ToRole="Primer_Cartridges" FromRole="Cartridge_Primer" />
+        <NavigationProperty Name="ShootingSessions" Relationship="ShootingManager.Entities.Models.Cartridge_ShootingSessions_ShootingSession_Cartridge" ToRole="ShootingSession_Cartridge" FromRole="Cartridge_ShootingSessions" />
+      </EntityType>
+      <EntityType Name="CartridgeQuantity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CartridgeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Cartridge" Relationship="ShootingManager.Entities.Models.Cartridge_CartridgeQuantities_CartridgeQuantity_Cartridge" ToRole="Cartridge_CartridgeQuantities" FromRole="CartridgeQuantity_Cartridge" />
+      </EntityType>
+      <EntityType Name="Manufacturer">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Zip" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brasses" Relationship="ShootingManager.Entities.Models.Brass_Manufacturer_Manufacturer_Brasses" ToRole="Brass_Manufacturer" FromRole="Manufacturer_Brasses" />
+        <NavigationProperty Name="Bullets" Relationship="ShootingManager.Entities.Models.Bullet_Manufacturer_Manufacturer_Bullets" ToRole="Bullet_Manufacturer" FromRole="Manufacturer_Bullets" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.Cartridge_Manufacturer_Manufacturer_Cartridges" ToRole="Cartridge_Manufacturer" FromRole="Manufacturer_Cartridges" />
+        <NavigationProperty Name="Guns" Relationship="ShootingManager.Entities.Models.Manufacturer_Guns_Gun_Manufacturer" ToRole="Gun_Manufacturer" FromRole="Manufacturer_Guns" />
+        <NavigationProperty Name="Powders" Relationship="ShootingManager.Entities.Models.Manufacturer_Powders_Powder_Manufacturer" ToRole="Powder_Manufacturer" FromRole="Manufacturer_Powders" />
+        <NavigationProperty Name="Primers" Relationship="ShootingManager.Entities.Models.Manufacturer_Primers_Primer_Manufacturer" ToRole="Primer_Manufacturer" FromRole="Manufacturer_Primers" />
+      </EntityType>
+      <EntityType Name="Gun">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="CaliberId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Capacity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="GunTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Caliber" Relationship="ShootingManager.Entities.Models.Caliber_Guns_Gun_Caliber" ToRole="Caliber_Guns" FromRole="Gun_Caliber" />
+        <NavigationProperty Name="GunType" Relationship="ShootingManager.Entities.Models.Gun_GunType_GunType_Guns" ToRole="GunType_Guns" FromRole="Gun_GunType" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Manufacturer_Guns_Gun_Manufacturer" ToRole="Manufacturer_Guns" FromRole="Gun_Manufacturer" />
+        <NavigationProperty Name="ShootingSessions" Relationship="ShootingManager.Entities.Models.Gun_ShootingSessions_ShootingSession_Gun" ToRole="ShootingSession_Gun" FromRole="Gun_ShootingSessions" />
+      </EntityType>
+      <EntityType Name="GunType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Guns" Relationship="ShootingManager.Entities.Models.Gun_GunType_GunType_Guns" ToRole="Gun_GunType" FromRole="GunType_Guns" />
+      </EntityType>
+      <EntityType Name="ShootingSession">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="LocationId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="GunId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CartridgeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Rounds" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Cartridge" Relationship="ShootingManager.Entities.Models.Cartridge_ShootingSessions_ShootingSession_Cartridge" ToRole="Cartridge_ShootingSessions" FromRole="ShootingSession_Cartridge" />
+        <NavigationProperty Name="Gun" Relationship="ShootingManager.Entities.Models.Gun_ShootingSessions_ShootingSession_Gun" ToRole="Gun_ShootingSessions" FromRole="ShootingSession_Gun" />
+        <NavigationProperty Name="ShootingLocation" Relationship="ShootingManager.Entities.Models.ShootingSession_ShootingLocation_ShootingLocation_ShootingSessions" ToRole="ShootingLocation_ShootingSessions" FromRole="ShootingSession_ShootingLocation" />
+      </EntityType>
+      <EntityType Name="ShootingLocation">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="ShootingSessions" Relationship="ShootingManager.Entities.Models.ShootingSession_ShootingLocation_ShootingLocation_ShootingSessions" ToRole="ShootingSession_ShootingLocation" FromRole="ShootingLocation_ShootingSessions" />
+      </EntityType>
+      <EntityType Name="Powder">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="MaufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderShapeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="CartridgeLoads" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Powder_Powder_CartridgeLoads" ToRole="CartridgeLoad_Powder" FromRole="Powder_CartridgeLoads" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.Cartridge_Powder_Powder_Cartridges" ToRole="Cartridge_Powder" FromRole="Powder_Cartridges" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Manufacturer_Powders_Powder_Manufacturer" ToRole="Manufacturer_Powders" FromRole="Powder_Manufacturer" />
+        <NavigationProperty Name="PowderQuantities" Relationship="ShootingManager.Entities.Models.Powder_PowderQuantities_PowderQuantity_Powder" ToRole="PowderQuantity_Powder" FromRole="Powder_PowderQuantities" />
+        <NavigationProperty Name="PowderShape" Relationship="ShootingManager.Entities.Models.Powder_PowderShape_PowderShape_Powders" ToRole="PowderShape_Powders" FromRole="Powder_PowderShape" />
+        <NavigationProperty Name="PowderType" Relationship="ShootingManager.Entities.Models.Powder_PowderType_PowderType_Powders" ToRole="PowderType_Powders" FromRole="Powder_PowderType" />
+      </EntityType>
+      <EntityType Name="PowderQuantity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PowderId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Powder" Relationship="ShootingManager.Entities.Models.Powder_PowderQuantities_PowderQuantity_Powder" ToRole="Powder_PowderQuantities" FromRole="PowderQuantity_Powder" />
+      </EntityType>
+      <EntityType Name="PowderShape">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Powders" Relationship="ShootingManager.Entities.Models.Powder_PowderShape_PowderShape_Powders" ToRole="Powder_PowderShape" FromRole="PowderShape_Powders" />
+      </EntityType>
+      <EntityType Name="PowderType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Powders" Relationship="ShootingManager.Entities.Models.Powder_PowderType_PowderType_Powders" ToRole="Powder_PowderType" FromRole="PowderType_Powders" />
+      </EntityType>
+      <EntityType Name="Primer">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="PrimerTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ManufacturerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Cartridges" Relationship="ShootingManager.Entities.Models.Cartridge_Primer_Primer_Cartridges" ToRole="Cartridge_Primer" FromRole="Primer_Cartridges" />
+        <NavigationProperty Name="Manufacturer" Relationship="ShootingManager.Entities.Models.Manufacturer_Primers_Primer_Manufacturer" ToRole="Manufacturer_Primers" FromRole="Primer_Manufacturer" />
+        <NavigationProperty Name="PrimerQuantities" Relationship="ShootingManager.Entities.Models.Primer_PrimerQuantities_PrimerQuantity_Primer" ToRole="PrimerQuantity_Primer" FromRole="Primer_PrimerQuantities" />
+        <NavigationProperty Name="PrimerType" Relationship="ShootingManager.Entities.Models.Primer_PrimerType_PrimerType_Primers" ToRole="PrimerType_Primers" FromRole="Primer_PrimerType" />
+      </EntityType>
+      <EntityType Name="PrimerQuantity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PrimerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Primer" Relationship="ShootingManager.Entities.Models.Primer_PrimerQuantities_PrimerQuantity_Primer" ToRole="Primer_PrimerQuantities" FromRole="PrimerQuantity_Primer" />
+      </EntityType>
+      <EntityType Name="PrimerType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Abbreviation" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Primers" Relationship="ShootingManager.Entities.Models.Primer_PrimerType_PrimerType_Primers" ToRole="Primer_PrimerType" FromRole="PrimerType_Primers" />
+      </EntityType>
+      <EntityType Name="Material">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brasses" Relationship="ShootingManager.Entities.Models.Brass_Material_Material_Brasses" ToRole="Brass_Material" FromRole="Material_Brasses" />
+        <NavigationProperty Name="Bullets" Relationship="ShootingManager.Entities.Models.Bullet_Material_Material_Bullets" ToRole="Bullet_Material" FromRole="Material_Bullets" />
+      </EntityType>
+      <EntityType Name="Unit">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Plural" Type="Edm.String" />
+        <Property Name="Abbreviation" Type="Edm.String" />
+        <Property Name="UnitTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Brasses" Relationship="ShootingManager.Entities.Models.Brass_Unit_Unit_Brasses" ToRole="Brass_Unit" FromRole="Unit_Brasses" />
+        <NavigationProperty Name="Bullets" Relationship="ShootingManager.Entities.Models.Bullet_Unit_Unit_Bullets" ToRole="Bullet_Unit" FromRole="Unit_Bullets" />
+        <NavigationProperty Name="Bullets1" Relationship="ShootingManager.Entities.Models.Bullet_Unit1_Unit_Bullets1" ToRole="Bullet_Unit1" FromRole="Unit_Bullets1" />
+        <NavigationProperty Name="Bullets2" Relationship="ShootingManager.Entities.Models.Bullet_Unit2_Unit_Bullets2" ToRole="Bullet_Unit2" FromRole="Unit_Bullets2" />
+        <NavigationProperty Name="Calibers" Relationship="ShootingManager.Entities.Models.Caliber_Unit_Unit_Calibers" ToRole="Caliber_Unit" FromRole="Unit_Calibers" />
+        <NavigationProperty Name="CartridgeLoads" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit_Unit_CartridgeLoads" ToRole="CartridgeLoad_Unit" FromRole="Unit_CartridgeLoads" />
+        <NavigationProperty Name="CartridgeLoads1" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit1_Unit_CartridgeLoads1" ToRole="CartridgeLoad_Unit1" FromRole="Unit_CartridgeLoads1" />
+        <NavigationProperty Name="CartridgeLoads2" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit2_Unit_CartridgeLoads2" ToRole="CartridgeLoad_Unit2" FromRole="Unit_CartridgeLoads2" />
+        <NavigationProperty Name="CartridgeLoads3" Relationship="ShootingManager.Entities.Models.CartridgeLoad_Unit3_Unit_CartridgeLoads3" ToRole="CartridgeLoad_Unit3" FromRole="Unit_CartridgeLoads3" />
+        <NavigationProperty Name="UnitType" Relationship="ShootingManager.Entities.Models.Unit_UnitType_UnitType_Units" ToRole="UnitType_Units" FromRole="Unit_UnitType" />
+      </EntityType>
+      <EntityType Name="UnitType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Notes" Type="Edm.String" />
+        <NavigationProperty Name="Units" Relationship="ShootingManager.Entities.Models.Unit_UnitType_UnitType_Units" ToRole="Unit_UnitType" FromRole="UnitType_Units" />
+      </EntityType>
+      <Association Name="Brass_BrassQuantities_BrassQuantity_Brass">
+        <End Type="ShootingManager.Entities.Models.BrassQuantity" Role="BrassQuantity_Brass" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_BrassQuantities" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Brass_Caliber_Caliber_Brasses">
+        <End Type="ShootingManager.Entities.Models.Caliber" Role="Caliber_Brasses" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_Caliber" Multiplicity="*" />
+      </Association>
+      <Association Name="Brass_Cartridges_Cartridge_Brass">
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_Brass" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_Cartridges" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Brass_Manufacturer_Manufacturer_Brasses">
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Brasses" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_Manufacturer" Multiplicity="*" />
+      </Association>
+      <Association Name="Brass_Material_Material_Brasses">
+        <End Type="ShootingManager.Entities.Models.Material" Role="Material_Brasses" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_Material" Multiplicity="*" />
+      </Association>
+      <Association Name="Brass_Unit_Unit_Brasses">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_Brasses" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Brass" Role="Brass_Unit" Multiplicity="*" />
+      </Association>
+      <Association Name="Caliber_CartridgeLoads_CartridgeLoad_Caliber">
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Caliber" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Caliber" Role="Caliber_CartridgeLoads" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Caliber_Guns_Gun_Caliber">
+        <End Type="ShootingManager.Entities.Models.Gun" Role="Gun_Caliber" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Caliber" Role="Caliber_Guns" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Caliber_Unit_Unit_Calibers">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_Calibers" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Caliber" Role="Caliber_Unit" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Bullet_Bullet_CartridgeLoads">
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_CartridgeLoads" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Bullet" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Cartridges_Cartridge_CartridgeLoad">
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_CartridgeLoad" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Cartridges" Multiplicity="0..1" />
+      </Association>
+      <Association Name="CartridgeLoad_Powder_Powder_CartridgeLoads">
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_CartridgeLoads" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Powder" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Unit_Unit_CartridgeLoads">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_CartridgeLoads" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Unit" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Unit1_Unit_CartridgeLoads1">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_CartridgeLoads1" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Unit1" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Unit2_Unit_CartridgeLoads2">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_CartridgeLoads2" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Unit2" Multiplicity="*" />
+      </Association>
+      <Association Name="CartridgeLoad_Unit3_Unit_CartridgeLoads3">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_CartridgeLoads3" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.CartridgeLoad" Role="CartridgeLoad_Unit3" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_BulletQuantities_BulletQuantity_Bullet">
+        <End Type="ShootingManager.Entities.Models.BulletQuantity" Role="BulletQuantity_Bullet" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_BulletQuantities" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Bullet_BulletType_BulletType_Bullets">
+        <End Type="ShootingManager.Entities.Models.BulletType" Role="BulletType_Bullets" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_BulletType" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_Cartridges_Cartridge_Bullet">
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_Bullet" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Cartridges" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Bullet_Manufacturer_Manufacturer_Bullets">
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Bullets" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Manufacturer" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_Material_Material_Bullets">
+        <End Type="ShootingManager.Entities.Models.Material" Role="Material_Bullets" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Material" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_Unit_Unit_Bullets">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_Bullets" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Unit" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_Unit1_Unit_Bullets1">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_Bullets1" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Unit1" Multiplicity="*" />
+      </Association>
+      <Association Name="Bullet_Unit2_Unit_Bullets2">
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_Bullets2" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Bullet" Role="Bullet_Unit2" Multiplicity="*" />
+      </Association>
+      <Association Name="Cartridge_CartridgeQuantities_CartridgeQuantity_Cartridge">
+        <End Type="ShootingManager.Entities.Models.CartridgeQuantity" Role="CartridgeQuantity_Cartridge" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_CartridgeQuantities" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Cartridge_Manufacturer_Manufacturer_Cartridges">
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Cartridges" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_Manufacturer" Multiplicity="*" />
+      </Association>
+      <Association Name="Cartridge_Powder_Powder_Cartridges">
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_Cartridges" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_Powder" Multiplicity="*" />
+      </Association>
+      <Association Name="Cartridge_Primer_Primer_Cartridges">
+        <End Type="ShootingManager.Entities.Models.Primer" Role="Primer_Cartridges" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_Primer" Multiplicity="*" />
+      </Association>
+      <Association Name="Cartridge_ShootingSessions_ShootingSession_Cartridge">
+        <End Type="ShootingManager.Entities.Models.ShootingSession" Role="ShootingSession_Cartridge" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Cartridge" Role="Cartridge_ShootingSessions" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Manufacturer_Guns_Gun_Manufacturer">
+        <End Type="ShootingManager.Entities.Models.Gun" Role="Gun_Manufacturer" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Guns" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Manufacturer_Powders_Powder_Manufacturer">
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_Manufacturer" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Powders" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Manufacturer_Primers_Primer_Manufacturer">
+        <End Type="ShootingManager.Entities.Models.Primer" Role="Primer_Manufacturer" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Manufacturer" Role="Manufacturer_Primers" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Gun_GunType_GunType_Guns">
+        <End Type="ShootingManager.Entities.Models.GunType" Role="GunType_Guns" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Gun" Role="Gun_GunType" Multiplicity="*" />
+      </Association>
+      <Association Name="Gun_ShootingSessions_ShootingSession_Gun">
+        <End Type="ShootingManager.Entities.Models.ShootingSession" Role="ShootingSession_Gun" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Gun" Role="Gun_ShootingSessions" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ShootingSession_ShootingLocation_ShootingLocation_ShootingSessions">
+        <End Type="ShootingManager.Entities.Models.ShootingLocation" Role="ShootingLocation_ShootingSessions" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.ShootingSession" Role="ShootingSession_ShootingLocation" Multiplicity="*" />
+      </Association>
+      <Association Name="Powder_PowderQuantities_PowderQuantity_Powder">
+        <End Type="ShootingManager.Entities.Models.PowderQuantity" Role="PowderQuantity_Powder" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_PowderQuantities" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Powder_PowderShape_PowderShape_Powders">
+        <End Type="ShootingManager.Entities.Models.PowderShape" Role="PowderShape_Powders" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_PowderShape" Multiplicity="*" />
+      </Association>
+      <Association Name="Powder_PowderType_PowderType_Powders">
+        <End Type="ShootingManager.Entities.Models.PowderType" Role="PowderType_Powders" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Powder" Role="Powder_PowderType" Multiplicity="*" />
+      </Association>
+      <Association Name="Primer_PrimerQuantities_PrimerQuantity_Primer">
+        <End Type="ShootingManager.Entities.Models.PrimerQuantity" Role="PrimerQuantity_Primer" Multiplicity="*" />
+        <End Type="ShootingManager.Entities.Models.Primer" Role="Primer_PrimerQuantities" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Primer_PrimerType_PrimerType_Primers">
+        <End Type="ShootingManager.Entities.Models.PrimerType" Role="PrimerType_Primers" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Primer" Role="Primer_PrimerType" Multiplicity="*" />
+      </Association>
+      <Association Name="Unit_UnitType_UnitType_Units">
+        <End Type="ShootingManager.Entities.Models.UnitType" Role="UnitType_Units" Multiplicity="0..1" />
+        <End Type="ShootingManager.Entities.Models.Unit" Role="Unit_UnitType" Multiplicity="*" />
+      </Association>
+      <EntityContainer Name="ShootingContext" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Brasses" EntityType="ShootingManager.Entities.Models.Brass" />
+        <EntitySet Name="BrassQuantities" EntityType="ShootingManager.Entities.Models.BrassQuantity" />
+        <EntitySet Name="Calibers" EntityType="ShootingManager.Entities.Models.Caliber" />
+        <EntitySet Name="CartridgeLoads" EntityType="ShootingManager.Entities.Models.CartridgeLoad" />
+        <EntitySet Name="Bullets" EntityType="ShootingManager.Entities.Models.Bullet" />
+        <EntitySet Name="BulletQuantities" EntityType="ShootingManager.Entities.Models.BulletQuantity" />
+        <EntitySet Name="BulletTypes" EntityType="ShootingManager.Entities.Models.BulletType" />
+        <EntitySet Name="Cartridges" EntityType="ShootingManager.Entities.Models.Cartridge" />
+        <EntitySet Name="CartridgeQuantities" EntityType="ShootingManager.Entities.Models.CartridgeQuantity" />
+        <EntitySet Name="Manufacturers" EntityType="ShootingManager.Entities.Models.Manufacturer" />
+        <EntitySet Name="Guns" EntityType="ShootingManager.Entities.Models.Gun" />
+        <EntitySet Name="GunTypes" EntityType="ShootingManager.Entities.Models.GunType" />
+        <EntitySet Name="ShootingSessions" EntityType="ShootingManager.Entities.Models.ShootingSession" />
+        <EntitySet Name="ShootingLocations" EntityType="ShootingManager.Entities.Models.ShootingLocation" />
+        <EntitySet Name="Powders" EntityType="ShootingManager.Entities.Models.Powder" />
+        <EntitySet Name="PowderQuantities" EntityType="ShootingManager.Entities.Models.PowderQuantity" />
+        <EntitySet Name="PowderShapes" EntityType="ShootingManager.Entities.Models.PowderShape" />
+        <EntitySet Name="PowderTypes" EntityType="ShootingManager.Entities.Models.PowderType" />
+        <EntitySet Name="Primers" EntityType="ShootingManager.Entities.Models.Primer" />
+        <EntitySet Name="PrimerQuantities" EntityType="ShootingManager.Entities.Models.PrimerQuantity" />
+        <EntitySet Name="PrimerTypes" EntityType="ShootingManager.Entities.Models.PrimerType" />
+        <EntitySet Name="Materials" EntityType="ShootingManager.Entities.Models.Material" />
+        <EntitySet Name="Units" EntityType="ShootingManager.Entities.Models.Unit" />
+        <EntitySet Name="UnitTypes" EntityType="ShootingManager.Entities.Models.UnitType" />
+        <AssociationSet Name="BrassQuantity_Brass" Association="ShootingManager.Entities.Models.Brass_BrassQuantities_BrassQuantity_Brass">
+          <End Role="Brass_BrassQuantities" EntitySet="Brasses" />
+          <End Role="BrassQuantity_Brass" EntitySet="BrassQuantities" />
+        </AssociationSet>
+        <AssociationSet Name="Brass_Caliber" Association="ShootingManager.Entities.Models.Brass_Caliber_Caliber_Brasses">
+          <End Role="Brass_Caliber" EntitySet="Brasses" />
+          <End Role="Caliber_Brasses" EntitySet="Calibers" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_Brass" Association="ShootingManager.Entities.Models.Brass_Cartridges_Cartridge_Brass">
+          <End Role="Brass_Cartridges" EntitySet="Brasses" />
+          <End Role="Cartridge_Brass" EntitySet="Cartridges" />
+        </AssociationSet>
+        <AssociationSet Name="Brass_Manufacturer" Association="ShootingManager.Entities.Models.Brass_Manufacturer_Manufacturer_Brasses">
+          <End Role="Brass_Manufacturer" EntitySet="Brasses" />
+          <End Role="Manufacturer_Brasses" EntitySet="Manufacturers" />
+        </AssociationSet>
+        <AssociationSet Name="Brass_Material" Association="ShootingManager.Entities.Models.Brass_Material_Material_Brasses">
+          <End Role="Brass_Material" EntitySet="Brasses" />
+          <End Role="Material_Brasses" EntitySet="Materials" />
+        </AssociationSet>
+        <AssociationSet Name="Brass_Unit" Association="ShootingManager.Entities.Models.Brass_Unit_Unit_Brasses">
+          <End Role="Brass_Unit" EntitySet="Brasses" />
+          <End Role="Unit_Brasses" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Caliber" Association="ShootingManager.Entities.Models.Caliber_CartridgeLoads_CartridgeLoad_Caliber">
+          <End Role="Caliber_CartridgeLoads" EntitySet="Calibers" />
+          <End Role="CartridgeLoad_Caliber" EntitySet="CartridgeLoads" />
+        </AssociationSet>
+        <AssociationSet Name="Gun_Caliber" Association="ShootingManager.Entities.Models.Caliber_Guns_Gun_Caliber">
+          <End Role="Caliber_Guns" EntitySet="Calibers" />
+          <End Role="Gun_Caliber" EntitySet="Guns" />
+        </AssociationSet>
+        <AssociationSet Name="Caliber_Unit" Association="ShootingManager.Entities.Models.Caliber_Unit_Unit_Calibers">
+          <End Role="Caliber_Unit" EntitySet="Calibers" />
+          <End Role="Unit_Calibers" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Bullet" Association="ShootingManager.Entities.Models.CartridgeLoad_Bullet_Bullet_CartridgeLoads">
+          <End Role="CartridgeLoad_Bullet" EntitySet="CartridgeLoads" />
+          <End Role="Bullet_CartridgeLoads" EntitySet="Bullets" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_CartridgeLoad" Association="ShootingManager.Entities.Models.CartridgeLoad_Cartridges_Cartridge_CartridgeLoad">
+          <End Role="CartridgeLoad_Cartridges" EntitySet="CartridgeLoads" />
+          <End Role="Cartridge_CartridgeLoad" EntitySet="Cartridges" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Powder" Association="ShootingManager.Entities.Models.CartridgeLoad_Powder_Powder_CartridgeLoads">
+          <End Role="CartridgeLoad_Powder" EntitySet="CartridgeLoads" />
+          <End Role="Powder_CartridgeLoads" EntitySet="Powders" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Unit" Association="ShootingManager.Entities.Models.CartridgeLoad_Unit_Unit_CartridgeLoads">
+          <End Role="CartridgeLoad_Unit" EntitySet="CartridgeLoads" />
+          <End Role="Unit_CartridgeLoads" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Unit1" Association="ShootingManager.Entities.Models.CartridgeLoad_Unit1_Unit_CartridgeLoads1">
+          <End Role="CartridgeLoad_Unit1" EntitySet="CartridgeLoads" />
+          <End Role="Unit_CartridgeLoads1" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Unit2" Association="ShootingManager.Entities.Models.CartridgeLoad_Unit2_Unit_CartridgeLoads2">
+          <End Role="CartridgeLoad_Unit2" EntitySet="CartridgeLoads" />
+          <End Role="Unit_CartridgeLoads2" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeLoad_Unit3" Association="ShootingManager.Entities.Models.CartridgeLoad_Unit3_Unit_CartridgeLoads3">
+          <End Role="CartridgeLoad_Unit3" EntitySet="CartridgeLoads" />
+          <End Role="Unit_CartridgeLoads3" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="BulletQuantity_Bullet" Association="ShootingManager.Entities.Models.Bullet_BulletQuantities_BulletQuantity_Bullet">
+          <End Role="Bullet_BulletQuantities" EntitySet="Bullets" />
+          <End Role="BulletQuantity_Bullet" EntitySet="BulletQuantities" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_BulletType" Association="ShootingManager.Entities.Models.Bullet_BulletType_BulletType_Bullets">
+          <End Role="Bullet_BulletType" EntitySet="Bullets" />
+          <End Role="BulletType_Bullets" EntitySet="BulletTypes" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_Bullet" Association="ShootingManager.Entities.Models.Bullet_Cartridges_Cartridge_Bullet">
+          <End Role="Bullet_Cartridges" EntitySet="Bullets" />
+          <End Role="Cartridge_Bullet" EntitySet="Cartridges" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_Manufacturer" Association="ShootingManager.Entities.Models.Bullet_Manufacturer_Manufacturer_Bullets">
+          <End Role="Bullet_Manufacturer" EntitySet="Bullets" />
+          <End Role="Manufacturer_Bullets" EntitySet="Manufacturers" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_Material" Association="ShootingManager.Entities.Models.Bullet_Material_Material_Bullets">
+          <End Role="Bullet_Material" EntitySet="Bullets" />
+          <End Role="Material_Bullets" EntitySet="Materials" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_Unit" Association="ShootingManager.Entities.Models.Bullet_Unit_Unit_Bullets">
+          <End Role="Bullet_Unit" EntitySet="Bullets" />
+          <End Role="Unit_Bullets" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_Unit1" Association="ShootingManager.Entities.Models.Bullet_Unit1_Unit_Bullets1">
+          <End Role="Bullet_Unit1" EntitySet="Bullets" />
+          <End Role="Unit_Bullets1" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="Bullet_Unit2" Association="ShootingManager.Entities.Models.Bullet_Unit2_Unit_Bullets2">
+          <End Role="Bullet_Unit2" EntitySet="Bullets" />
+          <End Role="Unit_Bullets2" EntitySet="Units" />
+        </AssociationSet>
+        <AssociationSet Name="CartridgeQuantity_Cartridge" Association="ShootingManager.Entities.Models.Cartridge_CartridgeQuantities_CartridgeQuantity_Cartridge">
+          <End Role="Cartridge_CartridgeQuantities" EntitySet="Cartridges" />
+          <End Role="CartridgeQuantity_Cartridge" EntitySet="CartridgeQuantities" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_Manufacturer" Association="ShootingManager.Entities.Models.Cartridge_Manufacturer_Manufacturer_Cartridges">
+          <End Role="Cartridge_Manufacturer" EntitySet="Cartridges" />
+          <End Role="Manufacturer_Cartridges" EntitySet="Manufacturers" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_Powder" Association="ShootingManager.Entities.Models.Cartridge_Powder_Powder_Cartridges">
+          <End Role="Cartridge_Powder" EntitySet="Cartridges" />
+          <End Role="Powder_Cartridges" EntitySet="Powders" />
+        </AssociationSet>
+        <AssociationSet Name="Cartridge_Primer" Association="ShootingManager.Entities.Models.Cartridge_Primer_Primer_Cartridges">
+          <End Role="Cartridge_Primer" EntitySet="Cartridges" />
+          <End Role="Primer_Cartridges" EntitySet="Primers" />
+        </AssociationSet>
+        <AssociationSet Name="ShootingSession_Cartridge" Association="ShootingManager.Entities.Models.Cartridge_ShootingSessions_ShootingSession_Cartridge">
+          <End Role="Cartridge_ShootingSessions" EntitySet="Cartridges" />
+          <End Role="ShootingSession_Cartridge" EntitySet="ShootingSessions" />
+        </AssociationSet>
+        <AssociationSet Name="Gun_Manufacturer" Association="ShootingManager.Entities.Models.Manufacturer_Guns_Gun_Manufacturer">
+          <End Role="Manufacturer_Guns" EntitySet="Manufacturers" />
+          <End Role="Gun_Manufacturer" EntitySet="Guns" />
+        </AssociationSet>
+        <AssociationSet Name="Powder_Manufacturer" Association="ShootingManager.Entities.Models.Manufacturer_Powders_Powder_Manufacturer">
+          <End Role="Manufacturer_Powders" EntitySet="Manufacturers" />
+          <End Role="Powder_Manufacturer" EntitySet="Powders" />
+        </AssociationSet>
+        <AssociationSet Name="Primer_Manufacturer" Association="ShootingManager.Entities.Models.Manufacturer_Primers_Primer_Manufacturer">
+          <End Role="Manufacturer_Primers" EntitySet="Manufacturers" />
+          <End Role="Primer_Manufacturer" EntitySet="Primers" />
+        </AssociationSet>
+        <AssociationSet Name="Gun_GunType" Association="ShootingManager.Entities.Models.Gun_GunType_GunType_Guns">
+          <End Role="Gun_GunType" EntitySet="Guns" />
+          <End Role="GunType_Guns" EntitySet="GunTypes" />
+        </AssociationSet>
+        <AssociationSet Name="ShootingSession_Gun" Association="ShootingManager.Entities.Models.Gun_ShootingSessions_ShootingSession_Gun">
+          <End Role="Gun_ShootingSessions" EntitySet="Guns" />
+          <End Role="ShootingSession_Gun" EntitySet="ShootingSessions" />
+        </AssociationSet>
+        <AssociationSet Name="ShootingSession_ShootingLocation" Association="ShootingManager.Entities.Models.ShootingSession_ShootingLocation_ShootingLocation_ShootingSessions">
+          <End Role="ShootingSession_ShootingLocation" EntitySet="ShootingSessions" />
+          <End Role="ShootingLocation_ShootingSessions" EntitySet="ShootingLocations" />
+        </AssociationSet>
+        <AssociationSet Name="PowderQuantity_Powder" Association="ShootingManager.Entities.Models.Powder_PowderQuantities_PowderQuantity_Powder">
+          <End Role="Powder_PowderQuantities" EntitySet="Powders" />
+          <End Role="PowderQuantity_Powder" EntitySet="PowderQuantities" />
+        </AssociationSet>
+        <AssociationSet Name="Powder_PowderShape" Association="ShootingManager.Entities.Models.Powder_PowderShape_PowderShape_Powders">
+          <End Role="Powder_PowderShape" EntitySet="Powders" />
+          <End Role="PowderShape_Powders" EntitySet="PowderShapes" />
+        </AssociationSet>
+        <AssociationSet Name="Powder_PowderType" Association="ShootingManager.Entities.Models.Powder_PowderType_PowderType_Powders">
+          <End Role="Powder_PowderType" EntitySet="Powders" />
+          <End Role="PowderType_Powders" EntitySet="PowderTypes" />
+        </AssociationSet>
+        <AssociationSet Name="PrimerQuantity_Primer" Association="ShootingManager.Entities.Models.Primer_PrimerQuantities_PrimerQuantity_Primer">
+          <End Role="Primer_PrimerQuantities" EntitySet="Primers" />
+          <End Role="PrimerQuantity_Primer" EntitySet="PrimerQuantities" />
+        </AssociationSet>
+        <AssociationSet Name="Primer_PrimerType" Association="ShootingManager.Entities.Models.Primer_PrimerType_PrimerType_Primers">
+          <End Role="Primer_PrimerType" EntitySet="Primers" />
+          <End Role="PrimerType_Primers" EntitySet="PrimerTypes" />
+        </AssociationSet>
+        <AssociationSet Name="Unit_UnitType" Association="ShootingManager.Entities.Models.Unit_UnitType_UnitType_Units">
+          <End Role="Unit_UnitType" EntitySet="Units" />
+          <End Role="UnitType_Units" EntitySet="UnitTypes" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

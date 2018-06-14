@@ -1,0 +1,11 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\RPUnitTests.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\RPUnitTests.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\Moq.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\nunit.framework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\Moq.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\nunit.framework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\obj\Debug\RPUnitTests.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\obj\Debug\RPUnitTests.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\obj\Debug\RPUnitTests.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\RPUnitTests\obj\Debug\RPUnitTests.csproj.CoreCompileInputs.cache

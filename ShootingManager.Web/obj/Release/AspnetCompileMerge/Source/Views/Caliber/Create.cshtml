@@ -1,0 +1,105 @@
+﻿@model ShootingManager.Entities.Models.Caliber
+
+@{
+    ViewBag.Title = "Create Caliber";
+}
+<head>
+    <title>Shooting Manager: Create Caliber</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Caliber Index", "Index", "Caliber", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Create Caliber</h2>
+
+    @using (Html.BeginForm("Create", "Caliber", FormMethod.Post, new { @class = "grid-form" })) 
+    {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.Label("Diameter:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.Diameter)
+                            @Html.ValidationMessageFor(model => model.Diameter)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("DiameterUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.DiameterUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.SortOrder, "Sort Order:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.SortOrder)
+                            @Html.ValidationMessageFor(model => model.SortOrder)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Diameter, "Primer Type:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("PrimerTypeId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.PrimerTypeId)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:",  new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <br />
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn-style" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

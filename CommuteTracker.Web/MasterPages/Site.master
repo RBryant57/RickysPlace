@@ -1,0 +1,112 @@
+<%@ Master Language="C#" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server" >
+<link href="~/App_Themes/RPTheme/site.css" rel="Stylesheet" type="text/css" />
+<link REL="SHORTCUT ICON" HREF="~/images/BIKER00B.ICO">
+    <style type="text/css">
+        html
+        {
+            background-color:Olive;
+            font:14px Georgia,Serif;
+        }
+        .content
+        {
+            width:900px;
+            margin:auto;
+            border-style:solid;
+            background-color:white;
+            padding:10px;
+        }
+        .tabstrip
+        {
+            padding:3px;
+            border-top:solid 1px black;
+            border-bottom:solid 1px black;
+        }
+        .tabstrip a
+        {
+            font:14px Arial;
+            color:DarkGreen;
+            text-decoration:none;
+        }
+        .column
+        {
+            float:left;
+            padding:10px;
+            border-right:solid 1px black;
+        }
+        .rightColumn
+        {
+            float:left;
+            padding:10px;
+        }
+        .clear
+        {
+            clear:both;
+        }
+        .style1
+        {
+            color: #000000;
+            font-weight: bold;
+        }
+    </style>
+    <title>Site Master</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+    <div class="content">
+        <asp:Image
+            id="imgLogo"
+            ImageUrl="~/images/Banner.jpg"
+            AlternateText="Website Logo"
+            Runat="server" />
+            
+        <div class="tabstrip">
+        <asp:HyperLink
+            id="lnkHome"
+            Text="Home"
+            NavigateUrl="http://localhost:8000"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+        &nbsp;
+        <asp:HyperLink
+            id="lnkCommuteTracker"
+            Text="CommuteTracker.Web"
+            NavigateUrl="http://localhost:8000/CommuteTracker.Web"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+            &nbsp;
+        <asp:HyperLink
+            id="lnkFishing"
+            Text="Outdoor.Web"
+            NavigateUrl="http://localhost:8000/Outdoor.Web"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+            &nbsp;
+        <asp:HyperLink
+            id="lnkFitness"
+            Text="Fitness.Web"
+            NavigateUrl="http://localhost:8000/Fitness.Web"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+            &nbsp;
+        <asp:HyperLink
+            id="lnkMusic"
+            Text="Music.Web"
+            NavigateUrl="http://localhost:8000/Music.Web"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+            &nbsp;
+        <asp:HyperLink
+            id="lnkTech"
+            Text="Tech.Web"
+            NavigateUrl="http://localhost:8000/Tech.Web"
+            Runat="server" CssClass="TopLinkStyle" Font-Bold="True" ForeColor="Black" />
+        </div>    
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+        <br class="clear" />
+        <br />
+        <span class="style1">copyright © 2009 by YellowCaddis Development
+    </span>
+    </div>
+    </form>
+</body>
+</html>

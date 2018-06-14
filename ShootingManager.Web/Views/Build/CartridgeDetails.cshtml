@@ -1,0 +1,101 @@
+﻿@model ShootingManager.Web.ViewModels.CartridgeViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Cartridge Load Details";
+}
+<head>
+    <title>Shooting Manager: Cartridge Details - @(((Cartridge)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Cartridge Details</h2>
+
+    @using (Html.BeginForm("Edit", "Cartridge", FormMethod.Post, new { id = ((Cartridge)Model.Entity).Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((Cartridge)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => ((Cartridge)model.Entity).Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.CartridgeLoadViewCaliberId, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.ActionLink(Model.EntityView.CartridgeLoadViewCaliberViewName, "Details", "Caliber", new { id = Model.EntityView.CartridgeLoadViewCaliberId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.CartridgeLoadViewName, "Cartridge Load:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-3">
+                            @Html.ActionLink(Model.EntityView.CartridgeLoadViewCartridgeLoadName, "LoadDetails", "Build", new { id = Model.EntityView.CartridgeLoadId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((Cartridge)model.Entity).BrassId, "Brass:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.ActionLink(Model.EntityView.BrassViewBrassName, "Details", "Brass", new { id = Model.EntityView.BrassId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.EntityView.CartridgeLoadViewBulletId, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.ActionLink(Model.EntityView.CartridgeLoadViewBulletViewBulletName, "Details", "Bullet", new { id = Model.EntityView.CartridgeLoadViewBulletId }, new { @class = "EditLinkStyle" })
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => ((Cartridge)model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.DisplayFor(model => ((Cartridge)model.Entity).Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "EditCartridge", new { id = ((Cartridge)Model.Entity).Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+    }
+</div>

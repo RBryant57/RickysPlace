@@ -1,0 +1,13 @@
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Music.Repositories.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Music.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Data.Core.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Music.Entities.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\EntityFramework.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Data.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Music.Entities.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\EntityFramework.xml
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\obj\Debug\Music.Repositories.csprojResolveAssemblyReference.cache
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\obj\Debug\Music.Repositories.dll
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\obj\Debug\Music.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\bin\Debug\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Music.Repositories\obj\Debug\Music.Repositories.csproj.CoreCompileInputs.cache

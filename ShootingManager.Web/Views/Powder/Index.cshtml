@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.PowderViewModel>
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Powder Index";
+}
+<head>
+    <title>Shooting Manager: Powder Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Powder Index</h2>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "EditLinkStyle" })
+    <br />
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>                
+                    @Html.Label("Name")
+                </th>
+                <th>
+                    @Html.Label("Manufacturer")
+                </th>
+                <th>
+                    @Html.Label("Powder Type")
+                </th>
+                <th>
+                    @Html.Label("Powder Shape")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Web.ViewModels.PowderViewModel item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((Powder)item.Entity).Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.ManufacturerName, "Details", "Manufacturer", new { id = ((Powder)item.Entity).ManufacturerId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.PowderTypeName, "Details", "PowderType", new { id = ((Powder)item.Entity).PowderTypeId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.PowderShapeName, "Details", "PowderShape", new { id = ((Powder)item.Entity).PowderShapeId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = ((Powder)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id = ((Powder)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = ((Powder)item.Entity).Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

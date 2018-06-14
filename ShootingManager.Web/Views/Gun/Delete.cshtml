@@ -1,0 +1,147 @@
+﻿@model ShootingManager.Web.ViewModels.GunViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Delete Gun";
+}
+<head>
+    <title>Shooting Manager: Delete Gun - @(((Gun)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Gun Index", "Index", "Gun", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Gun</h2>
+
+    <h3>Are you sure you want to delete this gun?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "Gun", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Gun)model.Entity).Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).SerialNumber, "Serial Number:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Gun)model.Entity).SerialNumber)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.CaliberViewName, "Caliber:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.CaliberViewName)
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.ManufacturerName, "Manufacturer:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.ManufacturerName)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).Capacity, "Capacity:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Gun)model.Entity).Capacity)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.GunTypeName, "Gun Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.EntityView.GunTypeName)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).AcquisitionDate, "Acquisition Date:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @{
+                                    var gun = Model.Entity as Gun;
+                                    string parameterValue = gun.AcquisitionDate.ToShortDateString();
+                                }
+                                @Html.DisplayFor(modelItem => parameterValue)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).RetireDate, "Retire Date:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @{
+                                    var retireDate = gun.RetireDate.GetValueOrDefault();
+                                    parameterValue = retireDate == DateTime.MinValue ? String.Empty : retireDate.ToShortDateString();
+                                }
+                                @Html.DisplayFor(modelItem => parameterValue)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).Details, "Details:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Gun)model.Entity).Details)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Gun)model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Gun)model.Entity).Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn-style" />
+            </div>
+        }
+    </div>
+</div>

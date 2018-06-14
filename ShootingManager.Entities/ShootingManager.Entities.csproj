@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8135E349-65AD-44CF-BA4B-DAE13EDB5A03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShootingManager.Entities</RootNamespace>
+    <AssemblyName>ShootingManager.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity.cs" />
+    <Compile Include="Models\Brass.cs" />
+    <Compile Include="Models\CaliberCalibers.cs" />
+    <Compile Include="Models\GunsCalibersView.cs" />
+    <Compile Include="Models\CartridgeCost.cs" />
+    <Compile Include="Models\BrassCost.cs" />
+    <Compile Include="Models\BrassQuantity.cs" />
+    <Compile Include="Models\BrassView.cs" />
+    <Compile Include="Models\Bullet.cs" />
+    <Compile Include="Models\BulletCost.cs" />
+    <Compile Include="Models\BulletQuantity.cs" />
+    <Compile Include="Models\BulletsCaliber.cs" />
+    <Compile Include="Models\BulletType.cs" />
+    <Compile Include="Models\BulletView.cs" />
+    <Compile Include="Models\Caliber.cs" />
+    <Compile Include="Models\CaliberView.cs" />
+    <Compile Include="Models\Cartridge.cs" />
+    <Compile Include="Models\CartridgeLoad.cs" />
+    <Compile Include="Models\CartridgeQuantity.cs" />
+    <Compile Include="Models\CartridgeLoadView.cs" />
+    <Compile Include="Models\CartridgeView.cs" />
+    <Compile Include="Models\Gun.cs" />
+    <Compile Include="Models\GunImage.cs" />
+    <Compile Include="Models\GunType.cs" />
+    <Compile Include="Models\GunView.cs" />
+    <Compile Include="Models\InventoryType.cs" />
+    <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Powder.cs" />
+    <Compile Include="Models\PowderCost.cs" />
+    <Compile Include="Models\PowderQuantity.cs" />
+    <Compile Include="Models\PowderShape.cs" />
+    <Compile Include="Models\PowderType.cs" />
+    <Compile Include="Models\PowderView.cs" />
+    <Compile Include="Models\Primer.cs" />
+    <Compile Include="Models\PrimerCost.cs" />
+    <Compile Include="Models\PrimerQuantity.cs" />
+    <Compile Include="Models\PrimerType.cs" />
+    <Compile Include="Models\PrimerView.cs" />
+    <Compile Include="Models\ShootingLocation.cs" />
+    <Compile Include="Models\ShootingLocationView.cs" />
+    <Compile Include="Models\ShootingSession.cs" />
+    <Compile Include="Models\ShootingSessionView.cs" />
+    <Compile Include="Models\SmokelessPowderView.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\UnitType.cs" />
+    <Compile Include="Models\UnitView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.Core\Data.Core.csproj">
+      <Project>{6ceef791-04b7-4603-94ef-f195504a91f1}</Project>
+      <Name>Data.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

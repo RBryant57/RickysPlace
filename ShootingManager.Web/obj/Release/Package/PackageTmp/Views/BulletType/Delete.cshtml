@@ -1,0 +1,84 @@
+﻿@model ShootingManager.Entities.Models.BulletType
+
+@{
+    ViewBag.Title = "Delete Bullet Type";
+}
+<head>
+    <title>Shooting Manager: Delete Bullet Type - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Bullet Type Index", "Index", "BulletType", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Bullet Type</h2>
+
+    <h3>Are you sure you want to delete this bullet type?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "BulletType", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            <br />
+            
+            <div class="form-horizontal">
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Abbreviation, "Abbreviation:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+                            
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                @{if (ViewBag.CanDelete)
+                    {
+                        <input type="submit" value="Delete" class="btn-style" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Delete" class="btn-styledisabled" disabled title="This bullet type cannot be deleted since it is used in bullets." />
+                    }
+                }
+            </div>
+                    }
+    </div>
+</div>

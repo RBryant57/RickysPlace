@@ -1,0 +1,1957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShootingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Brass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="Length" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="LengthUnitId" Type="int" Nullable="false" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="TimesFired" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BrassCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BrassId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BrassQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrassId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StartQuantity" Type="int" Nullable="false" />
+    <Property Name="EndQuantity" Type="int" Nullable="false" />
+    <Property Name="Change" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Bullet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BulletTypeId" Type="int" Nullable="false" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+    <Property Name="Diameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="Mass" Type="int" Nullable="false" />
+    <Property Name="MassUnitId" Type="int" Nullable="false" />
+    <Property Name="SectionalDensity" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="BallisticCoefficient" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="Length" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="LengthUnitId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BulletCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BulletId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BulletQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BulletId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StartQuantity" Type="int" Nullable="false" />
+    <Property Name="EndQuantity" Type="int" Nullable="false" />
+    <Property Name="Change" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BulletType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Caliber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Diameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="DiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Cartridge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CartridgeLoadId" Type="int" />
+    <Property Name="BrassId" Type="int" Nullable="false" />
+    <Property Name="PrimerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufactureDate" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="CartridgeLoad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="BulletId" Type="int" Nullable="false" />
+    <Property Name="PowderId" Type="int" Nullable="false" />
+    <Property Name="PowderWeight" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="PowderWeightUnitId" Type="int" Nullable="false" />
+    <Property Name="COL" Type="decimal" Precision="4" Scale="3" Nullable="false" />
+    <Property Name="COLUnitId" Type="int" Nullable="false" />
+    <Property Name="Velocity" Type="int" Nullable="false" />
+    <Property Name="VelocityUnitId" Type="int" Nullable="false" />
+    <Property Name="Pressure" Type="int" Nullable="false" />
+    <Property Name="PressureUnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="CartridgeQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CartridgeId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StartQuantity" Type="int" Nullable="false" />
+    <Property Name="EndQuantity" Type="int" Nullable="false" />
+    <Property Name="Change" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Gun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+    <Property Name="GunTypeId" Type="int" Nullable="false" />
+    <Property Name="Details" Type="ntext" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="GunImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GunId" Type="int" Nullable="false" />
+    <Property Name="PictureLocation" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GunType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Zip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Powder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="PowderTypeId" Type="int" Nullable="false" />
+    <Property Name="PowderShapeId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PowderCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PowderId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PowderQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PowderId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StartQuantity" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="EndQuantity" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Change" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PowderShape">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PowderType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Primer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PrimerCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PrimerId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PrimerQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimerId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="StartQuantity" Type="int" Nullable="false" />
+    <Property Name="EndQuantity" Type="int" Nullable="false" />
+    <Property Name="Change" Type="int" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="PrimerType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="ShootingLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="ShootingSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="GunId" Type="int" Nullable="false" />
+    <Property Name="CartridgeId" Type="int" Nullable="false" />
+    <Property Name="Rounds" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitTypeId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <EntityType Name="UnitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.BrassView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BrassView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BrassName" />
+      <PropertyRef Name="BrassFullName" />
+      <PropertyRef Name="Length" />
+      <PropertyRef Name="TimesFired" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberName" />
+      <PropertyRef Name="CaliberDiameter" />
+      <PropertyRef Name="CaliberSortOrder" />
+      <PropertyRef Name="CaliberDiameterUnitId" />
+      <PropertyRef Name="CaliberUnit" />
+      <PropertyRef Name="CaliberUnitPlural" />
+      <PropertyRef Name="CaliberUnitAbbreviation" />
+      <PropertyRef Name="CalUnitTypeId" />
+      <PropertyRef Name="CaliberUnitTypeName" />
+      <PropertyRef Name="CaliberPrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="LengthUnitId" />
+      <PropertyRef Name="BrassUnitName" />
+      <PropertyRef Name="BrassUnitPlural" />
+      <PropertyRef Name="BrassUnitAbbreviation" />
+      <PropertyRef Name="BrassUnitTypeId" />
+      <PropertyRef Name="BrassUnitTypeName" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="MaterialName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BrassName" Type="nvarchar" MaxLength="203" Nullable="false" />
+    <Property Name="BrassFullName" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="Length" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="TimesFired" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="CaliberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberSortOrder" Type="int" Nullable="false" />
+    <Property Name="CaliberNotes" Type="ntext" />
+    <Property Name="CaliberDiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="CaliberUnit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberUnitNotes" Type="ntext" />
+    <Property Name="CalUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="CaliberUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberUnitTypeNotes" Type="ntext" />
+    <Property Name="CaliberPrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="ntext" />
+    <Property Name="LengthUnitId" Type="int" Nullable="false" />
+    <Property Name="BrassUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrassUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrassUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrassUnitNotes" Type="ntext" />
+    <Property Name="BrassUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="BrassUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrassUnitTypeNotes" Type="ntext" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaterialNotes" Type="ntext" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerState" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.BulletView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BulletView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="Mass" />
+      <PropertyRef Name="SectionalDensity" />
+      <PropertyRef Name="BallisticCoefficient" />
+      <PropertyRef Name="Length" />
+      <PropertyRef Name="BulletTypeId" />
+      <PropertyRef Name="BulletTypeName" />
+      <PropertyRef Name="BulletTypeAbbreviation" />
+      <PropertyRef Name="MaterialId" />
+      <PropertyRef Name="MaterialName" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="DiameterUnitName" />
+      <PropertyRef Name="DiameterUnitPlural" />
+      <PropertyRef Name="DiameterUnitAbbreviation" />
+      <PropertyRef Name="DiameterUnitTypeId" />
+      <PropertyRef Name="DiameterUnitTypeName" />
+      <PropertyRef Name="MassUnitId" />
+      <PropertyRef Name="MassUnitName" />
+      <PropertyRef Name="MassUnitPlural" />
+      <PropertyRef Name="MassUnitAbbreviation" />
+      <PropertyRef Name="MassUnitTypeId" />
+      <PropertyRef Name="MassUnitTypeName" />
+      <PropertyRef Name="LengthUnitId" />
+      <PropertyRef Name="LengthUnitName" />
+      <PropertyRef Name="LengthUnitPlural" />
+      <PropertyRef Name="LengthUnitAbbreviation" />
+      <PropertyRef Name="LengthUnitTypeId" />
+      <PropertyRef Name="LenghtUnitTypeName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberName" />
+      <PropertyRef Name="CaliberSortOrder" />
+      <PropertyRef Name="CaliberDiameterUnitId" />
+      <PropertyRef Name="CaliberDiameterUnitName" />
+      <PropertyRef Name="CaliberDiameterUnitPlural" />
+      <PropertyRef Name="CaliberDiameterUnitAbbreviation" />
+      <PropertyRef Name="CaliberDiameterUnitTypeId" />
+      <PropertyRef Name="CaliberDiameterUnitTypeName" />
+      <PropertyRef Name="CaliberPrimerTypeId" />
+      <PropertyRef Name="CaliberPrimerTypeName" />
+      <PropertyRef Name="CaliberPrimerTypeAbbreviation" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BulletName" Type="nvarchar" MaxLength="183" />
+    <Property Name="BulletFullName" Type="nvarchar" MaxLength="234" />
+    <Property Name="Diameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="Mass" Type="int" Nullable="false" />
+    <Property Name="SectionalDensity" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="BallisticCoefficient" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="Length" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="BulletTypeId" Type="int" Nullable="false" />
+    <Property Name="BulletTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BulletTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BulletTypeNotes" Type="ntext" />
+    <Property Name="MaterialId" Type="int" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaterialNotes" Type="ntext" />
+    <Property Name="DiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="DiameterUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitNotes" Type="ntext" />
+    <Property Name="DiameterUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="DiameterUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitTypeNotes" Type="ntext" />
+    <Property Name="MassUnitId" Type="int" Nullable="false" />
+    <Property Name="MassUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MassUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MassUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MassUnitNotes" Type="ntext" />
+    <Property Name="MassUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="MassUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MassUnitTypeNotes" Type="ntext" />
+    <Property Name="LengthUnitId" Type="int" Nullable="false" />
+    <Property Name="LengthUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LengthUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LengthUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LengthUnitNotes" Type="ntext" />
+    <Property Name="LengthUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="LenghtUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LengthUnitTypeNotes" Type="ntext" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerState" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="ntext" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="CaliberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberSortOrder" Type="int" Nullable="false" />
+    <Property Name="CaliberNotes" Type="ntext" />
+    <Property Name="CaliberDiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="CaliberDiameterUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitNotes" Type="ntext" />
+    <Property Name="CaliberDiameterUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="CaliberDiameterUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitTypeNotes" Type="ntext" />
+    <Property Name="CaliberPrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="CaliberPrimerTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberPrimerTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberPrimerTypeNotes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.CaliberView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CaliberView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Diameter" />
+      <PropertyRef Name="SortOrder" />
+      <PropertyRef Name="DiameterUnitId" />
+      <PropertyRef Name="DiameterUnitName" />
+      <PropertyRef Name="DiameterUnitPlural" />
+      <PropertyRef Name="DiameterUnitAbbreviation" />
+      <PropertyRef Name="DiameterUnitTypeId" />
+      <PropertyRef Name="DiameterUnitTypeName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Diameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="DiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="DiameterUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitNotes" Type="ntext" />
+    <Property Name="DiameterUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="DiameterUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiameterUnitTypeNotes" Type="ntext" />
+    <Property Name="PrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.CartridgeLoadView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CartridgeLoadView">
+    <Key>
+      <PropertyRef Name="CaliberName" />
+      <PropertyRef Name="PowderName" />
+      <PropertyRef Name="PowderShapeName" />
+      <PropertyRef Name="PowderWeight" />
+      <PropertyRef Name="PowderWeightUnits" />
+      <PropertyRef Name="COL" />
+      <PropertyRef Name="COLUnits" />
+      <PropertyRef Name="Velocity" />
+      <PropertyRef Name="VelocityUnits" />
+      <PropertyRef Name="Pressure" />
+      <PropertyRef Name="PressureUnits" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="132" />
+    <Property Name="BulletName" Type="nvarchar" MaxLength="183" />
+    <Property Name="CaliberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderShapeName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderWeight" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="PowderWeightUnits" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="COL" Type="decimal" Precision="4" Scale="3" Nullable="false" />
+    <Property Name="COLUnits" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Velocity" Type="int" Nullable="false" />
+    <Property Name="VelocityUnits" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pressure" Type="int" Nullable="false" />
+    <Property Name="PressureUnits" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.CartridgeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CartridgeView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="BrassId" />
+      <PropertyRef Name="BrassName" />
+      <PropertyRef Name="BulletId" />
+      <PropertyRef Name="PowderId" />
+      <PropertyRef Name="PowderName" />
+      <PropertyRef Name="PrimerId" />
+      <PropertyRef Name="PrimerName" />
+      <PropertyRef Name="CaliberName" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BrassId" Type="int" Nullable="false" />
+    <Property Name="BrassName" Type="nvarchar" MaxLength="203" Nullable="false" />
+    <Property Name="BulletId" Type="int" Nullable="false" />
+    <Property Name="BulletName" Type="nvarchar" MaxLength="183" />
+    <Property Name="PowderId" Type="int" Nullable="false" />
+    <Property Name="PowderName" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="PrimerId" Type="int" Nullable="false" />
+    <Property Name="PrimerName" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="CaliberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.GunView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GunView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SerialNumber" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Capacity" />
+      <PropertyRef Name="Details" />
+      <PropertyRef Name="CaliberId" />
+      <PropertyRef Name="CaliberName" />
+      <PropertyRef Name="CaliberDiameter" />
+      <PropertyRef Name="CaliberSortOrder" />
+      <PropertyRef Name="CaliberDiameterUnitId" />
+      <PropertyRef Name="CaliberDiameterUnitName" />
+      <PropertyRef Name="CaliberDiameterUnitPlural" />
+      <PropertyRef Name="CaliberDiameterUnitAbbreviation" />
+      <PropertyRef Name="CaliberDiameterUnitTypeId" />
+      <PropertyRef Name="CaliberDiameterUnitTypeName" />
+      <PropertyRef Name="CaliberPrimerTypeId" />
+      <PropertyRef Name="CaliberPrimerTypeName" />
+      <PropertyRef Name="CaliberPrimerTypeAbbreviation" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="GunTypeId" />
+      <PropertyRef Name="GunTypeName" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+    <Property Name="Details" Type="ntext" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="CaliberId" Type="int" Nullable="false" />
+    <Property Name="CaliberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameter" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+    <Property Name="CaliberSortOrder" Type="int" Nullable="false" />
+    <Property Name="CaliberNotes" Type="ntext" />
+    <Property Name="CaliberDiameterUnitId" Type="int" Nullable="false" />
+    <Property Name="CaliberDiameterUnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitPlural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitNotes" Type="ntext" />
+    <Property Name="CaliberDiameterUnitTypeId" Type="int" Nullable="false" />
+    <Property Name="CaliberDiameterUnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberDiameterUnitTypeNotes" Type="ntext" />
+    <Property Name="CaliberPrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="CaliberPrimerTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberPrimerTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaliberPrimerTypeNotes" Type="ntext" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerState" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="ntext" />
+    <Property Name="GunTypeId" Type="int" Nullable="false" />
+    <Property Name="GunTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GunTypeNotes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.PowderView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PowderView">
+    <Key>
+      <PropertyRef Name="PowderId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PowderName" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+      <PropertyRef Name="PowderTypeId" />
+      <PropertyRef Name="PowderTypeName" />
+      <PropertyRef Name="PowderShapeId" />
+      <PropertyRef Name="PowderShapeName" />
+    </Key>
+    <Property Name="PowderId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderName" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerState" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ManufacturerNotes" Type="ntext" />
+    <Property Name="PowderTypeId" Type="int" Nullable="false" />
+    <Property Name="PowderTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderTypeNotes" Type="ntext" />
+    <Property Name="PowderShapeId" Type="int" Nullable="false" />
+    <Property Name="PowderShapeName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="PowderShapeNotes" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.PrimerView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PrimerView">
+    <Key>
+      <PropertyRef Name="PrimerId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrimerFullName" />
+      <PropertyRef Name="PrimerName" />
+      <PropertyRef Name="PrimerTypeId" />
+      <PropertyRef Name="PrimerTypeName" />
+      <PropertyRef Name="PrimerTypeAbbreviation" />
+      <PropertyRef Name="ManufacturerId" />
+      <PropertyRef Name="ManufacturerName" />
+      <PropertyRef Name="ManufacturerAddress" />
+      <PropertyRef Name="ManufacturerCity" />
+      <PropertyRef Name="ManufacturerState" />
+      <PropertyRef Name="ManufacturerZip" />
+      <PropertyRef Name="ManufacturerURL" />
+    </Key>
+    <Property Name="PrimerId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PrimerFullName" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="PrimerName" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="PrimerTypeId" Type="int" Nullable="false" />
+    <Property Name="PrimerTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerTypeNotes" Type="ntext" />
+    <Property Name="ManufacturerId" Type="int" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManufacturerState" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="ManufacturerZip" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="ManufacturerURL" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ManufacturerNote" Type="ntext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shooting.dbo.UnitView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UnitView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Plural" />
+      <PropertyRef Name="Abbreviation" />
+      <PropertyRef Name="UnitTypeId" />
+      <PropertyRef Name="UnitTypeName" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plural" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="UnitTypeId" Type="int" Nullable="false" />
+    <Property Name="UnitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitTypeNotes" Type="ntext" />
+  </EntityType>
+  <Association Name="FK_Brass_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brass_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brass_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brass_UnitLength">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Brass" Type="Self.Brass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brass">
+        <PropertyRef Name="LengthUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassCost_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="BrassCost" Type="Self.BrassCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassCost">
+        <PropertyRef Name="BrassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BrassCost" Type="Self.BrassCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassCost">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassQuantity_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="BrassQuantity" Type="Self.BrassQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassQuantity">
+        <PropertyRef Name="BrassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrassQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BrassQuantity" Type="Self.BrassQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BrassQuantity">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_BulletType">
+    <End Role="BulletType" Type="Self.BulletType" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BulletType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="BulletTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitDiameter">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="DiameterUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitLength">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="LengthUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bullet_UnitMass">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bullet">
+        <PropertyRef Name="MassUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletCost_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="BulletCost" Type="Self.BulletCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletCost">
+        <PropertyRef Name="BulletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BulletCost" Type="Self.BulletCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletCost">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletQuantity_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="BulletQuantity" Type="Self.BulletQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletQuantity">
+        <PropertyRef Name="BulletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BulletQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="BulletQuantity" Type="Self.BulletQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletQuantity">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Caliber_PrimerType">
+    <End Role="PrimerType" Type="Self.PrimerType" Multiplicity="1" />
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Caliber">
+        <PropertyRef Name="PrimerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Caliber_UnitDiameter">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Caliber">
+        <PropertyRef Name="DiameterUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Brass">
+    <End Role="Brass" Type="Self.Brass" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brass">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="BrassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_CartridgeLoad">
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="0..1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartridgeLoad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="CartridgeLoadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cartridge_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="1" />
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cartridge">
+        <PropertyRef Name="PrimerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Bullet">
+    <End Role="Bullet" Type="Self.Bullet" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bullet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="BulletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PowderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Unit1">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PowderWeightUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Unit2">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="COLUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Unit3">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="VelocityUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeLoad_Unit4">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeLoad" Type="Self.CartridgeLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeLoad">
+        <PropertyRef Name="PressureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeQuantity_Cartridge">
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="1" />
+    <End Role="CartridgeQuantity" Type="Self.CartridgeQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cartridge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeQuantity">
+        <PropertyRef Name="CartridgeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartridgeQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="CartridgeQuantity" Type="Self.CartridgeQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartridgeQuantity">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Caliber">
+    <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caliber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="CaliberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_GunType">
+    <End Role="GunType" Type="Self.GunType" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GunType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="GunTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gun_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Gun" Type="Self.Gun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gun">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GunImages_Gun">
+    <End Role="Gun" Type="Self.Gun" Multiplicity="1" />
+    <End Role="GunImages" Type="Self.GunImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GunImages">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_PowderShape">
+    <End Role="PowderShape" Type="Self.PowderShape" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PowderShape">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="PowderShapeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Powder_PowderType">
+    <End Role="PowderType" Type="Self.PowderType" Multiplicity="1" />
+    <End Role="Powder" Type="Self.Powder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PowderType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Powder">
+        <PropertyRef Name="PowderTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderCost_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="1" />
+    <End Role="PowderCost" Type="Self.PowderCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderCost">
+        <PropertyRef Name="PowderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PowderCost" Type="Self.PowderCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderCost">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderQuantity_Powder">
+    <End Role="Powder" Type="Self.Powder" Multiplicity="1" />
+    <End Role="PowderQuantity" Type="Self.PowderQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Powder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderQuantity">
+        <PropertyRef Name="PowderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PowderQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PowderQuantity" Type="Self.PowderQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PowderQuantity">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Primer_Manufacturer">
+    <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+    <End Role="Primer" Type="Self.Primer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Primer">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Primer_PrimerType">
+    <End Role="PrimerType" Type="Self.PrimerType" Multiplicity="1" />
+    <End Role="Primer" Type="Self.Primer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Primer">
+        <PropertyRef Name="PrimerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerCost_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="1" />
+    <End Role="PrimerCost" Type="Self.PrimerCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerCost">
+        <PropertyRef Name="PrimerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerCost_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PrimerCost" Type="Self.PrimerCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerCost">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerQuantity_Primer">
+    <End Role="Primer" Type="Self.Primer" Multiplicity="1" />
+    <End Role="PrimerQuantity" Type="Self.PrimerQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerQuantity">
+        <PropertyRef Name="PrimerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimerQuantity_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="PrimerQuantity" Type="Self.PrimerQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimerQuantity">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_Cartridge">
+    <End Role="Cartridge" Type="Self.Cartridge" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cartridge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="CartridgeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_Gun">
+    <End Role="Gun" Type="Self.Gun" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShootingSession_ShootingLocation">
+    <End Role="ShootingLocation" Type="Self.ShootingLocation" Multiplicity="1" />
+    <End Role="ShootingSession" Type="Self.ShootingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShootingLocation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShootingSession">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unit_UnitType">
+    <End Role="UnitType" Type="Self.UnitType" Multiplicity="1" />
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="UnitTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShootingModelStoreContainer">
+    <EntitySet Name="Brass" EntityType="Self.Brass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BrassCost" EntityType="Self.BrassCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BrassQuantity" EntityType="Self.BrassQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bullet" EntityType="Self.Bullet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BulletCost" EntityType="Self.BulletCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BulletQuantity" EntityType="Self.BulletQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BulletType" EntityType="Self.BulletType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Caliber" EntityType="Self.Caliber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cartridge" EntityType="Self.Cartridge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartridgeLoad" EntityType="Self.CartridgeLoad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartridgeQuantity" EntityType="Self.CartridgeQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gun" EntityType="Self.Gun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GunImages" EntityType="Self.GunImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GunType" EntityType="Self.GunType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Powder" EntityType="Self.Powder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PowderCost" EntityType="Self.PowderCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PowderQuantity" EntityType="Self.PowderQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PowderShape" EntityType="Self.PowderShape" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PowderType" EntityType="Self.PowderType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Primer" EntityType="Self.Primer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrimerCost" EntityType="Self.PrimerCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrimerQuantity" EntityType="Self.PrimerQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrimerType" EntityType="Self.PrimerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShootingLocation" EntityType="Self.ShootingLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShootingSession" EntityType="Self.ShootingSession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BrassView" EntityType="Self.BrassView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BrassView].[Id] AS [Id], 
+    [BrassView].[Name] AS [Name], 
+    [BrassView].[BrassName] AS [BrassName], 
+    [BrassView].[BrassFullName] AS [BrassFullName], 
+    [BrassView].[Length] AS [Length], 
+    [BrassView].[TimesFired] AS [TimesFired], 
+    [BrassView].[Notes] AS [Notes], 
+    [BrassView].[CaliberId] AS [CaliberId], 
+    [BrassView].[CaliberName] AS [CaliberName], 
+    [BrassView].[CaliberDiameter] AS [CaliberDiameter], 
+    [BrassView].[CaliberSortOrder] AS [CaliberSortOrder], 
+    [BrassView].[CaliberNotes] AS [CaliberNotes], 
+    [BrassView].[CaliberDiameterUnitId] AS [CaliberDiameterUnitId], 
+    [BrassView].[CaliberUnit] AS [CaliberUnit], 
+    [BrassView].[CaliberUnitPlural] AS [CaliberUnitPlural], 
+    [BrassView].[CaliberUnitAbbreviation] AS [CaliberUnitAbbreviation], 
+    [BrassView].[CaliberUnitNotes] AS [CaliberUnitNotes], 
+    [BrassView].[CalUnitTypeId] AS [CalUnitTypeId], 
+    [BrassView].[CaliberUnitTypeName] AS [CaliberUnitTypeName], 
+    [BrassView].[CaliberUnitTypeNotes] AS [CaliberUnitTypeNotes], 
+    [BrassView].[CaliberPrimerTypeId] AS [CaliberPrimerTypeId], 
+    [BrassView].[PrimerTypeName] AS [PrimerTypeName], 
+    [BrassView].[PrimerTypeAbbreviation] AS [PrimerTypeAbbreviation], 
+    [BrassView].[PrimerTypeNotes] AS [PrimerTypeNotes], 
+    [BrassView].[LengthUnitId] AS [LengthUnitId], 
+    [BrassView].[BrassUnitName] AS [BrassUnitName], 
+    [BrassView].[BrassUnitPlural] AS [BrassUnitPlural], 
+    [BrassView].[BrassUnitAbbreviation] AS [BrassUnitAbbreviation], 
+    [BrassView].[BrassUnitNotes] AS [BrassUnitNotes], 
+    [BrassView].[BrassUnitTypeId] AS [BrassUnitTypeId], 
+    [BrassView].[BrassUnitTypeName] AS [BrassUnitTypeName], 
+    [BrassView].[BrassUnitTypeNotes] AS [BrassUnitTypeNotes], 
+    [BrassView].[MaterialId] AS [MaterialId], 
+    [BrassView].[MaterialName] AS [MaterialName], 
+    [BrassView].[MaterialNotes] AS [MaterialNotes], 
+    [BrassView].[ManufacturerId] AS [ManufacturerId], 
+    [BrassView].[ManufacturerName] AS [ManufacturerName], 
+    [BrassView].[ManufacturerAddress] AS [ManufacturerAddress], 
+    [BrassView].[ManufacturerCity] AS [ManufacturerCity], 
+    [BrassView].[ManufacturerState] AS [ManufacturerState], 
+    [BrassView].[ManufacturerZip] AS [ManufacturerZip], 
+    [BrassView].[ManufacturerURL] AS [ManufacturerURL], 
+    [BrassView].[ManufacturerNotes] AS [ManufacturerNotes]
+    FROM [dbo].[BrassView] AS [BrassView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BulletView" EntityType="Self.BulletView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BulletView].[Id] AS [Id], 
+    [BulletView].[Name] AS [Name], 
+    [BulletView].[BulletName] AS [BulletName], 
+    [BulletView].[BulletFullName] AS [BulletFullName], 
+    [BulletView].[Diameter] AS [Diameter], 
+    [BulletView].[Mass] AS [Mass], 
+    [BulletView].[SectionalDensity] AS [SectionalDensity], 
+    [BulletView].[BallisticCoefficient] AS [BallisticCoefficient], 
+    [BulletView].[Length] AS [Length], 
+    [BulletView].[Notes] AS [Notes], 
+    [BulletView].[BulletTypeId] AS [BulletTypeId], 
+    [BulletView].[BulletTypeName] AS [BulletTypeName], 
+    [BulletView].[BulletTypeAbbreviation] AS [BulletTypeAbbreviation], 
+    [BulletView].[BulletTypeNotes] AS [BulletTypeNotes], 
+    [BulletView].[MaterialId] AS [MaterialId], 
+    [BulletView].[MaterialName] AS [MaterialName], 
+    [BulletView].[MaterialNotes] AS [MaterialNotes], 
+    [BulletView].[DiameterUnitId] AS [DiameterUnitId], 
+    [BulletView].[DiameterUnitName] AS [DiameterUnitName], 
+    [BulletView].[DiameterUnitPlural] AS [DiameterUnitPlural], 
+    [BulletView].[DiameterUnitAbbreviation] AS [DiameterUnitAbbreviation], 
+    [BulletView].[DiameterUnitNotes] AS [DiameterUnitNotes], 
+    [BulletView].[DiameterUnitTypeId] AS [DiameterUnitTypeId], 
+    [BulletView].[DiameterUnitTypeName] AS [DiameterUnitTypeName], 
+    [BulletView].[DiameterUnitTypeNotes] AS [DiameterUnitTypeNotes], 
+    [BulletView].[MassUnitId] AS [MassUnitId], 
+    [BulletView].[MassUnitName] AS [MassUnitName], 
+    [BulletView].[MassUnitPlural] AS [MassUnitPlural], 
+    [BulletView].[MassUnitAbbreviation] AS [MassUnitAbbreviation], 
+    [BulletView].[MassUnitNotes] AS [MassUnitNotes], 
+    [BulletView].[MassUnitTypeId] AS [MassUnitTypeId], 
+    [BulletView].[MassUnitTypeName] AS [MassUnitTypeName], 
+    [BulletView].[MassUnitTypeNotes] AS [MassUnitTypeNotes], 
+    [BulletView].[LengthUnitId] AS [LengthUnitId], 
+    [BulletView].[LengthUnitName] AS [LengthUnitName], 
+    [BulletView].[LengthUnitPlural] AS [LengthUnitPlural], 
+    [BulletView].[LengthUnitAbbreviation] AS [LengthUnitAbbreviation], 
+    [BulletView].[LengthUnitNotes] AS [LengthUnitNotes], 
+    [BulletView].[LengthUnitTypeId] AS [LengthUnitTypeId], 
+    [BulletView].[LenghtUnitTypeName] AS [LenghtUnitTypeName], 
+    [BulletView].[LengthUnitTypeNotes] AS [LengthUnitTypeNotes], 
+    [BulletView].[ManufacturerId] AS [ManufacturerId], 
+    [BulletView].[ManufacturerName] AS [ManufacturerName], 
+    [BulletView].[ManufacturerAddress] AS [ManufacturerAddress], 
+    [BulletView].[ManufacturerCity] AS [ManufacturerCity], 
+    [BulletView].[ManufacturerState] AS [ManufacturerState], 
+    [BulletView].[ManufacturerZip] AS [ManufacturerZip], 
+    [BulletView].[ManufacturerURL] AS [ManufacturerURL], 
+    [BulletView].[ManufacturerNotes] AS [ManufacturerNotes], 
+    [BulletView].[CaliberId] AS [CaliberId], 
+    [BulletView].[CaliberName] AS [CaliberName], 
+    [BulletView].[CaliberSortOrder] AS [CaliberSortOrder], 
+    [BulletView].[CaliberNotes] AS [CaliberNotes], 
+    [BulletView].[CaliberDiameterUnitId] AS [CaliberDiameterUnitId], 
+    [BulletView].[CaliberDiameterUnitName] AS [CaliberDiameterUnitName], 
+    [BulletView].[CaliberDiameterUnitPlural] AS [CaliberDiameterUnitPlural], 
+    [BulletView].[CaliberDiameterUnitAbbreviation] AS [CaliberDiameterUnitAbbreviation], 
+    [BulletView].[CaliberDiameterUnitNotes] AS [CaliberDiameterUnitNotes], 
+    [BulletView].[CaliberDiameterUnitTypeId] AS [CaliberDiameterUnitTypeId], 
+    [BulletView].[CaliberDiameterUnitTypeName] AS [CaliberDiameterUnitTypeName], 
+    [BulletView].[CaliberDiameterUnitTypeNotes] AS [CaliberDiameterUnitTypeNotes], 
+    [BulletView].[CaliberPrimerTypeId] AS [CaliberPrimerTypeId], 
+    [BulletView].[CaliberPrimerTypeName] AS [CaliberPrimerTypeName], 
+    [BulletView].[CaliberPrimerTypeAbbreviation] AS [CaliberPrimerTypeAbbreviation], 
+    [BulletView].[CaliberPrimerTypeNotes] AS [CaliberPrimerTypeNotes]
+    FROM [dbo].[BulletView] AS [BulletView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CaliberView" EntityType="Self.CaliberView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CaliberView].[Id] AS [Id], 
+    [CaliberView].[Name] AS [Name], 
+    [CaliberView].[Diameter] AS [Diameter], 
+    [CaliberView].[SortOrder] AS [SortOrder], 
+    [CaliberView].[Notes] AS [Notes], 
+    [CaliberView].[DiameterUnitId] AS [DiameterUnitId], 
+    [CaliberView].[DiameterUnitName] AS [DiameterUnitName], 
+    [CaliberView].[DiameterUnitPlural] AS [DiameterUnitPlural], 
+    [CaliberView].[DiameterUnitAbbreviation] AS [DiameterUnitAbbreviation], 
+    [CaliberView].[DiameterUnitNotes] AS [DiameterUnitNotes], 
+    [CaliberView].[DiameterUnitTypeId] AS [DiameterUnitTypeId], 
+    [CaliberView].[DiameterUnitTypeName] AS [DiameterUnitTypeName], 
+    [CaliberView].[DiameterUnitTypeNotes] AS [DiameterUnitTypeNotes], 
+    [CaliberView].[PrimerTypeId] AS [PrimerTypeId], 
+    [CaliberView].[PrimerTypeName] AS [PrimerTypeName], 
+    [CaliberView].[PrimerTypeAbbreviation] AS [PrimerTypeAbbreviation], 
+    [CaliberView].[PrimerTypeNotes] AS [PrimerTypeNotes]
+    FROM [dbo].[CaliberView] AS [CaliberView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CartridgeLoadView" EntityType="Self.CartridgeLoadView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CartridgeLoadView].[Name] AS [Name], 
+    [CartridgeLoadView].[BulletName] AS [BulletName], 
+    [CartridgeLoadView].[CaliberName] AS [CaliberName], 
+    [CartridgeLoadView].[PowderName] AS [PowderName], 
+    [CartridgeLoadView].[PowderShapeName] AS [PowderShapeName], 
+    [CartridgeLoadView].[PowderWeight] AS [PowderWeight], 
+    [CartridgeLoadView].[PowderWeightUnits] AS [PowderWeightUnits], 
+    [CartridgeLoadView].[COL] AS [COL], 
+    [CartridgeLoadView].[COLUnits] AS [COLUnits], 
+    [CartridgeLoadView].[Velocity] AS [Velocity], 
+    [CartridgeLoadView].[VelocityUnits] AS [VelocityUnits], 
+    [CartridgeLoadView].[Pressure] AS [Pressure], 
+    [CartridgeLoadView].[PressureUnits] AS [PressureUnits], 
+    [CartridgeLoadView].[Id] AS [Id]
+    FROM [dbo].[CartridgeLoadView] AS [CartridgeLoadView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CartridgeView" EntityType="Self.CartridgeView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CartridgeView].[Id] AS [Id], 
+    [CartridgeView].[Name] AS [Name], 
+    [CartridgeView].[BrassId] AS [BrassId], 
+    [CartridgeView].[BrassName] AS [BrassName], 
+    [CartridgeView].[BulletId] AS [BulletId], 
+    [CartridgeView].[BulletName] AS [BulletName], 
+    [CartridgeView].[PowderId] AS [PowderId], 
+    [CartridgeView].[PowderName] AS [PowderName], 
+    [CartridgeView].[PrimerId] AS [PrimerId], 
+    [CartridgeView].[PrimerName] AS [PrimerName], 
+    [CartridgeView].[CaliberName] AS [CaliberName]
+    FROM [dbo].[CartridgeView] AS [CartridgeView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GunView" EntityType="Self.GunView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GunView].[Id] AS [Id], 
+    [GunView].[SerialNumber] AS [SerialNumber], 
+    [GunView].[Name] AS [Name], 
+    [GunView].[Capacity] AS [Capacity], 
+    [GunView].[Details] AS [Details], 
+    [GunView].[Notes] AS [Notes], 
+    [GunView].[CaliberId] AS [CaliberId], 
+    [GunView].[CaliberName] AS [CaliberName], 
+    [GunView].[CaliberDiameter] AS [CaliberDiameter], 
+    [GunView].[CaliberSortOrder] AS [CaliberSortOrder], 
+    [GunView].[CaliberNotes] AS [CaliberNotes], 
+    [GunView].[CaliberDiameterUnitId] AS [CaliberDiameterUnitId], 
+    [GunView].[CaliberDiameterUnitName] AS [CaliberDiameterUnitName], 
+    [GunView].[CaliberDiameterUnitPlural] AS [CaliberDiameterUnitPlural], 
+    [GunView].[CaliberDiameterUnitAbbreviation] AS [CaliberDiameterUnitAbbreviation], 
+    [GunView].[CaliberDiameterUnitNotes] AS [CaliberDiameterUnitNotes], 
+    [GunView].[CaliberDiameterUnitTypeId] AS [CaliberDiameterUnitTypeId], 
+    [GunView].[CaliberDiameterUnitTypeName] AS [CaliberDiameterUnitTypeName], 
+    [GunView].[CaliberDiameterUnitTypeNotes] AS [CaliberDiameterUnitTypeNotes], 
+    [GunView].[CaliberPrimerTypeId] AS [CaliberPrimerTypeId], 
+    [GunView].[CaliberPrimerTypeName] AS [CaliberPrimerTypeName], 
+    [GunView].[CaliberPrimerTypeAbbreviation] AS [CaliberPrimerTypeAbbreviation], 
+    [GunView].[CaliberPrimerTypeNotes] AS [CaliberPrimerTypeNotes], 
+    [GunView].[ManufacturerId] AS [ManufacturerId], 
+    [GunView].[ManufacturerName] AS [ManufacturerName], 
+    [GunView].[ManufacturerAddress] AS [ManufacturerAddress], 
+    [GunView].[ManufacturerCity] AS [ManufacturerCity], 
+    [GunView].[ManufacturerState] AS [ManufacturerState], 
+    [GunView].[ManufacturerZip] AS [ManufacturerZip], 
+    [GunView].[ManufacturerURL] AS [ManufacturerURL], 
+    [GunView].[ManufacturerNotes] AS [ManufacturerNotes], 
+    [GunView].[GunTypeId] AS [GunTypeId], 
+    [GunView].[GunTypeName] AS [GunTypeName], 
+    [GunView].[GunTypeNotes] AS [GunTypeNotes]
+    FROM [dbo].[GunView] AS [GunView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PowderView" EntityType="Self.PowderView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PowderView].[PowderId] AS [PowderId], 
+    [PowderView].[Name] AS [Name], 
+    [PowderView].[PowderName] AS [PowderName], 
+    [PowderView].[Notes] AS [Notes], 
+    [PowderView].[ManufacturerId] AS [ManufacturerId], 
+    [PowderView].[ManufacturerName] AS [ManufacturerName], 
+    [PowderView].[ManufacturerAddress] AS [ManufacturerAddress], 
+    [PowderView].[ManufacturerCity] AS [ManufacturerCity], 
+    [PowderView].[ManufacturerState] AS [ManufacturerState], 
+    [PowderView].[ManufacturerZip] AS [ManufacturerZip], 
+    [PowderView].[ManufacturerURL] AS [ManufacturerURL], 
+    [PowderView].[ManufacturerNotes] AS [ManufacturerNotes], 
+    [PowderView].[PowderTypeId] AS [PowderTypeId], 
+    [PowderView].[PowderTypeName] AS [PowderTypeName], 
+    [PowderView].[PowderTypeNotes] AS [PowderTypeNotes], 
+    [PowderView].[PowderShapeId] AS [PowderShapeId], 
+    [PowderView].[PowderShapeName] AS [PowderShapeName], 
+    [PowderView].[PowderShapeNotes] AS [PowderShapeNotes]
+    FROM [dbo].[PowderView] AS [PowderView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PrimerView" EntityType="Self.PrimerView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PrimerView].[PrimerId] AS [PrimerId], 
+    [PrimerView].[Name] AS [Name], 
+    [PrimerView].[PrimerFullName] AS [PrimerFullName], 
+    [PrimerView].[PrimerName] AS [PrimerName], 
+    [PrimerView].[Notes] AS [Notes], 
+    [PrimerView].[PrimerTypeId] AS [PrimerTypeId], 
+    [PrimerView].[PrimerTypeName] AS [PrimerTypeName], 
+    [PrimerView].[PrimerTypeAbbreviation] AS [PrimerTypeAbbreviation], 
+    [PrimerView].[PrimerTypeNotes] AS [PrimerTypeNotes], 
+    [PrimerView].[ManufacturerId] AS [ManufacturerId], 
+    [PrimerView].[ManufacturerName] AS [ManufacturerName], 
+    [PrimerView].[ManufacturerAddress] AS [ManufacturerAddress], 
+    [PrimerView].[ManufacturerCity] AS [ManufacturerCity], 
+    [PrimerView].[ManufacturerState] AS [ManufacturerState], 
+    [PrimerView].[ManufacturerZip] AS [ManufacturerZip], 
+    [PrimerView].[ManufacturerURL] AS [ManufacturerURL], 
+    [PrimerView].[ManufacturerNote] AS [ManufacturerNote]
+    FROM [dbo].[PrimerView] AS [PrimerView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UnitView" EntityType="Self.UnitView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UnitView].[Id] AS [Id], 
+    [UnitView].[Name] AS [Name], 
+    [UnitView].[Plural] AS [Plural], 
+    [UnitView].[Abbreviation] AS [Abbreviation], 
+    [UnitView].[Notes] AS [Notes], 
+    [UnitView].[UnitTypeId] AS [UnitTypeId], 
+    [UnitView].[UnitTypeName] AS [UnitTypeName], 
+    [UnitView].[UnitTypeNotes] AS [UnitTypeNotes]
+    FROM [dbo].[UnitView] AS [UnitView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Brass_Caliber" Association="Self.FK_Brass_Caliber">
+      <End Role="Caliber" EntitySet="Caliber" />
+      <End Role="Brass" EntitySet="Brass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brass_Manufacturer" Association="Self.FK_Brass_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Brass" EntitySet="Brass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brass_Material" Association="Self.FK_Brass_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Brass" EntitySet="Brass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brass_UnitLength" Association="Self.FK_Brass_UnitLength">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Brass" EntitySet="Brass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassCost_Brass" Association="Self.FK_BrassCost_Brass">
+      <End Role="Brass" EntitySet="Brass" />
+      <End Role="BrassCost" EntitySet="BrassCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassCost_Unit" Association="Self.FK_BrassCost_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="BrassCost" EntitySet="BrassCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassQuantity_Brass" Association="Self.FK_BrassQuantity_Brass">
+      <End Role="Brass" EntitySet="Brass" />
+      <End Role="BrassQuantity" EntitySet="BrassQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrassQuantity_Unit" Association="Self.FK_BrassQuantity_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="BrassQuantity" EntitySet="BrassQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_BulletType" Association="Self.FK_Bullet_BulletType">
+      <End Role="BulletType" EntitySet="BulletType" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_Manufacturer" Association="Self.FK_Bullet_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_Material" Association="Self.FK_Bullet_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitDiameter" Association="Self.FK_Bullet_UnitDiameter">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitLength" Association="Self.FK_Bullet_UnitLength">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bullet_UnitMass" Association="Self.FK_Bullet_UnitMass">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Bullet" EntitySet="Bullet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletCost_Bullet" Association="Self.FK_BulletCost_Bullet">
+      <End Role="Bullet" EntitySet="Bullet" />
+      <End Role="BulletCost" EntitySet="BulletCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletCost_Unit" Association="Self.FK_BulletCost_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="BulletCost" EntitySet="BulletCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletQuantity_Bullet" Association="Self.FK_BulletQuantity_Bullet">
+      <End Role="Bullet" EntitySet="Bullet" />
+      <End Role="BulletQuantity" EntitySet="BulletQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BulletQuantity_Unit" Association="Self.FK_BulletQuantity_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="BulletQuantity" EntitySet="BulletQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Caliber_PrimerType" Association="Self.FK_Caliber_PrimerType">
+      <End Role="PrimerType" EntitySet="PrimerType" />
+      <End Role="Caliber" EntitySet="Caliber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Caliber_UnitDiameter" Association="Self.FK_Caliber_UnitDiameter">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Caliber" EntitySet="Caliber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Brass" Association="Self.FK_Cartridge_Brass">
+      <End Role="Brass" EntitySet="Brass" />
+      <End Role="Cartridge" EntitySet="Cartridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_CartridgeLoad" Association="Self.FK_Cartridge_CartridgeLoad">
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+      <End Role="Cartridge" EntitySet="Cartridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Manufacturer" Association="Self.FK_Cartridge_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Cartridge" EntitySet="Cartridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cartridge_Primer" Association="Self.FK_Cartridge_Primer">
+      <End Role="Primer" EntitySet="Primer" />
+      <End Role="Cartridge" EntitySet="Cartridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Bullet" Association="Self.FK_CartridgeLoad_Bullet">
+      <End Role="Bullet" EntitySet="Bullet" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Caliber" Association="Self.FK_CartridgeLoad_Caliber">
+      <End Role="Caliber" EntitySet="Caliber" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Powder" Association="Self.FK_CartridgeLoad_Powder">
+      <End Role="Powder" EntitySet="Powder" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Unit1" Association="Self.FK_CartridgeLoad_Unit1">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Unit2" Association="Self.FK_CartridgeLoad_Unit2">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Unit3" Association="Self.FK_CartridgeLoad_Unit3">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeLoad_Unit4" Association="Self.FK_CartridgeLoad_Unit4">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="CartridgeLoad" EntitySet="CartridgeLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeQuantity_Cartridge" Association="Self.FK_CartridgeQuantity_Cartridge">
+      <End Role="Cartridge" EntitySet="Cartridge" />
+      <End Role="CartridgeQuantity" EntitySet="CartridgeQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartridgeQuantity_Unit" Association="Self.FK_CartridgeQuantity_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="CartridgeQuantity" EntitySet="CartridgeQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Caliber" Association="Self.FK_Gun_Caliber">
+      <End Role="Caliber" EntitySet="Caliber" />
+      <End Role="Gun" EntitySet="Gun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_GunType" Association="Self.FK_Gun_GunType">
+      <End Role="GunType" EntitySet="GunType" />
+      <End Role="Gun" EntitySet="Gun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gun_Manufacturer" Association="Self.FK_Gun_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Gun" EntitySet="Gun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GunImages_Gun" Association="Self.FK_GunImages_Gun">
+      <End Role="Gun" EntitySet="Gun" />
+      <End Role="GunImages" EntitySet="GunImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_Manufacturer" Association="Self.FK_Powder_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Powder" EntitySet="Powder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_PowderShape" Association="Self.FK_Powder_PowderShape">
+      <End Role="PowderShape" EntitySet="PowderShape" />
+      <End Role="Powder" EntitySet="Powder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Powder_PowderType" Association="Self.FK_Powder_PowderType">
+      <End Role="PowderType" EntitySet="PowderType" />
+      <End Role="Powder" EntitySet="Powder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderCost_Powder" Association="Self.FK_PowderCost_Powder">
+      <End Role="Powder" EntitySet="Powder" />
+      <End Role="PowderCost" EntitySet="PowderCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderCost_Unit" Association="Self.FK_PowderCost_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="PowderCost" EntitySet="PowderCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderQuantity_Powder" Association="Self.FK_PowderQuantity_Powder">
+      <End Role="Powder" EntitySet="Powder" />
+      <End Role="PowderQuantity" EntitySet="PowderQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PowderQuantity_Unit" Association="Self.FK_PowderQuantity_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="PowderQuantity" EntitySet="PowderQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Primer_Manufacturer" Association="Self.FK_Primer_Manufacturer">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Primer" EntitySet="Primer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Primer_PrimerType" Association="Self.FK_Primer_PrimerType">
+      <End Role="PrimerType" EntitySet="PrimerType" />
+      <End Role="Primer" EntitySet="Primer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerCost_Primer" Association="Self.FK_PrimerCost_Primer">
+      <End Role="Primer" EntitySet="Primer" />
+      <End Role="PrimerCost" EntitySet="PrimerCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerCost_Unit" Association="Self.FK_PrimerCost_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="PrimerCost" EntitySet="PrimerCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerQuantity_Primer" Association="Self.FK_PrimerQuantity_Primer">
+      <End Role="Primer" EntitySet="Primer" />
+      <End Role="PrimerQuantity" EntitySet="PrimerQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimerQuantity_Unit" Association="Self.FK_PrimerQuantity_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="PrimerQuantity" EntitySet="PrimerQuantity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_Cartridge" Association="Self.FK_ShootingSession_Cartridge">
+      <End Role="Cartridge" EntitySet="Cartridge" />
+      <End Role="ShootingSession" EntitySet="ShootingSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_Gun" Association="Self.FK_ShootingSession_Gun">
+      <End Role="Gun" EntitySet="Gun" />
+      <End Role="ShootingSession" EntitySet="ShootingSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShootingSession_ShootingLocation" Association="Self.FK_ShootingSession_ShootingLocation">
+      <End Role="ShootingLocation" EntitySet="ShootingLocation" />
+      <End Role="ShootingSession" EntitySet="ShootingSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unit_UnitType" Association="Self.FK_Unit_UnitType">
+      <End Role="UnitType" EntitySet="UnitType" />
+      <End Role="Unit" EntitySet="Unit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,118 @@
+﻿@model ShootingManager.Entities.Models.CartridgeLoad
+
+@{
+    ViewBag.Title = "Delete Cartridge Load";
+}
+<head>
+    <title>Shooting Manager: Delete Cartridge Load - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Cartridge Load Index", "LoadIndex", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Cartridge Load</h2>
+
+    <h3>Are you sure you want to delete this cartridge load?</h3>
+    @using (Html.BeginForm("DeleteLoad", "Build", FormMethod.Post, new { id = Model.Id, @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            <br />
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Caliber, "Caliber:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Caliber.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Bullet, "Bullet:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Bullet.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Powder, "Powder:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Powder.Name)&nbsp;
+                            @Html.DisplayFor(model => model.PowderWeight)&nbsp;
+                            @Html.DisplayFor(model => model.Unit.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.COL, "COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.COL)&nbsp;
+                            @Html.DisplayFor(model => model.Unit1.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Velocity, "Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Velocity)&nbsp;
+                            @Html.DisplayFor(model => model.Unit2.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Pressure, "Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Pressure)&nbsp;
+                            @Html.DisplayFor(model => model.Unit3.Abbreviation)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-2">
+                            @Html.DisplayFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+        </div>
+        
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete" class="btn-style" />
+        </div>
+    }
+</div>

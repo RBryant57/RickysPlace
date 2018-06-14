@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ShootingManager.Web.ViewModels.ShootingSessionViewModel>
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Shooting Session Index";
+}
+<head>
+    <title>Shooting Manager: Shooting Session Index</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Shooting Session Index</h2>
+
+    @Html.ActionLink("Create Shooting Session", "Create", null, new { @class = "EditLinkStyle" })
+    <hr/>
+    <br />
+    <div class="control-label col-md-offset-5">
+        <input type="search" class="light-table-filter" data-table="tablesorter" placeholder="Filter">
+    </div>
+    <br />
+    <table class="tablesorter" id="shootingtable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Location Name")
+                </th>
+                <th>
+                    @Html.DisplayName("State")
+                </th>
+                <th>
+                    @Html.DisplayName("Gun")
+                </th>
+                <th>
+                    @Html.DisplayName("Cartridge")
+                </th>
+                <th>
+                    @Html.DisplayName("Rounds")
+                </th>
+                <th>
+                    @Html.DisplayName("Brass Retention")
+                </th>
+                <th>
+                    @Html.DisplayName("Date")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShootingManager.Web.ViewModels.ShootingSessionViewModel item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.EntityView.ShootingLocationName, "Details", "ShootingLocation", new { id = ((ShootingSession)item.Entity).LocationId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntityView.ShootingLocationState)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.GunViewName, "Details", "Gun", new { id = ((ShootingSession)item.Entity).GunId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.EntityView.CartridgeViewName, "CartridgeDetails", "Build", new { id = ((ShootingSession)item.Entity).CartridgeId }, new { @class = "EditLinkStyle" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((ShootingSession)item.Entity).Rounds)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((ShootingSession)item.Entity).Retention)
+                    </td>
+                    <td>
+                        @{
+                            string parameterValue = item.EntityView.Date.ToShortDateString();
+                        }
+                        @Html.DisplayFor(modelItem => parameterValue)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = ((ShootingSession)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Details", "Details", new { id = ((ShootingSession)item.Entity).Id }, new { @class = "EditLinkStyle" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = ((ShootingSession)item.Entity).Id }, new { @class = "EditLinkStyle" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/tablefilter")
+    <script type="text/JavaScript">
+        $(document).ready(function () {
+            $("#shootingtable").tablesorter();
+        }
+        );
+    </script>
+}

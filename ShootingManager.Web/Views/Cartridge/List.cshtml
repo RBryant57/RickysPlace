@@ -1,0 +1,23 @@
+﻿@model local.yellowcaddis.ShootingManager.Web.Models.CartridgeListViewModel
+
+@{
+    ViewBag.Title = "Cartridge";
+}
+
+<h1>Cartridges</h1>
+
+@foreach (var b in Model.Cartridges)
+{
+    Html.RenderPartial("CartridgeSummary", b);
+}
+
+@using (Html.BeginForm("BuildCartridge", "Cartridge", new { caliberName = "9 mm" }))
+{
+    
+    @Html.Hidden("returnUrl", Request.Url.PathAndQuery) 
+<input type="submit" value="Build Cartridge" />
+}
+
+<div class="pager">
+
+</div>

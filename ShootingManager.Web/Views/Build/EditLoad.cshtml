@@ -1,0 +1,187 @@
+﻿@model ShootingManager.Entities.Models.CartridgeLoad
+
+@{
+    ViewBag.Title = "Edit Cartridge Load";
+}
+<head>
+    <title>Shooting Manager: Edit Cartridge Load - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Edit Cartridge Load</h2>
+
+    @using (Html.BeginForm("EditLoad", "Build", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CaliberId, "Caliber:", new { @class = "control-label col-md-2" })
+                        @{if (String.IsNullOrEmpty(ViewBag.CaliberName))
+                        {
+                            <div class="control-label col-md-4">
+                                @Html.DropDownList("CaliberId", ViewBag.CaliberId as SelectList, "Please select")
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="control-label col-md-2">
+                                <div id="CaliberId" class="control-label col-md-4">
+                                    @ViewBag.CaliberName
+                                    @Html.Hidden("CaliberId", (object)ViewBag.CaliberId)
+                                </div>
+                            </div>
+                        }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @{if (String.IsNullOrEmpty(ViewBag.CaliberName))
+                        {
+                            <label for="Bullet" class="control-label col-md-2">Bullet:</label>
+                            <div class="control-label col-md-4">
+                                <select id="BulletId" name="BulletId"></select>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.LabelFor(model => model.BulletId, "Bullet:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-4">
+                                @Html.DropDownList("BulletId", String.Empty)
+                                @Html.ValidationMessageFor(model => model.BulletId)
+                            </div>
+                        }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="3">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.PowderId, "Powder:", new { @class = "control-label col-md-4" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("PowderId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.PowderId)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Amount:", new { @class = "control-label col-md-4" })
+                        <div class="control-label col-md-4">
+                            @Html.Editor("Weight", String.Empty)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.Label("Unit:", new { @class = "control-label col-md-4" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("PowderWeightUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.PowderWeightUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.COL, "COL:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.TextBoxFor(model => model.COL, new { @Value = Model.COL.ToString("0.000") })
+                            @Html.ValidationMessageFor(model => model.COL)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.COLUnitId, "Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("COLUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.COLUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Velocity, "Velocity:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Velocity)
+                            @Html.ValidationMessageFor(model => model.Velocity)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.VelocityUnitId, "Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("VelocityUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.VelocityUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Pressure, "Pressure:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.EditorFor(model => model.Pressure)
+                            @Html.ValidationMessageFor(model => model.Pressure)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.PressureUnitId, "Unit:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("PressureUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.PressureUnitId)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn-style" />
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/load")

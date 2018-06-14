@@ -1,0 +1,74 @@
+﻿@model ShootingManager.Entities.Models.GunType
+
+@{
+    ViewBag.Title = "Delete Gun Type";
+}
+<head>
+    <title>Shooting Manager: Delete Gun Type - @(@Model.Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Gun Type Index", "Index", "GunType", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Delete Gun Type</h2>
+
+    <h3>Are you sure you want to delete this gun type?</h3>
+    <div>
+        @using (Html.BeginForm("Delete", "GunType", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.Name, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => model.Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                @{if (ViewBag.CanDelete)
+                    {
+                        <input type="submit" value="Delete" class="btn-style" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Delete" class="btn-styledisabled" disabled title="This gun type cannot be deleted since it is used in guns." />
+                    }
+                }
+            </div>
+                    }
+    </div>
+</div>

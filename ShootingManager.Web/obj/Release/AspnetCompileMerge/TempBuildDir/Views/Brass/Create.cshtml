@@ -1,0 +1,239 @@
+﻿@model ShootingManager.Entities.Models.Brass
+
+@{
+    ViewBag.Title = "Create Brass";
+}
+<head>
+    <title>Shooting Manager: Create Brass</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Brass Index", "Index", "Brass", null, new { @class = "NavLinkStyle" })
+    </div>
+        <h2>Create Brass</h2>
+
+        @using (Html.BeginForm("Create", "Brass", FormMethod.Post, new { @class = "grid-form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                <br />
+                @Html.ValidationSummary(true)
+
+                        <div class="rowbody">
+
+                            <div class="col-md-6">
+
+                                    <fieldset>
+
+                                    <legend>Basic Information</legend>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-9">
+                                                @Html.EditorFor(model => model.Name)
+                                                @Html.ValidationMessageFor(model => model.Name)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.CaliberId, "Caliber:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-4">
+                                                @Html.DropDownList("CaliberId", String.Empty)
+                                                @Html.ValidationMessageFor(model => model.CaliberId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" data-row-span="2">
+                                        <div data-field-span="1">
+                                            @Html.Label("Brass Length:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-4">
+                                                @Html.EditorFor(model => model.Length)
+                                                @Html.ValidationMessageFor(model => model.Length)
+                                            </div>
+                                        </div>
+                                        <div data-field-span="1">
+                                            @Html.Label("Unit:", new { @class = "control-label col-md-2" })
+                                            <div class="control-label col-md-5">
+                                                @Html.DropDownList("LengthUnitId", String.Empty)
+                                                @Html.ValidationMessageFor(model => model.LengthUnitId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.MaterialId, "Material:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-4">
+                                                @Html.DropDownList("MaterialId", String.Empty)
+                                                @Html.ValidationMessageFor(model => model.MaterialId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.ManufacturerId, "Manufacturer:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-4">
+                                                @Html.DropDownList("ManufacturerId", String.Empty)
+                                                @Html.ValidationMessageFor(model => model.ManufacturerId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.TimesFired, "Times Fired:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-9" >
+                                                @Html.EditorFor(model => model.TimesFired)
+                                                @Html.ValidationMessageFor(model => model.TimesFired)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <fieldset>
+
+                                    <br />
+                                    <br />
+                                    <legend>Optional Information</legend>
+
+                                    <div class="form-group" data-row-span="1">
+                                        <div data-field-span="1">
+                                            @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-3" })
+                                            <div class="control-label col-md-9">
+                                                @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                                                @Html.ValidationMessageFor(model => model.Notes)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <br />
+                            </div>
+
+                            <div class="col-md-3">
+                                <table id="shootingtable">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Caliber
+                                            </th>
+                                            <th>
+                                                Length
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>
+                                            .327 Magnum
+                                        </td>
+                                        <td>
+                                            1.200"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            9 mm
+                                        </td>
+                                        <td>
+                                            0.754"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .38 Special
+                                        </td>
+                                        <td>
+                                            1.155"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .357 Magnum
+                                        </td>
+                                        <td>
+                                            1.290"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .40 S&W
+                                        </td>
+                                        <td>
+                                            0.850"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            10 mm
+                                        </td>
+                                        <td>
+                                            0.992"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .41 Magnum
+                                        </td>
+                                        <td>
+                                            1.290"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .44 Special
+                                        </td>
+                                        <td>
+                                            1.160"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .44 Magnum
+                                        </td>
+                                        <td>
+                                            1.285"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .45 ACP
+                                        </td>
+                                        <td>
+                                            0.898"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            .45 Colt
+                                        </td>
+                                        <td>
+                                            1.285"
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <br />
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn-style" />
+                            </div>
+                        </div>
+
+                    </div>
+
+        }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/brass")

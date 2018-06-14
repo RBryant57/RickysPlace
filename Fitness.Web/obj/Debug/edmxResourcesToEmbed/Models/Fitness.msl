@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FitnessModelStoreContainer" CdmEntityContainer="FitnessEntities">
+    <EntitySetMapping Name="BenchmarkMiles">
+      <EntityTypeMapping TypeName="FitnessModel.BenchmarkMile">
+        <MappingFragment StoreEntitySet="BenchmarkMiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="Odometer" ColumnName="Odometer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bikes">
+      <EntityTypeMapping TypeName="FitnessModel.Bike">
+        <MappingFragment StoreEntitySet="Bike">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="AcquisitionDate" ColumnName="AcquisitionDate" />
+          <ScalarProperty Name="BaseMiles" ColumnName="BaseMiles" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BikeHistories">
+      <EntityTypeMapping TypeName="FitnessModel.BikeHistory">
+        <MappingFragment StoreEntitySet="BikeHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="Frame" ColumnName="Frame" />
+          <ScalarProperty Name="Fork" ColumnName="Fork" />
+          <ScalarProperty Name="WheelSet" ColumnName="WheelSet" />
+          <ScalarProperty Name="Shifters" ColumnName="Shifters" />
+          <ScalarProperty Name="Brakes" ColumnName="Brakes" />
+          <ScalarProperty Name="Cassette" ColumnName="Cassette" />
+          <ScalarProperty Name="CrankSet" ColumnName="CrankSet" />
+          <ScalarProperty Name="BottomBracket" ColumnName="BottomBracket" />
+          <ScalarProperty Name="FrontDerailleur" ColumnName="FrontDerailleur" />
+          <ScalarProperty Name="RearDerailleur" ColumnName="RearDerailleur" />
+          <ScalarProperty Name="Pedals" ColumnName="Pedals" />
+          <ScalarProperty Name="Headset" ColumnName="Headset" />
+          <ScalarProperty Name="Stem" ColumnName="Stem" />
+          <ScalarProperty Name="HandleBars" ColumnName="HandleBars" />
+          <ScalarProperty Name="SeatPost" ColumnName="SeatPost" />
+          <ScalarProperty Name="Saddle" ColumnName="Saddle" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BikeOnlyMiles">
+      <EntityTypeMapping TypeName="FitnessModel.BikeOnlyMile">
+        <MappingFragment StoreEntitySet="BikeOnlyMiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartOdometer" ColumnName="StartOdometer" />
+          <ScalarProperty Name="EndOdometer" ColumnName="EndOdometer" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BikeParts">
+      <EntityTypeMapping TypeName="FitnessModel.BikePart">
+        <MappingFragment StoreEntitySet="BikePart">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="PartId" ColumnName="PartId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="OdometerReading" ColumnName="OdometerReading" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BikeTypes">
+      <EntityTypeMapping TypeName="FitnessModel.BikeType">
+        <MappingFragment StoreEntitySet="BikeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnumId" ColumnName="EnumId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Circuits">
+      <EntityTypeMapping TypeName="FitnessModel.Circuit">
+        <MappingFragment StoreEntitySet="Circuit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CircuitComponents">
+      <EntityTypeMapping TypeName="FitnessModel.CircuitComponent">
+        <MappingFragment StoreEntitySet="CircuitComponent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CircuitsComponents">
+      <EntityTypeMapping TypeName="FitnessModel.CircuitsComponent">
+        <MappingFragment StoreEntitySet="CircuitsComponents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CircuitId" ColumnName="CircuitId" />
+          <ScalarProperty Name="CircuitComponentId" ColumnName="CircuitComponentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExerciseTypes">
+      <EntityTypeMapping TypeName="FitnessModel.ExerciseType">
+        <MappingFragment StoreEntitySet="ExerciseType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRZones">
+      <EntityTypeMapping TypeName="FitnessModel.HRZone">
+        <MappingFragment StoreEntitySet="HRZones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ZoneUpperLimit" ColumnName="ZoneUpperLimit" />
+          <ScalarProperty Name="ZoneLowerLimit" ColumnName="ZoneLowerLimit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRZoneTimes">
+      <EntityTypeMapping TypeName="FitnessModel.HRZoneTime">
+        <MappingFragment StoreEntitySet="HRZoneTime">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="RideId" ColumnName="RideId" />
+          <ScalarProperty Name="ZoneHours" ColumnName="ZoneHours" />
+          <ScalarProperty Name="ZoneMinutes" ColumnName="ZoneMinutes" />
+          <ScalarProperty Name="ZoneSeconds" ColumnName="ZoneSeconds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiftingSessions">
+      <EntityTypeMapping TypeName="FitnessModel.LiftingSession">
+        <MappingFragment StoreEntitySet="LiftingSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CircuitId" ColumnName="CircuitId" />
+          <ScalarProperty Name="NumberOfSets" ColumnName="NumberOfSets" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maintenances">
+      <EntityTypeMapping TypeName="FitnessModel.Maintenance">
+        <MappingFragment StoreEntitySet="Maintenance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="PartId" ColumnName="PartId" />
+          <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Odometer" ColumnName="Odometer" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="FitnessModel.Manufacturer">
+        <MappingFragment StoreEntitySet="Manufacturer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MissedMiles">
+      <EntityTypeMapping TypeName="FitnessModel.MissedMile">
+        <MappingFragment StoreEntitySet="MissedMiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Miles" ColumnName="Miles" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NonRideMiles">
+      <EntityTypeMapping TypeName="FitnessModel.NonRideMile">
+        <MappingFragment StoreEntitySet="NonRideMiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartOdometer" ColumnName="StartOdometer" />
+          <ScalarProperty Name="EndOdometer" ColumnName="EndOdometer" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts">
+      <EntityTypeMapping TypeName="FitnessModel.Part">
+        <MappingFragment StoreEntitySet="Part">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="PartTypeId" ColumnName="PartTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartTypes">
+      <EntityTypeMapping TypeName="FitnessModel.PartType">
+        <MappingFragment StoreEntitySet="PartType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRides">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRide">
+        <MappingFragment StoreEntitySet="RecreationalRide">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartOdometer" ColumnName="StartOdometer" />
+          <ScalarProperty Name="EndOdometer" ColumnName="EndOdometer" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RideTimeHours" ColumnName="RideTimeHours" />
+          <ScalarProperty Name="RideTimeMinutes" ColumnName="RideTimeMinutes" />
+          <ScalarProperty Name="RideTimeSeconds" ColumnName="RideTimeSeconds" />
+          <ScalarProperty Name="BikeEndTime" ColumnName="BikeEndTime" />
+          <ScalarProperty Name="BikeTimeHours" ColumnName="BikeTimeHours" />
+          <ScalarProperty Name="BikeTimeMinutes" ColumnName="BikeTimeMinutes" />
+          <ScalarProperty Name="BikeTimeSeconds" ColumnName="BikeTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="AverageCadence" ColumnName="AverageCadence" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRideGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRideGPX">
+        <MappingFragment StoreEntitySet="RecreationalRideGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecreationalRideId" ColumnName="RecreationalRideId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRuns">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRun">
+        <MappingFragment StoreEntitySet="RecreationalRun">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RunTimeHours" ColumnName="RunTimeHours" />
+          <ScalarProperty Name="RunTimeMinutes" ColumnName="RunTimeMinutes" />
+          <ScalarProperty Name="RunTimeSeconds" ColumnName="RunTimeSeconds" />
+          <ScalarProperty Name="PathEndTime" ColumnName="PathEndTime" />
+          <ScalarProperty Name="PathTimeHours" ColumnName="PathTimeHours" />
+          <ScalarProperty Name="PathTimeMinutes" ColumnName="PathTimeMinutes" />
+          <ScalarProperty Name="PathTimeSeconds" ColumnName="PathTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRunGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRunGPX">
+        <MappingFragment StoreEntitySet="RecreationalRunGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecreationalRunId" ColumnName="RecreationalRunId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalWalks">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalWalk">
+        <MappingFragment StoreEntitySet="RecreationalWalk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="WalkTimeHours" ColumnName="WalkTimeHours" />
+          <ScalarProperty Name="WalkTimeMinutes" ColumnName="WalkTimeMinutes" />
+          <ScalarProperty Name="WalkTimeSeconds" ColumnName="WalkTimeSeconds" />
+          <ScalarProperty Name="PathEndTime" ColumnName="PathEndTime" />
+          <ScalarProperty Name="PathTimeHours" ColumnName="PathTimeHours" />
+          <ScalarProperty Name="PathTimeMinutes" ColumnName="PathTimeMinutes" />
+          <ScalarProperty Name="PathTimeSeconds" ColumnName="PathTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalWalkGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalWalkGPX">
+        <MappingFragment StoreEntitySet="RecreationalWalkGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecreationalWalkId" ColumnName="RecreationalWalkId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="FitnessModel.Route">
+        <MappingFragment StoreEntitySet="Route">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteDirections">
+      <EntityTypeMapping TypeName="FitnessModel.RouteDirection">
+        <MappingFragment StoreEntitySet="RouteDirection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="DirectionNumber" ColumnName="DirectionNumber" />
+          <ScalarProperty Name="DirectionMileMarker" ColumnName="DirectionMileMarker" />
+          <ScalarProperty Name="DirectionDescription" ColumnName="DirectionDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteDisplays">
+      <EntityTypeMapping TypeName="FitnessModel.RouteDisplay">
+        <MappingFragment StoreEntitySet="RouteDisplay">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoutePictures">
+      <EntityTypeMapping TypeName="FitnessModel.RoutePicture">
+        <MappingFragment StoreEntitySet="RoutePicture">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="ImageDescription" ColumnName="ImageDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteTypes">
+      <EntityTypeMapping TypeName="FitnessModel.RouteType">
+        <MappingFragment StoreEntitySet="RouteType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnumId" ColumnName="EnumId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shoes">
+      <EntityTypeMapping TypeName="FitnessModel.Shoe">
+        <MappingFragment StoreEntitySet="Shoe">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ShoeTypeId" ColumnName="ShoeTypeId" />
+          <ScalarProperty Name="AcquisitionDate" ColumnName="AcquisitionDate" />
+          <ScalarProperty Name="RetireDate" ColumnName="RetireDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoeTypes">
+      <EntityTypeMapping TypeName="FitnessModel.ShoeType">
+        <MappingFragment StoreEntitySet="ShoeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnumId" ColumnName="EnumId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stairs">
+      <EntityTypeMapping TypeName="FitnessModel.Stair">
+        <MappingFragment StoreEntitySet="Stairs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StairQuantity" ColumnName="StairQuantity" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StairTimeHours" ColumnName="StairTimeHours" />
+          <ScalarProperty Name="StairTimeMinutes" ColumnName="StairTimeMinutes" />
+          <ScalarProperty Name="StairTimeSeconds" ColumnName="StairTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationaryRides">
+      <EntityTypeMapping TypeName="FitnessModel.StationaryRide">
+        <MappingFragment StoreEntitySet="StationaryRide">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartOdometer" ColumnName="StartOdometer" />
+          <ScalarProperty Name="EndOdometer" ColumnName="EndOdometer" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RideTimeHours" ColumnName="RideTimeHours" />
+          <ScalarProperty Name="RideTimeMinutes" ColumnName="RideTimeMinutes" />
+          <ScalarProperty Name="RideTimeSeconds" ColumnName="RideTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="AverageCadence" ColumnName="AverageCadence" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FitnessModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRides">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRide">
+        <MappingFragment StoreEntitySet="TrainingRide">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartOdometer" ColumnName="StartOdometer" />
+          <ScalarProperty Name="EndOdometer" ColumnName="EndOdometer" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RideTimeHours" ColumnName="RideTimeHours" />
+          <ScalarProperty Name="RideTimeMinutes" ColumnName="RideTimeMinutes" />
+          <ScalarProperty Name="RideTimeSeconds" ColumnName="RideTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="AverageCadence" ColumnName="AverageCadence" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="BikeId" ColumnName="BikeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRideGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRideGPX">
+        <MappingFragment StoreEntitySet="TrainingRideGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrainingRideId" ColumnName="TrainingRideId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRuns">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRun">
+        <MappingFragment StoreEntitySet="TrainingRun">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RunTimeHours" ColumnName="RunTimeHours" />
+          <ScalarProperty Name="RunTimeMinutes" ColumnName="RunTimeMinutes" />
+          <ScalarProperty Name="RunTimeSeconds" ColumnName="RunTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRunGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRunGPX">
+        <MappingFragment StoreEntitySet="TrainingRunGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrainingRunId" ColumnName="TrainingRunId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingWalks">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingWalk">
+        <MappingFragment StoreEntitySet="TrainingWalk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="WalkTimeHours" ColumnName="WalkTimeHours" />
+          <ScalarProperty Name="WalkTimeMinutes" ColumnName="WalkTimeMinutes" />
+          <ScalarProperty Name="WalkTimeSeconds" ColumnName="WalkTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingWalkGPXes">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingWalkGPX">
+        <MappingFragment StoreEntitySet="TrainingWalkGPX">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrainingWalkId" ColumnName="TrainingWalkId" />
+          <ScalarProperty Name="GPX" ColumnName="GPX" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreadmillRuns">
+      <EntityTypeMapping TypeName="FitnessModel.TreadmillRun">
+        <MappingFragment StoreEntitySet="TreadmillRun">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RunTimeHours" ColumnName="RunTimeHours" />
+          <ScalarProperty Name="RunTimeMinutes" ColumnName="RunTimeMinutes" />
+          <ScalarProperty Name="RunTimeSeconds" ColumnName="RunTimeSeconds" />
+          <ScalarProperty Name="AverageHR" ColumnName="AverageHR" />
+          <ScalarProperty Name="MaxHR" ColumnName="MaxHR" />
+          <ScalarProperty Name="ElevationGain" ColumnName="ElevationGain" />
+          <ScalarProperty Name="ShoeId" ColumnName="ShoeId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weights">
+      <EntityTypeMapping TypeName="FitnessModel.Weight">
+        <MappingFragment StoreEntitySet="Weight">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Weight1" ColumnName="Weight" />
+          <ScalarProperty Name="BodyFatPercentage" ColumnName="BodyFatPercentage" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceLogs">
+      <EntityTypeMapping TypeName="FitnessModel.MaintenanceLog">
+        <MappingFragment StoreEntitySet="MaintenanceLog">
+          <ScalarProperty Name="Operation_Date" ColumnName="Operation Date" />
+          <ScalarProperty Name="Bike" ColumnName="Bike" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Part" ColumnName="Part" />
+          <ScalarProperty Name="Part_Type" ColumnName="Part Type" />
+          <ScalarProperty Name="Action_Taken" ColumnName="Action Taken" />
+          <ScalarProperty Name="Odometer" ColumnName="Odometer" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts1">
+      <EntityTypeMapping TypeName="FitnessModel.Part1">
+        <MappingFragment StoreEntitySet="Parts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Part_Name" ColumnName="Part Name" />
+          <ScalarProperty Name="Part_Type" ColumnName="Part Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRides1">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRide1">
+        <MappingFragment StoreEntitySet="RecreationalRides">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ride_Date" ColumnName="Ride Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Bike_Ending_Time" ColumnName="Bike Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Bike_Hours" ColumnName="Bike Hours" />
+          <ScalarProperty Name="Bike_Minutes" ColumnName="Bike Minutes" />
+          <ScalarProperty Name="Bike_Seconds" ColumnName="Bike Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Overall_Speed" ColumnName="Overall Speed" />
+          <ScalarProperty Name="Overall_Pace" ColumnName="Overall Pace" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Average_Cadence" ColumnName="Average Cadence" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Bike_Name" ColumnName="Bike Name" />
+          <ScalarProperty Name="Bike_Type" ColumnName="Bike Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalRuns1">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalRun1">
+        <MappingFragment StoreEntitySet="RecreationalRuns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Run_Date" ColumnName="Run Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Path_Ending_Time" ColumnName="Path Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Path_Hours" ColumnName="Path Hours" />
+          <ScalarProperty Name="Path_Minutes" ColumnName="Path Minutes" />
+          <ScalarProperty Name="Path_Seconds" ColumnName="Path Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Overall_Speed" ColumnName="Overall Speed" />
+          <ScalarProperty Name="Overall_Pace" ColumnName="Overall Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Shoe_Name" ColumnName="Shoe Name" />
+          <ScalarProperty Name="Shoe_Type" ColumnName="Shoe Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecreationalWalks1">
+      <EntityTypeMapping TypeName="FitnessModel.RecreationalWalk1">
+        <MappingFragment StoreEntitySet="RecreationalWalks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Walk_Date" ColumnName="Walk Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Path_Ending_Time" ColumnName="Path Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Path_Hours" ColumnName="Path Hours" />
+          <ScalarProperty Name="Path_Minutes" ColumnName="Path Minutes" />
+          <ScalarProperty Name="Path_Seconds" ColumnName="Path Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Overall_Speed" ColumnName="Overall Speed" />
+          <ScalarProperty Name="Overall_Pace" ColumnName="Overall Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind" ColumnName="Wind" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Shoe_Name" ColumnName="Shoe Name" />
+          <ScalarProperty Name="Shoe_Type" ColumnName="Shoe Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationaryRides1">
+      <EntityTypeMapping TypeName="FitnessModel.StationaryRide1">
+        <MappingFragment StoreEntitySet="StationaryRides">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ride_Date" ColumnName="Ride Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Average_Cadence" ColumnName="Average Cadence" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Bike_Name" ColumnName="Bike Name" />
+          <ScalarProperty Name="Bike_Type" ColumnName="Bike Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRides1">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRide1">
+        <MappingFragment StoreEntitySet="TrainingRides">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ride_Date" ColumnName="Ride Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Average_Cadence" ColumnName="Average Cadence" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind_Speed" ColumnName="Wind Speed" />
+          <ScalarProperty Name="Wind_Direction" ColumnName="Wind Direction" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Bike_Name" ColumnName="Bike Name" />
+          <ScalarProperty Name="Bike_Type" ColumnName="Bike Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingRuns1">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingRun1">
+        <MappingFragment StoreEntitySet="TrainingRuns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Run_Date" ColumnName="Run Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind_Speed" ColumnName="Wind Speed" />
+          <ScalarProperty Name="Wind_Direction" ColumnName="Wind Direction" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Shoe_Name" ColumnName="Shoe Name" />
+          <ScalarProperty Name="Shoe_Type" ColumnName="Shoe Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingWalks1">
+      <EntityTypeMapping TypeName="FitnessModel.TrainingWalk1">
+        <MappingFragment StoreEntitySet="TrainingWalks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Walk_Date" ColumnName="Walk Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Maximum_Speed" ColumnName="Maximum Speed" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Wind_Speed" ColumnName="Wind Speed" />
+          <ScalarProperty Name="Wind_Direction" ColumnName="Wind Direction" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+          <ScalarProperty Name="Shoe_Name" ColumnName="Shoe Name" />
+          <ScalarProperty Name="Shoe_Type" ColumnName="Shoe Type" />
+          <ScalarProperty Name="Route_Name" ColumnName="Route Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Route_Type" ColumnName="Route Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="GPX_" ColumnName="GPX?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreadmillRuns1">
+      <EntityTypeMapping TypeName="FitnessModel.TreadmillRun1">
+        <MappingFragment StoreEntitySet="TreadmillRuns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Run_Date" ColumnName="Run Date" />
+          <ScalarProperty Name="Starting_Time" ColumnName="Starting Time" />
+          <ScalarProperty Name="Ending_Time" ColumnName="Ending Time" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Pace" ColumnName="Pace" />
+          <ScalarProperty Name="Average_HR" ColumnName="Average HR" />
+          <ScalarProperty Name="Maximum_HR" ColumnName="Maximum HR" />
+          <ScalarProperty Name="Elevation_Gain" ColumnName="Elevation Gain" />
+          <ScalarProperty Name="Shoe_Name" ColumnName="Shoe Name" />
+          <ScalarProperty Name="Shoe_Type" ColumnName="Shoe Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

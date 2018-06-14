@@ -1,0 +1,169 @@
+﻿@model ShootingManager.Entities.Models.Cartridge
+@{
+    ViewBag.Title = "Build Cartridge";
+}
+<head>
+    <title>Shooting Manager: Build Cartridge Load</title>
+
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CartridgeLoadId").change(function () {
+                if ($("#CartridgeLoadId").val() != "" && $("#CartridgeLoadId").length > 0) {
+
+                    var brassOptions = {};
+                    brassOptions.url = "/Build/GetBrasses";
+                    brassOptions.type = "POST";
+                    brassOptions.data = JSON.stringify({ cartridgeLoadId: $("#CartridgeLoadId").val() });
+                    brassOptions.dataType = "json";
+                    brassOptions.contentType = "application/json";
+                    brassOptions.success = function (Brasses) {
+                        $("#BrassId").empty();
+                        for (var i = 0; i < Brasses.length; i++) {
+                            var singleBrass = Brasses[i].split(":");
+                            $("#BrassId").append("<option value=" + singleBrass[0] + ">" + singleBrass[1] + "</option>");
+                        }
+                        $("#BrassId").prop("disabled", false);
+                    };
+                    brassOptions.error = function () { alert("Error retrieving brasses!"); };
+                    $.ajax(brassOptions);
+
+                    var primerOptions = {};
+                    primerOptions.url = "/Build/GetPrimers";
+                    primerOptions.type = "POST";
+                    primerOptions.data = JSON.stringify({ cartridgeLoadId: $("#CartridgeLoadId").val() });
+                    primerOptions.dataType = "json";
+                    primerOptions.contentType = "application/json";
+                    primerOptions.success = function (Primers) {
+                        $("#PrimerId").empty();
+                        for (var i = 0; i < Primers.length; i++) {
+                            var singlePrimer = Primers[i].split(":");
+                            $("#PrimerId").append("<option value=" + singlePrimer[0] + ">" + singlePrimer[1] + "</option>");
+                        }
+                        $("#PrimerId").prop("disabled", false);
+                    };
+                    primerOptions.error = function () { alert("Error retrieving primers!"); };
+                    $.ajax(primerOptions);
+                }
+                else {
+                    $("#BrassId").empty();
+                    $("#BrassId").prop("disabled", true);
+                    $("#PrimerId").empty();
+                    $("#PrimerId").prop("disabled", true);
+                }
+            });
+        });
+    </script>*@
+
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Build Cartridges/Loads", "Index", "Build", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Build Cartridge</h2>
+
+    @using (Html.BeginForm("Cartridge", "Build", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Name, "Name:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.CartridgeLoad, "Cartridge Load:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.DropDownList("CartridgeLoadId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.CartridgeLoadId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        <label for="Brass" class="control-label col-md-2">Brass:</label>
+                        <div class="control-label col-md-4">
+                            <select id="BrassId" name="BrassId"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Primer, "Primer:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.DropDownList("PrimerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.PrimerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Manufacturer, "Manufacturer:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.DropDownList("ManufacturerId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.ManufacturerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.ManufactureDate, "Manufacture Date:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.EditorFor(model => model.ManufactureDate)
+                            @Html.ValidationMessageFor(model => model.ManufactureDate)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <br />
+                <br />
+                <legend>Optional Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Notes, "Notes:", new { @class = "control-label col-md-2" })
+                        <div class="control-label col-md-9">
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = 5 })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn-style" />
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/cartridge")

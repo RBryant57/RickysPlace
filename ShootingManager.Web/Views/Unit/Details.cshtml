@@ -1,0 +1,95 @@
+﻿@model ShootingManager.Web.ViewModels.UnitViewModel
+@using ShootingManager.Entities.Models;
+
+@{
+    ViewBag.Title = "Unit Details";
+}
+<head>
+    <title>Shooting Manager: Unit Details - @(((Unit)@Model.Entity).Name)</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Items", "Index", "Item", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Unit Index", "Index", "Unit", null, new { @class = "NavLinkStyle" })
+    </div>
+
+    <h2>Unit Details</h2>
+
+    <div>
+        @using (Html.BeginForm("Edit", "Unit", FormMethod.Post, new { @class = "grid-form" }))
+        {
+
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                <br />
+
+                <fieldset>
+
+                    <legend>Basic Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Unit)model.Entity).Name, "Name:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Unit)model.Entity).Name)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Unit)model.Entity).Plural, "Plural:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Unit)model.Entity).Plural)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Unit)model.Entity).Abbreviation, "Abbreviaton:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Unit)model.Entity).Abbreviation)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => model.EntityView.UnitTypeName, "Unit Type:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.ActionLink(Model.EntityView.UnitTypeName, "Details", "UnitType", new { id = ((Unit)Model.Entity).UnitTypeId }, new { @class = "EditLinkStyle" })
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <br />
+                    <br />
+                    <legend>Optional Information</legend>
+
+                    <div class="form-group" data-row-span="1">
+                        <div data-field-span="1">
+                            @Html.LabelFor(model => ((Unit)model.Entity).Notes, "Notes:", new { @class = "control-label col-md-2" })
+                            <div class="control-label col-md-1">
+                                @Html.DisplayFor(model => ((Unit)model.Entity).Notes)
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br />
+                <hr />
+            </div>
+        }
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = ((Unit)Model.Entity).Id }, new { @class = "btn-style" })
+        </p>
+    </div>
+</div>

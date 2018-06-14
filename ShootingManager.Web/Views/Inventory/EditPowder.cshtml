@@ -1,0 +1,101 @@
+﻿@model ShootingManager.Entities.Models.PowderQuantity
+
+<head>
+    <title>Shooting Manager: Change Primer Inventory</title>
+</head>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Shooting Manager Home", "Index", "Home", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Shooting Manager Inventory", "Index", "Inventory", null, new { @class = "NavLinkStyle" }) | @Html.ActionLink("Primer Inventory", "PrimerIndex", "Inventory", null, new { @class = "NavLinkStyle" })
+    </div>
+    @using (Html.BeginForm("ChangePowder", "Inventory", FormMethod.Post, new { @class = "grid-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("PowderId", Model.Powder.Id)
+        @Html.Hidden("QuantityUnit", Model.QuantityUnit)
+        <div class="form-horizontal">
+            <div class="row">
+                <h3>Change Powder Inventory</h3>
+            </div>
+            <br />
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <legend>Basic Information</legend>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Powder:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-2">
+                            @ViewBag.PowderName
+                            @Html.Hidden("EntityId", Model.Powder.Id)
+                            @Html.Hidden("EndQuantity", Model.EndQuantity)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="2">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Change, "Quantity:", new { @class = "control-label col-md-6" })
+                        <div class="control-label col-md-2">
+                            @{
+                                string parameterValue = String.Empty;
+                            }
+                            @Html.EditorFor(model => model.Change)
+                            @Html.ValidationMessageFor(model => model.Change)
+                        </div>
+                    </div>
+                    <div data-field-span="1">
+                        <div class="control-label col-md-2">
+                            @Html.DropDownList("QuantityUnitId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.QuantityUnitId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.InventoryTypeId, "Change Reason:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-4">
+                            @Html.DropDownList("InventoryTypeId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.InventoryTypeId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="Price" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.Label("Price:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-9">
+                            @Html.Editor("Cost", String.Empty)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" data-row-span="1">
+                    <div data-field-span="1">
+                        @Html.LabelFor(model => model.Date, "Date:", new { @class = "control-label col-md-3" })
+                        <div class="control-label col-md-9">
+                            @{
+                                parameterValue = Model.Date.ToShortDateString();
+                            }
+                            @Html.EditorFor(model => model.Date, new { @class = "control-label datepicker" })
+                            @Html.ValidationMessageFor(model => model.Date)
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn-style" />
+                </div>
+            </div>
+
+        </div>
+                                }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/powder")
+@Scripts.Render("~/bundles/jquery-ui")
