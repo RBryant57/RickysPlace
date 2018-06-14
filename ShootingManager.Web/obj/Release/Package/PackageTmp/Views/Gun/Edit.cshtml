@@ -58,16 +58,6 @@
 
                 <div class="form-group" data-row-span="1">
                     <div data-field-span="1">
-                        @Html.LabelFor(model => model.GunsCalibers, "Additional Calibers", new { @class = "control-label col-md-2" })
-                        <div class="control-label col-md-4">
-                            @Html.ListBox("CalibersId")
-                            @Html.ValidationMessageFor(model => model.GunsCalibers)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group" data-row-span="1">
-                    <div data-field-span="1">
                         @Html.LabelFor(model => model.ManufacturerId, "Manufacturer", new { @class = "control-label col-md-2" })
                         <div class="control-label col-md-4">
                             @Html.DropDownList("ManufacturerId", String.Empty)

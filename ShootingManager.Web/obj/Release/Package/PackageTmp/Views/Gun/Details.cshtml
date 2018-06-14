@@ -50,20 +50,6 @@
                                                     @Html.ActionLink(Model.EntityView.CaliberViewName, "Details", "Caliber", new { id = ((Gun)Model.Entity).CaliberId }, new { @class = "EditLinkStyle" })
                                                 </td>
                                             </tr>
-                                            @if (((GunView)Model.EntityView).AdditionalCalibers.Count > 0)
-                                            {
-                                            <tr>
-                                                <td>
-                                                    @Html.LabelFor(model => model.EntityView.CaliberViewName, "Additional Calibers:")
-                                                </td>
-                                                <td>
-                                                    @foreach (var cal in ((GunView)Model.EntityView).AdditionalCalibers)
-                                                    {
-                                                        @Html.ActionLink(cal.Name, "Details", "Caliber", new { id = cal.Id }, new { @class = "EditLinkStyle" })
-                                                    }
-                                                </td>
-                                            </tr>
-                                            }
                                             <tr>
                                                 <td>
                                                     @Html.LabelFor(model => ((Gun)model.Entity).Capacity, "Capacity:")

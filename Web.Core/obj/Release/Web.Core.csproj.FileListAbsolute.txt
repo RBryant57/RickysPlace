@@ -20,3 +20,5 @@ D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\bin\Release\
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\obj\Release\Web.Core.csprojResolveAssemblyReference.cache
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\obj\Release\Web.Core.dll
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\obj\Release\Web.Core.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\bin\Release\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\Web.Core\obj\Release\Web.Core.csproj.CoreCompileInputs.cache

@@ -2865,7 +2865,7 @@ warning 6002: The table/view 'Shooting.dbo.UnitView' does not have a primary key
     [GunView].[BuyerState] AS [BuyerState], 
     [GunView].[BuyerZip] AS [BuyerZip], 
     [GunView].[BuyerURL] AS [BuyerURL], 
-    [GunView].[BuyerNotes] AS [BuyerNotes], 
+    [GunView].[BuyerNotes] AS [BuyerNotes],
     [GunView].[Capacity] AS [Capacity], 
     [GunView].[BarrelLength] AS [BarrelLength], 
     [GunView].[BarrelLengthUnitId] AS [BarrelLengthUnitId], 
@@ -3007,7 +3007,7 @@ warning 6002: The table/view 'Shooting.dbo.UnitView' does not have a primary key
     [ShootingSessionView].[GunViewBuyerState] AS [GunViewBuyerState], 
     [ShootingSessionView].[GunViewBuyerZip] AS [GunViewBuyerZip], 
     [ShootingSessionView].[GunViewBuyerURL] AS [GunViewBuyerURL], 
-    [ShootingSessionView].[GunViewBuyerNotes] AS [GunViewBuyerNotes], 
+    [ShootingSessionView].[GunViewBuyerNotes] AS [GunViewBuyerNotes],
     [ShootingSessionView].[GunViewCapacity] AS [GunViewCapacity], 
     [ShootingSessionView].[GunViewBarrelLength] AS [GunViewBarrelLength], 
     [ShootingSessionView].[GunViewBarrelLengthUnitId] AS [GunViewBarrelLengthUnitId], 
@@ -3359,6 +3359,10 @@ warning 6002: The table/view 'Shooting.dbo.UnitView' does not have a primary key
       <End Role="Manufacturer" EntitySet="Manufacturer" />
       <End Role="Gun" EntitySet="Gun" />
     </AssociationSet>
+    <AssociationSet Name="FK_Gun_Seller" Association="Self.FK_Gun_Seller">
+      <End Role="Manufacturer" EntitySet="Manufacturer" />
+      <End Role="Gun" EntitySet="Gun" />
+    </AssociationSet>
     <AssociationSet Name="FK_Gun_Caliber" Association="Self.FK_Gun_Caliber">
       <End Role="Caliber" EntitySet="Caliber" />
       <End Role="Gun" EntitySet="Gun" />
@@ -3368,10 +3372,6 @@ warning 6002: The table/view 'Shooting.dbo.UnitView' does not have a primary key
       <End Role="Gun" EntitySet="Gun" />
     </AssociationSet>
     <AssociationSet Name="FK_Gun_Manufacturer" Association="Self.FK_Gun_Manufacturer">
-      <End Role="Manufacturer" EntitySet="Manufacturer" />
-      <End Role="Gun" EntitySet="Gun" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Gun_Seller" Association="Self.FK_Gun_Seller">
       <End Role="Manufacturer" EntitySet="Manufacturer" />
       <End Role="Gun" EntitySet="Gun" />
     </AssociationSet>

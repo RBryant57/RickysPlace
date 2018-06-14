@@ -16,3 +16,6 @@ D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Servi
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\obj\Release\ShootingManager.Service.pdb
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\bin\Release\ShootingManager.DataEF.dll
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\bin\Release\ShootingManager.DataEF.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\bin\Release\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\bin\Release\ShootingManager.DataEF.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Service\obj\Release\ShootingManager.Service.csproj.CoreCompileInputs.cache

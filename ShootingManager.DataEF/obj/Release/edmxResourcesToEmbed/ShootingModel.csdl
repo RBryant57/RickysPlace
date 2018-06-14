@@ -249,9 +249,10 @@
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Caliber" Relationship="Self.FK_Gun_Caliber" FromRole="Gun" ToRole="Caliber" />
     <NavigationProperty Name="BarrelLengthUnit" Relationship="Self.FK_Gun_BarrelLengthUnit" FromRole="Gun" ToRole="Unit" />
-    <NavigationProperty Name="GunType" Relationship="Self.FK_Gun_GunType" FromRole="Gun" ToRole="GunType" />
-    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Gun_Manufacturer" FromRole="Gun" ToRole="Manufacturer" />
     <NavigationProperty Name="Seller" Relationship="Self.FK_Gun_Seller" FromRole="Gun" ToRole="Manufacturer" />
+    <NavigationProperty Name="Buyer" Relationship="Self.FK_Gun_Buyer" FromRole="Gun" ToRole="Manufacturer" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Gun_Manufacturer" FromRole="Gun" ToRole="Manufacturer" />
+    <NavigationProperty Name="GunType" Relationship="Self.FK_Gun_GunType" FromRole="Gun" ToRole="GunType" />
     <NavigationProperty Name="GunImages" Relationship="Self.FK_GunImages_Gun" FromRole="Gun" ToRole="GunImages" />
     <NavigationProperty Name="GunsCalibers" Relationship="Self.FK_GunsCalibers_Gun" FromRole="Gun" ToRole="GunsCalibers" />
     <NavigationProperty Name="ShootingSessions" Relationship="Self.FK_ShootingSession_Gun" FromRole="Gun" ToRole="ShootingSession" />
@@ -313,9 +314,9 @@
     <NavigationProperty Name="Brasses" Relationship="Self.FK_Brass_Manufacturer" FromRole="Manufacturer" ToRole="Brass" />
     <NavigationProperty Name="Bullets" Relationship="Self.FK_Bullet_Manufacturer" FromRole="Manufacturer" ToRole="Bullet" />
     <NavigationProperty Name="Cartridges" Relationship="Self.FK_Cartridge_Manufacturer" FromRole="Manufacturer" ToRole="Cartridge" />
-    <NavigationProperty Name="GunsBuyers" Relationship="Self.FK_Gun_Buyer" FromRole="Manufacturer" ToRole="Gun" />
-    <NavigationProperty Name="GunsManufacturers" Relationship="Self.FK_Gun_Manufacturer" FromRole="Manufacturer" ToRole="Gun" />
     <NavigationProperty Name="GunsSellers" Relationship="Self.FK_Gun_Seller" FromRole="Manufacturer" ToRole="Gun" />
+    <NavigationProperty Name="GunsBuyers" Relationship="Self.FK_Gun_Buyer" FromRole="Manufacturer" ToRole="Gun" />
+    <NavigationProperty Name="Guns" Relationship="Self.FK_Gun_Manufacturer" FromRole="Manufacturer" ToRole="Gun" />
     <NavigationProperty Name="Powders" Relationship="Self.FK_Powder_Manufacturer" FromRole="Manufacturer" ToRole="Powder" />
     <NavigationProperty Name="Primers" Relationship="Self.FK_Primer_Manufacturer" FromRole="Manufacturer" ToRole="Primer" />
   </EntityType>

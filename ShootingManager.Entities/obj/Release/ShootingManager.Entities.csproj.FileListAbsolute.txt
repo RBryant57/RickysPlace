@@ -7,3 +7,5 @@ D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entit
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.csprojResolveAssemblyReference.cache
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.dll
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\bin\Release\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Entities\obj\Release\ShootingManager.Entities.csproj.CoreCompileInputs.cache

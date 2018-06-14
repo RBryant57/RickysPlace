@@ -9,3 +9,5 @@ D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repos
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Release\ShootingManager.Repositories.csprojResolveAssemblyReference.cache
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Release\ShootingManager.Repositories.dll
 D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Release\ShootingManager.Repositories.pdb
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\bin\Release\Data.Core.dll.config
+D:\YellowCaddisDevelopment\TFSProjects\YCDWebs\RickysPlace\ShootingManager.Repositories\obj\Release\ShootingManager.Repositories.csproj.CoreCompileInputs.cache
